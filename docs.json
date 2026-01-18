@@ -14,16 +14,11 @@
         "product": "Hyperdash",
         "tabs": [
           {
-            "tab": "Introduction",
+            "tab": "Documentation",
             "pages": [
               "hyperdash/introduction/about-hyperdash",
               "hyperdash/introduction/untitled-page",
-              "hyperdash/introduction/untitled-page-1"
-            ]
-          },
-          {
-            "tab": "User Guides",
-            "pages": [
+              "hyperdash/introduction/untitled-page-1",
               "hyperdash/user-guides/untitled-page",
               "hyperdash/user-guides/trader-explore",
               "hyperdash/user-guides/untitled-page-1",
