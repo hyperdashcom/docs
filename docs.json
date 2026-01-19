@@ -12,6 +12,11 @@
     "products": [
       {
         "product": "Hyperdash",
+        "icon": "chart-line",
+        "color": {
+          "light": "#FD592B",
+          "dark": "#FD592B"
+        },
         "tabs": [
           {
             "tab": "Documentation",
