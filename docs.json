@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "palm",
   "name": "Hyperdash Docs",
   "colors": {
     "primary": "#FD592B",
     "light": "#FFFFFF",
     "dark": "#262626"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/images/HD_logo.png",
   "navigation": {
     "products": [
       {
@@ -33,12 +33,7 @@
   },
   "logo": "/images/HD_logo.png",
   "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
+    "links": [],
     "primary": {
       "type": "button",
       "label": "Dashboard",
@@ -67,10 +62,14 @@
   "background": {
     "color": {
       "dark": "#262626"
-    }
+    },
+    "decoration": "gradient"
   },
   "thumbnails": {
     "appearance": "dark"
   },
-  "description": "Documentation for the Hyperdash Trading Terminal"
+  "description": "Documentation for the Hyperdash Trading Terminal",
+  "appearance": {
+    "default": "dark"
+  }
 }
