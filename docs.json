@@ -65,7 +65,8 @@
     }
   },
   "thumbnails": {
-    "appearance": "dark"
+    "appearance": "dark",
+    "background": "/images/HD_logo.png"
   },
   "description": "Documentation for the Hyperdash Trading Terminal",
   "appearance": {
