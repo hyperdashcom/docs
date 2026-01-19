@@ -5,7 +5,7 @@
   "colors": {
     "primary": "#FD592B",
     "light": "#FFFFFF",
-    "dark": "#262626"
+    "dark": "#0D0D0D"
   },
   "favicon": "/images/HD_logo.png",
   "navigation": {
@@ -61,9 +61,8 @@
   },
   "background": {
     "color": {
-      "dark": "#262626"
-    },
-    "decoration": "gradient"
+      "dark": "#0D0D0D"
+    }
   },
   "thumbnails": {
     "appearance": "dark"
