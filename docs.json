@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Hyperdash Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#FD592B",
+    "light": "#FFFFFF",
+    "dark": "#262626"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -31,10 +31,7 @@
       }
     ]
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
+  "logo": "/images/HD_logo.png",
   "navbar": {
     "links": [
       {
@@ -62,9 +59,18 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/hypurrdash",
+      "discord": "https://discord.com/invite/hyperdash",
+      "website": "https://hyperdash.com/"
     }
-  }
+  },
+  "background": {
+    "color": {
+      "dark": "#262626"
+    }
+  },
+  "thumbnails": {
+    "appearance": "dark"
+  },
+  "description": "Documentation for the Hyperdash Trading Terminal"
 }
