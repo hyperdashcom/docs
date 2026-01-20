@@ -1,12 +1,9 @@
 ---
 title: "Trading Guide"
 description: "Brief overview of trading on Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
 ---
 
-**Spot vs Perpetuals (brief overview of the difference between spot and perpetuals).**
-
+**Spot vs Perpetuals (brief overview of the difference between spot and perpetuals)**
 
 **Spot**
 
@@ -16,20 +13,19 @@ icon: "chart-mixed"
 
 **Perpetual Futures (Perps)**
 
-- You **don’t own the asset**, you trade a contract tied to its price.
-- You can go**long ** (bet price goes up) or**short**  (bet price goes down).
-- **No expiry date** — you can hold as long as you want, but will earn or incur funding rate payments.
-- **Uses leverage:** trade bigger size with smaller capital (Up to **40x Leverage**).
-- **Funding rates** keep perp prices in line with the spot market.
+- You don’t own the asset, you trade a contract tied to its price.
+- You can go long (bet price goes up) or short (bet price goes down).
+- No expiry date — you can hold as long as you want, but will earn or incur funding rate payments.
+- Uses leverage: trade bigger size with smaller capital (Up to **40x Leverage**).
+- Funding rates keep perp prices in line with the spot market.
 
-**Cross vs Isolated Margin Options**
+**Cross vs Isolated Margin options**
 
-**Cross positions **are liquidated when the account value (including unrealized profit and loss) is less than the _maintenance margin_ times the total open notional position. The maintenance margin is currently set to half of the initial margin at max leverage.
+Cross positions are liquidated when the account value (including unrealized profit and loss) is less than the _maintenance margin_ times the total open notional position. The maintenance margin is currently set to half of the initial margin at max leverage.
 
-**Isolated Positions **are liquidated by the same maintenance margin logic, but the only inputs to the computation are the isolated margin and the notional value of the isolated position.
+Isolated positions are liquidated by the same maintenance margin logic, but the only inputs to the computation are the isolated margin and the notional value of the isolated position.
 
-**Leverage Options**
-
+**Leverage options**
 
 Each pair has an associated leverage options, which you can adjust using the slider.
 
@@ -39,26 +35,24 @@ Each pair has an associated leverage options, which you can adjust using the sli
 
 Trades can be toggled to be taken as a long or a short.
 
-**Trading Interface Features**
+**Trading interface features**
 
-- **View As:** Select an available trader or enter an address to display their trade opens and closes overlayed onto the chart.
-- **Plus sign menu:** By clicking the plus icon on the chart axis, options to Limit short, stop long or view as are available.
-  - **Limit short:** quickly set up a limit order for a short at the price.
-  - **Stop long: **quickly set up a limit long order at the price.
-
+- View as: Select an available trader or enter an address to display their trade opens and closes overlayed onto the chart.
+- Plus sign menu - By clicking the plus icon on the chart axis, options to Limit short, stop long or view as are available.
+  - Limit short: quickly set up a limit order for a short at the price.
+  - Stop long: quickly set up a limit long order at the price.
 
 ### **Order Types**
 
 Market vs Limit order
 
-- **Market: **An order that executes immediately at the current market price
-- **Limit: **An order that executes at the selected limit price or better
+- Market: An order that executes immediately at the current market price
+- Limit: An order that executes at the selected limit price or better
 
 ### Take Profit and Stop Loss
 
-- **Take Profit: **A limit order that is activated to take profits when the price reaches the selected price
-- **Stop loss: **A limit order that is activated to minimize losses when the price reaches the selected stop price
-
+- Take Profit: A limit order that is activated to take profits when the price reaches the selected price
+- Stop loss: A limit order that is activated to minimize losses when the price reaches the selected stop price
 
 ### Reverse
 
@@ -66,13 +60,12 @@ Market vs Limit order
 
 ### Advanced Order Types
 
-- **TWAP: **Execute orders over time
-  - **Randomize (Optional): **If Randomize is enabled, the size of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size. However, any other requirements specified when creating the TWAP trade, such as ensuring the randomized trade size does not exceed the maximum single trade size, will still be followed.
-- **Scale: **Auto-place orders across price range
+- \*\*TWAP: \*\*Execute orders over time
+  - Randomize (Optional): If Randomize is enabled, the size of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size. However, any other requirements specified when creating the TWAP trade, such as ensuring the randomized trade size does not exceed the maximum single trade size, will still be followed.
+- \*\*Scale: \*\*Auto-place orders across price range
   - Includes parameters for number of orders and skew amount (Ratio between end and start prices. For example if size skew is 2.0 then a limit order for end price will be placed with twice the size of the start price. A size skew of 1.0 creates equally sized orders.
-- **Stop Limit:** Becomes limit order at trigger
-- **Stop Market: **Becomes market order at trigger
-- **Chase: **Places limit orders at the best bid/ask and continuously updates them until filled.
-  - **Chase to:** sets the price to chase to until price exceeds this limit.
-  - **Stalk Distance: **Order price stays a fixed distance from best bid.
-
+- \*\*Stop Limit : \*\*Becomes limit order at trigger
+- \*\*Stop Market: \*\*Becomes market order at trigger
+- \*\*Chase: \*\*Places limit orders at the best bid/ask and continuously updates them until filled.
+  - Chase to: sets the price to chase to until price exceeds this limit.
+  - Stalk Distance: Order price stays a fixed distance from best bid.
