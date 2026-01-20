@@ -20,6 +20,7 @@
         "tabs": [
           {
             "tab": "Documentation",
+            "icon": "book",
             "pages": [
               "hyperdash/introduction/about-hyperdash",
               "hyperdash/introduction/untitled-page",
