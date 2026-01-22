@@ -1,0 +1,70 @@
+---
+title: "Panduan Dagangan"
+description: "Gambaran ringkas dagangan di Hyperdash"
+icon: "chart-mixed"
+"og:image": "https://hyperdash.com/og.png"
+---
+
+**Spot vs Perpetuals (gambaran ringkas perbezaan antara spot dan perpetuals).**
+
+
+**Spot**
+
+- Anda membeli atau menjual aset sebenar (seperti HYPE, BTC, ETH).
+- Anda memilikinya secara langsung, dan boleh memindahkannya keluar dari bursa ke dompet luaran.
+- Untung hanya apabila harga naik (melainkan anda menjual apa yang sudah anda pegang).
+
+**Perpetual Futures (Perps)**
+
+- Anda **tidak memiliki aset**, anda berdagang kontrak yang terikat dengan harganya.
+- Anda boleh pergi **long** (bertaruh harga naik) atau **short** (bertaruh harga turun).
+- **Tiada tarikh luput** — anda boleh pegang selama yang anda mahu, tetapi akan menerima atau membayar kadar pendanaan.
+- **Menggunakan leverage:** berdagang saiz lebih besar dengan modal lebih kecil (Sehingga **40x Leverage**).
+- **Kadar pendanaan** mengekalkan harga perps sejajar dengan pasaran spot.
+
+**Pilihan Margin Cross vs Isolated**
+
+**Posisi Cross** dilikuidasi apabila nilai akaun (termasuk untung dan rugi tidak direalisasi) kurang daripada _margin penyelenggaraan_ kali posisi nosional terbuka keseluruhan.
+
+**Posisi Isolated** dilikuidasi dengan logik margin penyelenggaraan yang sama, tetapi input sahaja untuk pengiraan adalah margin isolated dan nilai nosional posisi isolated.
+
+**Pilihan Leverage**
+
+Setiap pasangan mempunyai pilihan leverage yang berkaitan, yang boleh anda laraskan menggunakan peluncur.
+
+<iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+**Long vs Short**
+
+Dagangan boleh ditogol untuk diambil sebagai long atau short.
+
+**Ciri Antara Muka Dagangan**
+
+- **Lihat Sebagai:** Pilih pedagang yang tersedia atau masukkan alamat untuk memaparkan pembukaan dan penutupan dagangan mereka bertindih pada carta.
+- **Menu tanda tambah:** Dengan mengklik ikon tambah pada paksi carta, pilihan Limit short, stop long atau lihat sebagai tersedia.
+
+
+### **Jenis Pesanan**
+
+Pesanan Market vs Limit
+
+- **Market:** Pesanan yang dilaksanakan serta-merta pada harga pasaran semasa
+- **Limit:** Pesanan yang dilaksanakan pada harga had yang dipilih atau lebih baik
+
+### Take Profit dan Stop Loss
+
+- **Take Profit:** Pesanan had yang diaktifkan untuk mengambil keuntungan apabila harga mencapai harga yang dipilih
+- **Stop loss:** Pesanan had yang diaktifkan untuk meminimumkan kerugian apabila harga mencapai harga stop yang dipilih
+
+
+### Reverse
+
+- Menutup dagangan yang dipilih dan membuka dagangan yang sama dalam arah bertentangan (menukar long kepada short dan short kepada long).
+
+### Jenis Pesanan Lanjutan
+
+- **TWAP:** Laksanakan pesanan dari masa ke masa
+- **Scale:** Letakkan pesanan secara automatik merentasi julat harga
+- **Stop Limit:** Menjadi pesanan had apabila dicetuskan
+- **Stop Market:** Menjadi pesanan pasaran apabila dicetuskan
+- **Chase:** Letakkan pesanan had pada bid/ask terbaik dan kemas kini secara berterusan sehingga diisi.

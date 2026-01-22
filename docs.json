@@ -161,6 +161,63 @@
             ]
           }
         ]
+      },
+      {
+        "language": "th",
+        "groups": [
+          {
+            "group": "เอกสาร",
+            "pages": [
+              "th/hyperdash/about-hyperdash",
+              "th/hyperdash/onboarding-deposits",
+              "th/hyperdash/fees-referrals-rewards",
+              "th/hyperdash/trading-guide",
+              "th/hyperdash/copy-trade",
+              "th/hyperdash/wallet-explore",
+              "th/hyperdash/trading-indicators",
+              "th/hyperdash/cohorts-top-traders-position-changes",
+              "th/hyperdash/shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ms",
+        "groups": [
+          {
+            "group": "Dokumentasi",
+            "pages": [
+              "ms/hyperdash/about-hyperdash",
+              "ms/hyperdash/onboarding-deposits",
+              "ms/hyperdash/fees-referrals-rewards",
+              "ms/hyperdash/trading-guide",
+              "ms/hyperdash/copy-trade",
+              "ms/hyperdash/wallet-explore",
+              "ms/hyperdash/trading-indicators",
+              "ms/hyperdash/cohorts-top-traders-position-changes",
+              "ms/hyperdash/shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "id",
+        "groups": [
+          {
+            "group": "Dokumentasi",
+            "pages": [
+              "id/hyperdash/about-hyperdash",
+              "id/hyperdash/onboarding-deposits",
+              "id/hyperdash/fees-referrals-rewards",
+              "id/hyperdash/trading-guide",
+              "id/hyperdash/copy-trade",
+              "id/hyperdash/wallet-explore",
+              "id/hyperdash/trading-indicators",
+              "id/hyperdash/cohorts-top-traders-position-changes",
+              "id/hyperdash/shortcuts"
+            ]
+          }
+        ]
       }
     ]
   },
