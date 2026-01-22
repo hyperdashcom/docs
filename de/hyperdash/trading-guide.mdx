@@ -1,77 +1,89 @@
 ---
 title: "Trading-Leitfaden"
-description: "Kurzer Überblick über den Handel auf Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
+description: "Kurzer Überblick über das Trading auf Hyperdash"
 ---
 
-**Spot vs Perpetuals (kurzer Überblick über den Unterschied zwischen Spot und Perpetuals).**
-
+**Spot vs Perpetuals (kurzer Überblick über den Unterschied zwischen Spot und Perpetuals)**
 
 **Spot**
 
 - Sie kaufen oder verkaufen den tatsächlichen Vermögenswert (wie HYPE, BTC, ETH).
 - Sie besitzen ihn direkt und können ihn von der Börse auf externe Wallets übertragen.
-- Gewinn nur, wenn der Preis steigt (es sei denn, Sie verkaufen, was Sie bereits halten).
+- Gewinn nur wenn der Preis steigt (es sei denn, Sie verkaufen, was Sie bereits halten).
 
 **Perpetual Futures (Perps)**
 
-- Sie **besitzen den Vermögenswert nicht**, Sie handeln einen Kontrakt, der an seinen Preis gebunden ist.
-- Sie können **long** gehen (auf steigende Preise setzen) oder **short** gehen (auf fallende Preise setzen).
-- **Kein Ablaufdatum** — Sie können so lange halten, wie Sie möchten, aber Sie erhalten oder zahlen Funding-Rate-Zahlungen.
-- **Verwendet Hebelwirkung:** Handeln Sie größere Positionen mit weniger Kapital (Bis zu **40-fache Hebelwirkung**).
-- **Funding-Raten** halten die Perpetual-Preise im Einklang mit dem Spot-Markt.
+- Sie besitzen den Vermögenswert nicht, Sie handeln einen Vertrag, der an seinen Preis gebunden ist.
+- Sie können long gehen (auf steigende Preise setzen) oder short (auf fallende Preise setzen).
+- Kein Ablaufdatum — Sie können so lange halten wie Sie möchten, aber Sie werden Finanzierungsraten erhalten oder zahlen.
+- Nutzt Hebel: Handeln Sie größere Positionen mit weniger Kapital (Bis zu **40x Hebel**).
+- Finanzierungsraten halten Perp-Preise im Einklang mit dem Spot-Markt.
 
-**Cross- vs Isolated-Margin-Optionen**
+**Cross vs Isolierte Margin-Optionen**
 
-**Cross-Positionen** werden liquidiert, wenn der Kontowert (einschließlich nicht realisierter Gewinne und Verluste) kleiner ist als die _Maintenance-Margin_ mal die gesamte offene Nominal-Position. Die Maintenance-Margin ist derzeit auf die Hälfte der Initial-Margin bei maximaler Hebelwirkung festgelegt.
+Cross-Positionen werden liquidiert, wenn der Kontowert (einschließlich unrealisierter Gewinne und Verluste) kleiner als die _Erhaltungsmarge_ mal der gesamten offenen Nominalposition ist. Die Erhaltungsmarge ist derzeit auf die Hälfte der Anfangsmarge bei maximalem Hebel festgelegt.
 
-**Isolated-Positionen** werden nach der gleichen Maintenance-Margin-Logik liquidiert, aber die einzigen Eingaben für die Berechnung sind die isolierte Margin und der Nominalwert der isolierten Position.
+Isolierte Positionen werden nach derselben Erhaltungsmargen-Logik liquidiert, aber die einzigen Eingaben für die Berechnung sind die isolierte Margin und der Nominalwert der isolierten Position.
 
-**Hebelwirkung-Optionen**
+**Hebel-Optionen**
 
-
-Jedes Paar hat zugehörige Hebelwirkung-Optionen, die Sie mit dem Schieberegler anpassen können.
+Jedes Paar hat zugehörige Hebel-Optionen, die Sie mit dem Schieberegler anpassen können.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 **Long vs Short**
 
-Trades können als Long oder Short umgeschaltet werden.
+Trades können zwischen Long und Short umgeschaltet werden.
 
 **Trading-Interface-Funktionen**
 
-- **Anzeigen als:** Wählen Sie einen verfügbaren Trader aus oder geben Sie eine Adresse ein, um seine Trade-Eröffnungen und -Schließungen überlagert auf dem Chart anzuzeigen.
-- **Plus-Zeichen-Menü:** Durch Klicken auf das Plus-Symbol auf der Chart-Achse sind Optionen für Limit Short, Stop Long oder Anzeigen als verfügbar.
-  - **Limit Short:** Richten Sie schnell eine Limit-Order für einen Short zum Preis ein.
-  - **Stop Long:** Richten Sie schnell eine Long-Limit-Order zum Preis ein.
+- Anzeigen als: Wählen Sie einen verfügbaren Trader aus oder geben Sie eine Adresse ein, um deren Trade-Eröffnungen und -Schließungen auf dem Chart anzuzeigen.
+- Plus-Zeichen-Menü - Durch Klicken auf das Plus-Symbol auf der Chart-Achse sind Optionen für Limit Short, Stop Long oder Anzeigen als verfügbar.
+  - Limit Short: Schnell eine Limit-Order für einen Short zu diesem Preis einrichten.
+  - Stop Long: Schnell eine Limit-Long-Order zu diesem Preis einrichten.
 
+### **Ordertypen**
 
-### **Order-Typen**
+Market vs Limit Order
 
-Market- vs Limit-Order
-
-- **Market:** Eine Order, die sofort zum aktuellen Marktpreis ausgeführt wird
-- **Limit:** Eine Order, die zum ausgewählten Limitpreis oder besser ausgeführt wird
+- Market: Eine Order, die sofort zum aktuellen Marktpreis ausgeführt wird
+- Limit: Eine Order, die zum ausgewählten Limitpreis oder besser ausgeführt wird
 
 ### Take Profit und Stop Loss
 
-- **Take Profit:** Eine Limit-Order, die aktiviert wird, um Gewinne mitzunehmen, wenn der Preis den ausgewählten Preis erreicht
-- **Stop Loss:** Eine Limit-Order, die aktiviert wird, um Verluste zu minimieren, wenn der Preis den ausgewählten Stop-Preis erreicht
-
+- Take Profit: Eine Limit-Order, die aktiviert wird, um Gewinne mitzunehmen, wenn der Preis den ausgewählten Preis erreicht
+- Stop Loss: Eine Limit-Order, die aktiviert wird, um Verluste zu minimieren, wenn der Preis den ausgewählten Stop-Preis erreicht
 
 ### Reverse
 
 - Schließt den ausgewählten Trade und eröffnet einen gleichen Trade in die entgegengesetzte Richtung (wandelt Longs in Shorts und Shorts in Longs um).
 
-### Erweiterte Order-Typen
+## Erweiterte Ordertypen
 
-- **TWAP:** Führt Orders über die Zeit aus
-  - **Randomisieren (Optional):** Wenn Randomisieren aktiviert ist, wird die Größe jedes Sub-Trades automatisch innerhalb eines bestimmten Bereichs angepasst, typischerweise bis zu 20% höher oder niedriger als die ursprüngliche Trade-Größe. Alle anderen Anforderungen, die bei der Erstellung des TWAP-Trades angegeben wurden, wie z.B. sicherzustellen, dass die randomisierte Trade-Größe die maximale einzelne Trade-Größe nicht überschreitet, werden jedoch weiterhin eingehalten.
-- **Scale:** Platziert automatisch Orders über einen Preisbereich
-  - Enthält Parameter für die Anzahl der Orders und den Skew-Betrag (Verhältnis zwischen End- und Startpreisen. Wenn der Größen-Skew z.B. 2,0 beträgt, wird eine Limit-Order für den Endpreis mit der doppelten Größe des Startpreises platziert. Ein Größen-Skew von 1,0 erstellt gleich große Orders).
-- **Stop Limit:** Wird bei Auslösung zu einer Limit-Order
-- **Stop Market:** Wird bei Auslösung zu einer Market-Order
-- **Chase:** Platziert Limit-Orders zum besten Bid/Ask und aktualisiert sie kontinuierlich, bis sie gefüllt sind.
-  - **Chase to:** Legt den Preis fest, bis zu dem verfolgt wird, bis der Preis dieses Limit überschreitet.
-  - **Stalk Distance:** Der Order-Preis bleibt in einem festen Abstand vom besten Bid.
+### TWAP (Zeitgewichteter Durchschnittspreis)
+
+Führt eine Order proportional über einen festgelegten Zeitraum aus.
+
+**Randomisieren (Optional):** Wenn Randomisieren aktiviert ist, wird die Größe jedes Sub-Trades automatisch innerhalb eines bestimmten Bereichs angepasst, typischerweise bis zu 20% höher oder niedriger als die ursprüngliche Trade-Größe. Jedoch werden alle anderen Anforderungen, die beim Erstellen des TWAP-Trades angegeben wurden, wie z.B. sicherzustellen, dass die randomisierte Trade-Größe die maximale Einzeltrade-Größe nicht überschreitet, weiterhin befolgt.
+
+### Scale Orders
+
+Platzieren Sie automatisch Orders über einen Preisbereich.
+
+Enthält Parameter für die Anzahl der Orders und den Skew-Betrag (Verhältnis zwischen End- und Startpreisen. Wenn zum Beispiel der Größen-Skew 2,0 beträgt, dann wird eine Limit-Order für den Endpreis mit der doppelten Größe des Startpreises platziert. Ein Größen-Skew von 1,0 erstellt gleich große Orders.
+
+### Stop Limit
+
+Wird zu einer Limit-Order beim festgelegten Auslösepreis.
+
+### Stop Market
+
+Wird zu einer Market-Order beim festgelegten Auslösepreis.
+
+### Chase Orders
+
+Platziert eine Limit-Order zum besten Bid/Ask und aktualisiert sie kontinuierlich bis zur Ausführung.
+
+**Chase bis:** Legt den Preis fest, bis zu dem verfolgt wird, bis der Preis dieses Limit überschreitet.
+
+**Stalk-Distanz:** Der Orderpreis bleibt in einem festen Abstand vom besten Bid.

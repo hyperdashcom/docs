@@ -1,77 +1,89 @@
 ---
 title: "Guía de Trading"
 description: "Breve descripción del trading en Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
 ---
 
-**Spot vs Perpetuos (breve descripción de la diferencia entre spot y perpetuos).**
-
+**Spot vs Perpetuos (breve descripción de la diferencia entre spot y perpetuos)**
 
 **Spot**
 
 - Compras o vendes el activo real (como HYPE, BTC, ETH).
 - Lo posees directamente y puedes transferirlo fuera del exchange a billeteras externas.
-- Solo obtienes ganancias cuando el precio sube (a menos que vendas lo que ya tienes).
+- Ganancia solo cuando el precio sube (a menos que vendas lo que ya tienes).
 
 **Futuros Perpetuos (Perps)**
 
-- **No posees el activo**, operas un contrato vinculado a su precio.
-- Puedes ir **long** (apostar a que el precio sube) o **short** (apostar a que el precio baja).
-- **Sin fecha de vencimiento** — puedes mantener la posición todo el tiempo que quieras, pero ganarás o incurrirás en pagos de tasa de financiamiento.
-- **Usa apalancamiento:** opera con mayor tamaño con menor capital (Hasta **40x de Apalancamiento**).
-- **Las tasas de financiamiento** mantienen los precios de perpetuos alineados con el mercado spot.
+- No posees el activo, operas un contrato vinculado a su precio.
+- Puedes ir en largo (apostar a que el precio sube) o en corto (apostar a que el precio baja).
+- Sin fecha de vencimiento — puedes mantener todo el tiempo que quieras, pero ganarás o pagarás tasas de financiamiento.
+- Usa apalancamiento: opera tamaños más grandes con menos capital (Hasta **40x de Apalancamiento**).
+- Las tasas de financiamiento mantienen los precios de perps en línea con el mercado spot.
 
 **Opciones de Margen Cruzado vs Aislado**
 
-**Las posiciones cruzadas** se liquidan cuando el valor de la cuenta (incluyendo ganancias y pérdidas no realizadas) es menor que el _margen de mantenimiento_ multiplicado por la posición nocional total abierta. El margen de mantenimiento actualmente está establecido en la mitad del margen inicial al máximo apalancamiento.
+Las posiciones cruzadas se liquidan cuando el valor de la cuenta (incluyendo ganancias y pérdidas no realizadas) es menor que el _margen de mantenimiento_ multiplicado por la posición nocional total abierta. El margen de mantenimiento está actualmente establecido en la mitad del margen inicial al máximo apalancamiento.
 
-**Las posiciones aisladas** se liquidan con la misma lógica de margen de mantenimiento, pero las únicas entradas para el cálculo son el margen aislado y el valor nocional de la posición aislada.
+Las posiciones aisladas se liquidan con la misma lógica de margen de mantenimiento, pero las únicas entradas para el cálculo son el margen aislado y el valor nocional de la posición aislada.
 
 **Opciones de Apalancamiento**
-
 
 Cada par tiene opciones de apalancamiento asociadas, que puedes ajustar usando el deslizador.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-**Long vs Short**
+**Largo vs Corto**
 
-Las operaciones pueden configurarse como long o short.
+Las operaciones pueden alternarse para tomarse como largo o corto.
 
-**Funciones de la Interfaz de Trading**
+**Características de la interfaz de trading**
 
-- **Ver como:** Selecciona un trader disponible o ingresa una dirección para mostrar sus aperturas y cierres de operaciones superpuestas en el gráfico.
-- **Menú del signo más:** Al hacer clic en el icono de más en el eje del gráfico, están disponibles las opciones de Limit short, stop long o ver como.
-  - **Limit short:** configura rápidamente una orden límite para un short al precio.
-  - **Stop long:** configura rápidamente una orden long límite al precio.
-
+- Ver como: Selecciona un trader disponible o ingresa una dirección para mostrar sus aperturas y cierres de operaciones superpuestas en el gráfico.
+- Menú del signo más - Al hacer clic en el ícono de más en el eje del gráfico, están disponibles las opciones de Límite corto, stop largo o ver como.
+  - Límite corto: configura rápidamente una orden límite para un corto a ese precio.
+  - Stop largo: configura rápidamente una orden límite larga a ese precio.
 
 ### **Tipos de Órdenes**
 
-Orden Market vs Limit
+Orden de Mercado vs Límite
 
-- **Market:** Una orden que se ejecuta inmediatamente al precio de mercado actual
-- **Limit:** Una orden que se ejecuta al precio límite seleccionado o mejor
+- Mercado: Una orden que se ejecuta inmediatamente al precio de mercado actual
+- Límite: Una orden que se ejecuta al precio límite seleccionado o mejor
 
 ### Take Profit y Stop Loss
 
-- **Take Profit:** Una orden límite que se activa para tomar ganancias cuando el precio alcanza el precio seleccionado
-- **Stop loss:** Una orden límite que se activa para minimizar pérdidas cuando el precio alcanza el precio de stop seleccionado
-
+- Take Profit: Una orden límite que se activa para tomar ganancias cuando el precio alcanza el precio seleccionado
+- Stop loss: Una orden límite que se activa para minimizar pérdidas cuando el precio alcanza el precio stop seleccionado
 
 ### Reverso
 
-- Cierra la operación seleccionada y abre una operación igual en la dirección opuesta (convierte longs en shorts y shorts en longs).
+- Cierra la operación seleccionada y abre una operación igual en la dirección opuesta (convierte largos en cortos y cortos en largos).
 
-### Tipos de Órdenes Avanzadas
+## Tipos de Órdenes Avanzadas
 
-- **TWAP:** Ejecuta órdenes a lo largo del tiempo
-  - **Aleatorizar (Opcional):** Si Aleatorizar está habilitado, el tamaño de cada sub-operación se ajustará automáticamente dentro de un rango determinado, típicamente hasta un 20% más alto o más bajo que el tamaño original de la operación. Sin embargo, cualquier otro requisito especificado al crear la operación TWAP, como asegurar que el tamaño aleatorizado no exceda el tamaño máximo de operación única, se seguirá cumpliendo.
-- **Scale:** Coloca automáticamente órdenes a través de un rango de precios
-  - Incluye parámetros para número de órdenes y cantidad de sesgo (Ratio entre precios finales e iniciales. Por ejemplo, si el sesgo de tamaño es 2.0, entonces se colocará una orden límite para el precio final con el doble del tamaño del precio inicial. Un sesgo de tamaño de 1.0 crea órdenes de igual tamaño).
-- **Stop Limit:** Se convierte en orden límite al dispararse
-- **Stop Market:** Se convierte en orden de mercado al dispararse
-- **Chase:** Coloca órdenes límite en la mejor oferta/demanda y las actualiza continuamente hasta que se ejecutan.
-  - **Chase to:** establece el precio hasta el cual perseguir hasta que el precio exceda este límite.
-  - **Stalk Distance:** El precio de la orden se mantiene a una distancia fija de la mejor oferta.
+### TWAP (Precio Promedio Ponderado por Tiempo)
+
+Ejecuta una orden proporcionalmente durante un período de tiempo establecido.
+
+**Aleatorizar (Opcional):** Si Aleatorizar está habilitado, el tamaño de cada sub-operación se ajustará automáticamente dentro de un cierto rango, típicamente hasta 20% mayor o menor que el tamaño original de la operación. Sin embargo, cualquier otro requisito especificado al crear la operación TWAP, como asegurar que el tamaño aleatorizado no exceda el tamaño máximo de una sola operación, se seguirá cumpliendo.
+
+### Órdenes Escalonadas
+
+Coloca órdenes automáticamente a través de un rango de precios.
+
+Incluye parámetros para número de órdenes y cantidad de sesgo (Ratio entre precios finales e iniciales. Por ejemplo, si el sesgo de tamaño es 2.0, entonces una orden límite para el precio final se colocará con el doble del tamaño del precio inicial. Un sesgo de 1.0 crea órdenes de igual tamaño.
+
+### Stop Límite
+
+Se convierte en una orden límite al precio de activación establecido.
+
+### Stop Mercado
+
+Se convierte en una orden de mercado al precio de activación establecido.
+
+### Órdenes Chase
+
+Coloca una orden límite al mejor bid/ask y actualiza continuamente hasta que se complete.
+
+**Chase hasta:** establece el precio hasta el cual perseguir hasta que el precio exceda este límite.
+
+**Distancia Stalk:** El precio de la orden se mantiene a una distancia fija del mejor bid.

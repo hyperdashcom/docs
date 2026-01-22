@@ -1,70 +1,89 @@
 ---
 title: "Panduan Trading"
 description: "Gambaran singkat trading di Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
 ---
 
-**Spot vs Perpetuals (gambaran singkat perbedaan antara spot dan perpetuals).**
-
+**Spot vs Perpetual (gambaran singkat perbedaan antara spot dan perpetual)**
 
 **Spot**
 
-- Anda membeli atau menjual aset aktual (seperti HYPE, BTC, ETH).
-- Anda memilikinya secara langsung, dan dapat mentransfernya keluar dari exchange ke wallet eksternal.
-- Profit hanya ketika harga naik (kecuali Anda menjual yang sudah Anda pegang).
+- Anda membeli atau menjual aset sebenarnya (seperti HYPE, BTC, ETH).
+- Anda memilikinya secara langsung dan dapat mentransfernya keluar dari bursa ke wallet eksternal.
+- Untung hanya ketika harga naik (kecuali Anda menjual yang sudah Anda miliki).
 
 **Perpetual Futures (Perps)**
 
-- Anda **tidak memiliki aset**, Anda trading kontrak yang terikat dengan harganya.
-- Anda dapat **long** (bertaruh harga naik) atau **short** (bertaruh harga turun).
-- **Tidak ada tanggal kedaluwarsa** — Anda dapat hold selama yang Anda mau, tetapi akan menerima atau membayar funding rate.
-- **Menggunakan leverage:** trading ukuran lebih besar dengan modal lebih kecil (Hingga **40x Leverage**).
-- **Funding rate** menjaga harga perps sesuai dengan pasar spot.
+- Anda tidak memiliki aset, Anda memperdagangkan kontrak yang terkait dengan harganya.
+- Anda dapat long (bertaruh harga naik) atau short (bertaruh harga turun).
+- Tidak ada tanggal kedaluwarsa — Anda dapat memegang selama yang Anda inginkan, tetapi akan menerima atau membayar tarif pendanaan.
+- Menggunakan leverage: perdagangkan ukuran lebih besar dengan modal lebih kecil (Hingga **40x Leverage**).
+- Tarif pendanaan menjaga harga perps sesuai dengan pasar spot.
 
-**Opsi Cross vs Isolated Margin**
+**Opsi Margin Cross vs Isolated**
 
-**Posisi Cross** dilikuidasi ketika nilai akun (termasuk profit dan loss yang belum terealisasi) kurang dari _maintenance margin_ kali total posisi nosional terbuka.
+Posisi cross dilikuidasi ketika nilai akun (termasuk untung dan rugi yang belum direalisasi) kurang dari _margin pemeliharaan_ dikali total posisi nosional terbuka. Margin pemeliharaan saat ini ditetapkan setengah dari margin awal pada leverage maksimum.
 
-**Posisi Isolated** dilikuidasi dengan logika maintenance margin yang sama, tetapi satu-satunya input untuk perhitungan adalah isolated margin dan nilai nosional posisi isolated.
+Posisi isolated dilikuidasi dengan logika margin pemeliharaan yang sama, tetapi satu-satunya input untuk perhitungan adalah margin isolated dan nilai nosional posisi isolated.
 
 **Opsi Leverage**
 
-Setiap pair memiliki opsi leverage terkait, yang dapat Anda sesuaikan menggunakan slider.
+Setiap pasangan memiliki opsi leverage terkait, yang dapat Anda sesuaikan menggunakan slider.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 **Long vs Short**
 
-Trade dapat di-toggle untuk diambil sebagai long atau short.
+Perdagangan dapat diubah menjadi long atau short.
 
-**Fitur Interface Trading**
+**Fitur antarmuka trading**
 
-- **Lihat Sebagai:** Pilih trader yang tersedia atau masukkan alamat untuk menampilkan open dan close trade mereka yang di-overlay pada chart.
-- **Menu tanda plus:** Dengan mengklik ikon plus di axis chart, opsi Limit short, stop long atau lihat sebagai tersedia.
-
+- Lihat sebagai: Pilih trader yang tersedia atau masukkan alamat untuk menampilkan pembukaan dan penutupan perdagangan mereka yang ditumpangkan pada grafik.
+- Menu tanda plus - Dengan mengklik ikon plus pada sumbu grafik, opsi Limit short, stop long atau lihat sebagai tersedia.
+  - Limit short: cepat mengatur order limit untuk short pada harga tersebut.
+  - Stop long: cepat mengatur order limit long pada harga tersebut.
 
 ### **Jenis Order**
 
 Order Market vs Limit
 
-- **Market:** Order yang dieksekusi segera pada harga pasar saat ini
-- **Limit:** Order yang dieksekusi pada harga limit yang dipilih atau lebih baik
+- Market: Order yang dieksekusi segera pada harga pasar saat ini
+- Limit: Order yang dieksekusi pada harga limit yang dipilih atau lebih baik
 
 ### Take Profit dan Stop Loss
 
-- **Take Profit:** Order limit yang diaktifkan untuk mengambil profit ketika harga mencapai harga yang dipilih
-- **Stop loss:** Order limit yang diaktifkan untuk meminimalkan kerugian ketika harga mencapai harga stop yang dipilih
-
+- Take Profit: Order limit yang diaktifkan untuk mengambil keuntungan ketika harga mencapai harga yang dipilih
+- Stop loss: Order limit yang diaktifkan untuk meminimalkan kerugian ketika harga mencapai harga stop yang dipilih
 
 ### Reverse
 
-- Menutup trade yang dipilih dan membuka trade yang sama dalam arah berlawanan (mengubah long menjadi short dan short menjadi long).
+- Menutup perdagangan yang dipilih dan membuka perdagangan yang sama ke arah berlawanan (mengubah long menjadi short dan short menjadi long).
 
-### Jenis Order Lanjutan
+## Jenis Order Lanjutan
 
-- **TWAP:** Eksekusi order dari waktu ke waktu
-- **Scale:** Auto-place order di seluruh range harga
-- **Stop Limit:** Menjadi order limit saat trigger
-- **Stop Market:** Menjadi order market saat trigger
-- **Chase:** Menempatkan order limit di best bid/ask dan terus memperbarui hingga terisi.
+### TWAP (Time Weighted Average Price)
+
+Mengeksekusi order secara proporsional selama periode waktu yang ditetapkan.
+
+**Acak (Opsional):** Jika Acak diaktifkan, ukuran setiap sub-perdagangan akan disesuaikan secara otomatis dalam rentang tertentu, biasanya hingga 20% lebih tinggi atau lebih rendah dari ukuran perdagangan asli. Namun, persyaratan lain yang ditentukan saat membuat perdagangan TWAP, seperti memastikan ukuran perdagangan acak tidak melebihi ukuran perdagangan tunggal maksimum, akan tetap diikuti.
+
+### Scale Orders
+
+Tempatkan order secara otomatis di seluruh rentang harga.
+
+Termasuk parameter untuk jumlah order dan jumlah skew (Rasio antara harga akhir dan awal. Misalnya jika skew ukuran adalah 2.0 maka order limit untuk harga akhir akan ditempatkan dengan ukuran dua kali lipat dari harga awal. Skew ukuran 1.0 membuat order dengan ukuran yang sama.
+
+### Stop Limit
+
+Menjadi order limit pada harga pemicu yang ditetapkan.
+
+### Stop Market
+
+Menjadi order market pada harga pemicu yang ditetapkan.
+
+### Chase Orders
+
+Menempatkan order limit pada bid/ask terbaik dan terus memperbarui hingga terisi.
+
+**Chase hingga:** mengatur harga untuk dikejar hingga harga melebihi batas ini.
+
+**Jarak Stalk:** Harga order tetap pada jarak tetap dari bid terbaik.

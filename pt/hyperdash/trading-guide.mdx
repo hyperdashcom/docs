@@ -1,35 +1,31 @@
 ---
 title: "Guia de Trading"
-description: "Visão geral breve do trading no Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
+description: "Breve visão geral do trading no Hyperdash"
 ---
 
-**Spot vs Perpétuos (visão geral breve da diferença entre spot e perpétuos).**
-
+**Spot vs Perpétuos (breve visão geral da diferença entre spot e perpétuos)**
 
 **Spot**
 
 - Você compra ou vende o ativo real (como HYPE, BTC, ETH).
-- Você o possui diretamente e pode transferi-lo para carteiras externas.
+- Você o possui diretamente e pode transferi-lo da exchange para carteiras externas.
 - Lucro apenas quando o preço sobe (a menos que você venda o que já possui).
 
 **Futuros Perpétuos (Perps)**
 
-- Você **não possui o ativo**, você negocia um contrato vinculado ao seu preço.
-- Você pode ir **long** (apostar que o preço sobe) ou **short** (apostar que o preço cai).
-- **Sem data de expiração** — você pode manter pelo tempo que quiser, mas receberá ou pagará taxas de financiamento.
-- **Usa alavancagem:** negocie com tamanho maior com capital menor (Até **40x de Alavancagem**).
-- **As taxas de financiamento** mantêm os preços dos perpétuos alinhados com o mercado spot.
+- Você não possui o ativo, você negocia um contrato vinculado ao seu preço.
+- Você pode ir long (apostar que o preço sobe) ou short (apostar que o preço cai).
+- Sem data de vencimento — você pode manter pelo tempo que quiser, mas receberá ou pagará taxas de financiamento.
+- Usa alavancagem: negocie tamanhos maiores com menos capital (Até **40x de Alavancagem**).
+- As taxas de financiamento mantêm os preços dos perps alinhados com o mercado spot.
 
 **Opções de Margem Cruzada vs Isolada**
 
-**Posições cruzadas** são liquidadas quando o valor da conta (incluindo lucros e perdas não realizados) é menor que a _margem de manutenção_ vezes a posição nocional total aberta. A margem de manutenção está atualmente definida como metade da margem inicial na alavancagem máxima.
+Posições cruzadas são liquidadas quando o valor da conta (incluindo lucro e prejuízo não realizados) é menor que a _margem de manutenção_ vezes a posição nocional total aberta. A margem de manutenção está atualmente definida como metade da margem inicial na alavancagem máxima.
 
-**Posições isoladas** são liquidadas pela mesma lógica de margem de manutenção, mas as únicas entradas para o cálculo são a margem isolada e o valor nocional da posição isolada.
+Posições isoladas são liquidadas pela mesma lógica de margem de manutenção, mas as únicas entradas para o cálculo são a margem isolada e o valor nocional da posição isolada.
 
 **Opções de Alavancagem**
-
 
 Cada par tem opções de alavancagem associadas, que você pode ajustar usando o controle deslizante.
 
@@ -37,41 +33,57 @@ Cada par tem opções de alavancagem associadas, que você pode ajustar usando o
 
 **Long vs Short**
 
-As negociações podem ser alternadas para serem tomadas como long ou short.
+As negociações podem ser alternadas para serem realizadas como long ou short.
 
-**Recursos da Interface de Trading**
+**Recursos da interface de trading**
 
-- **Ver como:** Selecione um trader disponível ou insira um endereço para exibir suas aberturas e fechamentos de negociações sobrepostas no gráfico.
-- **Menu do sinal de mais:** Ao clicar no ícone de mais no eixo do gráfico, as opções de Limit short, stop long ou ver como estão disponíveis.
-  - **Limit short:** configure rapidamente uma ordem limitada para um short no preço.
-  - **Stop long:** configure rapidamente uma ordem long limitada no preço.
-
+- Visualizar como: Selecione um trader disponível ou insira um endereço para exibir suas aberturas e fechamentos de negociação sobrepostos no gráfico.
+- Menu do sinal de mais - Ao clicar no ícone de mais no eixo do gráfico, opções de Limite short, stop long ou visualizar como estão disponíveis.
+  - Limite short: configure rapidamente uma ordem limite para um short nesse preço.
+  - Stop long: configure rapidamente uma ordem limite long nesse preço.
 
 ### **Tipos de Ordem**
 
-Ordem Market vs Limit
+Ordem de Mercado vs Limite
 
-- **Market:** Uma ordem que é executada imediatamente ao preço de mercado atual
-- **Limit:** Uma ordem que é executada ao preço limite selecionado ou melhor
+- Mercado: Uma ordem que é executada imediatamente ao preço de mercado atual
+- Limite: Uma ordem que é executada ao preço limite selecionado ou melhor
 
 ### Take Profit e Stop Loss
 
-- **Take Profit:** Uma ordem limitada que é ativada para realizar lucros quando o preço atinge o preço selecionado
-- **Stop loss:** Uma ordem limitada que é ativada para minimizar perdas quando o preço atinge o preço de stop selecionado
-
+- Take Profit: Uma ordem limite que é ativada para realizar lucros quando o preço atinge o preço selecionado
+- Stop loss: Uma ordem limite que é ativada para minimizar perdas quando o preço atinge o preço stop selecionado
 
 ### Reverso
 
 - Fecha a negociação selecionada e abre uma negociação igual na direção oposta (transforma longs em shorts e shorts em longs).
 
-### Tipos de Ordem Avançados
+## Tipos de Ordem Avançados
 
-- **TWAP:** Execute ordens ao longo do tempo
-  - **Aleatorizar (Opcional):** Se Aleatorizar estiver habilitado, o tamanho de cada sub-negociação será automaticamente ajustado dentro de uma certa faixa, tipicamente até 20% maior ou menor que o tamanho original da negociação. No entanto, quaisquer outros requisitos especificados ao criar a negociação TWAP, como garantir que o tamanho aleatorizado não exceda o tamanho máximo de negociação única, ainda serão seguidos.
-- **Scale:** Coloque ordens automaticamente através de uma faixa de preços
-  - Inclui parâmetros para número de ordens e quantidade de inclinação (Razão entre preços finais e iniciais. Por exemplo, se a inclinação de tamanho for 2,0, então uma ordem limitada para o preço final será colocada com o dobro do tamanho do preço inicial. Uma inclinação de tamanho de 1,0 cria ordens de tamanhos iguais).
-- **Stop Limit:** Torna-se ordem limitada ao ser acionada
-- **Stop Market:** Torna-se ordem de mercado ao ser acionada
-- **Chase:** Coloca ordens limitadas no melhor bid/ask e as atualiza continuamente até serem preenchidas.
-  - **Chase to:** define o preço para perseguir até que o preço exceda este limite.
-  - **Stalk Distance:** O preço da ordem permanece a uma distância fixa do melhor bid.
+### TWAP (Preço Médio Ponderado pelo Tempo)
+
+Executa uma ordem proporcionalmente durante um período de tempo definido.
+
+**Aleatorizar (Opcional):** Se Aleatorizar estiver habilitado, o tamanho de cada sub-negociação será ajustado automaticamente dentro de uma certa faixa, tipicamente até 20% maior ou menor que o tamanho original da negociação. No entanto, quaisquer outros requisitos especificados ao criar a negociação TWAP, como garantir que o tamanho aleatorizado não exceda o tamanho máximo de uma única negociação, ainda serão seguidos.
+
+### Ordens Escalonadas
+
+Coloque ordens automaticamente em uma faixa de preços.
+
+Inclui parâmetros para número de ordens e quantidade de inclinação (Proporção entre preços finais e iniciais. Por exemplo, se a inclinação de tamanho for 2,0, então uma ordem limite para o preço final será colocada com o dobro do tamanho do preço inicial. Uma inclinação de 1,0 cria ordens de tamanho igual.
+
+### Stop Limite
+
+Torna-se uma ordem limite no preço de gatilho definido.
+
+### Stop Mercado
+
+Torna-se uma ordem de mercado no preço de gatilho definido.
+
+### Ordens Chase
+
+Coloca uma ordem limite no melhor bid/ask e atualiza continuamente até ser preenchida.
+
+**Chase até:** define o preço para perseguir até que o preço exceda este limite.
+
+**Distância Stalk:** O preço da ordem permanece a uma distância fixa do melhor bid.

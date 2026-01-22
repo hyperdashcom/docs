@@ -1,77 +1,89 @@
 ---
 title: "Guide de Trading"
-description: "Aperçu bref du trading sur Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
+description: "Bref aperçu du trading sur Hyperdash"
 ---
 
-**Spot vs Perpétuels (aperçu bref de la différence entre spot et perpétuels).**
-
+**Spot vs Perpétuels (bref aperçu de la différence entre spot et perpétuels)**
 
 **Spot**
 
 - Vous achetez ou vendez l'actif réel (comme HYPE, BTC, ETH).
-- Vous le possédez directement et pouvez le transférer hors de l'échange vers des portefeuilles externes.
-- Profit uniquement lorsque le prix monte (sauf si vous vendez ce que vous possédez déjà).
+- Vous le possédez directement et pouvez le transférer hors de l'exchange vers des portefeuilles externes.
+- Profit uniquement quand le prix monte (sauf si vous vendez ce que vous détenez déjà).
 
 **Futures Perpétuels (Perps)**
 
-- Vous **ne possédez pas l'actif**, vous tradez un contrat lié à son prix.
-- Vous pouvez aller **long** (parier que le prix monte) ou **short** (parier que le prix baisse).
-- **Pas de date d'expiration** — vous pouvez maintenir aussi longtemps que vous voulez, mais vous recevrez ou paierez des frais de financement.
-- **Utilise l'effet de levier :** tradez des tailles plus importantes avec moins de capital (Jusqu'à **40x de Levier**).
-- **Les taux de financement** maintiennent les prix perpétuels alignés avec le marché spot.
+- Vous ne possédez pas l'actif, vous tradez un contrat lié à son prix.
+- Vous pouvez aller long (parier sur la hausse du prix) ou short (parier sur la baisse du prix).
+- Pas de date d'expiration — vous pouvez tenir aussi longtemps que vous le souhaitez, mais vous recevrez ou paierez des taux de financement.
+- Utilise l'effet de levier : tradez des tailles plus grandes avec moins de capital (Jusqu'à **40x de Levier**).
+- Les taux de financement maintiennent les prix des perps alignés avec le marché spot.
 
 **Options de Marge Croisée vs Isolée**
 
-**Les positions croisées** sont liquidées lorsque la valeur du compte (y compris les profits et pertes non réalisés) est inférieure à la _marge de maintenance_ fois la position notionnelle totale ouverte. La marge de maintenance est actuellement fixée à la moitié de la marge initiale au levier maximum.
+Les positions croisées sont liquidées lorsque la valeur du compte (y compris les profits et pertes non réalisés) est inférieure à la _marge de maintenance_ multipliée par la position notionnelle totale ouverte. La marge de maintenance est actuellement fixée à la moitié de la marge initiale au levier maximum.
 
-**Les positions isolées** sont liquidées par la même logique de marge de maintenance, mais les seules entrées pour le calcul sont la marge isolée et la valeur notionnelle de la position isolée.
+Les positions isolées sont liquidées selon la même logique de marge de maintenance, mais les seules entrées pour le calcul sont la marge isolée et la valeur notionnelle de la position isolée.
 
 **Options de Levier**
 
-
-Chaque paire a des options de levier associées, que vous pouvez ajuster avec le curseur.
+Chaque paire a des options de levier associées, que vous pouvez ajuster à l'aide du curseur.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 **Long vs Short**
 
-Les trades peuvent être basculés en long ou short.
+Les trades peuvent être basculés pour être pris en long ou en short.
 
-**Fonctionnalités de l'Interface de Trading**
+**Fonctionnalités de l'interface de trading**
 
-- **Voir comme :** Sélectionnez un trader disponible ou entrez une adresse pour afficher leurs ouvertures et fermetures de trades superposées sur le graphique.
-- **Menu du signe plus :** En cliquant sur l'icône plus sur l'axe du graphique, les options Limit short, stop long ou voir comme sont disponibles.
-  - **Limit short :** configurez rapidement un ordre limite pour un short au prix.
-  - **Stop long :** configurez rapidement un ordre long limite au prix.
-
+- Voir comme : Sélectionnez un trader disponible ou entrez une adresse pour afficher ses ouvertures et fermetures de trades superposées sur le graphique.
+- Menu signe plus - En cliquant sur l'icône plus sur l'axe du graphique, des options Limit short, stop long ou voir comme sont disponibles.
+  - Limit short : configurez rapidement un ordre limite pour un short à ce prix.
+  - Stop long : configurez rapidement un ordre limite long à ce prix.
 
 ### **Types d'Ordres**
 
-Ordre Market vs Limit
+Ordre au Marché vs Limite
 
-- **Market :** Un ordre qui s'exécute immédiatement au prix du marché actuel
-- **Limit :** Un ordre qui s'exécute au prix limite sélectionné ou mieux
+- Marché : Un ordre qui s'exécute immédiatement au prix du marché actuel
+- Limite : Un ordre qui s'exécute au prix limite sélectionné ou mieux
 
 ### Take Profit et Stop Loss
 
-- **Take Profit :** Un ordre limite qui est activé pour prendre des profits lorsque le prix atteint le prix sélectionné
-- **Stop loss :** Un ordre limite qui est activé pour minimiser les pertes lorsque le prix atteint le prix stop sélectionné
-
+- Take Profit : Un ordre limite qui est activé pour prendre des profits lorsque le prix atteint le prix sélectionné
+- Stop loss : Un ordre limite qui est activé pour minimiser les pertes lorsque le prix atteint le prix stop sélectionné
 
 ### Reverse
 
 - Ferme le trade sélectionné et ouvre un trade égal dans la direction opposée (transforme les longs en shorts et les shorts en longs).
 
-### Types d'Ordres Avancés
+## Types d'Ordres Avancés
 
-- **TWAP :** Exécute les ordres dans le temps
-  - **Randomiser (Optionnel) :** Si Randomiser est activé, la taille de chaque sous-trade sera automatiquement ajustée dans une certaine plage, généralement jusqu'à 20% plus haut ou plus bas que la taille de trade originale. Cependant, tous les autres exigences spécifiées lors de la création du trade TWAP, comme s'assurer que la taille de trade randomisée ne dépasse pas la taille de trade unique maximale, seront toujours respectées.
-- **Scale :** Place automatiquement des ordres sur une plage de prix
-  - Inclut des paramètres pour le nombre d'ordres et le montant d'inclinaison (Ratio entre les prix de fin et de début. Par exemple, si l'inclinaison de taille est de 2,0, alors un ordre limite pour le prix de fin sera placé avec le double de la taille du prix de début. Une inclinaison de taille de 1,0 crée des ordres de tailles égales).
-- **Stop Limit :** Devient un ordre limite au déclenchement
-- **Stop Market :** Devient un ordre market au déclenchement
-- **Chase :** Place des ordres limites au meilleur bid/ask et les met continuellement à jour jusqu'à ce qu'ils soient remplis.
-  - **Chase to :** définit le prix à poursuivre jusqu'à ce que le prix dépasse cette limite.
-  - **Stalk Distance :** Le prix de l'ordre reste à une distance fixe du meilleur bid.
+### TWAP (Prix Moyen Pondéré dans le Temps)
+
+Exécute un ordre proportionnellement sur une période définie.
+
+**Randomiser (Optionnel) :** Si Randomiser est activé, la taille de chaque sous-trade sera automatiquement ajustée dans une certaine plage, généralement jusqu'à 20% supérieure ou inférieure à la taille originale du trade. Cependant, toute autre exigence spécifiée lors de la création du trade TWAP, comme s'assurer que la taille randomisée ne dépasse pas la taille maximale d'un seul trade, sera toujours respectée.
+
+### Ordres Échelonnés
+
+Placez automatiquement des ordres sur une plage de prix.
+
+Inclut des paramètres pour le nombre d'ordres et le montant du biais (Ratio entre les prix de fin et de début. Par exemple, si le biais de taille est 2,0, alors un ordre limite pour le prix de fin sera placé avec le double de la taille du prix de début. Un biais de 1,0 crée des ordres de taille égale.
+
+### Stop Limite
+
+Devient un ordre limite au prix de déclenchement défini.
+
+### Stop Marché
+
+Devient un ordre au marché au prix de déclenchement défini.
+
+### Ordres Chase
+
+Place un ordre limite au meilleur bid/ask et le met à jour continuellement jusqu'à exécution.
+
+**Chase jusqu'à :** définit le prix jusqu'auquel poursuivre jusqu'à ce que le prix dépasse cette limite.
+
+**Distance Stalk :** Le prix de l'ordre reste à une distance fixe du meilleur bid.
