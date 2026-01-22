@@ -58,14 +58,32 @@ Market vs Limit order
 
 - Closes the selected trade and opens an equal trade in the opposite direction (flips longs into shorts and shorts into longs).
 
-### Advanced Order Types
+## Advanced Order Types
 
-- \*\*TWAP: \*\*Execute orders over time
-  - Randomize (Optional): If Randomize is enabled, the size of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size. However, any other requirements specified when creating the TWAP trade, such as ensuring the randomized trade size does not exceed the maximum single trade size, will still be followed.
-- \*\*Scale: \*\*Auto-place orders across price range
-  - Includes parameters for number of orders and skew amount (Ratio between end and start prices. For example if size skew is 2.0 then a limit order for end price will be placed with twice the size of the start price. A size skew of 1.0 creates equally sized orders.
-- \*\*Stop Limit : \*\*Becomes limit order at trigger
-- \*\*Stop Market: \*\*Becomes market order at trigger
-- \*\*Chase: \*\*Places limit orders at the best bid/ask and continuously updates them until filled.
-  - Chase to: sets the price to chase to until price exceeds this limit.
-  - Stalk Distance: Order price stays a fixed distance from best bid.
+### TWAP (Time Weighted Average Price)
+
+Executes an order proportionally over a set time period.
+
+**Randomize (Optional):** If Randomize is enabled, the size of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size. However, any other requirements specified when creating the TWAP trade, such as ensuring the randomized trade size does not exceed the maximum single trade size, will still be followed.
+
+### Scale Orders
+
+Auto-place orders across a price range.
+
+Includes parameters for number of orders and skew amount (Ratio between end and start prices. For example if size skew is 2.0 then a limit order for end price will be placed with twice the size of the start price. A size skew of 1.0 creates equally sized orders.
+
+### Stop Limit
+
+ Becomes a limit order at the set trigger price.
+
+### Stop Market
+
+Becomes a market order at the set trigger price.
+
+### Chase Orders
+
+Places a limit order at the best bid/ask and continuously update until filled.
+
+**Chase to:** sets the price to chase to until price exceeds this limit.
+
+**Stalk Distance:** Order price stays a fixed distance from best bid.
