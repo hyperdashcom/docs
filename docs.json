@@ -202,7 +202,10 @@
       }
     ]
   },
-  "logo": "/images/Hyperdash—Logo—onDark-1.png",
+  "logo": {
+    "light": "/images/hd_light.png",
+    "dark": "/images/hd_dark.jpg"
+  },
   "navbar": {
     "links": [
       {
