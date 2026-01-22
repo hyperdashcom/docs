@@ -180,6 +180,25 @@
             ]
           }
         ]
+      },
+      {
+        "language": "ru",
+        "groups": [
+          {
+            "group": "Документация",
+            "pages": [
+              "ru/hyperdash/about-hyperdash",
+              "ru/hyperdash/onboarding-deposits",
+              "ru/hyperdash/fees-referrals-rewards",
+              "ru/hyperdash/trading-guide",
+              "ru/hyperdash/copy-trade",
+              "ru/hyperdash/wallet-explore",
+              "ru/hyperdash/trading-indicators",
+              "ru/hyperdash/cohorts-top-traders-position-changes",
+              "ru/hyperdash/shortcuts"
+            ]
+          }
+        ]
       }
     ]
   },
