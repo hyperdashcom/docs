@@ -202,7 +202,7 @@
       }
     ]
   },
-  "logo": "/images/HD_logo.png",
+  "logo": "/images/Hyperdash—Logo—onDark-1.png",
   "navbar": {
     "links": [
       {
@@ -234,8 +234,5 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
-  },
-  "background": {
-    "image": "/images/WhatsAppImage2026-01-22at14.55.56.jpeg"
   }
 }
