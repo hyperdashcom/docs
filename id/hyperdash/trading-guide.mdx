@@ -1,0 +1,70 @@
+---
+title: "Panduan Trading"
+description: "Gambaran singkat trading di Hyperdash"
+icon: "chart-mixed"
+"og:image": "https://hyperdash.com/og.png"
+---
+
+**Spot vs Perpetuals (gambaran singkat perbedaan antara spot dan perpetuals).**
+
+
+**Spot**
+
+- Anda membeli atau menjual aset aktual (seperti HYPE, BTC, ETH).
+- Anda memilikinya secara langsung, dan dapat mentransfernya keluar dari exchange ke wallet eksternal.
+- Profit hanya ketika harga naik (kecuali Anda menjual yang sudah Anda pegang).
+
+**Perpetual Futures (Perps)**
+
+- Anda **tidak memiliki aset**, Anda trading kontrak yang terikat dengan harganya.
+- Anda dapat **long** (bertaruh harga naik) atau **short** (bertaruh harga turun).
+- **Tidak ada tanggal kedaluwarsa** — Anda dapat hold selama yang Anda mau, tetapi akan menerima atau membayar funding rate.
+- **Menggunakan leverage:** trading ukuran lebih besar dengan modal lebih kecil (Hingga **40x Leverage**).
+- **Funding rate** menjaga harga perps sesuai dengan pasar spot.
+
+**Opsi Cross vs Isolated Margin**
+
+**Posisi Cross** dilikuidasi ketika nilai akun (termasuk profit dan loss yang belum terealisasi) kurang dari _maintenance margin_ kali total posisi nosional terbuka.
+
+**Posisi Isolated** dilikuidasi dengan logika maintenance margin yang sama, tetapi satu-satunya input untuk perhitungan adalah isolated margin dan nilai nosional posisi isolated.
+
+**Opsi Leverage**
+
+Setiap pair memiliki opsi leverage terkait, yang dapat Anda sesuaikan menggunakan slider.
+
+<iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+**Long vs Short**
+
+Trade dapat di-toggle untuk diambil sebagai long atau short.
+
+**Fitur Interface Trading**
+
+- **Lihat Sebagai:** Pilih trader yang tersedia atau masukkan alamat untuk menampilkan open dan close trade mereka yang di-overlay pada chart.
+- **Menu tanda plus:** Dengan mengklik ikon plus di axis chart, opsi Limit short, stop long atau lihat sebagai tersedia.
+
+
+### **Jenis Order**
+
+Order Market vs Limit
+
+- **Market:** Order yang dieksekusi segera pada harga pasar saat ini
+- **Limit:** Order yang dieksekusi pada harga limit yang dipilih atau lebih baik
+
+### Take Profit dan Stop Loss
+
+- **Take Profit:** Order limit yang diaktifkan untuk mengambil profit ketika harga mencapai harga yang dipilih
+- **Stop loss:** Order limit yang diaktifkan untuk meminimalkan kerugian ketika harga mencapai harga stop yang dipilih
+
+
+### Reverse
+
+- Menutup trade yang dipilih dan membuka trade yang sama dalam arah berlawanan (mengubah long menjadi short dan short menjadi long).
+
+### Jenis Order Lanjutan
+
+- **TWAP:** Eksekusi order dari waktu ke waktu
+- **Scale:** Auto-place order di seluruh range harga
+- **Stop Limit:** Menjadi order limit saat trigger
+- **Stop Market:** Menjadi order market saat trigger
+- **Chase:** Menempatkan order limit di best bid/ask dan terus memperbarui hingga terisi.
