@@ -9,29 +9,79 @@
   },
   "favicon": "/images/HD_logo.png",
   "navigation": {
-    "products": [
+    "languages": [
       {
-        "product": "Hyperdash",
-        "icon": "chart-line",
-        "color": {
-          "light": "#FD592B",
-          "dark": "#FD592B"
-        },
-        "tabs": [
+        "language": "en",
+        "groups": [
           {
-            "tab": "Documentation",
-            "icon": "book",
+            "group": "Documentation",
             "pages": [
-              "hyperdash/introduction/about-hyperdash",
-              "hyperdash/introduction/untitled-page",
-              "hyperdash/introduction/untitled-page-1",
-              "hyperdash/user-guides/untitled-page",
-              "hyperdash/user-guides/trader-explore",
-              "hyperdash/user-guides/untitled-page-1",
-              "hyperdash/user-guides/cohorts",
-              "hyperdash/user-guides/wallet-explore",
-              "hyperdash/user-guides/untitled-page-2",
-              "hyperdash/bananes"
+              "hyperdash/about-hyperdash",
+              "hyperdash/onboarding-deposits",
+              "hyperdash/fees-referrals-rewards",
+              "hyperdash/trading-guide",
+              "hyperdash/copy-trade",
+              "hyperdash/wallet-explore",
+              "hyperdash/trading-indicators",
+              "hyperdash/cohorts-top-traders-position-changes",
+              "hyperdash/shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "es",
+        "groups": [
+          {
+            "group": "Documentación",
+            "pages": [
+              "es/hyperdash/about-hyperdash",
+              "es/hyperdash/onboarding-deposits",
+              "es/hyperdash/fees-referrals-rewards",
+              "es/hyperdash/trading-guide",
+              "es/hyperdash/copy-trade",
+              "es/hyperdash/wallet-explore",
+              "es/hyperdash/trading-indicators",
+              "es/hyperdash/cohorts-top-traders-position-changes",
+              "es/hyperdash/shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "ko",
+        "groups": [
+          {
+            "group": "문서",
+            "pages": [
+              "ko/hyperdash/about-hyperdash",
+              "ko/hyperdash/onboarding-deposits",
+              "ko/hyperdash/fees-referrals-rewards",
+              "ko/hyperdash/trading-guide",
+              "ko/hyperdash/copy-trade",
+              "ko/hyperdash/wallet-explore",
+              "ko/hyperdash/trading-indicators",
+              "ko/hyperdash/cohorts-top-traders-position-changes",
+              "ko/hyperdash/shortcuts"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "cn",
+        "groups": [
+          {
+            "group": "文档",
+            "pages": [
+              "cn/hyperdash/about-hyperdash",
+              "cn/hyperdash/onboarding-deposits",
+              "cn/hyperdash/fees-referrals-rewards",
+              "cn/hyperdash/trading-guide",
+              "cn/hyperdash/copy-trade",
+              "cn/hyperdash/wallet-explore",
+              "cn/hyperdash/trading-indicators",
+              "cn/hyperdash/cohorts-top-traders-position-changes",
+              "cn/hyperdash/shortcuts"
             ]
           }
         ]
