@@ -1,6 +1,6 @@
 ---
 title: "Trading Guide"
-description: "Brief overview of trading on Hyperdash"
+description: "Brief overview of trading on Hyperdash and order types."
 ---
 
 **Spot vs Perpetuals (brief overview of the difference between spot and perpetuals)**
@@ -42,9 +42,9 @@ Trades can be toggled to be taken as a long or a short.
   - Limit short: quickly set up a limit order for a short at the price.
   - Stop long: quickly set up a limit long order at the price.
 
-### **Order Types**
+# **Order Types**
 
-Market vs Limit order
+**Market vs Limit order**
 
 - Market: An order that executes immediately at the current market price
 - Limit: An order that executes at the selected limit price or better
@@ -64,7 +64,9 @@ Market vs Limit order
 
 Executes an order proportionally over a set time period.
 
-**Randomize (Optional):** If Randomize is enabled, the size of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size. However, any other requirements specified when creating the TWAP trade, such as ensuring the randomized trade size does not exceed the maximum single trade size, will still be followed.
+**Stealth : **Executes your TWAP through our infrastructure instead of on-chain for more private execution.
+
+**Randomize time and or size (Optional):** If Randomize is enabled, the size and timing of each sub-trade will be automatically adjusted within a certain range, typically up to 20% higher or lower than the original trade size and executed 20% earlier or later.
 
 ### Scale Orders
 
@@ -74,7 +76,7 @@ Includes parameters for number of orders and skew amount (Ratio between end and 
 
 ### Stop Limit
 
- Becomes a limit order at the set trigger price.
+Becomes a limit order at the set trigger price.
 
 ### Stop Market
 
@@ -87,3 +89,11 @@ Places a limit order at the best bid/ask and continuously update until filled.
 **Chase to:** sets the price to chase to until price exceeds this limit.
 
 **Stalk Distance:** Order price stays a fixed distance from best bid.
+
+### Swarm Orders
+
+Splits your order into smaller suborders and places them over time to reduce market impact.
+
+The total order can be split into up to 200 sub-orders (minimum \$10 size per sub-order)\
+\
+Select an 'Agression Level' between 1-5, higher aggression places orders more frequently for faster fills.
