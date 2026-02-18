@@ -1,8 +1,6 @@
 ---
 title: "Panduan Dagangan"
-description: "Gambaran ringkas dagangan di Hyperdash"
-icon: "chart-mixed"
-"og:image": "https://hyperdash.com/og.png"
+description: "Gambaran ringkas dagangan di Hyperdash dan jenis pesanan."
 ---
 
 **Spot vs Perpetuals (gambaran ringkas perbezaan antara spot dan perpetuals).**
@@ -44,9 +42,9 @@ Dagangan boleh ditogol untuk diambil sebagai long atau short.
 - **Menu tanda tambah:** Dengan mengklik ikon tambah pada paksi carta, pilihan Limit short, stop long atau lihat sebagai tersedia.
 
 
-### **Jenis Pesanan**
+# **Jenis Pesanan**
 
-Pesanan Market vs Limit
+**Pesanan Market vs Limit**
 
 - **Market:** Pesanan yang dilaksanakan serta-merta pada harga pasaran semasa
 - **Limit:** Pesanan yang dilaksanakan pada harga had yang dipilih atau lebih baik
@@ -61,10 +59,42 @@ Pesanan Market vs Limit
 
 - Menutup dagangan yang dipilih dan membuka dagangan yang sama dalam arah bertentangan (menukar long kepada short dan short kepada long).
 
-### Jenis Pesanan Lanjutan
+## Jenis Pesanan Lanjutan
 
-- **TWAP:** Laksanakan pesanan dari masa ke masa
-- **Scale:** Letakkan pesanan secara automatik merentasi julat harga
-- **Stop Limit:** Menjadi pesanan had apabila dicetuskan
-- **Stop Market:** Menjadi pesanan pasaran apabila dicetuskan
-- **Chase:** Letakkan pesanan had pada bid/ask terbaik dan kemas kini secara berterusan sehingga diisi.
+### TWAP (Harga Purata Berwajaran Masa)
+
+Melaksanakan pesanan secara berkadar dalam tempoh masa yang ditetapkan.
+
+**Stealth : **Melaksanakan TWAP anda melalui infrastruktur kami dan bukannya on-chain untuk pelaksanaan yang lebih peribadi.
+
+**Rawak masa dan/atau saiz (Pilihan):** Jika Rawak diaktifkan, saiz dan masa setiap sub-dagangan akan diselaraskan secara automatik dalam julat tertentu, biasanya sehingga 20% lebih tinggi atau rendah daripada saiz dagangan asal dan dilaksanakan 20% lebih awal atau lewat.
+
+### Scale Orders
+
+Letakkan pesanan secara automatik merentasi julat harga.
+
+Termasuk parameter untuk bilangan pesanan dan jumlah skew (Nisbah antara harga akhir dan permulaan. Contohnya jika skew saiz ialah 2.0 maka pesanan had untuk harga akhir akan diletakkan dengan dua kali ganda saiz harga permulaan. Skew saiz 1.0 mencipta pesanan bersaiz sama.
+
+### Stop Limit
+
+Menjadi pesanan had pada harga pencetus yang ditetapkan.
+
+### Stop Market
+
+Menjadi pesanan pasaran pada harga pencetus yang ditetapkan.
+
+### Chase Orders
+
+Meletakkan pesanan had pada bid/ask terbaik dan mengemas kini secara berterusan sehingga diisi.
+
+**Chase hingga:** menetapkan harga untuk dikejar sehingga harga melebihi had ini.
+
+**Jarak Stalk:** Harga pesanan kekal pada jarak tetap dari bid terbaik.
+
+### Swarm Orders
+
+Membahagikan pesanan anda kepada sub-pesanan yang lebih kecil dan meletakkannya dari masa ke masa untuk mengurangkan kesan pasaran.
+
+Jumlah pesanan boleh dibahagikan kepada sehingga 200 sub-pesanan (saiz minimum \$10 setiap sub-pesanan)\
+\
+Pilih 'Tahap Agresif' antara 1-5, agresif lebih tinggi meletakkan pesanan lebih kerap untuk pengisian lebih cepat.

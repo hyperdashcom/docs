@@ -1,6 +1,6 @@
 ---
 title: "Guía de Trading"
-description: "Breve descripción del trading en Hyperdash"
+description: "Breve descripción del trading en Hyperdash y tipos de órdenes."
 ---
 
 **Spot vs Perpetuos (breve descripción de la diferencia entre spot y perpetuos)**
@@ -42,9 +42,9 @@ Las operaciones pueden alternarse para tomarse como largo o corto.
   - Límite corto: configura rápidamente una orden límite para un corto a ese precio.
   - Stop largo: configura rápidamente una orden límite larga a ese precio.
 
-### **Tipos de Órdenes**
+# **Tipos de Órdenes**
 
-Orden de Mercado vs Límite
+**Orden de Mercado vs Límite**
 
 - Mercado: Una orden que se ejecuta inmediatamente al precio de mercado actual
 - Límite: Una orden que se ejecuta al precio límite seleccionado o mejor
@@ -64,7 +64,9 @@ Orden de Mercado vs Límite
 
 Ejecuta una orden proporcionalmente durante un período de tiempo establecido.
 
-**Aleatorizar (Opcional):** Si Aleatorizar está habilitado, el tamaño de cada sub-operación se ajustará automáticamente dentro de un cierto rango, típicamente hasta 20% mayor o menor que el tamaño original de la operación. Sin embargo, cualquier otro requisito especificado al crear la operación TWAP, como asegurar que el tamaño aleatorizado no exceda el tamaño máximo de una sola operación, se seguirá cumpliendo.
+**Stealth : **Ejecuta tu TWAP a través de nuestra infraestructura en lugar de on-chain para una ejecución más privada.
+
+**Aleatorizar tiempo y/o tamaño (Opcional):** Si Aleatorizar está habilitado, el tamaño y el tiempo de cada sub-operación se ajustará automáticamente dentro de un cierto rango, típicamente hasta 20% mayor o menor que el tamaño original de la operación y ejecutado 20% antes o después.
 
 ### Órdenes Escalonadas
 
@@ -87,3 +89,11 @@ Coloca una orden límite al mejor bid/ask y actualiza continuamente hasta que se
 **Chase hasta:** establece el precio hasta el cual perseguir hasta que el precio exceda este límite.
 
 **Distancia Stalk:** El precio de la orden se mantiene a una distancia fija del mejor bid.
+
+### Órdenes Swarm
+
+Divide tu orden en sub-órdenes más pequeñas y las coloca a lo largo del tiempo para reducir el impacto en el mercado.
+
+La orden total se puede dividir en hasta 200 sub-órdenes (tamaño mínimo de \$10 por sub-orden)\
+\
+Selecciona un 'Nivel de Agresión' entre 1-5, mayor agresión coloca órdenes con más frecuencia para ejecuciones más rápidas.

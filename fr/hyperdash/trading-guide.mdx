@@ -1,6 +1,6 @@
 ---
 title: "Guide de Trading"
-description: "Bref aperçu du trading sur Hyperdash"
+description: "Bref aperçu du trading sur Hyperdash et des types d'ordres."
 ---
 
 **Spot vs Perpétuels (bref aperçu de la différence entre spot et perpétuels)**
@@ -42,9 +42,9 @@ Les trades peuvent être basculés pour être pris en long ou en short.
   - Limit short : configurez rapidement un ordre limite pour un short à ce prix.
   - Stop long : configurez rapidement un ordre limite long à ce prix.
 
-### **Types d'Ordres**
+# **Types d'Ordres**
 
-Ordre au Marché vs Limite
+**Ordre au Marché vs Limite**
 
 - Marché : Un ordre qui s'exécute immédiatement au prix du marché actuel
 - Limite : Un ordre qui s'exécute au prix limite sélectionné ou mieux
@@ -64,7 +64,9 @@ Ordre au Marché vs Limite
 
 Exécute un ordre proportionnellement sur une période définie.
 
-**Randomiser (Optionnel) :** Si Randomiser est activé, la taille de chaque sous-trade sera automatiquement ajustée dans une certaine plage, généralement jusqu'à 20% supérieure ou inférieure à la taille originale du trade. Cependant, toute autre exigence spécifiée lors de la création du trade TWAP, comme s'assurer que la taille randomisée ne dépasse pas la taille maximale d'un seul trade, sera toujours respectée.
+**Stealth : **Exécute votre TWAP via notre infrastructure au lieu de on-chain pour une exécution plus privée.
+
+**Randomiser le temps et/ou la taille (Optionnel) :** Si Randomiser est activé, la taille et le timing de chaque sous-trade seront automatiquement ajustés dans une certaine plage, généralement jusqu'à 20% supérieure ou inférieure à la taille originale du trade et exécutés 20% plus tôt ou plus tard.
 
 ### Ordres Échelonnés
 
@@ -87,3 +89,11 @@ Place un ordre limite au meilleur bid/ask et le met à jour continuellement jusq
 **Chase jusqu'à :** définit le prix jusqu'auquel poursuivre jusqu'à ce que le prix dépasse cette limite.
 
 **Distance Stalk :** Le prix de l'ordre reste à une distance fixe du meilleur bid.
+
+### Ordres Swarm
+
+Divise votre ordre en sous-ordres plus petits et les place au fil du temps pour réduire l'impact sur le marché.
+
+L'ordre total peut être divisé en jusqu'à 200 sous-ordres (taille minimum de \$10 par sous-ordre)\
+\
+Sélectionnez un 'Niveau d'Agressivité' entre 1-5, une agressivité plus élevée place les ordres plus fréquemment pour des exécutions plus rapides.

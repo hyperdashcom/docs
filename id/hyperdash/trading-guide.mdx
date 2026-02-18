@@ -1,6 +1,6 @@
 ---
 title: "Panduan Trading"
-description: "Gambaran singkat trading di Hyperdash"
+description: "Gambaran singkat trading di Hyperdash dan jenis order."
 ---
 
 **Spot vs Perpetual (gambaran singkat perbedaan antara spot dan perpetual)**
@@ -42,9 +42,9 @@ Perdagangan dapat diubah menjadi long atau short.
   - Limit short: cepat mengatur order limit untuk short pada harga tersebut.
   - Stop long: cepat mengatur order limit long pada harga tersebut.
 
-### **Jenis Order**
+# **Jenis Order**
 
-Order Market vs Limit
+**Order Market vs Limit**
 
 - Market: Order yang dieksekusi segera pada harga pasar saat ini
 - Limit: Order yang dieksekusi pada harga limit yang dipilih atau lebih baik
@@ -64,7 +64,9 @@ Order Market vs Limit
 
 Mengeksekusi order secara proporsional selama periode waktu yang ditetapkan.
 
-**Acak (Opsional):** Jika Acak diaktifkan, ukuran setiap sub-perdagangan akan disesuaikan secara otomatis dalam rentang tertentu, biasanya hingga 20% lebih tinggi atau lebih rendah dari ukuran perdagangan asli. Namun, persyaratan lain yang ditentukan saat membuat perdagangan TWAP, seperti memastikan ukuran perdagangan acak tidak melebihi ukuran perdagangan tunggal maksimum, akan tetap diikuti.
+**Stealth : **Mengeksekusi TWAP Anda melalui infrastruktur kami alih-alih on-chain untuk eksekusi yang lebih privat.
+
+**Acak waktu dan/atau ukuran (Opsional):** Jika Acak diaktifkan, ukuran dan waktu setiap sub-perdagangan akan disesuaikan secara otomatis dalam rentang tertentu, biasanya hingga 20% lebih tinggi atau lebih rendah dari ukuran perdagangan asli dan dieksekusi 20% lebih awal atau lebih lambat.
 
 ### Scale Orders
 
@@ -87,3 +89,11 @@ Menempatkan order limit pada bid/ask terbaik dan terus memperbarui hingga terisi
 **Chase hingga:** mengatur harga untuk dikejar hingga harga melebihi batas ini.
 
 **Jarak Stalk:** Harga order tetap pada jarak tetap dari bid terbaik.
+
+### Swarm Orders
+
+Membagi order Anda menjadi sub-order yang lebih kecil dan menempatkannya dari waktu ke waktu untuk mengurangi dampak pasar.
+
+Total order dapat dibagi menjadi hingga 200 sub-order (ukuran minimum \$10 per sub-order)\
+\
+Pilih 'Level Agresi' antara 1-5, agresi lebih tinggi menempatkan order lebih sering untuk pengisian lebih cepat.
