@@ -24,7 +24,8 @@
               "hyperdash/wallet-explore",
               "hyperdash/trading-indicators",
               "hyperdash/cohorts-top-traders-position-changes",
-              "hyperdash/shortcuts"
+              "hyperdash/shortcuts",
+              "hyperdash/get-help"
             ]
           }
         ]
