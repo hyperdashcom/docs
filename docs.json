@@ -64,7 +64,8 @@
               "ko/hyperdash/wallet-explore",
               "ko/hyperdash/trading-indicators",
               "ko/hyperdash/cohorts-top-traders-position-changes",
-              "ko/hyperdash/shortcuts"
+              "ko/hyperdash/shortcuts",
+              "ko/hyperdash/get-help"
             ]
           }
         ]
