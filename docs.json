@@ -65,7 +65,7 @@
               "ko/hyperdash/trading-indicators",
               "ko/hyperdash/cohorts-top-traders-position-changes",
               "ko/hyperdash/shortcuts",
-              "ko/hyperdash/untitled-page"
+              "ko/hyperdash/help"
             ]
           }
         ]
@@ -85,7 +85,7 @@
               "cn/hyperdash/trading-indicators",
               "cn/hyperdash/cohorts-top-traders-position-changes",
               "cn/hyperdash/shortcuts",
-              "cn/hyperdash/untitled-page"
+              "cn/hyperdash/help"
             ]
           }
         ]
@@ -105,7 +105,7 @@
               "pt/hyperdash/trading-indicators",
               "pt/hyperdash/cohorts-top-traders-position-changes",
               "pt/hyperdash/shortcuts",
-              "pt/hyperdash/untitled-page"
+              "pt/hyperdash/help"
             ]
           }
         ]
@@ -125,7 +125,7 @@
               "jp/hyperdash/trading-indicators",
               "jp/hyperdash/cohorts-top-traders-position-changes",
               "jp/hyperdash/shortcuts",
-              "jp/hyperdash/file"
+              "jp/hyperdash/help"
             ]
           }
         ]
@@ -145,7 +145,7 @@
               "fr/hyperdash/trading-indicators",
               "fr/hyperdash/cohorts-top-traders-position-changes",
               "fr/hyperdash/shortcuts",
-              "fr/hyperdash/untitled-page"
+              "fr/hyperdash/help"
             ]
           }
         ]
@@ -165,7 +165,7 @@
               "de/hyperdash/trading-indicators",
               "de/hyperdash/cohorts-top-traders-position-changes",
               "de/hyperdash/shortcuts",
-              "de/hyperdash/hilfe-erhalten"
+              "de/hyperdash/help"
             ]
           }
         ]
@@ -185,7 +185,7 @@
               "id/hyperdash/trading-indicators",
               "id/hyperdash/cohorts-top-traders-position-changes",
               "id/hyperdash/shortcuts",
-              "id/hyperdash/untitled-page"
+              "id/hyperdash/help"
             ]
           }
         ]
@@ -205,7 +205,7 @@
               "ru/hyperdash/trading-indicators",
               "ru/hyperdash/cohorts-top-traders-position-changes",
               "ru/hyperdash/shortcuts",
-              "ru/hyperdash/poluchit-pomosch"
+              "ru/hyperdash/help"
             ]
           }
         ]
