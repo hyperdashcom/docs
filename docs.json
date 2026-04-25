@@ -45,7 +45,7 @@
               "es/hyperdash/trading-indicators",
               "es/hyperdash/cohorts-top-traders-position-changes",
               "es/hyperdash/shortcuts",
-              "es/hyperdash/obtener-ayuda"
+              "es/hyperdash/get-help"
             ]
           }
         ]
@@ -64,8 +64,7 @@
               "ko/hyperdash/wallet-explore",
               "ko/hyperdash/trading-indicators",
               "ko/hyperdash/cohorts-top-traders-position-changes",
-              "ko/hyperdash/shortcuts",
-              "ko/hyperdash/help"
+              "ko/hyperdash/shortcuts"
             ]
           }
         ]
@@ -84,8 +83,7 @@
               "cn/hyperdash/wallet-explore",
               "cn/hyperdash/trading-indicators",
               "cn/hyperdash/cohorts-top-traders-position-changes",
-              "cn/hyperdash/shortcuts",
-              "cn/hyperdash/help"
+              "cn/hyperdash/shortcuts"
             ]
           }
         ]
@@ -104,8 +102,7 @@
               "pt/hyperdash/wallet-explore",
               "pt/hyperdash/trading-indicators",
               "pt/hyperdash/cohorts-top-traders-position-changes",
-              "pt/hyperdash/shortcuts",
-              "pt/hyperdash/help"
+              "pt/hyperdash/shortcuts"
             ]
           }
         ]
@@ -124,8 +121,7 @@
               "jp/hyperdash/wallet-explore",
               "jp/hyperdash/trading-indicators",
               "jp/hyperdash/cohorts-top-traders-position-changes",
-              "jp/hyperdash/shortcuts",
-              "jp/hyperdash/help"
+              "jp/hyperdash/shortcuts"
             ]
           }
         ]
@@ -144,8 +140,7 @@
               "fr/hyperdash/wallet-explore",
               "fr/hyperdash/trading-indicators",
               "fr/hyperdash/cohorts-top-traders-position-changes",
-              "fr/hyperdash/shortcuts",
-              "fr/hyperdash/help"
+              "fr/hyperdash/shortcuts"
             ]
           }
         ]
@@ -164,8 +159,7 @@
               "de/hyperdash/wallet-explore",
               "de/hyperdash/trading-indicators",
               "de/hyperdash/cohorts-top-traders-position-changes",
-              "de/hyperdash/shortcuts",
-              "de/hyperdash/help"
+              "de/hyperdash/shortcuts"
             ]
           }
         ]
@@ -184,8 +178,7 @@
               "id/hyperdash/wallet-explore",
               "id/hyperdash/trading-indicators",
               "id/hyperdash/cohorts-top-traders-position-changes",
-              "id/hyperdash/shortcuts",
-              "id/hyperdash/help"
+              "id/hyperdash/shortcuts"
             ]
           }
         ]
@@ -204,8 +197,7 @@
               "ru/hyperdash/wallet-explore",
               "ru/hyperdash/trading-indicators",
               "ru/hyperdash/cohorts-top-traders-position-changes",
-              "ru/hyperdash/shortcuts",
-              "ru/hyperdash/help"
+              "ru/hyperdash/shortcuts"
             ]
           }
         ]
