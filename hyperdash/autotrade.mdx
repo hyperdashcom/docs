@@ -18,7 +18,7 @@ Copytrade is one execution engine built on Hyperdash. It mirrors (Copytrade) or 
     **Create New**: Hyperdash creates a dedicated wallet and funds it with USDC from your primary wallet. **Use Existing**: connect your own wallet holding at least \$100 USDC, create an API key (valid 180 days), approve the 0.05% builder fee, and enable unified account mode. Funds stay in your own wallet.
   </Step>
   <Step title="Start and manage">
-    Press **Start**. The wallet shows as Running on the Copytrade tab with its equity, PNL, positions, and logs. Open your** Copytrade Settings** any time to edit configuration, pause, or resume.
+    Press **Start**. The wallet shows as Running on the Copytrade tab with its equity, PNL, positions, and logs. Open **Copytrade Settings** any time to edit configuration, pause, or resume.
   </Step>
 </Steps>
 
@@ -29,7 +29,7 @@ Copytrade is one execution engine built on Hyperdash. It mirrors (Copytrade) or 
 | Trading mode | Copytrade mirrors positions, Countertrade takes the opposite side | Copytrade |
 | Target traders | Up to 10 addresses per wallet, equal or custom weights | Equal weights |
 | Max position leverage | Caps copied positions even when the target uses more, 1x to 40x | 20x |
-| Only copy newly opened positions | Skips positions already open when Autotrade starts; changeable only while stopped | Off |
+| Only copy newly opened positions | Skips positions already open when Copytrade starts; changeable only while stopped | Off |
 | Max worse entry | How much worse your entry can be vs the trader, 0% to 50% | 10% |
 | Include spot and staked assets | Includes spot and staked HYPE in copy sizing | Off |
 | Asset filters | Whitelist or blacklist specific assets (Assets tab in settings) | All assets |
@@ -38,7 +38,7 @@ Copytrade is one execution engine built on Hyperdash. It mirrors (Copytrade) or 
 
 - **Stop** always closes the wallet's open positions, so nothing is left unmanaged. A stopped wallet can be resumed later.
 - **Archive** closes positions, returns a Hyperdash-created wallet's balance to your primary wallet, and moves it to Archived. Cannot be undone. For connected wallets, you choose whether positions close automatically or stay open in your custody.
-- **Delete** permanently removes an autotrade wallet from your list.
+- **Delete** permanently removes a Copytrade wallet from your list.
 
 <Note>
   Copying a trader tagged as algorithmic triggers an in-app warning: copytrading may not replicate their results due to execution speed differences.
@@ -56,6 +56,6 @@ Copytrade is one execution engine built on Hyperdash. It mirrors (Copytrade) or 
   </Accordion>
 
   <Accordion title="Can I change traders after starting?">
-    Yes, from the Allocation tab in Autotrade Settings. Removing a trader closes its copied positions on the next sync.
+    Yes, from the Allocation tab in Copytrade Settings. Removing a trader closes its copied positions on the next sync.
   </Accordion>
 </AccordionGroup>
