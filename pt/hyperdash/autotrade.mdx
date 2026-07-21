@@ -1,0 +1,61 @@
+---
+title: "Copytrading"
+description: "Copie ou opere contra qualquer trader automaticamente a partir de uma carteira dedicada, com limites de risco configuráveis."
+---
+
+O Copytrade é um motor de execução único construído no Hyperdash. Ele espelha (Copytrade) ou toma o lado oposto (Countertrade) das posições perp de até 10 traders-alvo, negociando automaticamente a partir de uma carteira dedicada a essa estratégia.
+
+## Como funciona
+
+<Steps>
+  <Step title="Escolha seus alvos">
+    Comece pelo perfil de um trader, pela seção Copytraders do [Explorar](/pt/hyperdash/wallet-explore) ou cole qualquer endereço de carteira. Uma carteira de Copytrade pode seguir até 10 traders, com o capital dividido igualmente ou por pesos personalizados.
+  </Step>
+  <Step title="Configure o risco">
+    Escolha Copytrade ou Countertrade, então defina seu teto de alavancagem, regras de entrada e opções de dimensionamento (tabela abaixo). Para um único trader, um gráfico projeta o PNL de 30 dias dele sobre uma alocação de \$1,000, invertido para countertrading.
+  </Step>
+  <Step title="Financie uma carteira">
+    **Criar Nova**: o Hyperdash cria uma carteira dedicada e a financia com USDC da sua carteira principal. **Usar Existente**: conecte a sua própria carteira com pelo menos \$100 em USDC, crie uma chave de API (válida por 180 dias), aprove a taxa de builder de 0.05% e ative o modo de conta unificada. Os fundos permanecem na sua própria carteira.
+  </Step>
+  <Step title="Inicie e gerencie">
+    Pressione **Iniciar**. A carteira aparece como Em execução na aba Copy Trade, com patrimônio, PNL, posições e logs. Abra as **Configurações de Copytrade** a qualquer momento para editar a configuração, pausar ou retomar.
+  </Step>
+</Steps>
+
+## Configurações
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Modo de negociação | Copytrade espelha as posições, Countertrade toma o lado oposto | Copytrade |
+| Traders-alvo | Até 10 endereços por carteira, pesos iguais ou personalizados | Pesos iguais |
+| Alavancagem máxima da posição | Limita as posições copiadas mesmo quando o alvo usa mais, de 1x a 40x | 20x |
+| Copiar apenas posições recém-abertas | Ignora posições já abertas quando o Copytrade inicia; alterável apenas enquanto parado | Desativado |
+| Entrada Pior Máx | O quanto a sua entrada pode ser pior que a do trader, de 0% a 50% | 10% |
+| Incluir spot e ativos em staking | Inclui spot e HYPE em staking no dimensionamento das cópias | Desativado |
+| Filtros de ativos | Lista de ativos permitidos ou bloqueados (aba Ativos nas configurações) | Todos os ativos |
+
+## Parar, arquivar, excluir
+
+- **Parar** sempre fecha as posições abertas da carteira, para que nada fique sem gestão. Uma carteira parada pode ser retomada depois.
+- **Arquivar** fecha as posições, devolve o saldo de uma carteira criada pelo Hyperdash à sua carteira principal e a move para Arquivadas. Não pode ser desfeito. Para carteiras conectadas, você escolhe se as posições fecham automaticamente ou permanecem abertas sob a sua custódia.
+- **Excluir** remove permanentemente uma carteira de Copytrade da sua lista.
+
+<Note>
+  Copiar um trader marcado como algorítmico dispara um aviso no app: o copytrading pode não replicar os resultados dele devido a diferenças na velocidade de execução.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Quanto custa o Copytrading?">
+    Negociar pelo Hyperdash usa uma taxa de builder de 0.05%, que as carteiras conectadas aprovam durante a configuração. As taxas de negociação padrão da exchange se aplicam.
+  </Accordion>
+
+  <Accordion title="Quem guarda meus fundos?">
+    Uma carteira criada é gerenciada sob a sua conta Hyperdash, e arquivá-la devolve o saldo à sua carteira principal. Uma carteira conectada permanece sob a sua custódia: o Hyperdash a negocia por meio de uma chave de API que expira após 180 dias e pode ser regenerada pela aba Copy Trade.
+  </Accordion>
+
+  <Accordion title="Posso trocar de traders depois de começar?">
+    Sim, pela aba Alocação nas Configurações de Copytrade. Remover um trader fecha as posições copiadas dele na próxima sincronização.
+  </Accordion>
+</AccordionGroup>

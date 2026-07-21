@@ -1,0 +1,38 @@
+---
+title: "Market-Order"
+description: "Sofortige Ausführung zum besten verfügbaren Preis, mit harter Obergrenze für die Slippage."
+---
+
+Eine Market-Order kauft oder verkauft sofort zu den besten Preisen im Orderbuch. Sie stellt Geschwindigkeit und Ausführungssicherheit über einen bestimmten Preis und ist der Standard-Ordertyp im Trade-Panel von Hyperdash.
+
+## So werden Orders platziert
+
+- Sendet eine Immediate-or-Cancel-Order, die Liquidität vom besten Preis ausgehend aufnimmt, bis Ihre Größe ausgeführt ist.
+- Die Order wird ausgehend vom aktuellen Mittelkurs zuzüglich Ihrer maximalen Slippage bepreist und kann daher nicht schlechter als diese Obergrenze ausgeführt werden. Größe, die die Obergrenze überschreiten würde, wird storniert und bleibt nicht im Buch liegen. Eine vollständige Ausführung ist in illiquiden Märkten daher nicht garantiert.
+- Die aus dem Live-Orderbuch geschätzte Slippage wird vor dem Absenden neben Ihrer Obergrenze angezeigt, zum Beispiel "Est: 0.01% / Max 8%".
+- Optionale Take-Profit- und Stop-Loss-Trigger werden zusammen mit dem Einstieg übermittelt.
+
+## Wann einsetzen
+
+- Sie müssen jetzt rein oder raus, und Unmittelbarkeit zählt mehr als ein paar Basispunkte.
+- Sie handeln schnelle Bewegungen, bei denen eine ruhende Order zurückbleiben würde.
+- Sie schließen eine Position schnell, kombiniert mit Nur reduzieren.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Größe | Im Asset oder in USD. Der Schieberegler bemisst die Order als Prozentsatz der verfügbaren Margin beim aktuellen Hebel. | Keiner |
+| Take-Profit / Stop-Loss (optional) | Hängen Sie TP- und SL-Trigger an, nach Preis oder nach Gewinn- und Verlustprozentsatz. | Aus |
+| Nur reduzieren (optional) | Wird bei einer offenen Position angezeigt. Die Order kann sie nur reduzieren, niemals vergrößern oder umkehren. | Aus |
+| Slippage | Ihre maximale Slippage, der schlechteste Ausführungspreis, den Sie akzeptieren. Klicken Sie auf die Zeile, um sie anzupassen. | 8 % |
+
+Das Panel zeigt außerdem Liquidationspreis, Orderwert, erforderliche Margin und Gebühren. Der Mindestorderwert beträgt \$10.
+
+## Beispiel
+
+BTC notiert bei \$118,400. Sie kaufen 0.25 BTC per Market-Order (\$29,600 Nominalwert) mit 10x Hebel und setzen \$2,960 Margin ein. Das Panel schätzt 0.01 % Slippage, Sie erwarten also eine durchschnittliche Ausführung nahe \$118,412.
+
+<Note>
+  Die geschätzte Slippage ist eine Schätzung, keine Garantie. In einem schnellen Markt kann die Ausführung überall bis zu Ihrer maximalen Slippage landen.
+</Note>

@@ -1,0 +1,58 @@
+---
+title: "Billeteras API y Seguridad"
+description: "Cómo funcionan las billeteras de agente, los métodos de inicio de sesión y la protección de dos factores en Hyperdash."
+---
+
+Hyperdash ejecuta tus operaciones a través de una billetera API de agente: una clave de trading separada que tu propia billetera aprueba para firmar órdenes en tu nombre. Esto te permite operar sin confirmar cada orden en tu billetera, mientras que los retiros y las transferencias siguen requiriendo una firma de tu propia billetera.
+
+## Cómo funcionan las billeteras de agente
+
+<Steps>
+  <Step title="Conecta o crea una billetera">
+    En la configuración de la Billetera de terminal, conecta una billetera existente o crea una nueva billetera sin custodia protegida por Turnkey. Consulta [Incorporación y Depósitos](/es/hyperdash/onboarding-deposits).
+  </Step>
+  <Step title="Aprueba el agente">
+    Hyperdash genera un par de claves nuevo en tu navegador, y tu billetera firma una aprobación que lo registra como tu agente de trading. La clave de agente es válida por 180 días y se cifra en tu navegador antes de almacenarse.
+  </Step>
+  <Step title="Aprueba el builder">
+    Una segunda firma habilita el trading en Hyperdash. A partir de ahí, cada orden que colocas, incluidos los [tipos de órdenes](/es/hyperdash/orders/overview) automatizados, se firma con la clave de agente.
+  </Step>
+</Steps>
+
+El **Administrador de agentes** muestra la dirección y el vencimiento de tu agente con los estados Activo, Vence en 30 días, Vence pronto y Vencido, más una acción de **Actualizar clave del agente**.
+
+## Preguntas frecuentes de seguridad
+
+<AccordionGroup>
+  <Accordion title="¿Qué puede hacer una billetera de agente, y qué no puede hacer?">
+    La clave de agente firma solo acciones de trading: colocar, modificar y cancelar órdenes. Los retiros y las transferencias de activos se firman con tu propia billetera, nunca con el agente.
+  </Accordion>
+
+  <Accordion title="¿Quién custodia mis claves?">
+    La clave privada de tu billetera nunca sale de tu billetera; tú apruebas el agente y firmas los retiros por tu cuenta. Las billeteras creadas a través de Hyperdash son sin custodia y están protegidas por Turnkey. La clave de agente se genera en tu navegador y se cifra ahí antes de almacenarse, que es lo que impulsa funciones como el [Copytrading](/es/hyperdash/autotrade).
+  </Accordion>
+
+  <Accordion title="¿Cómo actualizo o revoco un agente?">
+    Abre el Administrador de agentes y usa **Actualizar clave del agente**: una clave completamente nueva reemplaza a la anterior. Debes tener conectada la billetera original; la app bloquea actualizaciones desde una dirección distinta. Repetir la configuración de la billetera también da de baja los agentes de Hyperdash anteriores antes de aprobar uno nuevo.
+  </Accordion>
+
+  <Accordion title="¿Qué pasa cuando mi agente vence?">
+    Las claves de agente son válidas por 180 días. Una clave vencida ya no puede firmar órdenes, así que actualízala desde el Administrador de agentes para seguir operando.
+  </Accordion>
+
+  <Accordion title="¿Qué métodos de inicio de sesión están soportados?">
+    Google, Apple, enlace mágico por correo electrónico o inicio de sesión con billetera. El inicio de sesión con billetera solo te pide firmar un mensaje: es gratuito y no envía ninguna transacción.
+  </Accordion>
+
+  <Accordion title="¿Cómo configuro la protección de dos factores?">
+    En Configuración, bajo Seguridad, activa una clave de acceso (biometría o una llave de seguridad) o una app de autenticación. La configuración de la app de autenticación muestra un código QR o una clave de configuración, verifica un código de 6 dígitos y luego emite códigos de respaldo de un solo uso que puedes descargar. Las claves de acceso deben eliminarse antes de activar una app de autenticación.
+  </Accordion>
+
+  <Accordion title="¿Cuándo se me pide la verificación de dos factores?">
+    Después de iniciar sesión, con la opción de confiar en el dispositivo por 30 días, y de nuevo antes de retirar fondos. Si pierdes tu dispositivo de 2FA, cada código de recuperación de respaldo funciona una sola vez.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Guarda tus códigos de recuperación de respaldo cuando actives una app de autenticación. Si pierdes tu dispositivo de 2FA y no tienes códigos, puedes perder el acceso a tu cuenta de forma permanente.
+</Note>

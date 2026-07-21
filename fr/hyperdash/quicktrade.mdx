@@ -1,0 +1,60 @@
+---
+title: "Trading rapide"
+description: "Trading en un clic : des boutons d'achat et de vente à tailles prédéfinies qui envoient les ordres instantanément avec vos réglages sauvegardés."
+---
+
+Le Trading rapide (Quick Trade) est du trading en un clic pour les marchés rapides : deux rangées de boutons à tailles prédéfinies, achat au-dessus de vente, qui envoient des ordres à l'instant où vous appuyez, sans toucher au formulaire d'ordre. Il se présente comme un widget **Trading rapide** que vous ajoutez à votre disposition depuis le tiroir de widgets (catégorie Outils), et les mêmes boutons apparaissent en ligne dans le widget Actualités quand vous cliquez sur la pastille d'un ticker dans un titre. Le Trading rapide fonctionne uniquement sur les marchés perps, y compris les [marchés xyz](/fr/hyperdash/markets-assets) ; le spot n'est pas pris en charge.
+
+## Fonctionnement
+
+<Steps>
+  <Step title="Liez un marché">
+    Ajoutez le widget Trading rapide et liez-le à un marché perp. L'en-tête du widget affiche le prix mark en direct, la variation 24h, un contrôle de levier et le type d'ordre actif.
+  </Step>
+  <Step title="Définissez vos tailles et le type d'ordre">
+    L'engrenage du widget ouvre les Paramètres, où vous choisissez trois tailles de boutons, le type d'ordre, ainsi que le comportement du levier et de la confirmation. Chaque modification est sauvegardée immédiatement : sur votre compte quand vous êtes connecté, et dans votre navigateur dans tous les cas.
+  </Step>
+  <Step title="Déclenchez">
+    Appuyez sur un bouton de taille dans la rangée d'achat ou de vente. Avec la confirmation activée, une fenêtre ancrée à ce bouton résume le marché, le sens, la taille et le type d'ordre : confirmez pour envoyer, ou appuyez sur Échap ou cliquez ailleurs pour annuler. Cochez **Ne plus demander** pour un vrai trading en un clic.
+  </Step>
+</Steps>
+
+Chaque pression envoie son propre ordre indépendant, donc des clics rapides consécutifs fonctionnent en parallèle : les boutons ne sont jamais verrouillés pendant qu'un ordre est en cours.
+
+## Réglages
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Tailles des boutons | Trois montants en USD partagés par les rangées d'achat et de vente, de \$10 à \$10,000,000 chacun | \$100, \$1,000, \$10,000 |
+| Signification des tailles | **Notionnel** : un bouton \$10,000 ouvre une position de \$10,000. **Marge** : un bouton \$10,000 dépense \$10,000 de marge, et la taille de la position est la marge multipliée par le levier. | Notionnel |
+| Type d'ordre | [Marché](/fr/hyperdash/orders/market), Limite au médian (place un [ordre limite](/fr/hyperdash/orders/limit) au prix médian), [Poursuite](/fr/hyperdash/orders/chase) ou [Essaim](/fr/hyperdash/orders/swarm) | Marché |
+| Glissement maximal | Ordres au marché uniquement : glissement maximal depuis le médian, jusqu'à 50% | 1% |
+| Clips | Essaim uniquement : nombre de clips, de 2 à 200 | 5 |
+| Agressivité | Essaim uniquement : de 1 à 5 | 3 |
+| Clips irréguliers | Essaim uniquement : fait varier la taille des clips pour une répartition moins uniforme | Désactivé |
+| Toujours utiliser le levier maximal | Passe le marché à son levier maximal avant l'envoi. Désactivé, les ordres utilisent le levier que vous avez déjà défini pour ce marché. Choisir un levier manuellement dans le widget désactive cette option. | Désactivé |
+| Confirmer avant de placer | Affiche la fenêtre de résumé de l'ordre avant tout envoi | Activé |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Quels marchés le Trading rapide prend-il en charge ?">
+    Les marchés perps uniquement, y compris les marchés xyz (actions, indices, matières premières, FX). Les marchés spot ne sont pas pris en charge.
+  </Accordion>
+
+  <Accordion title="Quelle est la taille minimale d'un ordre ?">
+    \$10 de notionnel par ordre. L'Essaim nécessite au moins \$20 de notionnel afin de pouvoir se diviser en deux clips.
+  </Accordion>
+
+  <Accordion title="Que se passe-t-il si le levier maximal ne peut pas être appliqué ?">
+    Avec un dimensionnement en notionnel, l'ordre part quand même à votre levier actuel et vous recevez un avertissement. Avec un dimensionnement en marge, l'ordre est annulé, car la taille de la position dépend du levier qui n'a pas pu être appliqué.
+  </Accordion>
+
+  <Accordion title="Mes réglages me suivent-ils entre appareils ?">
+    Quand vous êtes connecté, les réglages sont sauvegardés sur votre compte. Ils sont aussi répliqués dans votre navigateur, ils survivent donc à un rafraîchissement et fonctionnent hors connexion sur cet appareil.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Avec la confirmation désactivée, une pression envoie l'ordre immédiatement et il n'y a pas de retour en arrière. Gardez **Confirmer avant de placer** activé jusqu'à ce que vos tailles et votre type d'ordre soient bien réglés.
+</Note>

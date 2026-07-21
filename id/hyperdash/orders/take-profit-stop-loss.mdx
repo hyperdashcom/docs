@@ -1,0 +1,40 @@
+---
+title: "Take Profit dan Stop Loss"
+description: "Pasang pemicu keluar pada posisi yang dieksekusi sebagai order market, limit, chase, atau TWAP saat harga Anda tercapai."
+---
+
+Take Profit dan Stop Loss (TP/SL) menentukan keluar Anda di muka: take profit menutup sebagian atau seluruh posisi pada level yang untung, dan stop loss membatasi kerugian Anda. Anda dapat melampirkan TP/SL saat memasang order atau menambahkannya ke posisi terbuka mana pun, dan Anda memilih cara setiap keluar dieksekusi.
+
+## Cara order ditempatkan
+
+- Masing-masing TP dan SL adalah pemicu. Tidak ada order baru yang menunggu di order book hingga harga mencapai pemicu Anda, lalu order keluar ditempatkan secara otomatis.
+- Tetapkan masing-masing berdasarkan harga, atau berdasarkan untung/rugi dalam persen atau \$. Kolom lainnya dikonversi otomatis dari harga masuk dan ukuran posisi Anda.
+- Pilih eksekusi keluar untuk masing-masing pemicu: **Market** menutup segera dengan slippage dibatasi 5%, **Limit** memasang order pada harga pemicu, **Chase** mengikuti bid atau ask terbaik, dan **TWAP** memecah keluar selama jendela waktu tertentu.
+- Pemicu mana pun yang menyala lebih dulu memulai keluar, dan strategi memantaunya hingga ukuran tersebut tertutup.
+- **Configure Amount** menutup sebagian posisi alih-alih seluruhnya, ditetapkan sebagai persen posisi atau jumlah aset tetap.
+
+## Kapan digunakan
+
+- Mengapit posisi dengan target profit dan batas risiko dalam satu langkah.
+- Menegakkan disiplin risiko tanpa harus memantau layar.
+- Keluar bertahap: ambil sebagian profit di target sementara stop tetap melindungi seluruh posisi.
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Harga TP / Untung | Pemicu take profit. Masukkan harga, atau keuntungan dalam % atau \$. Harus di atas harga mark untuk long dan di bawahnya untuk short. | Tidak ada |
+| Harga SL / Rugi | Pemicu stop loss. Masukkan harga, atau kerugian dalam % atau \$. Harus di bawah harga mark untuk long dan di atasnya untuk short. | Tidak ada |
+| Tipe Order (per pemicu) | Eksekusi Market, Limit, Chase, atau TWAP setelah terpicu. | Market |
+| Durasi (khusus TWAP) | Jendela waktu untuk memecah keluar TWAP, dari 30 detik hingga 1 jam. | 5m |
+| Configure Amount (opsional) | Ukuran keluar parsial, sebagai persen posisi atau jumlah aset. | 100% posisi |
+
+Minimal satu dari TP atau SL wajib diisi. Keduanya dapat dipasang pada posisi yang sama.
+
+## Contoh
+
+Anda long 0.2 BTC dari \$65,000. Anda memasang take profit di \$71,500 (untung 10%) sebagai keluar Limit dan stop loss di \$61,750 (rugi 5%) sebagai keluar Market, keduanya pada ukuran penuh. Jika BTC naik ke \$71,500, limit sell menunggu di harga itu. Jika BTC justru turun ke \$61,750, posisi langsung ditutup pada harga pasar dengan slippage dibatasi 5%.
+
+<Note>
+  Keluar non-market membawa risiko pengisian: keluar limit, chase, atau TWAP mungkin tidak menutup posisi sepenuhnya saat pergerakan cepat. Stop market juga bisa terisi lebih buruk dari harga pemicunya jika pasar melompati level Anda.
+</Note>

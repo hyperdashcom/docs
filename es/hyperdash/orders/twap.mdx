@@ -1,0 +1,37 @@
+---
+title: "TWAP"
+description: "Ejecuta órdenes grandes en partes iguales a lo largo del tiempo para reducir el impacto de mercado."
+---
+
+TWAP (precio promedio ponderado por tiempo) ejecuta tu orden en partes iguales durante una duración que tú defines, buscando el precio promedio del mercado en esa ventana en lugar de una sola ejecución. El objetivo es minimizar el impacto de mercado cuando tu tamaño es grande en relación con la liquidez disponible.
+
+## Cómo coloca las órdenes
+
+- Divide tu tamaño total en subórdenes iguales, una cada 30 segundos a lo largo de tu duración. El formulario muestra una vista previa del tiempo de ejecución, el número de órdenes y el tamaño por suborden.
+- Con Sigilo activado, el TWAP se ejecuta a través de nuestra infraestructura en lugar de on-chain para una ejecución más privada.
+- Las opciones de aleatorización varían los tamaños de las subórdenes y, con Sigilo, los intervalos, para hacer el patrón de ejecución menos predecible.
+- Un TWAP en curso puede editarse o detenerse. Al editarlo, el nuevo tamaño total debe ser mayor que la cantidad ya ejecutada.
+
+## Cuándo usarlo
+
+- Entrar o salir de una posición grande sin mover el mercado
+- Promediar una posición durante una ventana definida en lugar de apostar por el momento de una sola ejecución
+- Hacer tu ejecución más difícil de rastrear con Sigilo y las opciones de aleatorización
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Duración | Ventana de ejecución en horas y minutos. Debe ser mayor a 5 minutos y menor a 24 horas. | Ninguno |
+| Sigilo | Ejecuta tu TWAP a través de nuestra infraestructura en lugar de on-chain para una ejecución más privada. | Activado |
+| Aleatorizar tamaño (opcional) | Ajusta aleatoriamente el tamaño de cada suborden hasta +/-20%, respetando las restricciones del TWAP. | Desactivado |
+| Aleatorizar tiempo (opcional) | Disponible con Sigilo. Desplaza aleatoriamente cada intervalo hasta +/-20% para hacer el timing menos predecible. | Desactivado |
+| Solo Reducir (opcional) | Restringe el TWAP a reducir una posición existente. | Desactivado |
+
+## Ejemplo
+
+Quieres comprar 2 BTC en 2 horas. Son 240 intervalos de 30 segundos, así que Hyperdash coloca 240 subórdenes de aproximadamente 0.0083 BTC cada una. Con BTC a \$118,000, cada suborden es de unos \$980 de nocional. Con Aleatorizar tamaño activado, las subórdenes varían de tamaño pero siguen sumando 2 BTC.
+
+<Note>
+  Cada suborden debe valer al menos \$10. Si tu tamaño repartido en la duración cae por debajo de ese valor, acorta la duración o aumenta el tamaño.
+</Note>

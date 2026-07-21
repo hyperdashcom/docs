@@ -1,0 +1,60 @@
+---
+title: "Quick Trade"
+description: "Ein-Klick-Handel: Kauf- und Verkaufsschaltflächen mit voreingestellten Größen, die Orders sofort mit Ihren gespeicherten Einstellungen absenden."
+---
+
+Quick Trade ist Ein-Klick-Handel für schnelle Märkte: zwei Reihen von Schaltflächen mit voreingestellten Größen, Kaufen über Verkaufen, die Orders in dem Moment absenden, in dem Sie sie drücken, ohne das Orderformular zu berühren. Es kommt als **Quick Trade**-Widget, das Sie aus der Widget-Leiste (Kategorie Tools) zu Ihrem Layout hinzufügen, und dieselben Schaltflächen erscheinen inline im News-Widget, wenn Sie auf ein Ticker-Kürzel in einer Schlagzeile klicken. Quick Trade funktioniert nur auf Perp-Märkten, einschließlich [xyz-Märkten](/de/hyperdash/markets-assets); Spot wird nicht unterstützt.
+
+## So funktioniert es
+
+<Steps>
+  <Step title="Markt verknüpfen">
+    Fügen Sie das Quick-Trade-Widget hinzu und verknüpfen Sie es mit einem Perp-Markt. Der Widget-Kopf zeigt den Live-Markpreis, die 24h-Änderung, eine Hebelsteuerung und den aktiven Ordertyp.
+  </Step>
+  <Step title="Größen und Ordertyp festlegen">
+    Das Zahnrad im Widget öffnet die Einstellungen, in denen Sie drei Schaltflächengrößen, den Ordertyp sowie Hebel- und Bestätigungsverhalten wählen. Jede Änderung wird sofort gespeichert: in Ihrem Konto, wenn Sie angemeldet sind, und in jedem Fall in Ihrem Browser.
+  </Step>
+  <Step title="Auslösen">
+    Drücken Sie eine Größenschaltfläche in der Kauf- oder Verkaufszeile. Bei aktivierter Bestätigung fasst ein an der Schaltfläche verankertes Popover Markt, Seite, Größe und Ordertyp zusammen: Bestätigen Sie zum Senden, oder drücken Sie Escape oder klicken Sie daneben, um abzubrechen. Aktivieren Sie **Nicht erneut fragen** für echten Ein-Klick-Handel.
+  </Step>
+</Steps>
+
+Jeder Druck sendet eine eigene, unabhängige Order, schnelle aufeinanderfolgende Klicks laufen also parallel: Schaltflächen werden nie gesperrt, während eine Order unterwegs ist.
+
+## Einstellungen
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Schaltflächengrößen | Drei USD-Beträge, die Kauf- und Verkaufszeile gemeinsam nutzen, jeweils \$10 bis \$10,000,000 | \$100, \$1,000, \$10,000 |
+| Größen bedeuten | **Nominalwert**: Eine \$10,000-Schaltfläche eröffnet eine Position über \$10,000. **Margin**: Eine \$10,000-Schaltfläche setzt \$10,000 Margin ein, die Positionsgröße entspricht Margin mal Hebel. | Nominalwert |
+| Ordertyp | [Markt](/de/hyperdash/orders/market), Limit zum Mid-Preis (legt eine [Limit-Order](/de/hyperdash/orders/limit) zum Mittelkurs ins Orderbuch), [Chase](/de/hyperdash/orders/chase) oder [Swarm](/de/hyperdash/orders/swarm) | Markt |
+| Max. Slippage | Nur Market-Orders: maximale Slippage vom Mittelkurs, bis zu 50 % | 1 % |
+| Teilorders | Nur Swarm: Anzahl der Clips, 2 bis 200 | 5 |
+| Aggressivität | Nur Swarm: 1 bis 5 | 3 |
+| Unregelmäßige Clips | Nur Swarm: variiert die Clip-Größen, damit die Aufteilung weniger gleichmäßig ist | Aus |
+| Immer maximalen Hebel verwenden | Hebt den Markt vor dem Absenden auf seinen maximalen Hebel an. Ist dies deaktiviert, verwenden Orders den bereits für diesen Markt eingestellten Hebel. Die manuelle Wahl eines Hebels im Widget schaltet dies aus. | Aus |
+| Vor dem Platzieren bestätigen | Zeigt das Popover mit der Orderzusammenfassung, bevor etwas gesendet wird | An |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Welche Märkte unterstützt Quick Trade?">
+    Nur Perp-Märkte, einschließlich xyz-Märkten (Aktien, Indizes, Rohstoffe, Devisen). Spot-Märkte werden nicht unterstützt.
+  </Accordion>
+
+  <Accordion title="Was ist die Mindestordergröße?">
+    \$10 Nominalwert je Order. Swarm benötigt mindestens \$20 Nominalwert, um in zwei Clips aufteilen zu können.
+  </Accordion>
+
+  <Accordion title="Was passiert, wenn der maximale Hebel nicht angewendet werden kann?">
+    Bei Nominalwert-Bemessung wird die Order trotzdem mit Ihrem aktuellen Hebel gesendet und Sie erhalten eine Warnung. Bei Margin-Bemessung wird die Order abgebrochen, weil die Positionsgröße von dem Hebel abhängt, der nicht gesetzt werden konnte.
+  </Accordion>
+
+  <Accordion title="Folgen mir meine Einstellungen über Geräte hinweg?">
+    Wenn Sie angemeldet sind, werden Einstellungen in Ihrem Konto gespeichert. Sie werden zusätzlich in Ihrem Browser gespiegelt, überstehen also ein Neuladen und funktionieren auf diesem Gerät auch ohne Anmeldung.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Bei deaktivierter Bestätigung sendet ein Druck die Order sofort, und es gibt kein Zurück. Lassen Sie **Vor dem Platzieren bestätigen** aktiviert, bis Ihre Größen und Ihr Ordertyp eingespielt sind.
+</Note>

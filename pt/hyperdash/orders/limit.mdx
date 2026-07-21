@@ -1,0 +1,38 @@
+---
+title: "Ordem Limite"
+description: "Deixe uma ordem no livro e execute apenas ao preço escolhido ou melhor."
+---
+
+Uma ordem limite executa apenas ao preço que você define, ou melhor: compra ao seu preço limite ou abaixo, vende ao seu preço limite ou acima. Você controla o preço; a contrapartida é que a execução não é garantida.
+
+## Como as ordens são colocadas
+
+- Coloca uma única ordem ao seu preço limite, válida até cancelar: ela trabalha até ser executada ou você cancelá-la.
+- Se o seu preço está distante do mercado, a ordem fica no livro até o preço alcançá-lo.
+- Se o seu preço cruza o mercado (uma compra acima do melhor ask, uma venda abaixo do melhor bid), ela executa imediatamente aos melhores preços disponíveis.
+- As execuções podem ser parciais, e não há slippage: seu preço limite é o pior preço que você pode receber.
+
+## Quando usar
+
+- Você quer certeza de preço e está disposto a esperar o mercado vir até você.
+- Você está comprando quedas ou vendendo na força sem ficar olhando o gráfico.
+- Você quer definir uma entrada com Take Profit e Stop Loss anexados em um único ticket.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Preço Limite (USD) | O pior preço que você aceita. Clique em **Médio** para preencher com o preço médio atual. | Nenhum |
+| Tamanho | No ativo ou em USD, com um controle deslizante para dimensionar como percentual da margem disponível na alavancagem atual. | Nenhum |
+| Take Profit / Stop Loss (opcional) | Anexe gatilhos de TP e SL por preço ou por percentual de ganho e perda. | Desativado |
+| Apenas Reduzir (opcional) | Aparece quando há uma posição aberta. A ordem só pode reduzi-la, nunca aumentá-la ou invertê-la. | Desativado |
+
+O painel mostra o preço de liquidação, o valor da ordem, a margem requerida e as taxas. O valor mínimo da ordem é \$10.
+
+## Exemplo
+
+O BTC negocia a \$118,400. Você coloca uma compra limite de 0.1 BTC a \$116,000: valor da ordem \$11,600, margem requerida \$1,160 com alavancagem de 10x. Se o BTC cair até \$116,000, você executa a \$116,000 ou melhor. Se nunca chegar lá, a ordem permanece aberta até você cancelá-la.
+
+<Note>
+  Uma compra limite colocada acima do preço atual (ou uma venda abaixo dele) é executável de imediato: ela começa a ser preenchida na hora, como uma ordem de mercado, limitada ao seu preço limite.
+</Note>

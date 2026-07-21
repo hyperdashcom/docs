@@ -1,0 +1,40 @@
+---
+title: "Take-Profit und Stop-Loss"
+description: "Setzen Sie Ausstiegstrigger auf eine Position, die beim Erreichen Ihres Preises als Market-, Limit-, Chase- oder TWAP-Order ausgeführt werden."
+---
+
+Take-Profit und Stop-Loss (TP/SL) definieren Ihre Ausstiege im Voraus: Ein Take-Profit schließt einen Teil oder die gesamte Position auf einem Niveau im Gewinn, ein Stop-Loss begrenzt Ihr Verlustrisiko. Sie können TP/SL beim Platzieren einer Order anhängen oder jeder offenen Position hinzufügen, und Sie wählen, wie jeder Ausstieg ausgeführt wird.
+
+## So werden Orders platziert
+
+- Jedes Bein ist ein Trigger. Nichts liegt neu im Orderbuch, bis der Preis Ihren Trigger erreicht; dann wird die Ausstiegsorder automatisch platziert.
+- Setzen Sie jedes Bein nach Preis oder nach Gewinn/Verlust in Prozent oder \$. Das jeweils andere Feld wird automatisch aus Ihrem Einstiegspreis und Ihrer Positionsgröße umgerechnet.
+- Wählen Sie die Ausführung je Bein: **Markt** schließt sofort mit auf 5 % begrenzter Slippage, **Limit** legt eine Order zum Auslösungspreis ins Orderbuch, **Chase** folgt dem besten Geld- oder Briefkurs, und **TWAP** verteilt den Ausstieg über ein festgelegtes Zeitfenster.
+- Der zuerst auslösende Trigger startet den Ausstieg, und die Strategie verfolgt ihn, bis die Größe geschlossen ist.
+- **Betrag konfigurieren** schließt einen Teil der Position statt der gesamten, als Prozentsatz der Position oder als fester Asset-Betrag.
+
+## Wann einsetzen
+
+- Eine Position in einem Schritt mit Gewinnziel und Risikolimit einrahmen.
+- Risikodisziplin durchsetzen, ohne den Bildschirm zu beobachten.
+- Gestaffelt aussteigen: Teilgewinne am Ziel mitnehmen, während der Stop die volle Position abdeckt.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| TP-Preis / Gewinn | Take-Profit-Trigger. Geben Sie einen Preis oder einen Gewinn in % oder \$ ein. Muss für Longs über dem Markpreis liegen, für Shorts darunter. | Keiner |
+| SL-Preis / Verlust | Stop-Loss-Trigger. Geben Sie einen Preis oder einen Verlust in % oder \$ ein. Muss für Longs unter dem Markpreis liegen, für Shorts darüber. | Keiner |
+| Ordertyp (je Bein) | Markt, Limit, Chase oder TWAP als Ausführung nach dem Auslösen. | Markt |
+| Dauer (nur TWAP) | Zeitfenster, über das der TWAP-Ausstieg verteilt wird, von 30 Sekunden bis 1 Stunde. | 5m |
+| Betrag konfigurieren (optional) | Größe des Teilausstiegs, als Prozentsatz der Position oder als Asset-Betrag. | 100 % der Position |
+
+Mindestens TP oder SL ist erforderlich. Beide können auf derselben Position gesetzt werden.
+
+## Beispiel
+
+Sie sind mit 0.2 BTC ab \$65,000 long. Sie setzen einen Take-Profit bei \$71,500 (10 % Gewinn) als Limit-Ausstieg und einen Stop-Loss bei \$61,750 (5 % Verlust) als Markt-Ausstieg, beide über die volle Größe. Steigt BTC auf \$71,500, liegt eine Limit-Verkaufsorder zu diesem Preis im Orderbuch. Fällt BTC stattdessen auf \$61,750, wird die Position sofort zum Marktpreis geschlossen, mit auf 5 % begrenzter Slippage.
+
+<Note>
+  Nicht-Markt-Ausstiege tragen Ausführungsrisiko: Ein Limit-, Chase- oder TWAP-Ausstieg schließt die Position bei einer schnellen Bewegung möglicherweise nicht vollständig. Ein Markt-Stop kann zudem schlechter als sein Auslösungspreis ausgeführt werden, wenn der Markt über Ihr Niveau hinwegspringt.
+</Note>

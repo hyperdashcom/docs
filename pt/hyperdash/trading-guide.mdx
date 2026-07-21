@@ -1,99 +1,56 @@
 ---
 title: "Guia de Trading"
-description: "Breve visão geral do trading no Hyperdash e tipos de ordem."
+description: "Fundamentos de trading no Hyperdash: spot vs perps, margem, alavancagem e a interface de trading."
+hidden: true
 ---
 
-**Spot vs Perpétuos (breve visão geral da diferença entre spot e perpétuos)**
+Este guia cobre os fundamentos de negociar no Hyperdash: como os mercados spot e perpétuos diferem, como margem e alavancagem funcionam nos perps e os recursos de interface que aceleram a execução.
+
+## Spot vs perpétuos
 
 **Spot**
 
-- Você compra ou vende o ativo real (como HYPE, BTC, ETH).
-- Você o possui diretamente e pode transferi-lo da exchange para carteiras externas.
-- Lucro apenas quando o preço sobe (a menos que você venda o que já possui).
+- Você compra ou vende o ativo real (como HYPE, BTC, ETH) em um par cotado em USDC.
+- Você o possui diretamente: as compras liquidam para a sua carteira e podem ser enviadas ou transferidas para fora.
+- Sem alavancagem, sem funding, sem risco de liquidação. Veja a página dedicada de [Trading Spot](/pt/hyperdash/spot-trading).
 
-**Futuros Perpétuos (Perps)**
+**Futuros perpétuos (perps)**
 
-- Você não possui o ativo, você negocia um contrato vinculado ao seu preço.
-- Você pode ir long (apostar que o preço sobe) ou short (apostar que o preço cai).
-- Sem data de vencimento — você pode manter pelo tempo que quiser, mas receberá ou pagará taxas de financiamento.
-- Usa alavancagem: negocie tamanhos maiores com menos capital (Até **40x de Alavancagem**).
-- As taxas de financiamento mantêm os preços dos perps alinhados com o mercado spot.
+- Você negocia um contrato vinculado ao preço do ativo, e não o ativo em si.
+- Você pode ficar long (preço sobe) ou short (preço cai), sem vencimento: mantenha pelo tempo que quiser, recebendo ou pagando funding.
+- O funding acumula a cada hora e mantém os preços dos perps alinhados ao mercado spot.
+- A alavancagem permite operar tamanhos maiores com menos capital. A alavancagem máxima varia por mercado.
 
-**Opções de Margem Cruzada vs Isolada**
+## Margem cruzada vs isolada
 
-Posições cruzadas são liquidadas quando o valor da conta (incluindo lucro e prejuízo não realizados) é menor que a _margem de manutenção_ vezes a posição nocional total aberta. A margem de manutenção está atualmente definida como metade da margem inicial na alavancagem máxima.
+- **Cruzada**: todas as posições cruzadas compartilham o seu saldo de margem cruzada como colateral. Em uma liquidação, o seu saldo de margem cruzada e quaisquer posições abertas restantes em modo cruzado podem ser perdidos.
+- **Isolada**: a margem fica restrita à posição individual. Se a taxa de margem dessa posição atingir 100%, apenas essa posição é liquidada. A margem pode ser adicionada ou removida na posição.
 
-Posições isoladas são liquidadas pela mesma lógica de margem de manutenção, mas as únicas entradas para o cálculo são a margem isolada e o valor nocional da posição isolada.
+O modo de margem é definido por mercado no painel de trading. O padrão é cruzada.
 
-**Opções de Alavancagem**
+## Alavancagem
 
-Cada par tem opções de alavancagem associadas, que você pode ajustar usando o controle deslizante.
+A alavancagem é definida por mercado com o controle deslizante no controle de alavancagem, de 1x até o máximo daquele mercado. Os máximos diferem por mercado e são mostrados no controle. Configurações acima de 10x mostram um aviso: alavancagem maior aumenta o risco de liquidação.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-**Long vs Short**
+## Long, short e reverter
 
-As negociações podem ser alternadas para serem realizadas como long ou short.
+As operações de perp podem ser alternadas entre long e short no painel de trading. **Reverter** fecha uma posição e abre uma igual na direção oposta, transformando longs em shorts e shorts em longs. Você também pode reverter todas as posições, todos os longs ou todos os shorts pelo menu de posições.
 
-**Recursos da interface de trading**
+## Operando pelo gráfico
 
-- Visualizar como: Selecione um trader disponível ou insira um endereço para exibir suas aberturas e fechamentos de negociação sobrepostos no gráfico.
-- Menu do sinal de mais - Ao clicar no ícone de mais no eixo do gráfico, opções de Limite short, stop long ou visualizar como estão disponíveis.
-  - Limite short: configure rapidamente uma ordem limite para um short nesse preço.
-  - Stop long: configure rapidamente uma ordem limite long nesse preço.
+- **Ver como**: busque um trader ou cole um endereço para sobrepor as posições, as ordens abertas e as execuções dele no seu gráfico.
+- **Ordens rápidas**: clique no ícone de mais na escala de preço do gráfico para abrir um ticket de ordem naquele preço, com um clique para limite long ou short (compra ou venda limite no spot), stop long ou short, take profit e stop loss.
+- **Modo Snoop**: navegue por todo o terminal como outro endereço. A negociação fica desativada durante o snoop.
 
-# **Tipos de Ordem**
+# Tipos de Ordem
 
-**Ordem de Mercado vs Limite**
+Cada tipo de ordem tem sua própria página de referência com o comportamento de colocação, os parâmetros, os padrões e um exemplo prático. Comece pela [visão geral de Tipos de Ordem](/pt/hyperdash/orders/overview), ou vá direto a um tipo:
 
-- Mercado: Uma ordem que é executada imediatamente ao preço de mercado atual
-- Limite: Uma ordem que é executada ao preço limite selecionado ou melhor
-
-### Take Profit e Stop Loss
-
-- Take Profit: Uma ordem limite que é ativada para realizar lucros quando o preço atinge o preço selecionado
-- Stop loss: Uma ordem limite que é ativada para minimizar perdas quando o preço atinge o preço stop selecionado
-
-### Reverso
-
-- Fecha a negociação selecionada e abre uma negociação igual na direção oposta (transforma longs em shorts e shorts em longs).
-
-## Tipos de Ordem Avançados
-
-### TWAP (Preço Médio Ponderado pelo Tempo)
-
-Executa uma ordem proporcionalmente durante um período de tempo definido.
-
-**Stealth : **Executa seu TWAP através da nossa infraestrutura em vez de on-chain para uma execução mais privada.
-
-**Aleatorizar tempo e/ou tamanho (Opcional):** Se Aleatorizar estiver habilitado, o tamanho e o tempo de cada sub-negociação serão ajustados automaticamente dentro de uma certa faixa, tipicamente até 20% maior ou menor que o tamanho original da negociação e executado 20% antes ou depois.
-
-### Ordens Escalonadas
-
-Coloque ordens automaticamente em uma faixa de preços.
-
-Inclui parâmetros para número de ordens e quantidade de inclinação (Proporção entre preços finais e iniciais. Por exemplo, se a inclinação de tamanho for 2,0, então uma ordem limite para o preço final será colocada com o dobro do tamanho do preço inicial. Uma inclinação de 1,0 cria ordens de tamanho igual.
-
-### Stop Limite
-
-Torna-se uma ordem limite no preço de gatilho definido.
-
-### Stop Mercado
-
-Torna-se uma ordem de mercado no preço de gatilho definido.
-
-### Ordens Chase
-
-Coloca uma ordem limite no melhor bid/ask e atualiza continuamente até ser preenchida.
-
-**Chase até:** define o preço para perseguir até que o preço exceda este limite.
-
-**Distância Stalk:** O preço da ordem permanece a uma distância fixa do melhor bid.
-
-### Ordens Swarm
-
-Divide sua ordem em sub-ordens menores e as coloca ao longo do tempo para reduzir o impacto no mercado.
-
-A ordem total pode ser dividida em até 200 sub-ordens (tamanho mínimo de \$10 por sub-ordem)\
-\
-Selecione um 'Nível de Agressão' entre 1-5, maior agressão coloca ordens mais frequentemente para preenchimentos mais rápidos.
+- [Mercado](/pt/hyperdash/orders/market) e [Limite](/pt/hyperdash/orders/limit)
+- [Escalonar](/pt/hyperdash/orders/scale): escada de ordens limite ao longo de uma faixa de preço
+- [Stop Limite](/pt/hyperdash/orders/stop-limit) e [Stop Mercado](/pt/hyperdash/orders/stop-market)
+- [Perseguir](/pt/hyperdash/orders/chase): uma ordem limite que segue o melhor bid ou ask
+- [TWAP](/pt/hyperdash/orders/twap) e [Enxame](/pt/hyperdash/orders/swarm): trabalhe tamanhos grandes com menos impacto no mercado
+- [Take Profit / Stop Loss](/pt/hyperdash/orders/take-profit-stop-loss) e [Stop Móvel](/pt/hyperdash/orders/trailing-stop)

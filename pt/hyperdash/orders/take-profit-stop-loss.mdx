@@ -1,0 +1,40 @@
+---
+title: "Take Profit e Stop Loss"
+description: "Defina gatilhos de saída em uma posição que executam como ordem de mercado, limite, perseguição ou TWAP quando o seu preço é atingido."
+---
+
+Take Profit e Stop Loss (TP/SL) predefinem suas saídas: um take profit fecha parte ou toda a posição em um nível no lucro, e um stop loss limita a sua perda. Você pode anexar TP/SL ao colocar uma ordem ou adicioná-los a qualquer posição aberta, e escolhe como cada saída executa.
+
+## Como as ordens são colocadas
+
+- Cada perna é um gatilho. Nada novo fica no livro até o preço atingir o seu gatilho; então a ordem de saída é colocada automaticamente.
+- Defina cada perna por preço, ou por ganho/perda em percentual ou \$. O outro campo é convertido automaticamente a partir do seu preço de entrada e do tamanho da posição.
+- Escolha a execução de saída por perna: **Mercado** fecha imediatamente com slippage limitado a 5%, **Limite** deixa uma ordem no preço de gatilho, **Perseguição** segue o melhor bid ou ask e **TWAP** fatia a saída ao longo de uma janela definida.
+- O gatilho que disparar primeiro inicia a saída, e a estratégia a acompanha até o tamanho ser fechado.
+- **Configurar Valor** fecha uma parte da posição em vez de toda ela, definida como percentual da posição ou uma quantidade fixa do ativo.
+
+## Quando usar
+
+- Cercar uma posição com um alvo de lucro e um limite de risco em um único passo.
+- Impor disciplina de risco sem ficar acompanhando a tela.
+- Realizar em etapas: tome lucro parcial em um alvo enquanto o stop cobre a posição inteira.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Preço TP / Ganho | Gatilho de take profit. Insira um preço, ou um ganho em % ou \$. Deve estar acima do preço de marcação para longs e abaixo dele para shorts. | Nenhum |
+| Preço SL / Perda | Gatilho de stop loss. Insira um preço, ou uma perda em % ou \$. Deve estar abaixo do preço de marcação para longs e acima dele para shorts. | Nenhum |
+| Tipo de ordem (por perna) | Execução Mercado, Limite, Perseguição ou TWAP depois do disparo. | Mercado |
+| Duração (apenas TWAP) | Janela em que a saída TWAP é fatiada, de 30 segundos a 1 hora. | 5m |
+| Configurar Valor (opcional) | Tamanho da saída parcial, como percentual da posição ou quantidade do ativo. | 100% da posição |
+
+Pelo menos um entre TP e SL é obrigatório. Ambos podem ser definidos na mesma posição.
+
+## Exemplo
+
+Você está comprado em 0.2 BTC desde \$65,000. Você define um take profit em \$71,500 (ganho de 10%) como saída Limite e um stop loss em \$61,750 (perda de 5%) como saída Mercado, ambos no tamanho total. Se o BTC subir até \$71,500, uma venda limite fica nesse preço. Se, em vez disso, o BTC cair para \$61,750, a posição é fechada imediatamente a mercado com slippage limitado a 5%.
+
+<Note>
+  Saídas que não são a mercado carregam risco de execução: uma saída limite, perseguição ou TWAP pode não fechar totalmente a posição durante um movimento rápido. Um stop a mercado também pode executar pior que o seu preço de gatilho se o mercado saltar por cima do seu nível.
+</Note>

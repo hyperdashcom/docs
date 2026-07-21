@@ -1,0 +1,58 @@
+---
+title: "Wallet API dan Keamanan"
+description: "Cara kerja agent wallet, metode masuk, dan perlindungan dua faktor di Hyperdash."
+---
+
+Hyperdash mengeksekusi trade Anda melalui agent api wallet: kunci trading terpisah yang disetujui wallet Anda sendiri untuk menandatangani order atas nama Anda. Ini memungkinkan Anda trading tanpa mengonfirmasi setiap order di wallet Anda, sementara penarikan dan transfer tetap memerlukan tanda tangan dari wallet Anda sendiri.
+
+## Cara kerja agent wallet
+
+<Steps>
+  <Step title="Hubungkan atau buat wallet">
+    Di penyiapan Terminal Wallet, hubungkan wallet yang ada atau buat wallet non-kustodial baru yang diamankan oleh Turnkey. Lihat [Onboarding dan Deposit](/id/hyperdash/onboarding-deposits).
+  </Step>
+  <Step title="Setujui agent">
+    Hyperdash membuat keypair baru di browser Anda, dan wallet Anda menandatangani persetujuan yang mendaftarkannya sebagai agent trading Anda. Kunci agent berlaku 180 hari dan dienkripsi di browser Anda sebelum disimpan.
+  </Step>
+  <Step title="Setujui builder">
+    Tanda tangan kedua mengaktifkan trading di Hyperdash. Sejak saat itu, setiap order yang Anda pasang, termasuk [jenis order](/id/hyperdash/orders/overview) otomatis, ditandatangani oleh kunci agent.
+  </Step>
+</Steps>
+
+**Agent Manager** menampilkan alamat dan masa berlaku agent Anda dengan status Active, Expires in 30 days, Expires Soon, dan Expired, plus aksi **Refresh Agent Key**.
+
+## FAQ Keamanan
+
+<AccordionGroup>
+  <Accordion title="Apa yang bisa dan tidak bisa dilakukan agent wallet?">
+    Kunci agent hanya menandatangani aksi trading: memasang, mengubah, dan membatalkan order. Penarikan dan transfer aset ditandatangani oleh wallet Anda sendiri, tidak pernah oleh agent.
+  </Accordion>
+
+  <Accordion title="Siapa yang memegang kunci saya?">
+    Kunci privat wallet Anda tidak pernah meninggalkan wallet Anda; Anda menyetujui agent dan menandatangani penarikan sendiri. Wallet yang dibuat melalui Hyperdash bersifat non-kustodial dan diamankan oleh Turnkey. Kunci agent dibuat di browser Anda dan dienkripsi di sana sebelum disimpan, dan inilah yang menggerakkan fitur seperti [Copytrading](/id/hyperdash/autotrade).
+  </Accordion>
+
+  <Accordion title="Bagaimana cara menyegarkan atau mencabut agent?">
+    Buka Agent Manager dan gunakan **Refresh Agent Key**: kunci yang sama sekali baru menggantikan yang lama. Wallet aslinya harus terhubung; aplikasi memblokir penyegaran dari alamat yang berbeda. Menjalankan ulang penyiapan wallet juga membatalkan pendaftaran agent Hyperdash sebelumnya sebelum menyetujui yang baru.
+  </Accordion>
+
+  <Accordion title="Apa yang terjadi saat agent saya kedaluwarsa?">
+    Kunci agent berlaku 180 hari. Kunci yang kedaluwarsa tidak dapat lagi menandatangani order, jadi segarkan dari Agent Manager untuk terus trading.
+  </Accordion>
+
+  <Accordion title="Metode masuk apa saja yang didukung?">
+    Google, Apple, tautan ajaib (magic link) lewat email, atau masuk dengan wallet. Masuk dengan wallet hanya meminta Anda menandatangani sebuah pesan: gratis dan tidak mengirim transaksi apa pun.
+  </Accordion>
+
+  <Accordion title="Bagaimana cara menyiapkan perlindungan dua faktor?">
+    Di Settings pada bagian Security, aktifkan passkey (biometrik atau kunci keamanan) atau aplikasi authenticator. Penyiapan authenticator menampilkan kode QR atau kunci penyiapan, memverifikasi kode 6 digit, lalu menerbitkan kode cadangan sekali pakai yang dapat Anda unduh. Passkey harus dihapus sebelum mengaktifkan aplikasi authenticator.
+  </Accordion>
+
+  <Accordion title="Kapan saya diminta verifikasi dua faktor?">
+    Setelah masuk, dengan opsi memercayai perangkat selama 30 hari, dan sekali lagi sebelum menarik dana. Jika Anda kehilangan perangkat 2FA, kode pemulihan cadangan masing-masing berlaku satu kali.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Simpan kode pemulihan cadangan Anda saat mengaktifkan aplikasi authenticator. Jika Anda kehilangan perangkat 2FA dan tidak punya kode, Anda dapat kehilangan akses ke akun Anda secara permanen.
+</Note>

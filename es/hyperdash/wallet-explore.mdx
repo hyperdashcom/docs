@@ -1,56 +1,49 @@
 ---
-title: "Explorador de Traders"
-description: "Guía para explorar billeteras de traders con Hyperdash"
-icon: "crosshairs-simple"
-"og:image": "https://hyperdash.com/og.png"
+title: "Explorar Traders"
+description: "Descubre, filtra y sigue billeteras de traders en Hyperdash."
 ---
 
-**La página Explorar te permite ver traders destacados de Hyperliquid y aplicar filtros a las búsquedas.**
+Explorar es el hub de descubrimiento de traders de Hyperdash. Navega por cada billetera que opera en los mercados de Hyperliquid, filtra el universo hasta quedarte con los traders que te importan y síguelos desde una única barra lateral.
 
-Una colección de billeteras notables ha sido etiquetada para tu conveniencia.
+## Secciones de Explorar
 
-**Seguimiento**
+- **Cohortes**: traders agrupados por PNL histórico y por tamaño de billetera, con el posicionamiento de cada grupo. Consulta [Cohortes, Mejores Traders y Cambios de Posición](/es/hyperdash/cohorts-top-traders-position-changes).
+- **Copytrading**: las mejores billeteras para copiar, clasificadas por copy score y ROI. Consulta [Copy Trading](/es/hyperdash/copy-trade).
+- **Tagged**: traders y fondos conocidos, etiquetados para tu conveniencia.
+- **Leaderboard**: los mejores por rendimiento, incluidas clasificaciones por activo.
+- **Mundial**: el universo completo de traders con filtros.
 
-Todas las billeteras encontradas en Hyperdash pueden ser rastreadas y organizadas usando listas. Las listas pueden tener nombres personalizados y un icono de color asignado.
+## Filtrar traders del universo global
 
-Los usuarios pueden establecer un 'alias' para cada billetera rastreada y agregarlas a listas creadas para facilitar el etiquetado, seguimiento y gestión.
+| Filtro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Período de tiempo | 1d, 7d, 30d o Todo | 7d |
+| Valor de la cuenta | Valor mínimo y máximo de la cuenta en USD | Cualquiera |
+| PNL | Ganancia y pérdida neta mínima y máxima en USD | Cualquiera |
+| Estilo de trading | Todo, Algo, Scalp, Intraday, Swing, Position | Todo |
+| Puntuación de copia | Rango de 0 a 100 | 0 a 100 |
 
-Rastrear billeteras te permite ver un feed en vivo de sus operaciones en el terminal de trading.
+Los resultados muestran el PNL de cada trader, su patrimonio, operaciones totales, tasa de acierto, ratio de Sharpe, drawdown máximo, apalancamiento, utilización de margen y activos operados.
 
-### Filtrado de Traders Globales
+## Seguir billeteras
 
-Puedes filtrar entre todos los traders en Hyperliquid por:
+<Steps>
+  <Step title="Sigue una billetera">
+    Pulsa **Seguir** en cualquier fila de trader en Explorar, en la tabla de Mejores traders del terminal o desde el perfil de un trader.
+  </Step>
+  <Step title="Nómbrala y archívala">
+    Dale un alias a la billetera y guárdala en una lista. Cada cuenta comienza con una lista **Main**, y puedes crear listas nuevas con nombre y color personalizados.
+  </Step>
+  <Step title="Gestiona tus listas">
+    Renombra billeteras, muévelas entre listas o deja de seguirlas en cualquier momento. Las listas pueden compartirse por enlace, y una lista compartida se abre en modo de solo lectura hasta que quien la ve la clona a su propia cuenta.
+  </Step>
+  <Step title="Observa el feed">
+    La actividad de las billeteras rastreadas fluye hacia el feed de **Rastreados** en el terminal de trading y hacia el panel de Actividad reciente en la barra lateral de Explorar. Filtra el feed por lista, dirección, apertura o cierre, y tamaño nocional.
+  </Step>
+</Steps>
 
-- Tipo de Trader
-  - Algo
-  - Scalp
-  - Intraday
-  - Swing
-  - Position
-- Valor de Cuenta: valor total de la cuenta en perps.
-- PnL (todo el tiempo): Ganancia y Pérdida Neta.
-- Tasa de Victorias (%): El porcentaje de operaciones rentables realizadas.
-- Ratio de Sharpe: Una medida de los rendimientos ajustados al riesgo del trader.
+<Note>
+  Inicia sesión para usar el seguimiento: las billeteras rastreadas y las listas se guardan en tu cuenta de Hyperdash para que te acompañen entre dispositivos.
+</Note>
 
-**Cohortes**
-
-Ve información agregada sobre grupos de traders basada en PnLs y tamaño de cuenta. Esto incluye información sobre posicionamiento y rendimiento.
-
-- **Ordenado por PNL de Todo el Tiempo**
-  - Extremadamente Rentable - \$1m+
-  - Muy Rentable - \$100k-1M
-  - Rentable - \$10k-100k
-  - Ligeramente Rentable - \$0-10k
-  - Ligeramente No Rentable - \$0 a -10k
-  - No Rentable - \$-10k a -100k
-  - Muy No Rentable - \$-100k a -1m
-  - Rekt - \$-1m+
-- **Ordenado por Tamaño de Cuenta**
-  - Kraken - \$5m+
-  - Ballena Grande - \$1m-5m
-  - Ballena - \$500k-1m
-  - Tiburón - \$100k-500k
-  - Delfín - \$50k-100k
-  - Pez Grande - \$10-50k
-  - Pez - \$250-10k
-  - Camarón - \$0-250
+Para saber cómo se relaciona la actividad de las billeteras rastreadas con las notificaciones de la plataforma, consulta [Alertas y Bandeja de entrada](/es/hyperdash/alerts-inbox).

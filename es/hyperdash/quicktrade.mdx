@@ -1,0 +1,60 @@
+---
+title: "Quick Trade"
+description: "Trading con un clic: botones de compra y venta con tamaños predefinidos que lanzan órdenes al instante con tu configuración guardada."
+---
+
+Quick Trade es trading con un clic para mercados rápidos: dos filas de botones con tamaños predefinidos, compra sobre venta, que lanzan órdenes en el instante en que los presionas, sin tocar el formulario de orden. Viene como un widget de **Quick Trade** que añades a tu diseño desde el cajón de widgets (categoría Herramientas), y los mismos botones aparecen integrados en el widget de Noticias cuando haces clic en la etiqueta de un ticker en un titular. Quick Trade funciona solo en mercados de perps, incluidos los [mercados xyz](/es/hyperdash/markets-assets); spot no está soportado.
+
+## Cómo funciona
+
+<Steps>
+  <Step title="Vincula un mercado">
+    Añade el widget de Quick Trade y vincúlalo a un mercado de perps. El encabezado del widget muestra el precio de marca en vivo, el cambio de 24h, un control de apalancamiento y el tipo de orden activo.
+  </Step>
+  <Step title="Define tus tamaños y tipo de orden">
+    El engranaje del widget abre la Configuración, donde eliges tres tamaños de botones, el tipo de orden, y el comportamiento de apalancamiento y confirmación. Cada cambio se guarda de inmediato: en tu cuenta si iniciaste sesión, y en tu navegador en cualquier caso.
+  </Step>
+  <Step title="Lanza">
+    Presiona un botón de tamaño en la fila de compra o de venta. Con la confirmación activada, un popover anclado a ese botón resume mercado, lado, tamaño y tipo de orden: confirma para enviar, o presiona Escape o haz clic en otra parte para cancelar. Marca **No volver a preguntar** para un verdadero trading con un clic.
+  </Step>
+</Steps>
+
+Cada pulsación lanza su propia orden independiente, así que los clics rápidos consecutivos funcionan en paralelo: los botones nunca se bloquean mientras hay una orden en vuelo.
+
+## Configuración
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Tamaños de los botones | Tres montos en USD compartidos por las filas de compra y venta, de \$10 a \$10,000,000 cada uno | \$100, \$1,000, \$10,000 |
+| Los tamaños son | **Nocional**: un botón de \$10,000 abre una posición de \$10,000. **Margen**: un botón de \$10,000 usa \$10,000 de margen, y el tamaño de la posición es margen por apalancamiento. | Nocional |
+| Tipo de orden | [Mercado](/es/hyperdash/orders/market), Límite al medio (deja una [orden límite](/es/hyperdash/orders/limit) en el precio medio), [Perseguir](/es/hyperdash/orders/chase) o [Enjambre](/es/hyperdash/orders/swarm) | Mercado |
+| Slippage máximo | Solo órdenes de mercado: slippage máximo desde el medio, hasta 50% | 1% |
+| Clips | Solo Enjambre: número de clips, de 2 a 200 | 5 |
+| Agresión | Solo Enjambre: de 1 a 5 | 3 |
+| Clips irregulares | Solo Enjambre: varía el tamaño de los clips para que la división sea menos uniforme | Desactivado |
+| Usar siempre el apalancamiento máximo | Sube el mercado a su apalancamiento máximo antes de lanzar la orden. Si está desactivado, las órdenes usan el apalancamiento que ya tengas configurado para ese mercado. Elegir un apalancamiento manualmente en el widget lo desactiva. | Desactivado |
+| Confirmar antes de colocar | Muestra el popover con el resumen de la orden antes de enviar nada | Activado |
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Qué mercados soporta Quick Trade?">
+    Solo mercados de perps, incluidos los mercados xyz (acciones, índices, materias primas, FX). Los mercados spot no están soportados.
+  </Accordion>
+
+  <Accordion title="¿Cuál es el tamaño mínimo de orden?">
+    \$10 de nocional por orden. Enjambre necesita al menos \$20 de nocional para poder dividirse en dos clips.
+  </Accordion>
+
+  <Accordion title="¿Qué pasa si no se puede aplicar el apalancamiento máximo?">
+    Con tamaños en nocional, la orden se lanza igual con tu apalancamiento actual y recibes una advertencia. Con tamaños en margen, la orden se cancela, porque el tamaño de la posición depende del apalancamiento que no se pudo establecer.
+  </Accordion>
+
+  <Accordion title="¿Mi configuración me sigue entre dispositivos?">
+    Cuando iniciaste sesión, la configuración se guarda en tu cuenta. También se replica en tu navegador, así que sobrevive a un refresco y funciona sin sesión iniciada en ese dispositivo.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Con la confirmación desactivada, una pulsación envía la orden de inmediato y no hay vuelta atrás. Mantén **Confirmar antes de colocar** activado hasta que tus tamaños y tipo de orden estén bien afinados.
+</Note>

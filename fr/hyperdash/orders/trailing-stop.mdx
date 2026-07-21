@@ -1,0 +1,36 @@
+---
+title: "Stop suiveur"
+description: "Protégez vos profits latents avec un stop qui suit automatiquement le prix à la distance de votre choix."
+---
+
+Un Stop suiveur suit le marché quand il évolue en votre faveur. Vous définissez un repli, un pourcentage ou une distance fixe en USD, et le stop se déclenche si le prix se retourne de ce montant depuis le meilleur prix que votre position a atteint. Il laisse courir les gagnants tout en sécurisant le profit automatiquement.
+
+## Comment les ordres sont placés
+
+- Se définit depuis une position ouverte et couvre la position entière. L'infrastructure Hyperdash surveille le marché, donc rien ne repose dans le carnet public tant que le stop est actif.
+- Hyperdash suit le prix de pic, le plus haut atteint pour les longs ou le plus bas pour les shorts, et recalcule le stop à chaque nouvel extrême favorable : pic moins le repli pour les longs, pic plus le repli pour les shorts. Il ne fait que se resserrer, jamais se relâcher.
+- Quand le prix se retourne jusqu'au prix de déclenchement, la sortie est envoyée en **Marché**, ou en **Poursuite**, un ordre limite maintenu en tête de carnet qui s'actualise jusqu'à exécution.
+- Un seul stop suiveur par position : confirmer de nouveaux réglages le remplace, et vous pouvez le supprimer à tout moment.
+
+## Quand l'utiliser
+
+- Sécuriser les profits d'un gagnant sans choisir un prix de sortie à l'avance.
+- Suivre une tendance : le stop suit le prix et ne rend jamais de terrain.
+- Remplacer la gestion manuelle du stop : plus besoin de modifier un stop fixe après chaque nouvelle jambe de hausse.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Mode de repli | **Par pourcentage** (pourcentage du prix, inférieur à 100) ou **Par distance** (montant fixe en USD). | Par distance |
+| Repli | La valeur de suivi en % ou en USD. La fenêtre prévisualise le prix de déclenchement projeté. | Aucun |
+| Type d'ordre | Comment la sortie s'exécute : **Marché** ou **Poursuite**. | Marché |
+| Taille | Couvre votre position entière. | Position entière |
+
+## Exemple
+
+Vous êtes long 500 HYPE à un prix mark de \$45.00 et définissez un repli de 5%, le stop initial est donc à \$42.75. HYPE monte à \$50.00 et le stop suit jusqu'à \$47.50. Le prix se retourne ensuite jusqu'à \$47.50, le stop se déclenche, et un ordre au marché clôture la position.
+
+<Note>
+  Le stop ne bouge que sur de nouveaux extrêmes favorables. Dans un marché sans direction, il reste en place, et une mèche brutale qui l'atteint clôture la position même si le prix se rétablit immédiatement après.
+</Note>

@@ -1,0 +1,83 @@
+---
+title: "Perp RFQ"
+description: "Minta likuiditas tambahan untuk order perp besar dan eksekusi dengan harga yang lebih baik."
+---
+
+Perp RFQ (Request for Quote) menghadirkan likuiditas institusional sesuai permintaan ke Hyperdash. Alih-alih mengeksekusi order besar melalui order book yang terlihat, Anda meminta kuotasi dari market maker whitelist yang bersaing secara real time untuk menetapkan harga trade Anda: ukuran lebih besar, eksekusi lebih baik, harga lebih baik.
+
+RFQ tersedia untuk 35\+ pasar di ekuitas, komoditas, dan kripto.
+
+<Note>
+  Perp RFQ saat ini hanya lewat undangan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
+</Note>
+
+## Cara kerja RFQ
+
+<Steps>
+  <Step title="Kirim permintaan">
+    Buka tab **RFQ** di panel trading, pilih pasar Anda, dan tentukan ukuran dalam USDC atau dalam aset. Pilih Buy/Long atau Sell/Short. Arah Anda tetap tersembunyi dari market maker kecuali Anda mencentang **Disclose side**.
+  </Step>
+  <Step title="Market maker merespons">
+    Market maker whitelist menerima pasar dan ukuran permintaan Anda dan memiliki **5 detik** untuk memberi kuotasi atau melewatkan. Market maker yang merespons menambahkan likuiditas nyata langsung ke order book publik.
+  </Step>
+  <Step title="Tinjau kuotasi Anda">
+    Tiket RFQ Anda menampilkan setiap kuotasi begitu tiba, bersama perkiraan slippage terbaru, harga eksekusi rata-rata, dan peningkatan dibandingkan order book sebelum RFQ.
+  </Step>
+  <Step title="Eksekusi, atau tinggalkan">
+    Anda punya **30 detik** untuk mengeksekusi. Tidak ada yang dieksekusi sampai Anda mengonfirmasi, dan Anda dapat membatalkan permintaan atau membiarkannya kedaluwarsa kapan saja.
+  </Step>
+</Steps>
+
+## Parameter utama
+
+| Parameter | Nilai |
+| --- | --- |
+| Ukuran order maksimum | Nosional \$500,000 per permintaan |
+| Jendela kuotasi | 30 detik, setelah itu permintaan kedaluwarsa |
+| Waktu balasan market maker | 5 detik untuk memberi kuotasi atau melewatkan |
+| Input ukuran | Nosional USDC atau jumlah aset dasar |
+| Arah | Tersembunyi dari market maker secara default, dengan opsi mengungkap sisi |
+| Akses | Hanya lewat undangan |
+
+## Pasar yang tersedia
+
+<Frame>
+  ![RFQ tersedia untuk 35\+ pasangan di ekuitas, komoditas dan kripto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+</Frame>
+
+| Kategori | Pasar |
+| --- | --- |
+| Kripto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
+| Ekuitas | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Komoditas | GOLD, SILVER, CL, BRENTOIL |
+| Indeks & ETF | SP500, XYZ100, EWY, DRAM |
+
+Daftar live selalu ditampilkan di pemilih aset RFQ dalam aplikasi, dan bertambah seiring market maker menambah cakupan.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Bagaimana cara mendapatkan akses?">
+    Perp RFQ hanya lewat undangan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
+  </Accordion>
+
+  <Accordion title="Apa yang dilihat market maker?">
+    Pasar dan ukuran permintaan Anda. Arah trade Anda tetap tersembunyi kecuali Anda mengaktifkan **Disclose side**.
+  </Accordion>
+
+  <Accordion title="Mengapa saya perlu mengungkap sisi saya?">
+    Mengungkap sisi memungkinkan market maker menetapkan harga satu sisi saja alih-alih mengutip keduanya, yang dapat mempersempit harga Anda. Menyembunyikannya menghindari memberi sinyal niat Anda. Pilihannya milik Anda pada setiap permintaan.
+  </Accordion>
+
+  <Accordion title="Apakah saya wajib trading setelah meminta?">
+    Tidak. Kuotasi tidak mengikat. Anda yang memilih apakah akan mengeksekusi, dan jika Anda tidak melakukan apa-apa, permintaan akan kedaluwarsa begitu saja setelah 30 detik.
+  </Accordion>
+
+  <Accordion title="Apakah RFQ dikenai biaya tambahan?">
+    Tidak. Tidak ada biaya tambahan untuk menggunakan RFQ. Biaya trading standar Hyperdash berlaku pada order yang dieksekusi.
+  </Accordion>
+
+  <Accordion title="Apa yang terjadi jika tidak ada market maker yang memberi kuotasi?">
+    Permintaan kedaluwarsa setelah 30 detik dan tidak ada yang dieksekusi. Anda dapat mengirim permintaan baru kapan saja.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,83 @@
+---
+title: "Perp RFQ"
+description: "Demandez une liquidité renforcée pour les grands ordres perps et exécutez avec un meilleur prix."
+---
+
+Le Perp RFQ (Request for Quote, demande de cotation) apporte à Hyperdash une liquidité institutionnelle à la demande. Au lieu de travailler un grand ordre à travers le carnet visible, vous demandez des cotations à des teneurs de marché en liste blanche qui rivalisent en temps réel pour pricer votre trade : plus de taille, une meilleure exécution, un meilleur prix.
+
+Le RFQ est disponible sur 35\+ marchés couvrant actions, matières premières et crypto.
+
+<Note>
+  Le Perp RFQ est actuellement sur invitation uniquement. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
+</Note>
+
+## Comment fonctionne le RFQ
+
+<Steps>
+  <Step title="Soumettez une demande">
+    Ouvrez l'onglet **RFQ** du panneau de trading, choisissez votre marché et définissez votre taille en USDC ou dans l'actif. Choisissez Acheter/Long ou Vendre/Short. Votre direction reste cachée aux teneurs de marché sauf si vous cochez **Révéler le côté**.
+  </Step>
+  <Step title="Les teneurs de marché répondent">
+    Les teneurs de marché en liste blanche reçoivent le marché et la taille de votre demande et ont **5 secondes** pour coter ou passer. Les teneurs de marché qui répondent ajoutent de la liquidité réelle directement dans le carnet d'ordres public.
+  </Step>
+  <Step title="Examinez vos cotations">
+    Votre ticket RFQ affiche chaque cotation à mesure qu'elle arrive, ainsi que votre glissement estimé mis à jour, votre prix d'exécution moyen et l'amélioration par rapport au carnet d'avant le RFQ.
+  </Step>
+  <Step title="Tradez, ou passez votre chemin">
+    Vous avez **30 secondes** pour exécuter. Rien ne se trade tant que vous ne confirmez pas, et vous pouvez annuler la demande ou la laisser expirer à tout moment.
+  </Step>
+</Steps>
+
+## Paramètres clés
+
+| Paramètre | Valeur |
+| --- | --- |
+| Taille maximale d'ordre | \$500,000 de notionnel par demande |
+| Fenêtre de cotation | 30 secondes, puis la demande expire |
+| Temps de réponse des teneurs de marché | 5 secondes pour coter ou passer |
+| Saisie de la taille | Notionnel USDC ou montant dans l'actif de base |
+| Direction | Cachée aux teneurs de marché par défaut, révélation du côté optionnelle |
+| Accès | Sur invitation uniquement |
+
+## Marchés disponibles
+
+<Frame>
+  ![RFQ is available for 35\+ pairs across equities, commodities and crypto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+</Frame>
+
+| Catégorie | Marchés |
+| --- | --- |
+| Crypto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
+| Actions | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Matières premières | GOLD, SILVER, CL, BRENTOIL |
+| Indices et ETF | SP500, XYZ100, EWY, DRAM |
+
+La liste en vigueur est toujours affichée dans le sélecteur d'actifs RFQ de l'application, et elle s'étend à mesure que les teneurs de marché élargissent leur couverture.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Comment obtenir l'accès ?">
+    Le Perp RFQ est sur invitation uniquement. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
+  </Accordion>
+
+  <Accordion title="Que voient les teneurs de marché ?">
+    Le marché et la taille de votre demande. Votre direction de trade reste cachée sauf si vous activez **Révéler le côté**.
+  </Accordion>
+
+  <Accordion title="Pourquoi révéler mon côté ?">
+    Le révéler permet aux teneurs de marché de pricer un seul côté au lieu de coter les deux, ce qui peut resserrer votre prix. Le garder caché évite de signaler votre intention. Le choix vous appartient à chaque demande.
+  </Accordion>
+
+  <Accordion title="Suis-je obligé de trader après une demande ?">
+    Non. Les cotations sont sans engagement. Vous choisissez d'exécuter ou non, et si vous ne faites rien, la demande expire simplement après 30 secondes.
+  </Accordion>
+
+  <Accordion title="Le RFQ coûte-t-il un supplément ?">
+    Non. Il n'y a aucuns frais supplémentaires pour utiliser le RFQ. Les frais de trading standard de Hyperdash s'appliquent à l'ordre exécuté.
+  </Accordion>
+
+  <Accordion title="Que se passe-t-il si aucun teneur de marché ne cote ?">
+    La demande expire après 30 secondes et rien ne s'exécute. Vous pouvez soumettre une nouvelle demande à tout moment.
+  </Accordion>
+</AccordionGroup>

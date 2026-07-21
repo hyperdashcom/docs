@@ -1,0 +1,37 @@
+---
+title: "Order Swarm"
+description: "Pecah order besar menjadi hingga 200 klip kecil yang dikirim paralel untuk mengurangi dampak pasar."
+---
+
+Order Swarm (label **Kawanan** di aplikasi) memecah order Anda menjadi sub-order kecil yang disebut klip, lalu mengirimnya dalam gelombang paralel yang terkontrol. Tujuannya mengisi ukuran yang signifikan dengan cepat sambil menghindari slippage dan jejak dari satu order besar.
+
+## Cara order ditempatkan
+
+- Memecah total ukuran Anda menjadi jumlah klip pilihan Anda: ukuran sama secara default, ukuran bervariasi saat Klip tidak sekata (Irregular Clips) diaktifkan.
+- Setiap klip adalah order immediate-or-cancel yang dihargai pada harga pasar plus kelonggaran slippage, sehingga klip mengambil likuiditas alih-alih menunggu di order book.
+- Keagresifan menentukan berapa banyak klip yang berjalan sekaligus; begitu satu klip selesai, klip berikutnya dikirim hingga semuanya diproses.
+- Penyelesaian tidak dijamin: klip yang gagal atau tidak dapat terisi dalam kelonggaran slippage-nya ditandai ditolak dan tidak dicoba ulang; order melaporkan berapa banyak klip yang gagal.
+- Menghentikan swarm membatalkan klip yang tertunda; hanya klip yang sudah dikirim yang dihitung dalam pengisian Anda.
+
+## Kapan digunakan
+
+- Mengisi ukuran dengan cepat tanpa memperlihatkan satu order besar ke pasar
+- Mengeksekusi lebih cepat daripada jendela TWAP sambil tetap membatasi dampak
+- Mengatur keseimbangan antara kecepatan pengisian dan jejak dengan level Keagresifan
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Jumlah klip | Berapa banyak sub-order yang akan menjadi pecahan order Anda. Bilangan bulat dari 2 hingga 200. Setiap klip harus bernilai minimal \$10, jadi ukuran order Anda membatasi jumlahnya. | 10 |
+| Keagresifan | Level 1 hingga 5. Klip bersamaan per level: 1, hingga 2, hingga 5, hingga 10, hingga 20. Keagresifan lebih tinggi menempatkan order lebih sering untuk pengisian lebih cepat. | 3 |
+| Klip tidak sekata (opsional) | Memvariasikan ukuran klip agar pecahannya tidak seragam. | Nonaktif |
+| Hanya Kurangi (opsional) | Membatasi swarm hanya untuk mengurangi posisi yang ada. | Nonaktif |
+
+## Contoh
+
+Jual 5,000 HYPE pada harga \$40, sekitar \$200,000 nosional. Dengan Jumlah klip 100, setiap klip adalah 50 HYPE, sekitar \$2,000. Pada Keagresifan 4, hingga 10 klip bekerja di order book sekaligus hingga seluruh 5,000 HYPE terisi. Klip tidak sekata akan memvariasikan ukuran itu alih-alih mencetak 50 HYPE seragam untuk setiap klip.
+
+<Note>
+  Klip memiliki nilai minimum \$10, jadi swarm membutuhkan nilai order minimal \$20. Formulir menampilkan jumlah klip maksimum yang didukung ukuran Anda saat ini.
+</Note>

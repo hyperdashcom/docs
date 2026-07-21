@@ -1,0 +1,37 @@
+---
+title: "Stop Limite"
+description: "Dispare uma ordem limite no seu preço de stop e defina um teto rígido para o pior preço que você aceita."
+---
+
+Uma ordem Stop Limite espera até o mercado atingir o seu preço de stop e então coloca uma ordem limite ao seu preço limite. Nada é negociado antes do disparo, e depois de disparada a ordem só executa ao preço limite ou melhor.
+
+## Como as ordens são colocadas
+
+- Nenhuma negociação acontece no envio. A ordem espera até o preço do ativo atingir o seu preço de stop.
+- Com o modo **Furtivo** ativado (o padrão), a infraestrutura do Hyperdash monitora o preço e coloca a ordem apenas quando disparada, mantendo-a oculta até lá. Com o Furtivo desativado, o stop é colocado publicamente on-chain como uma ordem de gatilho.
+- No disparo, uma ordem limite ao seu preço limite é enviada ao livro e executa a esse preço ou melhor.
+- A conclusão não é garantida: se o preço saltar por cima do seu limite, a ordem fica no livro sem execução até o preço voltar ou você cancelar.
+
+## Quando usar
+
+- Operar rompimentos: compre acima da resistência ou venda abaixo do suporte, apenas quando o nível realmente romper.
+- Colocar um teto na sua pior execução, em vez de aceitar o que uma ordem de mercado conseguir.
+- Sair em um gatilho definido com controle de preço. Ative **Apenas Reduzir** para que a ordem só possa fechar a sua posição.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Preço de Stop (USD) | Preço de disparo: acima do preço atual para compras, abaixo para vendas. | Nenhum |
+| Preço Limite | Preço da ordem limite colocada no disparo. | Preço atual |
+| Tamanho | No ativo ou em USD. Valor mínimo da ordem \$10. | Nenhum |
+| Apenas Reduzir (opcional) | A ordem só pode reduzir uma posição existente. | Desativado |
+| Furtivo (opcional) | Roteia o stop pela infraestrutura do Hyperdash, fora do livro até ser disparado. | Ativado |
+
+## Exemplo
+
+O BTC negocia a \$117,400 e você quer comprar um rompimento acima de \$120,000. Você coloca um Stop Limite: stop \$120,000, limite \$120,250, tamanho 0.5 BTC. Quando o BTC atinge \$120,000, uma compra limite a \$120,250 é colocada e executa a esse preço ou melhor. Se o BTC saltar direto para \$120,600, ela fica em \$120,250 sem execução.
+
+<Note>
+  Um stop limite troca risco de preço por risco de execução: dimensione a distância entre o stop e o limite para a volatilidade do mercado, de modo que um movimento rápido não consiga pular os dois. Quando a execução importa mais que o preço, use um [Stop Mercado](/pt/hyperdash/orders/stop-market).
+</Note>

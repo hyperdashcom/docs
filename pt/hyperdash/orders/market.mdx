@@ -1,0 +1,38 @@
+---
+title: "Ordem de Mercado"
+description: "Execute imediatamente ao melhor preço disponível, com um teto rígido de slippage."
+---
+
+Uma ordem de mercado compra ou vende imediatamente aos melhores preços do livro. Ela prioriza velocidade e certeza de execução em vez de um preço específico, e é o tipo de ordem padrão no painel de trading do Hyperdash.
+
+## Como as ordens são colocadas
+
+- Envia uma ordem imediata ou cancelar que toma liquidez a partir do melhor preço até o seu tamanho ser preenchido.
+- A ordem é precificada a partir do preço médio atual ajustado pelo seu teto de slippage máximo, então ela não pode ser executada pior que o teto. O tamanho que excederia o teto é cancelado, e não deixado no livro, então a conclusão não é garantida em mercados rasos.
+- O slippage estimado a partir do livro de ordens ao vivo é mostrado ao lado do seu teto antes do envio, por exemplo "Est: 0.01% / Max 8%".
+- Gatilhos opcionais de Take Profit e Stop Loss são enviados junto com a entrada.
+
+## Quando usar
+
+- Você precisa entrar ou sair agora, e a imediatez importa mais do que alguns pontos-base.
+- Você está operando movimentos rápidos, em que uma ordem parada no livro ficaria para trás.
+- Você está fechando uma posição rapidamente, em conjunto com Apenas Reduzir.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Tamanho | No ativo ou em USD. O controle deslizante dimensiona a ordem como percentual da margem disponível na alavancagem atual. | Nenhum |
+| Take Profit / Stop Loss (opcional) | Anexe gatilhos de TP e SL por preço ou por percentual de ganho e perda. | Desativado |
+| Apenas Reduzir (opcional) | Aparece quando há uma posição aberta. A ordem só pode reduzi-la, nunca aumentá-la ou invertê-la. | Desativado |
+| Deslizamento | Seu teto de slippage máximo, o pior preço de execução que você aceita. Clique na linha para ajustar. | 8% |
+
+O painel também mostra o preço de liquidação, o valor da ordem, a margem requerida e as taxas. O valor mínimo da ordem é \$10.
+
+## Exemplo
+
+O BTC negocia a \$118,400. Você compra a mercado 0.25 BTC (\$29,600 de nocional) com alavancagem de 10x, usando \$2,960 de margem. O painel estima 0.01% de slippage, então você espera uma execução média perto de \$118,412.
+
+<Note>
+  O slippage estimado é uma estimativa, não uma garantia. Em um mercado rápido, a execução pode ficar em qualquer ponto até o seu teto de slippage máximo.
+</Note>

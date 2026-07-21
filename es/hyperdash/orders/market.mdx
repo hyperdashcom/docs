@@ -1,0 +1,38 @@
+---
+title: "Orden de mercado"
+description: "Ejecuta de inmediato al mejor precio disponible, con un tope estricto de slippage."
+---
+
+Una orden de mercado compra o vende de inmediato a los mejores precios del libro. Prioriza la velocidad y la certeza de ejecución por encima de un precio específico, y es el tipo de orden por defecto en el panel de trading de Hyperdash.
+
+## Cómo coloca las órdenes
+
+- Envía una orden inmediata o cancelar que toma liquidez desde el mejor precio hacia afuera hasta completar tu tamaño.
+- La orden se cotiza a partir del precio medio actual ajustado por tu tope de slippage máximo, así que no puede ejecutarse peor que ese tope. El tamaño que excedería el tope se cancela, no queda en el libro, por lo que la ejecución completa no está garantizada en mercados poco líquidos.
+- El slippage estimado según el libro de órdenes en vivo se muestra junto a tu tope antes de enviar, por ejemplo "Est: 0.01% / Max 8%".
+- Los activadores opcionales de Take Profit y Stop Loss se envían junto con la entrada.
+
+## Cuándo usarla
+
+- Necesitas entrar o salir ahora, y la inmediatez importa más que unos puntos básicos.
+- Operas movimientos rápidos en los que una orden en reposo quedaría atrás.
+- Estás cerrando una posición con rapidez, combinada con Solo Reducir.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Tamaño | En el activo o en USD. El deslizador dimensiona la orden como porcentaje del margen disponible al apalancamiento actual. | Ninguno |
+| Take Profit / Stop Loss (opcional) | Adjunta activadores de TP y SL por precio o por porcentaje de ganancia y de pérdida. | Desactivado |
+| Solo Reducir (opcional) | Se muestra con una posición abierta. La orden solo puede reducirla, nunca aumentarla ni invertirla. | Desactivado |
+| Deslizamiento | Tu tope de slippage máximo, el peor precio de ejecución que aceptas. Haz clic en la fila para ajustarlo. | 8% |
+
+El panel también muestra el precio de liquidación, el valor de la orden, el margen requerido y las comisiones. El valor mínimo de la orden es \$10.
+
+## Ejemplo
+
+BTC cotiza a \$118,400. Compras a mercado 0.25 BTC (\$29,600 de nocional) con apalancamiento 10x usando \$2,960 de margen. El panel estima un slippage de 0.01%, así que esperas una ejecución promedio cercana a \$118,412.
+
+<Note>
+  El slippage estimado es una estimación, no una garantía. En un mercado rápido la ejecución puede terminar en cualquier punto hasta tu tope de slippage máximo.
+</Note>

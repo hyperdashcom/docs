@@ -1,34 +1,36 @@
 ---
-title: "Coortes, Top Traders e Mudanças de Posição"
-description: "Guia para interpretar grupos de traders"
-icon: "people-group"
-"og:image": "https://hyperdash.com/og.png"
+title: "Coortes, Melhores Traders e Mudanças de Posição"
+description: "Abas de inteligência de mercado no terminal: posicionamento de coortes, posições dos melhores traders, mudanças de posição e TWAPs ao vivo."
 ---
 
-O Hyperdash agrega e exibe dados em tempo real sobre traders no terminal de trading para insights de mercado
+Para cada mercado perpétuo, o terminal de trading inclui abas de inteligência de mercado construídas a partir de dados de traders ao vivo: **Melhores traders**, **Coortes**, **Mudanças de Posição** e **TWAPs atuais**. Use-as para ver quem está posicionado onde, e quem está movendo o mercado agora.
 
-### **Coortes**
+### Coortes
 
-Veja a razão atual de Long para Short nocional e absoluta e a razão de PnL Realizado para Não Realizado de traders em qualquer par, segmentados com base em PnLs de traders ou tamanho da carteira
+Para o mercado selecionado, cada grupo de traders mostra três divisões: nocional long versus short, número de traders long versus short e quantos estão no lucro versus no prejuízo em PnL não realizado. Uma linha global agrega todos os traders do mercado; depois, duas famílias de coortes o segmentam: coortes de PNL (de Extremamente Lucrativo a Liquidado, por PnL de todos os tempos) e coortes de tamanho (de Kraken a Camarão, por tamanho de carteira). A faixa exata de cada coorte é mostrada ao lado do nome dela no app.
 
-Você também pode explorar cada coorte para uma visão mais ampla de seu posicionamento em todos os principais pares, e sua razão de Long para Short graficamente em diferentes períodos de tempo. Também está incluído um detalhamento dos traders que compõem cada coorte.
+Clique em qualquer coorte para abrir a página de detalhes dela: valor total, PnL, número de carteiras, posicionamento em todos os principais mercados, um gráfico histórico de posicionamento e a lista de carteiras da coorte, cada uma das quais você pode [rastrear](/pt/hyperdash/wallet-explore).
 
 <iframe src="https://www.youtube.com/embed/D8vkfFYPmWw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-### Top Traders
+<Note>
+  A participação em coortes só é rastreada em mercados perpétuos. Mercados spot mostram uma visão de Detentores em vez de Melhores traders e não têm dados de coortes.
+</Note>
 
-Veja como os principais traders em cada par estão posicionados, incluindo suas entradas, níveis de liquidação ao vivo, PnL não realizado e pagamentos de financiamento. Você pode filtrar por traders que estão long ou short com entradas associadas e tamanho nocional da negociação.
+### Melhores traders
+
+As maiores posições no par, com o preço de entrada, o preço de liquidação, o tamanho nocional, o PnL não realizado, o funding pago, o valor da conta e o copy score de cada trader. Filtre para apenas longs, apenas shorts ou todos, e rastreie qualquer trader direto da tabela.
 
 <iframe src="https://www.youtube.com/embed/6Sx629kRXTw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 ### Mudanças de Posição
 
-Veja como as posições dos traders mudam ao longo de vários períodos de tempo, incluindo seu tamanho de posição anterior e novo. Isso é útil para ver quais traders são responsáveis por grandes movimentos recentes que podem estar afetando o mercado.
+Como as posições dos traders mudaram em uma janela selecionada: 15 minutos, 1 hora, 4 horas, 24 horas, 3 dias ou 7 dias (padrão 15 minutos). Cada linha mostra a posição anterior, a mudança e a posição atual, filtrável para longs ou shorts. Esta é a forma mais rápida de ver quais traders estão por trás de um grande movimento recente.
 
 <iframe src="https://www.youtube.com/embed/f2sQmbGH0GQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-### TWAPs Ativos
+### TWAPs atuais
 
-Exibe traders com ordens TWAP ativas no par que você está visualizando, com o tamanho total da ordem, tamanho restante para implementar, tempo restante e progresso total até o momento.
+Traders com ordens TWAP ativas no par que você está visualizando: lado, tamanho total, tamanho executado, tamanho restante, valor, progresso, tempo e status. Para o tipo de ordem em si, veja [TWAP](/pt/hyperdash/orders/twap).
 
 <iframe src="https://www.youtube.com/embed/NjnxKEeBkUg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />

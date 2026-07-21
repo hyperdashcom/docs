@@ -1,0 +1,83 @@
+---
+title: "Perp RFQ"
+description: "Solicite liquidez ampliada para ordens grandes de perps e execute com preços melhores."
+---
+
+O Perp RFQ (Request for Quote, solicitação de cotação) traz liquidez institucional sob demanda ao Hyperdash. Em vez de trabalhar uma ordem grande pelo livro visível, você solicita cotações a formadores de mercado credenciados que competem em tempo real para precificar a sua operação: mais tamanho, execução aprimorada, preços melhores.
+
+O RFQ está disponível para 35\+ mercados entre ações, commodities e cripto.
+
+<Note>
+  O Perp RFQ está atualmente disponível apenas por convite. [Solicite acesso](https://hyperdash.com/rfq) e a nossa equipe verificará a sua elegibilidade.
+</Note>
+
+## Como o RFQ funciona
+
+<Steps>
+  <Step title="Envie uma solicitação">
+    Abra a aba **RFQ** no painel de trading, escolha o seu mercado e defina o seu tamanho em USDC ou no ativo. Escolha Comprar/Long ou Vender/Short. A sua direção permanece oculta dos formadores de mercado, a menos que você marque **Revelar o lado**.
+  </Step>
+  <Step title="Os formadores de mercado respondem">
+    Formadores de mercado credenciados recebem o mercado e o tamanho da sua solicitação e têm **5 segundos** para cotar ou recusar. Os formadores de mercado que respondem adicionam liquidez real diretamente ao livro de ordens público.
+  </Step>
+  <Step title="Revise suas cotações">
+    Seu ticket de RFQ mostra cada cotação conforme ela chega, junto com o seu slippage estimado atualizado, o preço médio de execução e a melhora em relação ao livro pré-RFQ.
+  </Step>
+  <Step title="Negocie, ou simplesmente saia">
+    Você tem **30 segundos** para executar. Nada é negociado até você confirmar, e você pode cancelar a solicitação ou deixá-la expirar a qualquer momento.
+  </Step>
+</Steps>
+
+## Parâmetros principais
+
+| Parâmetro | Valor |
+| --- | --- |
+| Tamanho máximo da ordem | \$500,000 de nocional por solicitação |
+| Janela de cotação | 30 segundos, depois a solicitação expira |
+| Tempo de resposta do formador de mercado | 5 segundos para cotar ou recusar |
+| Entrada de tamanho | Nocional em USDC ou quantidade do ativo base |
+| Direção | Oculta dos formadores de mercado por padrão, com opção de revelar o lado |
+| Acesso | Apenas por convite |
+
+## Mercados disponíveis
+
+<Frame>
+  ![O RFQ está disponível para 35\+ pares entre ações, commodities e cripto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+</Frame>
+
+| Categoria | Mercados |
+| --- | --- |
+| Cripto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
+| Ações | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Commodities | GOLD, SILVER, CL, BRENTOIL |
+| Índices e ETFs | SP500, XYZ100, EWY, DRAM |
+
+A lista ao vivo é sempre exibida no seletor de ativos do RFQ no app, e ela se expande conforme os formadores de mercado ampliam a cobertura.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Como consigo acesso?">
+    O Perp RFQ é apenas por convite. [Solicite acesso](https://hyperdash.com/rfq) e a nossa equipe verificará a sua elegibilidade.
+  </Accordion>
+
+  <Accordion title="O que os formadores de mercado veem?">
+    O mercado e o tamanho da sua solicitação. A sua direção de negociação permanece oculta, a menos que você ative **Revelar o lado**.
+  </Accordion>
+
+  <Accordion title="Por que eu revelaria o meu lado?">
+    Revelar permite que os formadores de mercado precifiquem um único lado em vez de cotar os dois, o que pode melhorar o seu preço. Manter oculto evita sinalizar a sua intenção. A escolha é sua a cada solicitação.
+  </Accordion>
+
+  <Accordion title="Sou obrigado a negociar depois de solicitar?">
+    Não. As cotações não são vinculantes. Você escolhe se executa e, se não fizer nada, a solicitação simplesmente expira após 30 segundos.
+  </Accordion>
+
+  <Accordion title="O RFQ custa algo a mais?">
+    Não. Não há taxa adicional por usar o RFQ. As taxas de negociação padrão do Hyperdash se aplicam à ordem executada.
+  </Accordion>
+
+  <Accordion title="O que acontece se nenhum formador de mercado cotar?">
+    A solicitação expira após 30 segundos e nada é executado. Você pode enviar uma nova solicitação a qualquer momento.
+  </Accordion>
+</AccordionGroup>

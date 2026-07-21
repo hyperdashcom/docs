@@ -1,0 +1,37 @@
+---
+title: "Swarm-Orders"
+description: "Teilen Sie eine große Order in bis zu 200 kleinere Clips auf, die parallel abgesetzt werden, um den Markteinfluss zu reduzieren."
+---
+
+Swarm-Orders zerlegen Ihre Order in kleinere Teilorders, sogenannte Clips, und setzen sie in kontrollierten parallelen Wellen ab. Das Ziel ist, nennenswerte Größe schnell auszuführen und dabei die Slippage und den Fußabdruck einer einzelnen großen Order zu vermeiden.
+
+## So werden Orders platziert
+
+- Teilt Ihre Gesamtgröße in die gewählte Anzahl von Clips: standardmäßig gleiche Größen, variierte Größen mit aktivierter Option Unregelmäßige Clips.
+- Jeder Clip ist eine Immediate-or-Cancel-Order zum Marktpreis zuzüglich einer Slippage-Toleranz. Clips nehmen also Liquidität auf, statt im Orderbuch zu ruhen.
+- Die Aggressivität bestimmt, wie viele Clips gleichzeitig unterwegs sind; sobald einer abgeschlossen ist, wird der nächste abgesetzt, bis alle verarbeitet sind.
+- Eine vollständige Ausführung ist nicht garantiert: Ein Clip, der fehlschlägt oder innerhalb seiner Slippage-Toleranz nicht ausgeführt werden kann, wird als abgelehnt markiert und nicht erneut versucht; die Order meldet, wie viele Clips fehlgeschlagen sind.
+- Das Stoppen eines Swarm storniert die ausstehenden Clips; nur abgesetzte Clips zählen zu Ihrer Ausführung.
+
+## Wann einsetzen
+
+- Größe schnell ausführen, ohne dem Markt eine einzelne große Order zu zeigen
+- Schneller als über ein TWAP-Fenster ausführen und den Einfluss trotzdem begrenzen
+- Den Kompromiss zwischen Ausführungsgeschwindigkeit und Fußabdruck über die Aggressivität steuern
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Teilorders gesamt | In wie viele Teilorders Ihre Order aufgeteilt wird. Ganzzahl von 2 bis 200. Jeder Clip muss mindestens \$10 wert sein, Ihre Ordergröße begrenzt also die Anzahl. | 10 |
+| Aggressivität | Stufe 1 bis 5. Gleichzeitige Clips je Stufe: 1, bis zu 2, bis zu 5, bis zu 10, bis zu 20. Eine höhere Aggressivität platziert Orders häufiger und ermöglicht schnellere Ausführungen. | 3 |
+| Unregelmäßige Clips (optional) | Variiert die Größe der Clips, damit die Aufteilung weniger gleichmäßig ist. | Aus |
+| Nur reduzieren (optional) | Beschränkt den Swarm auf das Reduzieren einer bestehenden Position. | Aus |
+
+## Beispiel
+
+Verkauf von 5,000 HYPE bei einem Preis von \$40, etwa \$200,000 Nominalwert. Mit Teilorders gesamt bei 100 ist jeder Clip 50 HYPE groß, rund \$2,000. Bei Aggressivität 4 arbeiten bis zu 10 Clips gleichzeitig das Orderbuch ab, bis alle 5,000 HYPE ausgeführt sind. Unregelmäßige Clips würde diese Größen variieren, statt einheitlich jeweils 50 HYPE zu drucken.
+
+<Note>
+  Clips haben einen Mindestwert von \$10, ein Swarm benötigt also mindestens \$20 Orderwert. Das Formular zeigt die maximale Anzahl von Clips, die Ihre aktuelle Größe unterstützt.
+</Note>

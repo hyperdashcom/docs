@@ -1,0 +1,38 @@
+---
+title: "Order Limit"
+description: "Pasang order di order book dan terisi hanya pada harga pilihan Anda atau lebih baik."
+---
+
+Order limit dieksekusi hanya pada harga yang Anda tetapkan, atau lebih baik: membeli pada harga limit Anda atau lebih rendah, menjual pada harga limit Anda atau lebih tinggi. Anda mengontrol harga; imbalannya, pengisian tidak dijamin.
+
+## Cara order ditempatkan
+
+- Menempatkan satu order pada harga limit Anda, berlaku hingga dibatalkan (good till canceled): order terus bekerja sampai terisi atau Anda membatalkannya.
+- Jika harga Anda jauh dari pasar, order menunggu di order book hingga harga mencapainya.
+- Jika harga Anda melintasi pasar (beli di atas ask terbaik, jual di bawah bid terbaik), order langsung dieksekusi pada harga lebih baik yang tersedia.
+- Pengisian bisa parsial, dan tidak ada slippage yang berlaku: harga limit Anda adalah harga terburuk yang bisa Anda terima.
+
+## Kapan digunakan
+
+- Anda menginginkan kepastian harga dan bersedia menunggu pasar datang kepada Anda.
+- Anda memasang bid saat harga melemah atau menawarkan saat harga menguat tanpa harus memantau grafik.
+- Anda ingin memasang entri dengan Take Profit dan Stop Loss terlampir dalam satu tiket.
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Harga Limit (USD) | Harga terburuk yang akan Anda terima. Klik **Tengah** untuk mengisi otomatis harga tengah saat ini. | Tidak ada |
+| Ukuran | Dalam aset atau dalam USD, dengan slider untuk mengukur sebagai persentase margin tersedia pada leverage saat ini. | Tidak ada |
+| Take Profit / Stop Loss (opsional) | Lampirkan pemicu TP dan SL berdasarkan harga atau berdasarkan persentase untung dan rugi. | Nonaktif |
+| Hanya Kurangi (opsional) | Muncul saat ada posisi terbuka. Order hanya dapat mengurangi posisi, tidak pernah menambah atau membaliknya. | Nonaktif |
+
+Panel menampilkan harga likuidasi, nilai order, margin diperlukan, dan biaya. Nilai order minimum adalah \$10.
+
+## Contoh
+
+BTC diperdagangkan di \$118,400. Anda memasang limit buy 0.1 BTC di \$116,000: nilai order \$11,600, margin diperlukan \$1,160 pada leverage 10x. Jika BTC turun menembus \$116,000, Anda terisi di \$116,000 atau lebih baik. Jika harga tidak pernah sampai ke sana, order tetap terbuka sampai Anda membatalkannya.
+
+<Note>
+  Limit buy yang dipasang di atas harga saat ini (atau limit sell di bawahnya) bersifat marketable: order mulai terisi segera seperti order market, dibatasi pada harga limit Anda.
+</Note>

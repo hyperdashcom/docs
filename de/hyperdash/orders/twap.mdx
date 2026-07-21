@@ -1,0 +1,37 @@
+---
+title: "TWAP"
+description: "Führen Sie große Orders in gleich großen Teilen über die Zeit aus, um den Markteinfluss zu reduzieren."
+---
+
+TWAP (Time Weighted Average Price) führt Ihre Order in gleich großen Teilen über eine von Ihnen gesetzte Dauer aus und zielt auf den durchschnittlichen Marktpreis über das Zeitfenster statt auf eine einzelne Ausführung. Das Ziel ist die Minimierung des Markteinflusses, wenn Ihre Größe im Verhältnis zur verfügbaren Liquidität groß ist.
+
+## So werden Orders platziert
+
+- Teilt Ihre Gesamtgröße in gleich große Teilorders, eine alle 30 Sekunden über die gewählte Dauer. Das Formular zeigt eine Vorschau von Laufzeit, Anzahl der Orders und Größe je Teilorder.
+- Mit aktivierter Option Verdeckt wird der TWAP für mehr Privatsphäre über unsere Infrastruktur statt On-Chain ausgeführt.
+- Die Zufallsoptionen variieren die Größen der Teilorders und, mit Verdeckt, die Intervalle, damit das Ausführungsmuster weniger vorhersehbar ist.
+- Ein laufender TWAP kann bearbeitet oder gestoppt werden. Beim Bearbeiten muss die neue Gesamtgröße größer als der bereits ausgeführte Betrag sein.
+
+## Wann einsetzen
+
+- In eine große Position einsteigen oder aussteigen, ohne den Markt zu bewegen
+- Über ein festgelegtes Zeitfenster in eine Position hineinmitteln, statt eine einzelne Ausführung zu timen
+- Ihre Ausführung mit Verdeckt und den Zufallsoptionen schwerer nachverfolgbar machen
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Dauer | Ausführungsfenster in Stunden und Minuten. Muss über 5 Minuten und unter 24 Stunden liegen. | Keiner |
+| Verdeckt | Führt Ihren TWAP für mehr Privatsphäre über unsere Infrastruktur statt On-Chain aus. | An |
+| Zufällige Größe (optional) | Passt die Größe jeder Teilorder zufällig um bis zu +/-20 % an und hält dabei die TWAP-Vorgaben ein. | Aus |
+| Zufällig Zeit (optional) | Verfügbar mit Verdeckt. Verschiebt jedes Intervall zufällig um bis zu +/-20 %, damit das Timing weniger vorhersehbar ist. | Aus |
+| Nur reduzieren (optional) | Beschränkt den TWAP auf das Reduzieren einer bestehenden Position. | Aus |
+
+## Beispiel
+
+Sie wollen 2 BTC über 2 Stunden kaufen. Das sind 240 Intervalle zu 30 Sekunden, Hyperdash platziert also 240 Teilorders von jeweils etwa 0.0083 BTC. Bei einem BTC-Preis von \$118,000 entspricht jede Teilorder rund \$980 Nominalwert. Mit aktivierter Option Zufällige Größe variieren die Teilorders in der Größe und summieren sich trotzdem auf 2 BTC.
+
+<Note>
+  Jede Teilorder muss mindestens \$10 wert sein. Fällt Ihre über die Dauer verteilte Größe darunter, verkürzen Sie die Dauer oder erhöhen Sie die Größe.
+</Note>

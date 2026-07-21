@@ -1,28 +1,40 @@
 ---
 title: "Copy Trading"
-description: "Guide pour copier ou contre-trader des utilisateurs sur Hyperdash"
+description: "Découvrez des traders rentables sur Hyperdash et copiez ou contrez automatiquement leurs trades."
+hidden: true
 ---
 
-Lors de la visualisation d'un trader, cliquer sur le bouton 'copytrade' vous permettra de choisir entre copier et contre-trader.
+Le copy trading sur Hyperdash vous permet de suivre des traders rentables et de ne manquer aucun mouvement : chaque trade est copié automatiquement, en temps réel. Vous choisissez qui suivre et combien de risque prendre, et la plateforme exécute pour vous.
+
+<Note>
+  Le copy trading s'appuie sur [**Autotrade**](/fr/hyperdash/autotrade), le moteur d'exécution automatisée de Hyperdash. Consultez cette page pour la configuration du portefeuille, l'approvisionnement, les réglages de risque, et la façon de démarrer, d'arrêter et de modifier une stratégie.
+</Note>
 
 <iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-Vous pouvez configurer vos options de copy trading pour :
+## Fonctionnement
 
-- Copier chaque trade quel que soit le prix d'entrée (ce qui copiera leurs trades ouverts au prix du marché au moment où vous commencez le copytrading).
-- Ne copier que les trades avec des prix d'entrée favorables (les copytrades ne seront pas exécutés tant que le prix du marché n'aura pas atteint l'entrée initiale du trader).
-- Ajuster l'effet de levier des trades lors de la copie.
+<Steps>
+  <Step title="Découvrez des traders">
+    La section Copytraders de la page [Explorer](/fr/hyperdash/wallet-explore) classe le Top 100 des traders copiables, plus des onglets sélectionnés comme Axés actions et les meilleurs traders BTC, HYPE et CL. Triez par copy score, ROI, équité ou activité récente ; chaque carte affiche le ROI, l'équité, le volume et l'heure du dernier trade.
+  </Step>
+  <Step title="Copiez ou contrez">
+    Depuis une carte ou un profil de trader, choisissez **Copytrade** pour répliquer ses positions ou **Contre-trade** pour prendre le côté opposé. Vous pouvez aussi coller directement n'importe quelle adresse de portefeuille, et suivre jusqu'à 10 traders depuis un seul portefeuille.
+  </Step>
+  <Step title="Configurez et démarrez">
+    Définissez votre allocation, votre plafond de levier et vos filtres, puis approvisionnez un portefeuille dédié. Parcours complet sur la [page Autotrade](/fr/hyperdash/autotrade).
+  </Step>
+  <Step title="Suivez la performance">
+    L'onglet Copytrade liste vos portefeuilles sous En cours, Arrêtés et Archivés, avec l'équité, le PNL, les positions et des journaux par portefeuille montrant chaque action effectuée (et les trades ignorés, avec leurs raisons). Vous pouvez aussi partager une carte PNL.
+  </Step>
+</Steps>
 
-Ensuite, les utilisateurs choisissent :
+## Ce qui est copié
 
-- Quel portefeuille utiliser pour le copy trading (portefeuille natif HD ou via import)
-- L'actif à utiliser comme collatéral
-- % de marge disponible pour le copy trading (Note : les nouveaux dépôts entraîneront des frais de base Hyperliquid de 1$).
+Le copy trading place de vrais ordres depuis votre portefeuille Autotrade ; ce n'est pas un flux d'alertes. Quand un trader cible ouvre ou clôture une position perp, votre portefeuille la réplique (ou la contre), dimensionnée selon votre allocation et soumise à vos réglages de risque : un plafond de levier maximal par position, un mode optionnel limité aux nouvelles positions, une limite d'entrée dégradée maximale, et des listes blanches ou noires d'actifs. Le spot et le HYPE staké peuvent optionnellement compter dans le dimensionnement de copie.
 
-Après avoir vérifié votre configuration, les utilisateurs peuvent confirmer et initier le copy trading. Les copies et contre-trades entraîneront des frais de 5bp (0,05%).
+Si vous voulez observer le positionnement des top traders sans le trader, utilisez plutôt [Top Traders et Changements de Position](/fr/hyperdash/cohorts-top-traders-position-changes).
 
-Les copytrades actifs seront affichés dans l'onglet 'copy trading' à côté de vos positions avec les PnL associés et le capital alloué.
+## Arrêt et fonds
 
-Lors du choix d'arrêter le copytrading, vous serez invité à choisir si vous souhaitez garder les positions actuelles ouvertes ou les fermer toutes. Une fois arrêté, le copytrading peut également être repris optionnellement.
-
-Les fonds alloués aux copytrades sont transférés vers un portefeuille séparé dans votre compte dédié à chaque trader que vous copiez. Une fois que vous avez arrêté les copytrades, vous pouvez transférer des fonds du portefeuille de copytrading vers tout autre appartenant à votre compte.
+Votre capital de copy trading vit dans un portefeuille dédié à la stratégie. L'arrêt clôture toujours les positions ouvertes de ce portefeuille, et un portefeuille arrêté peut être relancé plus tard. Archiver un portefeuille créé par Hyperdash clôture les positions et renvoie le solde vers votre portefeuille principal. Les détails sur la garde, les dépôts et les frais de builder de 0.05% sont sur la [page Autotrade](/fr/hyperdash/autotrade).

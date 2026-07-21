@@ -1,0 +1,38 @@
+---
+title: "Orden límite"
+description: "Deja una orden en el libro y ejecútala solo a tu precio elegido o mejor."
+---
+
+Una orden límite se ejecuta solo al precio que estableces, o mejor: compra a tu precio límite o por debajo, vende a tu precio límite o por encima. Tú controlas el precio; a cambio, la ejecución no está garantizada.
+
+## Cómo coloca las órdenes
+
+- Coloca una única orden a tu precio límite, válida hasta cancelar: trabaja hasta que se ejecuta o la cancelas.
+- Si tu precio está alejado del mercado, la orden queda en el libro hasta que el precio la alcanza.
+- Si tu precio cruza el mercado (una compra por encima del mejor ask, una venta por debajo del mejor bid), se ejecuta de inmediato a los mejores precios disponibles.
+- Las ejecuciones pueden ser parciales, y no aplica slippage: tu precio límite es el peor precio que puedes recibir.
+
+## Cuándo usarla
+
+- Quieres certeza de precio y estás dispuesto a esperar a que el mercado venga hacia ti.
+- Compras en las caídas u ofreces en la fortaleza sin estar mirando el gráfico.
+- Quieres definir una entrada con Take Profit y Stop Loss adjuntos en un solo ticket.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Precio límite (USD) | El peor precio que aceptarás. Haz clic en **Medio** para precargar el precio medio actual. | Ninguno |
+| Tamaño | En el activo o en USD, con un deslizador para dimensionar como porcentaje del margen disponible al apalancamiento actual. | Ninguno |
+| Take Profit / Stop Loss (opcional) | Adjunta activadores de TP y SL por precio o por porcentaje de ganancia y de pérdida. | Desactivado |
+| Solo Reducir (opcional) | Se muestra con una posición abierta. La orden solo puede reducirla, nunca aumentarla ni invertirla. | Desactivado |
+
+El panel muestra el precio de liquidación, el valor de la orden, el margen requerido y las comisiones. El valor mínimo de la orden es \$10.
+
+## Ejemplo
+
+BTC cotiza a \$118,400. Colocas una compra límite de 0.1 BTC a \$116,000: valor de la orden \$11,600, margen requerido \$1,160 con apalancamiento 10x. Si BTC baja y cruza \$116,000, te ejecutas a \$116,000 o mejor. Si nunca llega, la orden sigue abierta hasta que la canceles.
+
+<Note>
+  Una compra límite colocada por encima del precio actual (o una venta por debajo) es ejecutable de inmediato: empieza a ejecutarse al instante como una orden de mercado, con tu precio límite como tope.
+</Note>

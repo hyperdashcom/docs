@@ -1,0 +1,40 @@
+---
+title: "Scale-Orders"
+description: "Platzieren Sie eine Staffel von Limit-Orders über eine Preisspanne in einem einzigen Ticket."
+---
+
+Scale-Orders teilen eine Order in eine Staffel von Limit-Orders über eine von Ihnen definierte Preisspanne auf, mit dem Ziel eines besseren Durchschnittspreises als bei einer einzelnen Ausführung. Sie finden Scale unter der **Pro**-Auswahl im Trade-Panel.
+
+## So werden Orders platziert
+
+- Platziert die unter Orders gesamt gewählte Anzahl als einzelne Limit-Orders in einer Aktion, alle Good till Canceled.
+- Die Preise werden gleichmäßig vom Startpreis bis zum Endpreis verteilt.
+- Die Größen skalieren linear über die Staffel gemäß der Größenverteilung und summieren sich immer auf Ihre Gesamtgröße. Bei Orders gesamt von 1 wird die volle Größe am Startpreis platziert.
+- Jede Order wird unabhängig ausgeführt, eine flache Bewegung füllt also nur einen Teil der Staffel.
+
+## Wann einsetzen
+
+- In Schwäche akkumulieren oder in Stärke verteilen, über eine Spanne statt an einem einzelnen Preis.
+- In einen Einstieg hineinmitteln, wenn Sie Seitwärtsbewegung innerhalb einer Spanne erwarten.
+- Mit der Größenverteilung mehr Größe auf das ferne Ende der Spanne legen.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Größe | Gesamtgröße über alle Orders, im Asset oder in USD. | Keiner |
+| Startpreis | Preis der ersten Order. Klicken Sie auf **Mid**, um den aktuellen Mittelkurs vorzubefüllen. | Keiner |
+| Endpreis | Preis der letzten Order. | Keiner |
+| Orders gesamt | Anzahl der Limit-Orders in der Staffel, 1 bis 100. | Keiner |
+| Größenverteilung | Verhältnis der Größe der letzten Order zur ersten. 1.0 platziert gleiche Größen; 2.0 macht die letzte Order doppelt so groß wie die erste. | 1.00 |
+| Nur reduzieren (optional) | Wird bei einer offenen Position angezeigt. Die Orders können sie nur reduzieren. | Aus |
+
+Das Panel zeigt vor dem Platzieren der Staffel eine Vorschau der ersten und letzten Order, des Durchschnittspreises, des Orderwerts und der erforderlichen Margin.
+
+## Beispiel
+
+HYPE notiert bei \$40 und Sie wollen einen Long über 100 HYPE in Schwäche aufbauen: Startpreis \$40, Endpreis \$36, Orders gesamt 5, Größenverteilung 2.0. Hyperdash platziert Limit-Kauforders bei \$40, \$39, \$38, \$37 und \$36 mit den Größen 13.3, 16.7, 20, 23.3 und 26.7 HYPE. Wird die gesamte Staffel ausgeführt, liegt Ihr durchschnittlicher Einstieg bei etwa \$37.67, gegenüber \$38.00 bei gleicher Gewichtung.
+
+<Note>
+  Jede Order in der Staffel muss mindestens \$10 wert sein. Würde die kleinste Order darunter fallen, warnt das Panel: Reduzieren Sie Orders gesamt oder erhöhen Sie die Größe.
+</Note>

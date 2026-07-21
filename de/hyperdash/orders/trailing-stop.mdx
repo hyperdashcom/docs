@@ -1,0 +1,36 @@
+---
+title: "Trailing-Stop"
+description: "Schützen Sie offene Gewinne mit einem Stop, der dem Preis automatisch in Ihrem gewählten Abstand folgt."
+---
+
+Ein Trailing-Stop folgt dem Markt, während er sich zu Ihren Gunsten bewegt. Sie setzen einen Rücklauf, einen Prozentsatz oder einen festen USD-Abstand, und der Stop löst aus, wenn der Preis um diesen Wert vom besten Stand umkehrt, den Ihre Position erreicht hat. So lassen Sie Gewinner laufen und sichern Gewinne automatisch.
+
+## So werden Orders platziert
+
+- Wird auf einer offenen Position gesetzt und deckt die volle Positionsgröße ab. Die Hyperdash-Infrastruktur überwacht den Markt, es liegt also nichts im öffentlichen Orderbuch, solange der Stop aktiv ist.
+- Hyperdash verfolgt den Spitzenpreis, den höchsten erreichten Stand für Longs oder den tiefsten für Shorts, und berechnet den Stop bei jedem neuen günstigen Extrem neu: Spitzenpreis minus Rücklauf für Longs, Spitzenpreis plus Rücklauf für Shorts. Er zieht nur nach, lockert nie.
+- Kehrt der Preis bis zum Stop-Preis um, wird der Ausstieg als **Markt** gesendet, oder als **Chase**, eine an die Orderbuchspitze gepinnte Limit-Order, die sich bis zur Ausführung aktualisiert.
+- Ein Trailing-Stop je Position: Das Bestätigen neuer Einstellungen ersetzt ihn, und Sie können ihn jederzeit entfernen.
+
+## Wann einsetzen
+
+- Gewinne eines Gewinners sichern, ohne im Voraus einen Ausstiegspreis festzulegen.
+- Einen Trend reiten: Der Stop folgt dem Preis und gibt nie Boden zurück.
+- Manuelles Stop-Management ersetzen: kein Anpassen eines festen Stops mehr nach jedem neuen Hoch.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Rücklaufmodus | **Nach Prozent** (Prozentsatz des Preises, unter 100) oder **Nach Abstand** (fester USD-Betrag). | Nach Abstand |
+| Rücklauf | Der Trailing-Wert in % oder USD. Das Fenster zeigt eine Vorschau des prognostizierten Stop-Preises. | Keiner |
+| Ordertyp | Wie der Ausstieg ausgeführt wird: **Markt** oder **Chase**. | Markt |
+| Größe | Deckt Ihre volle Position ab. | Volle Position |
+
+## Beispiel
+
+Sie sind mit 500 HYPE bei einem Markpreis von \$45.00 long und setzen einen Rücklauf von 5 %, der anfängliche Stop liegt also bei \$42.75. HYPE steigt auf \$50.00 und der Stop zieht auf \$47.50 nach. Dann kehrt der Preis auf \$47.50 um, der Stop löst aus, und eine Market-Order schließt die Position.
+
+<Note>
+  Der Stop bewegt sich nur bei neuen günstigen Extremen. In einer Seitwärtsphase bleibt er stehen, und ein scharfer Docht, der ihn erreicht, schließt die Position, selbst wenn sich der Preis sofort danach erholt.
+</Note>

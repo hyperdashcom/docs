@@ -1,0 +1,37 @@
+---
+title: "Stop-Limit"
+description: "Lösen Sie am Stop-Preis eine Limit-Order aus und setzen Sie eine harte Grenze für den schlechtesten Preis, den Sie akzeptieren."
+---
+
+Eine Stop-Limit-Order wartet, bis der Markt Ihren Stop-Preis erreicht, und platziert dann eine Limit-Order zu Ihrem Limitpreis. Vor dem Auslösen wird nichts gehandelt, und nach dem Auslösen wird Ihre Order nur zum Limitpreis oder besser ausgeführt.
+
+## So werden Orders platziert
+
+- Beim Absenden wird nichts ausgeführt. Die Order wartet, bis der Assetpreis Ihren Stop-Preis erreicht.
+- Mit aktivierter Option **Verdeckt** (Standard) überwacht die Hyperdash-Infrastruktur den Preis und platziert die Order erst beim Auslösen. Bis dahin bleibt sie unsichtbar. Ist Verdeckt deaktiviert, wird der Stop öffentlich On-Chain als Trigger-Order platziert.
+- Beim Auslösen wird eine Limit-Order zu Ihrem Limitpreis ins Orderbuch gesendet und zu diesem Preis oder besser ausgeführt.
+- Eine vollständige Ausführung ist nicht garantiert: Springt der Preis über Ihr Limit hinweg, bleibt die Order unausgeführt liegen, bis der Preis zurückkommt oder Sie stornieren.
+
+## Wann einsetzen
+
+- Breakouts handeln: über dem Widerstand kaufen oder unter der Unterstützung verkaufen, erst wenn das Niveau tatsächlich bricht.
+- Ihre schlechteste Ausführung begrenzen, statt zu nehmen, was eine Market-Order bekommt.
+- Zu einem definierten Trigger mit Preiskontrolle aussteigen. Aktivieren Sie **Nur reduzieren**, damit die Order Ihre Position nur schließen kann.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Stop-Preis (USD) | Auslösungspreis: über dem aktuellen Preis für Käufe, darunter für Verkäufe. | Keiner |
+| Limit Preis | Preis der beim Auslösen platzierten Limit-Order. | Aktueller Preis |
+| Größe | Im Asset oder in USD. Mindestorderwert \$10. | Keiner |
+| Nur reduzieren (optional) | Die Order kann eine bestehende Position nur reduzieren. | Aus |
+| Verdeckt (optional) | Leitet den Stop über die Hyperdash-Infrastruktur, bis zum Auslösen außerhalb des Orderbuchs. | An |
+
+## Beispiel
+
+BTC notiert bei \$117,400 und Sie wollen einen Breakout über \$120,000 kaufen. Sie platzieren eine Stop-Limit-Order: Stop \$120,000, Limit \$120,250, Größe 0.5 BTC. Erreicht BTC \$120,000, wird eine Limit-Kauforder bei \$120,250 platziert und zu diesem Preis oder besser ausgeführt. Springt BTC direkt auf \$120,600, bleibt sie bei \$120,250 unausgeführt liegen.
+
+<Note>
+  Eine Stop-Limit-Order tauscht Preisrisiko gegen Ausführungsrisiko: Bemessen Sie den Abstand zwischen Stop und Limit nach der Volatilität des Marktes, damit eine schnelle Bewegung nicht über beide hinwegspringen kann. Wenn die Ausführung wichtiger ist als der Preis, verwenden Sie eine [Stop-Market-Order](/de/hyperdash/orders/stop-market).
+</Note>

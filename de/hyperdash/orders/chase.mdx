@@ -1,0 +1,36 @@
+---
+title: "Chase-Orders"
+description: "Eine Limit-Order, die dem besten Geld- oder Briefkurs fortlaufend folgt und sich neu einpreist, bis sie ausgeführt ist oder Ihr Limit erreicht."
+---
+
+Chase platziert eine Limit-Order an der Spitze des Orderbuchs und hält sie dort: Sie folgt dem besten Geldkurs (bei Käufen und Longs) oder dem besten Briefkurs (bei Verkäufen und Shorts), während sich der Markt bewegt. Das Ziel ist passive Ausführung: nahe am besten Kurs ausführen, ohne den Spread zu überqueren. Chase funktioniert auf Perp- und Spot-Märkten und ist außerdem ein Ausstiegstyp für [Take-Profit und Stop-Loss](/de/hyperdash/orders/take-profit-stop-loss).
+
+## So werden Orders platziert
+
+- Sendet eine einzelne Post-Only-Limit-Order am besten Geldkurs (Käufe) oder besten Briefkurs (Verkäufe). Die Order ruht passiv und überquert nie den Spread.
+- Orders werden alle 500 ms aktualisiert: Sobald sich die Spitze des Orderbuchs bewegt, wird die ruhende Order auf den neuen besten Preis umgepreist.
+- Teilausführungen werden nachverfolgt, und die verbleibende Größe verfolgt den Kurs weiter, bis die Order vollständig ausgeführt oder storniert ist.
+- Ist ein Preis unter **Chase bis** gesetzt, stoppt der Chase und storniert seine ruhende Order, sobald der beste Geld- oder Briefkurs dieses Limit überschreitet. Die Order bleibt nicht am Limitpreis liegen, und ein Chase, dessen Chase-bis-Preis bereits außerhalb der Orderbuchspitze liegt, wird beim Absenden abgelehnt.
+- Pro Wallet und Markt läuft jeweils nur ein Chase.
+
+## Wann einsetzen
+
+- Maker-Ausführungen nahe der Orderbuchspitze einsammeln, ohne den Spread zu zahlen.
+- Eine Order in einem sich bewegenden Markt abarbeiten, ohne Limit-Orders manuell zu stornieren und neu zu platzieren.
+- Eine Position passiv schließen: Aktivieren Sie **Nur reduzieren** oder wählen Sie Chase als TP/SL-Ausstiegstyp.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Größe | Ordergröße im Asset oder als USDC-Nominalwert. Der Mindestorderwert beträgt \$10. | Keiner |
+| Chase bis (optional) | Preislimit für den Chase. Leer lassen, um bis zur Ausführung oder Stornierung zu verfolgen. Für Käufe und Longs muss der Preis mindestens dem aktuellen Preis entsprechen, für Verkäufe und Shorts höchstens. Überschreitet der beste Geld- oder Briefkurs dieses Limit, stoppt der Chase und storniert. | Leer, Chase bis zur Ausführung oder Stornierung |
+| Nur reduzieren (optional) | Beschränkt die Order auf das Reduzieren einer bestehenden Position. | Aus |
+
+## Beispiel
+
+Sie wollen 100 HYPE kaufen, das Orderbuch steht bei \$44.60 Geld, \$44.62 Brief. Sie senden einen Chase-Kauf mit Chase bis \$45.00. Die Order ruht bei \$44.60, und wenn der Geldkurs auf \$44.70 und \$44.85 steigt, preist sie sich mit um und sammelt dabei Maker-Ausführungen ein. Steigt der Geldkurs über \$45.00, storniert der Chase den nicht ausgeführten Rest, statt weiter zu folgen.
+
+<Note>
+  Ein Chase ruht nur auf der passiven Seite, eine vollständige Ausführung ist daher nicht garantiert. In einem schnell trendenden Markt kann der Preis Ihrer Order davonlaufen, und mit gesetztem Chase bis kann eine Teilausführung übrig bleiben.
+</Note>

@@ -1,34 +1,36 @@
 ---
 title: "Kohort, Top Trader dan Perubahan Posisi"
-description: "Panduan untuk menginterpretasikan grup trader"
-icon: "people-group"
-"og:image": "https://hyperdash.com/og.png"
+description: "Tab intelijen pasar di terminal: positioning kohort, posisi top trader, perubahan posisi, dan TWAP live."
 ---
 
-Hyperdash mengagregasi dan menampilkan data real time tentang trader di terminal trading untuk insight pasar
+Untuk setiap pasar perpetual, terminal trading menyertakan tab intelijen pasar yang dibangun dari data trader live: **Top Traders**, **Cohorts**, **Position Changes**, dan **Current TWAPs**. Gunakan tab ini untuk melihat siapa berposisi di mana, dan siapa yang sedang menggerakkan pasar saat ini.
 
-### **Kohort**
+### Kohort
 
-Lihat rasio Long ke Short nosional dan absolut saat ini serta rasio PnL Terealisasi ke Belum Terealisasi dari trader pada pair manapun, disegmentasi berdasarkan PnL trader atau ukuran wallet
+Untuk pasar terpilih, setiap grup trader menampilkan tiga rincian: nosional long versus short, jumlah trader long versus short, dan berapa banyak yang profit versus rugi pada PnL yang belum direalisasi. Sebuah baris global mengagregasi setiap trader di pasar itu, lalu dua keluarga kohort menyegmentasikannya: kohort PNL (Extremely Profitable hingga Rekt, berdasarkan PnL sepanjang waktu) dan kohort ukuran (Kraken hingga Shrimp, berdasarkan ukuran wallet). Rentang persis setiap kohort ditampilkan di samping namanya dalam aplikasi.
 
-Anda juga dapat menjelajahi setiap kohort untuk gambaran yang lebih luas tentang posisi mereka di semua pair utama, dan rasio Long ke Short mereka secara grafis dalam timeframe berbeda.
+Klik kohort mana pun untuk membuka halaman detailnya: nilai total, PnL, jumlah wallet, positioning di semua pasar utama, grafik positioning historis, dan daftar wallet dalam kohort itu, yang masing-masing dapat Anda [lacak](/id/hyperdash/wallet-explore).
 
 <iframe src="https://www.youtube.com/embed/D8vkfFYPmWw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
+<Note>
+  Partisipasi kohort hanya dilacak di pasar perpetual. Pasar spot menampilkan tampilan Holders alih-alih Top Traders dan tanpa data kohort.
+</Note>
+
 ### Top Trader
 
-Lihat bagaimana top trader di setiap pair diposisikan, termasuk entry mereka, level likuidasi langsung, PnL belum terealisasi dan pembayaran funding.
+Posisi terbesar pada pasangan tersebut, dengan harga masuk, harga likuidasi, ukuran nosional, PnL belum direalisasi, funding yang dibayarkan, nilai akun, dan copy score setiap trader. Filter ke long saja, short saja, atau semua, dan lacak trader mana pun langsung dari tabel.
 
 <iframe src="https://www.youtube.com/embed/6Sx629kRXTw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 ### Perubahan Posisi
 
-Lihat bagaimana posisi trader berubah dalam berbagai timeframe, termasuk ukuran posisi sebelumnya dan baru mereka.
+Bagaimana posisi trader berubah selama jendela terpilih: 15 menit, 1 jam, 4 jam, 24 jam, 3 hari, atau 7 hari (default 15 menit). Setiap baris menampilkan posisi sebelumnya, perubahannya, dan posisi saat ini, dapat difilter ke long atau short. Ini cara tercepat untuk melihat trader mana yang berada di balik pergerakan besar baru-baru ini.
 
 <iframe src="https://www.youtube.com/embed/f2sQmbGH0GQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-### TWAP Aktif
+### TWAP Saat Ini
 
-Menampilkan trader dengan order TWAP aktif pada pair yang Anda lihat, dengan total ukuran order, ukuran yang tersisa untuk di-deploy, waktu yang tersisa dan total progress hingga saat ini.
+Trader dengan order TWAP aktif pada pasangan yang sedang Anda lihat: sisi, ukuran total, ukuran tereksekusi, ukuran tersisa, nilai, progres, waktu, dan status. Untuk jenis ordernya sendiri, lihat [TWAP](/id/hyperdash/orders/twap).
 
 <iframe src="https://www.youtube.com/embed/NjnxKEeBkUg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />

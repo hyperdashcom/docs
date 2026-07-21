@@ -1,0 +1,38 @@
+---
+title: "Ordre au marché"
+description: "Exécutez immédiatement au meilleur prix disponible, avec un plafond strict sur le glissement."
+---
+
+Un ordre au marché achète ou vend immédiatement aux meilleurs prix du carnet. Il privilégie la vitesse et la certitude d'exécution plutôt qu'un prix précis, et c'est le type d'ordre par défaut du panneau de trading Hyperdash.
+
+## Comment les ordres sont placés
+
+- Soumet un ordre IOC (immédiat ou annuler) qui prend la liquidité à partir du meilleur prix jusqu'à ce que votre taille soit exécutée.
+- L'ordre est prix à partir du prix médian actuel ajusté de votre plafond de glissement maximal, il ne peut donc pas s'exécuter à un prix pire que ce plafond. La taille qui dépasserait le plafond est annulée, et non laissée dans le carnet, donc l'exécution complète n'est pas garantie sur les marchés peu liquides.
+- Le glissement estimé à partir du carnet d'ordres en direct est affiché à côté de votre plafond avant la soumission, par exemple « Est: 0.01% / Max 8% ».
+- Des déclencheurs optionnels de Prise de profit et de Limite de perte sont soumis avec l'entrée.
+
+## Quand l'utiliser
+
+- Vous devez entrer ou sortir maintenant, et l'immédiateté compte plus que quelques points de base.
+- Vous tradez des mouvements rapides où un ordre passif resterait à la traîne.
+- Vous clôturez une position rapidement, en combinaison avec Réduction uniquement.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Taille | Dans l'actif ou en USD. Le curseur dimensionne l'ordre en pourcentage de la marge disponible au levier actuel. | Aucun |
+| Prise de profit / Limite de perte (optionnel) | Attachez des déclencheurs TP et SL par prix ou par pourcentage de gain et de perte. | Désactivé |
+| Réduction uniquement (optionnel) | Affiché avec une position ouverte. L'ordre ne peut que la réduire, jamais l'augmenter ni l'inverser. | Désactivé |
+| Glissement | Votre plafond de glissement maximal, le pire prix d'exécution que vous acceptez. Cliquez sur la ligne pour l'ajuster. | 8% |
+
+Le panneau affiche aussi le prix de liquidation, la valeur de l'ordre, la marge requise et les frais. La valeur minimale d'un ordre est de \$10.
+
+## Exemple
+
+BTC s'échange à \$118,400. Vous achetez au marché 0.25 BTC (\$29,600 de notionnel) avec un levier de 10x, en utilisant \$2,960 de marge. Le panneau estime un glissement de 0.01%, vous pouvez donc attendre une exécution moyenne proche de \$118,412.
+
+<Note>
+  Le glissement estimé est une estimation, pas une garantie. Dans un marché rapide, l'exécution peut se situer n'importe où jusqu'à votre plafond de glissement maximal.
+</Note>

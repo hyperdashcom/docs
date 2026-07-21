@@ -1,0 +1,37 @@
+---
+title: "TWAP"
+description: "Eksekusi order besar dalam bagian yang sama besar dari waktu ke waktu untuk mengurangi dampak pasar."
+---
+
+TWAP (Time Weighted Average Price) mengeksekusi order Anda dalam bagian yang sama besar selama durasi yang Anda tetapkan, dengan target harga pasar rata-rata di sepanjang jendela waktu itu alih-alih satu pengisian tunggal. Tujuannya meminimalkan dampak pasar saat ukuran Anda besar dibandingkan likuiditas yang tersedia.
+
+## Cara order ditempatkan
+
+- Memecah total ukuran Anda menjadi sub-order sama besar, satu setiap 30 detik di sepanjang durasi Anda. Formulir menampilkan pratinjau waktu berjalan, jumlah order, dan ukuran per sub-order.
+- Dengan Stealth aktif, TWAP dieksekusi melalui infrastruktur kami alih-alih on-chain untuk eksekusi yang lebih privat.
+- Opsi acak memvariasikan ukuran sub-order dan, dengan Stealth, intervalnya, agar pola eksekusi lebih sulit diprediksi.
+- TWAP yang sedang berjalan dapat diedit atau dihentikan. Saat mengedit, total ukuran baru harus lebih besar dari jumlah yang sudah dieksekusi.
+
+## Kapan digunakan
+
+- Masuk atau keluar dari posisi besar tanpa menggerakkan pasar
+- Merata-ratakan masuk ke posisi selama jendela waktu tertentu alih-alih menebak satu momen pengisian
+- Membuat eksekusi Anda lebih sulit dilacak dengan Stealth dan opsi acak
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Durasi | Jendela eksekusi dalam jam dan menit. Harus lebih dari 5 menit dan kurang dari 24 jam. | Tidak ada |
+| Stealth | Mengeksekusi TWAP Anda melalui infrastruktur kami alih-alih on-chain untuk eksekusi yang lebih privat. | Aktif |
+| Acak Ukuran (opsional) | Menyesuaikan ukuran setiap sub-order secara acak hingga +/-20% sambil tetap menjaga batasan TWAP. | Nonaktif |
+| Acak Waktu (opsional) | Tersedia dengan Stealth. Menggeser setiap interval secara acak hingga +/-20% agar waktunya lebih sulit diprediksi. | Nonaktif |
+| Hanya Kurangi (opsional) | Membatasi TWAP hanya untuk mengurangi posisi yang ada. | Nonaktif |
+
+## Contoh
+
+Anda ingin membeli 2 BTC selama 2 jam. Itu berarti 240 interval 30 detik, jadi Hyperdash menempatkan 240 sub-order masing-masing sekitar 0.0083 BTC. Pada harga BTC \$118,000, setiap sub-order bernilai nosional sekitar \$980. Dengan Acak Ukuran aktif, ukuran sub-order bervariasi namun tetap berjumlah 2 BTC.
+
+<Note>
+  Setiap sub-order harus bernilai minimal \$10. Jika ukuran Anda yang tersebar di sepanjang durasi jatuh di bawah nilai itu, perpendek durasinya atau perbesar ukurannya.
+</Note>

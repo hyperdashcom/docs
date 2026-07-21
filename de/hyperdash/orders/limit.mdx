@@ -1,0 +1,38 @@
+---
+title: "Limit-Order"
+description: "Legen Sie eine Order ins Orderbuch und führen Sie nur zu Ihrem gewählten Preis oder besser aus."
+---
+
+Eine Limit-Order wird nur zu dem von Ihnen gesetzten Preis oder besser ausgeführt: Käufe zu Ihrem Limitpreis oder darunter, Verkäufe zu Ihrem Limitpreis oder darüber. Sie kontrollieren den Preis; im Gegenzug ist eine Ausführung nicht garantiert.
+
+## So werden Orders platziert
+
+- Platziert eine einzelne Order zu Ihrem Limitpreis, Good till Canceled: Sie arbeitet, bis sie ausgeführt wird oder Sie sie stornieren.
+- Liegt Ihr Preis abseits des Marktes, ruht die Order im Orderbuch, bis der Preis sie erreicht.
+- Kreuzt Ihr Preis den Markt (ein Kauf über dem besten Briefkurs, ein Verkauf unter dem besten Geldkurs), wird sofort zu den besseren verfügbaren Preisen ausgeführt.
+- Teilausführungen sind möglich, und es gibt keine Slippage: Ihr Limitpreis ist der schlechteste Preis, den Sie erhalten können.
+
+## Wann einsetzen
+
+- Sie wollen Preissicherheit und sind bereit zu warten, bis der Markt zu Ihnen kommt.
+- Sie bieten in Rücksetzer hinein oder verkaufen in Stärke, ohne den Chart zu beobachten.
+- Sie wollen einen Einstieg mit angehängtem Take-Profit und Stop-Loss in einem einzigen Ticket setzen.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Limit Preis (USD) | Der schlechteste Preis, den Sie akzeptieren. Klicken Sie auf **Mid**, um den aktuellen Mittelkurs vorzubefüllen. | Keiner |
+| Größe | Im Asset oder in USD, mit Schieberegler zur Bemessung als Prozentsatz der verfügbaren Margin beim aktuellen Hebel. | Keiner |
+| Take-Profit / Stop-Loss (optional) | Hängen Sie TP- und SL-Trigger an, nach Preis oder nach Gewinn- und Verlustprozentsatz. | Aus |
+| Nur reduzieren (optional) | Wird bei einer offenen Position angezeigt. Die Order kann sie nur reduzieren, niemals vergrößern oder umkehren. | Aus |
+
+Das Panel zeigt Liquidationspreis, Orderwert, erforderliche Margin und Gebühren. Der Mindestorderwert beträgt \$10.
+
+## Beispiel
+
+BTC notiert bei \$118,400. Sie platzieren eine Limit-Kauforder über 0.1 BTC bei \$116,000: Orderwert \$11,600, erforderliche Margin \$1,160 bei 10x Hebel. Fällt BTC durch \$116,000, werden Sie zu \$116,000 oder besser ausgeführt. Wird das Niveau nie erreicht, bleibt die Order offen, bis Sie sie stornieren.
+
+<Note>
+  Eine Kauf-Limit-Order über dem aktuellen Preis (oder eine Verkaufsorder darunter) ist marketable: Sie beginnt sofort wie eine Market-Order auszuführen, begrenzt durch Ihren Limitpreis.
+</Note>

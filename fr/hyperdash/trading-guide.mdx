@@ -1,99 +1,56 @@
 ---
 title: "Guide de Trading"
-description: "Bref aperçu du trading sur Hyperdash et des types d'ordres."
+description: "Les bases du trading sur Hyperdash : spot vs perps, marge, levier et l'interface de trading."
+hidden: true
 ---
 
-**Spot vs Perpétuels (bref aperçu de la différence entre spot et perpétuels)**
+Ce guide couvre les fondamentaux du trading sur Hyperdash : en quoi les marchés spot et perpétuels diffèrent, comment la marge et le levier fonctionnent sur les perps, et les fonctionnalités de l'interface qui accélèrent l'exécution.
+
+## Spot vs perpétuels
 
 **Spot**
 
-- Vous achetez ou vendez l'actif réel (comme HYPE, BTC, ETH).
-- Vous le possédez directement et pouvez le transférer hors de l'exchange vers des portefeuilles externes.
-- Profit uniquement quand le prix monte (sauf si vous vendez ce que vous détenez déjà).
+- Vous achetez ou vendez l'actif réel (comme HYPE, BTC, ETH) sur une paire cotée en USDC.
+- Vous le possédez directement : les achats se règlent dans votre portefeuille et peuvent être envoyés ou transférés vers l'extérieur.
+- Pas de levier, pas de funding, pas de risque de liquidation. Voir la page dédiée [Trading Spot](/fr/hyperdash/spot-trading).
 
-**Futures Perpétuels (Perps)**
+**Contrats à terme perpétuels (perps)**
 
-- Vous ne possédez pas l'actif, vous tradez un contrat lié à son prix.
-- Vous pouvez aller long (parier sur la hausse du prix) ou short (parier sur la baisse du prix).
-- Pas de date d'expiration — vous pouvez tenir aussi longtemps que vous le souhaitez, mais vous recevrez ou paierez des taux de financement.
-- Utilise l'effet de levier : tradez des tailles plus grandes avec moins de capital (Jusqu'à **40x de Levier**).
-- Les taux de financement maintiennent les prix des perps alignés avec le marché spot.
+- Vous tradez un contrat lié au prix de l'actif plutôt que l'actif lui-même.
+- Vous pouvez être long (hausse du prix) ou short (baisse du prix), sans expiration : gardez la position aussi longtemps que vous voulez, en recevant ou payant du funding.
+- Le funding s'accumule chaque heure et maintient les prix des perps alignés sur le marché spot.
+- Le levier vous permet de trader une taille plus grande avec moins de capital. Le levier maximal varie selon le marché.
 
-**Options de Marge Croisée vs Isolée**
+## Marge croisée vs isolée
 
-Les positions croisées sont liquidées lorsque la valeur du compte (y compris les profits et pertes non réalisés) est inférieure à la _marge de maintenance_ multipliée par la position notionnelle totale ouverte. La marge de maintenance est actuellement fixée à la moitié de la marge initiale au levier maximum.
+- **Croisé** : toutes les positions cross partagent votre solde de marge cross comme collatéral. En cas de liquidation, votre solde de marge cross et les positions ouvertes restantes en mode cross peuvent être perdus.
+- **Isolé** : la marge est restreinte à la position individuelle. Si le ratio de marge de cette position atteint 100%, seule cette position est liquidée. La marge peut être ajoutée ou retirée sur la position.
 
-Les positions isolées sont liquidées selon la même logique de marge de maintenance, mais les seules entrées pour le calcul sont la marge isolée et la valeur notionnelle de la position isolée.
+Le mode de marge se définit par marché depuis le panneau de trading. Le mode par défaut est croisé.
 
-**Options de Levier**
+## Levier
 
-Chaque paire a des options de levier associées, que vous pouvez ajuster à l'aide du curseur.
+Le levier se définit par marché avec le curseur du contrôle de levier, de 1x jusqu'au maximum de ce marché. Les maximums diffèrent selon le marché et sont affichés dans le contrôle. Les réglages au-dessus de 10x affichent un avertissement : un levier plus élevé augmente le risque de liquidation.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-**Long vs Short**
+## Long, short et inversion
 
-Les trades peuvent être basculés pour être pris en long ou en short.
+Les trades perps peuvent basculer entre long et short dans le panneau de trading. **Inverser** clôture une position et en ouvre une égale dans la direction opposée, transformant les longs en shorts et les shorts en longs. Vous pouvez aussi inverser toutes les positions, tous les longs ou tous les shorts depuis le menu des positions.
 
-**Fonctionnalités de l'interface de trading**
+## Trader depuis le graphique
 
-- Voir comme : Sélectionnez un trader disponible ou entrez une adresse pour afficher ses ouvertures et fermetures de trades superposées sur le graphique.
-- Menu signe plus - En cliquant sur l'icône plus sur l'axe du graphique, des options Limit short, stop long ou voir comme sont disponibles.
-  - Limit short : configurez rapidement un ordre limite pour un short à ce prix.
-  - Stop long : configurez rapidement un ordre limite long à ce prix.
+- **Voir en tant que** : recherchez un trader ou collez une adresse pour superposer ses positions, ordres ouverts et exécutions sur votre graphique.
+- **Ordres rapides** : cliquez sur l'icône plus de l'échelle de prix du graphique pour ouvrir un ticket d'ordre à ce prix, avec en un clic long ou short limite (achat ou vente limite sur le spot), stop long ou short, prise de profit et limite de perte.
+- **Mode Snoop** : parcourez le terminal entier comme une autre adresse. Le trading est désactivé pendant le snooping.
 
-# **Types d'Ordres**
+# Types d'ordres
 
-**Ordre au Marché vs Limite**
+Chaque type d'ordre a sa propre page de référence avec le comportement de placement, les paramètres, les valeurs par défaut et un exemple concret. Commencez par l'[aperçu des types d'ordres](/fr/hyperdash/orders/overview), ou allez directement à un type :
 
-- Marché : Un ordre qui s'exécute immédiatement au prix du marché actuel
-- Limite : Un ordre qui s'exécute au prix limite sélectionné ou mieux
-
-### Take Profit et Stop Loss
-
-- Take Profit : Un ordre limite qui est activé pour prendre des profits lorsque le prix atteint le prix sélectionné
-- Stop loss : Un ordre limite qui est activé pour minimiser les pertes lorsque le prix atteint le prix stop sélectionné
-
-### Reverse
-
-- Ferme le trade sélectionné et ouvre un trade égal dans la direction opposée (transforme les longs en shorts et les shorts en longs).
-
-## Types d'Ordres Avancés
-
-### TWAP (Prix Moyen Pondéré dans le Temps)
-
-Exécute un ordre proportionnellement sur une période définie.
-
-**Stealth : **Exécute votre TWAP via notre infrastructure au lieu de on-chain pour une exécution plus privée.
-
-**Randomiser le temps et/ou la taille (Optionnel) :** Si Randomiser est activé, la taille et le timing de chaque sous-trade seront automatiquement ajustés dans une certaine plage, généralement jusqu'à 20% supérieure ou inférieure à la taille originale du trade et exécutés 20% plus tôt ou plus tard.
-
-### Ordres Échelonnés
-
-Placez automatiquement des ordres sur une plage de prix.
-
-Inclut des paramètres pour le nombre d'ordres et le montant du biais (Ratio entre les prix de fin et de début. Par exemple, si le biais de taille est 2,0, alors un ordre limite pour le prix de fin sera placé avec le double de la taille du prix de début. Un biais de 1,0 crée des ordres de taille égale.
-
-### Stop Limite
-
-Devient un ordre limite au prix de déclenchement défini.
-
-### Stop Marché
-
-Devient un ordre au marché au prix de déclenchement défini.
-
-### Ordres Chase
-
-Place un ordre limite au meilleur bid/ask et le met à jour continuellement jusqu'à exécution.
-
-**Chase jusqu'à :** définit le prix jusqu'auquel poursuivre jusqu'à ce que le prix dépasse cette limite.
-
-**Distance Stalk :** Le prix de l'ordre reste à une distance fixe du meilleur bid.
-
-### Ordres Swarm
-
-Divise votre ordre en sous-ordres plus petits et les place au fil du temps pour réduire l'impact sur le marché.
-
-L'ordre total peut être divisé en jusqu'à 200 sous-ordres (taille minimum de \$10 par sous-ordre)\
-\
-Sélectionnez un 'Niveau d'Agressivité' entre 1-5, une agressivité plus élevée place les ordres plus fréquemment pour des exécutions plus rapides.
+- [Marché](/fr/hyperdash/orders/market) et [Limite](/fr/hyperdash/orders/limit)
+- [Échelonnage](/fr/hyperdash/orders/scale) : une échelle d'ordres limites sur une plage de prix
+- [Stop limite](/fr/hyperdash/orders/stop-limit) et [Stop marché](/fr/hyperdash/orders/stop-market)
+- [Poursuite](/fr/hyperdash/orders/chase) : un ordre limite qui suit le meilleur bid ou ask
+- [TWAP](/fr/hyperdash/orders/twap) et [Essaim](/fr/hyperdash/orders/swarm) : travailler une grande taille avec moins d'impact de marché
+- [Prise de profit / Limite de perte](/fr/hyperdash/orders/take-profit-stop-loss) et [Stop suiveur](/fr/hyperdash/orders/trailing-stop)

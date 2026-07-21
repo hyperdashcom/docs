@@ -1,0 +1,75 @@
+---
+title: "Trading Spot"
+description: "Achetez et vendez des actifs en direct sur des marchés spot cotés en USDC, avec règlement dans votre portefeuille."
+---
+
+Le trading spot sur Hyperdash consiste à acheter et vendre l'actif lui-même, pas un contrat lié à son prix. Chaque marché spot est coté en USDC et se trade 24/7, et ce que vous achetez vous appartient : les achats spot se règlent on-chain dans votre portefeuille et peuvent être envoyés ou transférés vers l'extérieur.
+
+## Comment fonctionnent les soldes spot
+
+- Les achats sont financés par votre solde spot en USDC. Les ventes puisent dans le solde de jetons que vous détenez : vous ne pouvez vendre que ce que vous possédez.
+- Le solde réservé par un ordre au repos apparaît comme retenu et ne peut pas être utilisé par d'autres ordres tant que cet ordre n'est pas exécuté ou annulé.
+- Le panneau de trading affiche vos USDC disponibles et votre solde de jetons disponible, avec les raccourcis **Déposer** et **Perps vers Spot**. Les USDC circulent librement entre vos comptes perps et spot via la fenêtre de transfert (les comptes unifiés partagent un seul solde et sautent cette étape).
+- Vos avoirs apparaissent dans le tableau Soldes avec le montant, le disponible, la valeur, le prix d'entrée et le PNL, plus des actions pour **Envoyer**, **Transférer** ou définir un TP/SL sur un avoir.
+
+## Placer un ordre spot
+
+<Steps>
+  <Step title="Choisissez un marché spot">
+    Sélectionnez une paire spot, par exemple HYPE/USDC, dans le sélecteur d'actifs.
+  </Step>
+  <Step title="Choisissez un type d'ordre">
+    Marché et Limite sont des onglets de premier niveau. Le menu **Expert** ajoute Échelonnage, Stop limite et Poursuite côté limite, et TWAP, Stop marché et Essaim côté marché. Les comptes avec accès OTC voient aussi un onglet OTC.
+  </Step>
+  <Step title="Définissez le sens et la taille">
+    Choisissez Acheter ou Vendre, puis dimensionnez dans le jeton ou en USD, ou utilisez le curseur pour dimensionner en pourcentage de votre solde disponible. Le panneau affiche la valeur de l'ordre, le glissement estimé et vos taux de frais maker et taker.
+  </Step>
+  <Step title="Soumettez">
+    Les achats au marché et limites peuvent d'abord attacher des déclencheurs de Prise de profit et de Limite de perte, par prix ou par gain et perte en % ou en \$. Les sorties TP/SL s'exécutent en ordres au marché.
+  </Step>
+</Steps>
+
+Chaque type d'ordre a sa propre page de référence : commencez par l'[aperçu des types d'ordres](/fr/hyperdash/orders/overview), ou allez directement à [Marché](/fr/hyperdash/orders/market), [Limite](/fr/hyperdash/orders/limit), [Échelonnage](/fr/hyperdash/orders/scale), [Stop limite](/fr/hyperdash/orders/stop-limit), [Stop marché](/fr/hyperdash/orders/stop-market), [Poursuite](/fr/hyperdash/orders/chase), [TWAP](/fr/hyperdash/orders/twap) ou [Essaim](/fr/hyperdash/orders/swarm).
+
+## Réglages
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Glissement maximal | Plafonne jusqu'où une exécution spot de type marché peut évoluer contre vous. Cliquez sur l'affichage **Est / Max** du glissement dans le formulaire d'ordre pour l'ajuster. | 8% |
+| Prise de profit / Limite de perte | Optionnel sur les achats au marché et limites. Déclencheurs par prix, ou par gain et perte en % ou en \$. | Désactivé |
+
+La valeur minimale d'un ordre est de \$10. Les types d'ordres qui se divisent en plusieurs ordres, comme Échelonnage, TWAP et Essaim, exigent que chaque ordre enfant respecte le même minimum.
+
+## Spot vs perps
+
+| | Spot | Perps |
+| --- | --- | --- |
+| Propriété | Vous possédez l'actif ; il se règle dans votre portefeuille | Exposition par contrat uniquement |
+| Direction | Acheter, ou vendre ce que vous détenez | Long ou short |
+| Levier | Aucun ; les ordres sont entièrement financés | Varie selon le marché |
+| Funding | Aucun | S'accumule chaque heure |
+| Liquidation | Aucune | Possible sur les positions à levier |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Puis-je shorter sur le spot ?">
+    Non. Les ventes spot sont limitées au solde que vous détenez. Pour une exposition short, utilisez un marché perp : voir le [Guide de Trading](/fr/hyperdash/trading-guide).
+  </Accordion>
+
+  <Accordion title="Comment approvisionner mon solde spot ?">
+    Déposez directement, ou transférez des USDC depuis votre compte perps avec le bouton **Perps vers Spot**. Voir [Intégration et Dépôts](/fr/hyperdash/onboarding-deposits).
+  </Accordion>
+
+  <Accordion title="Les trades spot paient-ils du funding ?">
+    Non. Le funding s'applique uniquement aux perpétuels. Les coûts du spot sont les taux de frais maker et taker affichés dans le formulaire d'ordre ; voir [Frais, Parrainages et Récompenses](/fr/hyperdash/fees-referrals-rewards).
+  </Accordion>
+
+  <Accordion title="Puis-je définir un TP/SL sur des jetons que je détiens déjà ?">
+    Oui. Utilisez l'action TP/SL du tableau Soldes pour attacher des déclencheurs de Prise de profit ou de Limite de perte à un avoir existant.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Les jetons réservés par des ordres au repos sont retenus : ils ne peuvent être ni vendus ni envoyés tant que l'ordre n'est pas exécuté ou annulé. Le panneau vous avertit quand un ordre existant utilise déjà une partie d'un solde.
+</Note>

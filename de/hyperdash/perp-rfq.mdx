@@ -1,0 +1,83 @@
+---
+title: "Perp RFQ"
+description: "Fordern Sie zusätzliche Liquidität für große Perp-Orders an und führen Sie mit verbesserter Preisstellung aus."
+---
+
+Perp RFQ (Request for Quote) bringt institutionelle Liquidität auf Abruf zu Hyperdash. Statt eine große Order durch das sichtbare Orderbuch zu arbeiten, fordern Sie Quotes von zugelassenen Market Makern an, die in Echtzeit um die Preisstellung Ihres Trades konkurrieren: größere Größe, verbesserte Ausführung, bessere Preise.
+
+RFQ ist für 35\+ Märkte über Aktien, Rohstoffe und Krypto verfügbar.
+
+<Note>
+  Perp RFQ ist derzeit nur auf Einladung verfügbar. [Zugang anfordern](https://hyperdash.com/rfq), und unser Team prüft Ihre Berechtigung.
+</Note>
+
+## So funktioniert RFQ
+
+<Steps>
+  <Step title="Anfrage senden">
+    Öffnen Sie den **RFQ**-Tab im Trade-Panel, wählen Sie Ihren Markt und legen Sie Ihre Größe in USDC oder im Asset fest. Wählen Sie Kaufen/Long oder Verkaufen/Short. Ihre Richtung bleibt vor den Market Makern verborgen, sofern Sie nicht **Seite offenlegen** aktivieren.
+  </Step>
+  <Step title="Market Maker antworten">
+    Zugelassene Market Maker erhalten Markt und Größe Ihrer Anfrage und haben **5 Sekunden**, um zu quotieren oder abzulehnen. Antwortende Market Maker stellen echte Liquidität direkt ins öffentliche Orderbuch.
+  </Step>
+  <Step title="Quotes prüfen">
+    Ihr RFQ-Ticket zeigt jede Quote beim Eintreffen, zusammen mit Ihrer aktualisierten geschätzten Slippage, dem durchschnittlichen Ausführungspreis und der Verbesserung gegenüber dem Orderbuch vor der RFQ.
+  </Step>
+  <Step title="Handeln oder verzichten">
+    Sie haben **30 Sekunden** zur Ausführung. Nichts wird gehandelt, bis Sie bestätigen, und Sie können die Anfrage jederzeit abbrechen oder ablaufen lassen.
+  </Step>
+</Steps>
+
+## Wichtige Parameter
+
+| Parameter | Wert |
+| --- | --- |
+| Maximale Ordergröße | \$500,000 Nominalwert je Anfrage |
+| Quote-Fenster | 30 Sekunden, danach läuft die Anfrage ab |
+| Antwortzeit der Market Maker | 5 Sekunden zum Quotieren oder Ablehnen |
+| Größeneingabe | USDC-Nominalwert oder Betrag im Basis-Asset |
+| Richtung | Standardmäßig vor den Market Makern verborgen, Offenlegen der Seite optional |
+| Zugang | Nur auf Einladung |
+
+## Verfügbare Märkte
+
+<Frame>
+  ![RFQ ist für 35\+ Paare über Aktien, Rohstoffe und Krypto verfügbar](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+</Frame>
+
+| Kategorie | Märkte |
+| --- | --- |
+| Krypto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
+| Aktien | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Rohstoffe | GOLD, SILVER, CL, BRENTOIL |
+| Indizes & ETFs | SP500, XYZ100, EWY, DRAM |
+
+Die Live-Liste wird immer in der RFQ-Asset-Auswahl in der App angezeigt und erweitert sich, wenn Market Maker ihre Abdeckung ausbauen.
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Wie erhalte ich Zugang?">
+    Perp RFQ ist nur auf Einladung verfügbar. [Fordern Sie Zugang an](https://hyperdash.com/rfq), und unser Team prüft Ihre Berechtigung.
+  </Accordion>
+
+  <Accordion title="Was sehen die Market Maker?">
+    Den Markt und die Größe Ihrer Anfrage. Ihre Handelsrichtung bleibt verborgen, sofern Sie nicht **Seite offenlegen** aktivieren.
+  </Accordion>
+
+  <Accordion title="Warum sollte ich meine Seite offenlegen?">
+    Das Offenlegen erlaubt Market Makern, nur eine Seite zu bepreisen, statt beide zu quotieren, was Ihre Preisstellung verbessern kann. Verborgen zu bleiben vermeidet, Ihre Absicht zu signalisieren. Die Wahl liegt bei Ihnen, je Anfrage.
+  </Accordion>
+
+  <Accordion title="Bin ich nach einer Anfrage zum Handeln verpflichtet?">
+    Nein. Quotes sind unverbindlich. Sie entscheiden, ob Sie ausführen, und wenn Sie nichts tun, läuft die Anfrage nach 30 Sekunden einfach ab.
+  </Accordion>
+
+  <Accordion title="Kostet RFQ extra?">
+    Nein. Für die Nutzung von RFQ fällt keine zusätzliche Gebühr an. Für die ausgeführte Order gelten die üblichen Hyperdash-Handelsgebühren.
+  </Accordion>
+
+  <Accordion title="Was passiert, wenn kein Market Maker quotiert?">
+    Die Anfrage läuft nach 30 Sekunden ab und nichts wird ausgeführt. Sie können jederzeit eine neue Anfrage senden.
+  </Accordion>
+</AccordionGroup>

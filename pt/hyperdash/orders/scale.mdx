@@ -1,0 +1,40 @@
+---
+title: "Ordens Escalonadas"
+description: "Coloque uma escada de ordens limite ao longo de uma faixa de preço em um único ticket."
+---
+
+Ordens escalonadas dividem uma ordem em uma escada de ordens limite ao longo de uma faixa de preço que você define, buscando um preço médio melhor do que o de uma execução única. Encontre a opção **Escalonar** no seletor **Profissional** do painel de trading.
+
+## Como as ordens são colocadas
+
+- Coloca o seu Total de Ordens como ordens limite individuais em uma única ação, todas válidas até cancelar.
+- Os preços são espaçados uniformemente do Preço Inicial ao Preço Final.
+- Os tamanhos escalam linearmente ao longo da escada conforme o Desvio de Tamanho e sempre somam o seu Tamanho total. Com Total de Ordens igual a 1, o tamanho inteiro é colocado no Preço Inicial.
+- Cada ordem executa de forma independente, então um movimento raso preenche apenas parte da escada.
+
+## Quando usar
+
+- Acumular na fraqueza ou distribuir na força ao longo de uma faixa, em vez de escolher um único preço.
+- Construir um preço médio de entrada quando você espera oscilação dentro de uma faixa.
+- Concentrar mais tamanho na ponta mais distante da faixa com o Desvio de Tamanho.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Tamanho | Total entre todas as ordens, no ativo ou em USD. | Nenhum |
+| Preço Inicial | Preço da primeira ordem. Clique em **Médio** para preencher com o preço médio atual. | Nenhum |
+| Preço Final | Preço da última ordem. | Nenhum |
+| Total de Ordens | Número de ordens limite na escada, de 1 a 100. | Nenhum |
+| Desvio de Tamanho | Razão entre o tamanho da última ordem e o da primeira. 1.0 coloca tamanhos iguais; 2.0 faz a ordem final ter o dobro do tamanho da inicial. | 1.00 |
+| Apenas Reduzir (opcional) | Aparece quando há uma posição aberta. As ordens só podem reduzi-la. | Desativado |
+
+O painel mostra uma prévia da primeira e da última ordem, do preço médio, do valor da ordem e da margem requerida antes de você colocar a escada.
+
+## Exemplo
+
+O HYPE negocia a \$40 e você quer um long de 100 HYPE aproveitando a fraqueza: Preço Inicial \$40, Preço Final \$36, Total de Ordens 5, Desvio de Tamanho 2.0. O Hyperdash coloca compras limite a \$40, \$39, \$38, \$37 e \$36, com tamanhos de 13.3, 16.7, 20, 23.3 e 26.7 HYPE. Se a escada inteira for preenchida, sua entrada média fica em torno de \$37.67, contra \$38.00 com tamanhos iguais.
+
+<Note>
+  Cada ordem da escada deve valer pelo menos \$10. Se a menor ordem ficar abaixo disso, o painel avisa: reduza o Total de Ordens ou aumente o Tamanho.
+</Note>

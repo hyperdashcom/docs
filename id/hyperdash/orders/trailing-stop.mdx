@@ -1,0 +1,36 @@
+---
+title: "Trailing Stop"
+description: "Lindungi profit berjalan dengan stop yang otomatis mengikuti harga pada jarak pilihan Anda."
+---
+
+Trailing Stop mengikuti pasar saat bergerak menguntungkan Anda. Anda menetapkan retracement, berupa persentase atau jarak USD tetap, dan stop terpicu jika harga berbalik sebesar nilai itu dari harga terbaik yang pernah dicapai posisi Anda. Ini membiarkan posisi untung terus berjalan sambil mengunci profit secara otomatis.
+
+## Cara order ditempatkan
+
+- Dipasang dari posisi terbuka dan berukuran seluruh posisi. Infrastruktur Hyperdash memantau pasar, jadi tidak ada yang menunggu di order book publik selama stop aktif.
+- Hyperdash melacak harga puncak, tertinggi yang dicapai untuk long atau terendah untuk short, dan menghitung ulang stop pada setiap ekstrem menguntungkan yang baru: puncak dikurangi retracement untuk long, puncak ditambah retracement untuk short. Stop hanya mengetat, tidak pernah melonggar.
+- Saat harga berbalik ke harga stop, keluar dikirim sebagai **Market**, atau **Chase**, order limit yang menempel di puncak order book dan terus diperbarui hingga terisi.
+- Satu trailing stop per posisi: mengonfirmasi pengaturan baru menggantikan yang lama, dan Anda dapat menghapusnya kapan saja.
+
+## Kapan digunakan
+
+- Mengunci profit pada posisi untung tanpa menentukan harga keluar di muka.
+- Mengikuti tren: stop mengikuti harga dan tidak pernah mundur.
+- Menggantikan pengelolaan stop manual: tidak perlu lagi mengedit stop tetap setiap kali harga naik satu tahap.
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Mode retracement | **By Percent** (persentase harga, di bawah 100) atau **By Distance** (jumlah USD tetap). | By Distance |
+| Retracement | Nilai trailing dalam % atau USD. Modal menampilkan pratinjau proyeksi harga stop. | Tidak ada |
+| Tipe order | Cara keluar dieksekusi: **Market** atau **Chase**. | Market |
+| Ukuran | Mencakup seluruh posisi Anda. | Seluruh posisi |
+
+## Contoh
+
+Anda long 500 HYPE pada harga mark \$45.00 dan menetapkan retracement 5%, sehingga stop awal berada di \$42.75. HYPE reli ke \$50.00 dan stop ikut naik ke \$47.50. Harga lalu berbalik ke \$47.50, stop terpicu, dan order market menutup posisi.
+
+<Note>
+  Stop hanya bergerak pada ekstrem menguntungkan yang baru. Di pasar menyamping stop tetap diam, dan sumbu (wick) tajam yang mencapainya akan menutup posisi meskipun harga langsung pulih setelahnya.
+</Note>

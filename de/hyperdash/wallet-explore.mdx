@@ -1,56 +1,49 @@
 ---
-title: "Trader-Explorer"
-description: "Leitfaden zum Erkunden von Trader-Wallets mit Hyperdash"
-icon: "crosshairs-simple"
-"og:image": "https://hyperdash.com/og.png"
+title: "Trader entdecken"
+description: "Entdecken, filtern und verfolgen Sie Trader-Wallets auf Hyperdash."
 ---
 
-**Die Explore-Seite ermöglicht es Ihnen, vorgestellte Hyperliquid-Trader anzuzeigen und Filter auf Suchen anzuwenden.**
+Entdecken ist der Trader-Discovery-Hub von Hyperdash. Durchstöbern Sie jedes Wallet, das auf Hyperliquid-Märkten handelt, filtern Sie das Universum auf die Trader herunter, die für Sie zählen, und verfolgen Sie sie aus einer einzigen Seitenleiste.
 
-Eine Sammlung bemerkenswerter Wallets wurde zu Ihrer Bequemlichkeit markiert.
+## Entdecken-Bereiche
 
-**Tracking**
+- **Kohorten**: Trader gruppiert nach Gesamt-PNL und nach Wallet-Größe, mit der Positionierung jeder Gruppe. Siehe [Kohorten, Top-Trader und Positionsänderungen](/de/hyperdash/cohorts-top-traders-position-changes).
+- **Copytrading**: die besten Wallets zum Kopieren, gerankt nach Copy-Score und ROI. Siehe [Copy Trading](/de/hyperdash/copy-trade).
+- **Markiert**: bekannte Trader und Fonds, zur Übersicht gekennzeichnet.
+- **Leaderboard**: Top-Performer, einschließlich Bestenlisten je Asset.
+- **Global**: das vollständige Trader-Universum mit Filtern.
 
-Alle Wallets, die auf Hyperdash gefunden werden, können verfolgt und mithilfe von Listen organisiert werden. Listen können benutzerdefinierte Namen und ein farbiges Symbol erhalten.
+## Globale Trader filtern
 
-Benutzer können jedem verfolgten Wallet einen 'Alias' setzen und sie zu erstellten Listen hinzufügen, um einfaches Taggen, Verfolgen und Verwalten zu ermöglichen.
+| Filter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Zeitraum | 1d, 7d, 30d oder Alle | 7d |
+| Kontowert | Minimaler und maximaler Kontowert in USD | Beliebig |
+| PNL | Minimaler und maximaler Nettogewinn oder -verlust in USD | Beliebig |
+| Handelsstil | Alle, Algo, Scalp, Intraday, Swing, Position | Alle |
+| Copy-Score | Spanne von 0 bis 100 | 0 bis 100 |
 
-Das Verfolgen von Wallets ermöglicht es Ihnen, einen Live-Feed ihrer Trades im Trading-Terminal anzuzeigen.
+Die Ergebnisse zeigen für jeden Trader PNL, Eigenkapital, Trades insgesamt, Gewinnquote, Sharpe-Ratio, maximalen Drawdown, Hebel, Margin-Auslastung und gehandelte Assets.
 
-### Filterung globaler Trader
+## Wallets verfolgen
 
-Sie können unter allen Tradern auf Hyperliquid filtern nach:
+<Steps>
+  <Step title="Wallet verfolgen">
+    Klicken Sie auf **Verfolgen** in einer beliebigen Trader-Zeile in Entdecken, in der Top-Trader-Tabelle im Terminal oder auf einem Trader-Profil.
+  </Step>
+  <Step title="Benennen und einsortieren">
+    Geben Sie dem Wallet einen Alias und speichern Sie es in einer Liste. Jedes Konto startet mit einer **Main**-Liste, und Sie können neue Listen mit eigenem Namen und eigener Farbe erstellen.
+  </Step>
+  <Step title="Listen verwalten">
+    Benennen Sie Wallets um, verschieben Sie sie zwischen Listen oder beenden Sie das Verfolgen jederzeit. Listen können per Link geteilt werden, und eine geteilte Liste öffnet sich schreibgeschützt, bis der Betrachter sie in sein eigenes Konto kopiert.
+  </Step>
+  <Step title="Den Feed beobachten">
+    Aktivitäten verfolgter Wallets streamen in den **Verfolgt**-Feed im Trading-Terminal und in das Panel Letzte Aktivitäten in der Entdecken-Seitenleiste. Filtern Sie den Feed nach Liste, Richtung, Eröffnen oder Schließen und Nominalgröße.
+  </Step>
+</Steps>
 
-- Trader-Typ
-  - Algo
-  - Scalp
-  - Intraday
-  - Swing
-  - Position
-- Kontowert: Gesamtkontowert im Perps-Konto.
-- PnL (gesamt): Netto-Gewinn und -Verlust.
-- Gewinnrate (%): Der Prozentsatz der profitablen Trades.
-- Sharpe-Ratio: Ein Maß für die risikoadjustierten Renditen des Traders.
+<Note>
+  Melden Sie sich an, um das Tracking zu nutzen: Verfolgte Wallets und Listen werden in Ihrem Hyperdash-Konto gespeichert und begleiten Sie über alle Geräte.
+</Note>
 
-**Kohorten**
-
-Sehen Sie aggregierte Informationen über Trader-Gruppen basierend auf PnLs und Kontogröße. Dies umfasst Informationen über Positionierung und Performance.
-
-- **Sortiert nach Gesamt-PNL**
-  - Extrem profitabel - \$1m+
-  - Sehr profitabel - \$100k-1M
-  - Profitabel - \$10k-100k
-  - Leicht profitabel - \$0-10k
-  - Leicht unprofitabel - \$0 bis -10k
-  - Unprofitabel - \$-10k bis -100k
-  - Sehr unprofitabel - \$-100k bis -1m
-  - Rekt - \$-1m+
-- **Sortiert nach Kontogröße**
-  - Kraken - \$5m+
-  - Großwal - \$1m-5m
-  - Wal - \$500k-1m
-  - Hai - \$100k-500k
-  - Delfin - \$50k-100k
-  - Großer Fisch - \$10-50k
-  - Fisch - \$250-10k
-  - Garnele - \$0-250
+Wie sich die Aktivitäten verfolgter Wallets zu Plattform-Benachrichtigungen verhalten, lesen Sie unter [Benachrichtigungen und Posteingang](/de/hyperdash/alerts-inbox).

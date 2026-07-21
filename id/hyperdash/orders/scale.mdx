@@ -1,0 +1,40 @@
+---
+title: "Order Scale"
+description: "Pasang deretan order limit berjenjang di sepanjang rentang harga dalam satu tiket."
+---
+
+Order Scale memecah satu order menjadi deretan order limit berjenjang di sepanjang rentang harga yang Anda tentukan, dengan target harga rata-rata yang lebih baik daripada satu pengisian tunggal. Temukan Scale (label **Skala** di aplikasi) di bawah pemilih **Profesional** di panel trading.
+
+## Cara order ditempatkan
+
+- Menempatkan seluruh Total Order Anda sebagai order limit terpisah dalam satu aksi, semuanya berlaku hingga dibatalkan.
+- Harga diberi jarak merata dari Harga Mulai ke Harga Akhir.
+- Ukuran diskalakan secara linier di sepanjang jenjang sesuai Skew Ukuran dan selalu berjumlah total Ukuran Anda. Dengan Total Order 1, seluruh ukuran ditempatkan pada Harga Mulai.
+- Setiap order terisi secara independen, jadi pergerakan dangkal hanya mengisi sebagian jenjang.
+
+## Kapan digunakan
+
+- Mengakumulasi saat harga melemah atau mendistribusikan saat harga menguat di sepanjang rentang, alih-alih memilih satu harga.
+- Merata-ratakan entri saat Anda memperkirakan pergerakan bolak-balik di dalam rentang.
+- Memberi bobot ukuran lebih besar ke ujung jauh rentang dengan Skew Ukuran.
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Ukuran | Total di semua order, dalam aset atau dalam USD. | Tidak ada |
+| Harga Mulai | Harga order pertama. Klik **Tengah** untuk mengisi otomatis harga tengah saat ini. | Tidak ada |
+| Harga Akhir | Harga order terakhir. | Tidak ada |
+| Total Order | Jumlah order limit dalam jenjang, 1 hingga 100. | Tidak ada |
+| Skew Ukuran | Rasio ukuran order terakhir terhadap yang pertama. 1.0 menempatkan ukuran sama; 2.0 membuat order akhir dua kali lipat order awal. | 1.00 |
+| Hanya Kurangi (opsional) | Muncul saat ada posisi terbuka. Order hanya dapat mengurangi posisi. | Nonaktif |
+
+Panel menampilkan pratinjau order pertama dan terakhir, harga rata-rata, nilai order, dan margin diperlukan sebelum Anda memasang jenjang.
+
+## Contoh
+
+HYPE diperdagangkan di \$40 dan Anda ingin long 100 HYPE saat harga melemah: Harga Mulai \$40, Harga Akhir \$36, Total Order 5, Skew Ukuran 2.0. Hyperdash menempatkan limit buy di \$40, \$39, \$38, \$37, dan \$36, dengan ukuran 13.3, 16.7, 20, 23.3, dan 26.7 HYPE. Jika seluruh jenjang terisi, entri rata-rata Anda sekitar \$37.67, dibandingkan \$38.00 dengan ukuran sama rata.
+
+<Note>
+  Setiap order dalam jenjang harus bernilai minimal \$10. Jika order terkecil akan jatuh di bawah nilai itu, panel memperingatkan Anda: kurangi Total Order atau naikkan Ukuran.
+</Note>

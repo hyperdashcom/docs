@@ -1,0 +1,36 @@
+---
+title: "Stop Móvel (Trailing Stop)"
+description: "Proteja lucros abertos com um stop que segue automaticamente o preço na distância que você escolher."
+---
+
+Um Stop Móvel segue o mercado conforme ele se move a seu favor. Você define uma retração, um percentual ou uma distância fixa em USD, e o stop dispara se o preço reverter esse valor a partir do melhor preço que a sua posição alcançou. Ele deixa os vencedores correrem enquanto trava lucro automaticamente.
+
+## Como as ordens são colocadas
+
+- Definido a partir de uma posição aberta e dimensionado para a posição inteira. A infraestrutura do Hyperdash monitora o mercado, então nada fica no livro público enquanto o stop está ativo.
+- O Hyperdash acompanha o preço de pico, o mais alto atingido para longs ou o mais baixo para shorts, e recalcula o stop a cada novo extremo favorável: pico menos a retração para longs, pico mais a retração para shorts. Ele só aperta, nunca afrouxa.
+- Quando o preço reverte até o preço de stop, a saída é enviada como **Mercado**, ou como **Perseguição**, uma ordem limite presa ao topo do livro que se atualiza até executar.
+- Um stop móvel por posição: confirmar novas configurações o substitui, e você pode removê-lo a qualquer momento.
+
+## Quando usar
+
+- Travar lucros em um trade vencedor sem escolher um preço de saída com antecedência.
+- Surfar uma tendência: o stop segue o preço e nunca devolve terreno.
+- Substituir a gestão manual de stops: chega de editar um stop fixo depois de cada pernada de alta.
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Modo de retração | **Por porcentagem** (percentual do preço, abaixo de 100) ou **Por distância** (valor fixo em USD). | Por distância |
+| Retração | O valor do rastreamento em % ou USD. O modal mostra uma prévia do preço de stop projetado. | Nenhum |
+| Tipo de ordem | Como a saída executa: **Mercado** ou **Perseguição**. | Mercado |
+| Tamanho | Cobre a sua posição inteira. | Posição inteira |
+
+## Exemplo
+
+Você está comprado em 500 HYPE com preço de marcação de \$45.00 e define uma retração de 5%, então o stop inicial é \$42.75. O HYPE sobe para \$50.00 e o stop acompanha até \$47.50. O preço então reverte para \$47.50, o stop dispara e uma ordem de mercado fecha a posição.
+
+<Note>
+  O stop se move apenas em novos extremos favoráveis. Em um mercado de lado ele fica parado, e um pavio brusco que o atinja fecha a posição mesmo que o preço se recupere logo em seguida.
+</Note>

@@ -1,0 +1,40 @@
+---
+title: "Ordres échelonnés (Scale)"
+description: "Placez une échelle d'ordres limites sur une plage de prix en un seul ticket."
+---
+
+Les ordres échelonnés divisent un ordre en une échelle d'ordres limites sur une plage de prix que vous définissez, pour viser un meilleur prix moyen qu'une exécution unique. Vous trouverez l'Échelonnage sous le sélecteur **Expert** du panneau de trading.
+
+## Comment les ordres sont placés
+
+- Place votre Nombre d'ordres sous forme d'ordres limites individuels en une seule action, tous valables jusqu'à annulation.
+- Les prix sont espacés uniformément du Prix de départ au Prix de fin.
+- Les tailles évoluent linéairement le long de l'échelle selon le Size skew et totalisent toujours votre Taille totale. Avec un Nombre d'ordres de 1, la taille entière est placée au Prix de départ.
+- Chaque ordre s'exécute indépendamment, donc un mouvement peu profond n'exécute qu'une partie de l'échelle.
+
+## Quand l'utiliser
+
+- Accumuler dans la faiblesse ou distribuer dans la force sur une plage plutôt que de choisir un seul prix.
+- Moyenner une entrée quand vous anticipez des oscillations à l'intérieur d'une plage.
+- Concentrer plus de taille vers l'extrémité de la plage avec le Size skew.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Taille | Total sur l'ensemble des ordres, dans l'actif ou en USD. | Aucun |
+| Prix de départ | Prix du premier ordre. Cliquez sur **Médian** pour préremplir le prix médian actuel. | Aucun |
+| Prix de fin | Prix du dernier ordre. | Aucun |
+| Nombre d'ordres | Nombre d'ordres limites dans l'échelle, de 1 à 100. | Aucun |
+| Size skew | Ratio entre la taille du dernier ordre et celle du premier. 1.0 place des tailles égales ; 2.0 rend le dernier ordre deux fois plus grand que le premier. | 1.00 |
+| Réduction uniquement (optionnel) | Affiché avec une position ouverte. Les ordres ne peuvent que la réduire. | Désactivé |
+
+Le panneau prévisualise le premier et le dernier ordre, le prix moyen, la valeur de l'ordre et la marge requise avant que vous placiez l'échelle.
+
+## Exemple
+
+HYPE s'échange à \$40 et vous voulez un long de 100 HYPE dans la faiblesse : Prix de départ \$40, Prix de fin \$36, Nombre d'ordres 5, Size skew 2.0. Hyperdash place des achats limites à \$40, \$39, \$38, \$37 et \$36, avec des tailles de 13.3, 16.7, 20, 23.3 et 26.7 HYPE. Si toute l'échelle s'exécute, votre entrée moyenne est d'environ \$37.67, contre \$38.00 avec des tailles égales.
+
+<Note>
+  Chaque ordre de l'échelle doit valoir au moins \$10. Si le plus petit ordre tombait en dessous, le panneau vous avertit : réduisez le Nombre d'ordres ou augmentez la Taille.
+</Note>

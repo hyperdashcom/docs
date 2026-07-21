@@ -1,0 +1,37 @@
+---
+title: "Ordres Essaim (Swarm)"
+description: "Divisez un grand ordre en jusqu'à 200 clips plus petits, envoyés en parallèle pour réduire l'impact de marché."
+---
+
+Les ordres Essaim (Swarm) divisent votre ordre en sous-ordres plus petits, appelés clips, et les envoient par vagues parallèles contrôlées. L'objectif est d'exécuter rapidement une taille significative tout en évitant le glissement et l'empreinte d'un seul grand ordre.
+
+## Comment les ordres sont placés
+
+- Divise votre taille totale en le nombre de clips choisi : tailles égales par défaut, tailles variées quand Clips irréguliers est activé.
+- Chaque clip est un ordre IOC (immédiat ou annuler) prix au marché plus une tolérance de glissement, les clips prennent donc la liquidité au lieu de rester dans le carnet.
+- L'Agressivité définit combien de clips sont en cours simultanément ; dès qu'un clip se termine, le suivant part, jusqu'à ce que tous soient traités.
+- L'exécution complète n'est pas garantie : un clip en erreur ou impossible à exécuter dans sa tolérance de glissement est marqué rejeté et n'est pas retenté ; l'ordre indique combien de clips ont échoué.
+- Arrêter un essaim annule ses clips en attente ; seuls les clips envoyés comptent dans votre exécution.
+
+## Quand l'utiliser
+
+- Exécuter une taille rapidement sans montrer un seul grand ordre au marché
+- Exécuter plus vite qu'une fenêtre TWAP tout en limitant l'impact
+- Ajuster le compromis entre vitesse d'exécution et empreinte avec le niveau d'Agressivité
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Nombre total de clips | Le nombre de sous-ordres en lesquels votre ordre sera divisé. Entier de 2 à 200. Chaque clip doit valoir au moins \$10, la taille de votre ordre plafonne donc le nombre. | 10 |
+| Agressivité | Niveau de 1 à 5. Clips simultanés par niveau : 1, jusqu'à 2, jusqu'à 5, jusqu'à 10, jusqu'à 20. Une agressivité plus élevée place des ordres plus fréquemment pour des exécutions plus rapides. | 3 |
+| Clips irréguliers (optionnel) | Fait varier la taille des clips pour une répartition moins uniforme. | Désactivé |
+| Réduction uniquement (optionnel) | Restreint l'essaim à la réduction d'une position existante. | Désactivé |
+
+## Exemple
+
+Vendre 5,000 HYPE à un prix de \$40, soit environ \$200,000 de notionnel. Avec un Nombre total de clips de 100, chaque clip fait 50 HYPE, environ \$2,000. À Agressivité 4, jusqu'à 10 clips travaillent le carnet en même temps jusqu'à ce que les 5,000 HYPE soient exécutés. Clips irréguliers ferait varier ces tailles au lieu d'imprimer un 50 HYPE uniforme à chaque fois.
+
+<Note>
+  Les clips ont une valeur minimale de \$10, un essaim nécessite donc au moins \$20 de valeur d'ordre. Le formulaire affiche le nombre maximal de clips que votre taille actuelle prend en charge.
+</Note>

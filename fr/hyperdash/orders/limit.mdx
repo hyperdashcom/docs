@@ -1,0 +1,38 @@
+---
+title: "Ordre limite"
+description: "Placez un ordre dans le carnet et exécutez-le uniquement à votre prix choisi, ou mieux."
+---
+
+Un ordre limite s'exécute uniquement au prix que vous fixez, ou mieux : il achète à votre prix limite ou en dessous, il vend à votre prix limite ou au-dessus. Vous contrôlez le prix ; la contrepartie est que l'exécution n'est pas garantie.
+
+## Comment les ordres sont placés
+
+- Place un seul ordre à votre prix limite, valable jusqu'à annulation (GTC) : il reste actif jusqu'à son exécution ou son annulation.
+- Si votre prix est éloigné du marché, l'ordre reste dans le carnet jusqu'à ce que le prix l'atteigne.
+- Si votre prix croise le marché (un achat au-dessus du meilleur ask, une vente en dessous du meilleur bid), il s'exécute immédiatement aux meilleurs prix disponibles.
+- Les exécutions peuvent être partielles, et aucun glissement ne s'applique : votre prix limite est le pire prix que vous pouvez recevoir.
+
+## Quand l'utiliser
+
+- Vous voulez une certitude de prix et acceptez d'attendre que le marché vienne à vous.
+- Vous achetez les creux ou vendez dans la force sans surveiller le graphique.
+- Vous voulez définir une entrée avec Prise de profit et Limite de perte attachées dans un seul ticket.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Prix limite (USD) | Le pire prix que vous acceptez. Cliquez sur **Médian** pour préremplir le prix médian actuel. | Aucun |
+| Taille | Dans l'actif ou en USD, avec un curseur pour dimensionner en pourcentage de la marge disponible au levier actuel. | Aucun |
+| Prise de profit / Limite de perte (optionnel) | Attachez des déclencheurs TP et SL par prix ou par pourcentage de gain et de perte. | Désactivé |
+| Réduction uniquement (optionnel) | Affiché avec une position ouverte. L'ordre ne peut que la réduire, jamais l'augmenter ni l'inverser. | Désactivé |
+
+Le panneau affiche le prix de liquidation, la valeur de l'ordre, la marge requise et les frais. La valeur minimale d'un ordre est de \$10.
+
+## Exemple
+
+BTC s'échange à \$118,400. Vous placez un achat limite de 0.1 BTC à \$116,000 : valeur de l'ordre \$11,600, marge requise \$1,160 avec un levier de 10x. Si BTC descend à travers \$116,000, vous êtes exécuté à \$116,000 ou mieux. S'il n'y arrive jamais, l'ordre reste ouvert jusqu'à ce que vous l'annuliez.
+
+<Note>
+  Un achat limite placé au-dessus du prix actuel (ou une vente en dessous) est immédiatement exécutable : il commence à s'exécuter comme un ordre au marché, plafonné à votre prix limite.
+</Note>

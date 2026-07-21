@@ -1,0 +1,37 @@
+---
+title: "Órdenes Enjambre (Swarm)"
+description: "Divide una orden grande en hasta 200 clips más pequeños despachados en paralelo para reducir el impacto de mercado."
+---
+
+Las órdenes Enjambre (Swarm) dividen tu orden en subórdenes más pequeñas, llamadas clips, y las despachan en oleadas paralelas controladas. El objetivo es ejecutar un tamaño relevante con rapidez, evitando el slippage y la huella de una sola orden grande.
+
+## Cómo coloca las órdenes
+
+- Divide tu tamaño total en el número de clips que elijas: tamaños iguales por defecto, tamaños variados cuando Clips irregulares está activado.
+- Cada clip es una orden inmediata o cancelar cotizada a mercado más un margen de slippage, así que los clips toman liquidez en lugar de quedarse en el libro.
+- La Agresión define cuántos clips están en vuelo a la vez; a medida que cada uno se completa, el siguiente se despacha hasta procesarlos todos.
+- La ejecución completa no está garantizada: un clip que da error o no puede ejecutarse dentro de su margen de slippage se marca como rechazado y no se reintenta; la orden informa cuántos clips fallaron.
+- Detener un enjambre cancela sus clips pendientes; solo los clips despachados cuentan para tu ejecución.
+
+## Cuándo usarlas
+
+- Ejecutar tamaño rápido sin mostrarle al mercado una sola orden grande
+- Ejecutar más rápido que una ventana TWAP sin dejar de limitar el impacto
+- Ajustar el equilibrio entre velocidad de ejecución y huella con el nivel de Agresión
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Clips totales | La cantidad de subórdenes en las que se dividirá tu orden. Entero de 2 a 200. Cada clip debe valer al menos \$10, así que el tamaño de tu orden limita la cantidad. | 10 |
+| Agresión | Nivel de 1 a 5. Clips simultáneos por nivel: 1, hasta 2, hasta 5, hasta 10, hasta 20. Una agresión mayor coloca órdenes con más frecuencia para lograr ejecuciones más rápidas. | 3 |
+| Clips irregulares (opcional) | Varía el tamaño de los clips para que la división sea menos uniforme. | Desactivado |
+| Solo Reducir (opcional) | Restringe el enjambre a reducir una posición existente. | Desactivado |
+
+## Ejemplo
+
+Vendes 5,000 HYPE a un precio de \$40, unos \$200,000 de nocional. Con Clips totales en 100, cada clip es de 50 HYPE, aproximadamente \$2,000. Con Agresión 4, hasta 10 clips trabajan el libro a la vez hasta ejecutar los 5,000 HYPE. Clips irregulares variaría esos tamaños en lugar de imprimir 50 HYPE uniformes cada vez.
+
+<Note>
+  Los clips tienen un valor mínimo de \$10, así que un enjambre necesita al menos \$20 de valor de orden. El formulario muestra el máximo de clips que admite tu tamaño actual.
+</Note>

@@ -1,56 +1,49 @@
 ---
-title: "Explorador de Traders"
-description: "Guia para explorar carteiras de traders com o Hyperdash"
-icon: "crosshairs-simple"
-"og:image": "https://hyperdash.com/og.png"
+title: "Explorar Traders"
+description: "Descubra, filtre e rastreie carteiras de traders no Hyperdash."
 ---
 
-**A página Explorar permite que você visualize traders em destaque da Hyperliquid e aplique filtros às pesquisas.**
+O Explorar é o hub de descoberta de traders do Hyperdash. Navegue por todas as carteiras operando nos mercados da Hyperliquid, filtre o universo até os traders que importam para você e rastreie-os a partir de uma única barra lateral.
 
-Uma coleção de carteiras notáveis foi marcada para sua conveniência.
+## Seções do Explorar
 
-**Rastreamento**
+- **Coortes**: traders agrupados por PnL de todos os tempos e por tamanho de carteira, com o posicionamento de cada grupo. Veja [Coortes, Melhores Traders e Mudanças de Posição](/pt/hyperdash/cohorts-top-traders-position-changes).
+- **Copytrading**: as melhores carteiras para copiar, classificadas por copy score e ROI. Veja [Copy Trade](/pt/hyperdash/copy-trade).
+- **Marcados**: traders e fundos conhecidos, rotulados por conveniência.
+- **Leaderboard**: os melhores desempenhos, incluindo leaderboards por ativo.
+- **Global**: o universo completo de traders, com filtros.
 
-Todas as carteiras encontradas no Hyperdash podem ser rastreadas e organizadas usando listas. As listas podem receber nomes personalizados e um ícone colorido.
+## Filtrando traders globais
 
-Os usuários podem definir um 'alias' para cada carteira rastreada e adicioná-las às listas criadas para fácil marcação, rastreamento e gerenciamento.
+| Filtro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Período | 1d, 7d, 30d ou Todos | 7d |
+| Valor da conta | Valor mínimo e máximo da conta em USD | Qualquer |
+| PNL | Lucro e perda líquidos mínimo e máximo em USD | Qualquer |
+| Estilo de trading | Todos, Algo, Scalp, Intraday, Swing, Position | Todos |
+| Copy score | Faixa de 0 a 100 | 0 a 100 |
 
-Rastrear carteiras permite que você visualize um feed ao vivo de suas negociações no terminal de trading.
+Os resultados mostram o PnL, o patrimônio, o total de operações, a taxa de acerto, o índice Sharpe, o drawdown máximo, a alavancagem, a utilização de margem e os ativos negociados de cada trader.
 
-### Filtragem de Traders Globais
+## Rastreando carteiras
 
-Você pode filtrar entre todos os traders na Hyperliquid por:
+<Steps>
+  <Step title="Rastreie uma carteira">
+    Clique em **Rastrear** em qualquer linha de trader no Explorar, na tabela de Melhores traders no terminal ou a partir de um perfil de trader.
+  </Step>
+  <Step title="Nomeie e organize">
+    Dê um apelido à carteira e salve-a em uma lista. Toda conta começa com uma lista **Main**, e você pode criar novas listas com nome e cor personalizados.
+  </Step>
+  <Step title="Gerencie suas listas">
+    Renomeie carteiras, mova-as entre listas ou pare de rastreá-las a qualquer momento. As listas podem ser compartilhadas por link, e uma lista compartilhada abre em modo somente leitura até o visitante cloná-la para a própria conta.
+  </Step>
+  <Step title="Acompanhe o feed">
+    A atividade das carteiras rastreadas flui para o feed **Rastreados** no terminal de trading e para o painel de Atividade Recente na barra lateral do Explorar. Filtre o feed por lista, direção, abertura ou fechamento e tamanho nocional.
+  </Step>
+</Steps>
 
-- Tipo de Trader
-  - Algo
-  - Scalp
-  - Intraday
-  - Swing
-  - Position
-- Valor da Conta: valor total da conta em perps.
-- PnL (todo o tempo): Lucro e Perda Líquidos.
-- Taxa de Vitória (%): A porcentagem de negociações lucrativas realizadas.
-- Índice de Sharpe: Uma medida dos retornos ajustados ao risco do trader.
+<Note>
+  Entre na sua conta para usar o rastreamento: as carteiras rastreadas e as listas são salvas na sua conta Hyperdash e acompanham você entre dispositivos.
+</Note>
 
-**Coortes**
-
-Veja informações agregadas sobre grupos de traders com base em PnLs e tamanho da conta. Isso inclui informações sobre posicionamento e desempenho.
-
-- **Ordenado por PNL de Todo o Tempo**
-  - Extremamente Lucrativo - \$1m+
-  - Muito Lucrativo - \$100k-1M
-  - Lucrativo - \$10k-100k
-  - Ligeiramente Lucrativo - \$0-10k
-  - Ligeiramente Não Lucrativo - \$0 a -10k
-  - Não Lucrativo - \$-10k a -100k
-  - Muito Não Lucrativo - \$-100k a -1m
-  - Rekt - \$-1m+
-- **Ordenado por Tamanho da Conta**
-  - Kraken - \$5m+
-  - Baleia Grande - \$1m-5m
-  - Baleia - \$500k-1m
-  - Tubarão - \$100k-500k
-  - Golfinho - \$50k-100k
-  - Peixe Grande - \$10-50k
-  - Peixe - \$250-10k
-  - Camarão - \$0-250
+Para saber como a atividade de carteiras rastreadas se relaciona com as notificações da plataforma, veja [Alertas e Caixa de Entrada](/pt/hyperdash/alerts-inbox).

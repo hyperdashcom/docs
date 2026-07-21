@@ -1,0 +1,37 @@
+---
+title: "Ordens Enxame (Swarm)"
+description: "Divida uma ordem grande em até 200 clipes menores despachados em paralelo para reduzir o impacto no mercado."
+---
+
+Ordens Enxame (Swarm) quebram sua ordem em subordens menores, chamadas clipes, e as despacham em ondas paralelas controladas. O objetivo é preencher um tamanho relevante rapidamente, evitando o slippage e a pegada de uma única ordem grande.
+
+## Como as ordens são colocadas
+
+- Divide o seu tamanho total no número de clipes escolhido: tamanhos iguais por padrão, tamanhos variados quando Clipes irregulares está ativado.
+- Cada clipe é uma ordem imediata ou cancelar, precificada a mercado mais uma tolerância de slippage, então os clipes tomam liquidez em vez de ficarem no livro.
+- A Agressividade define quantos clipes ficam em andamento ao mesmo tempo; conforme cada um termina, o próximo é despachado até todos serem processados.
+- A conclusão não é garantida: um clipe que dá erro ou não consegue executar dentro da sua tolerância de slippage é marcado como rejeitado e não é reenviado; a ordem informa quantos clipes falharam.
+- Interromper um enxame cancela seus clipes pendentes; apenas os clipes despachados contam para a sua execução.
+
+## Quando usar
+
+- Preencher tamanho rápido sem mostrar uma única ordem grande ao mercado
+- Executar mais rápido que uma janela de TWAP, ainda limitando o impacto
+- Ajustar o equilíbrio entre velocidade de execução e pegada com o nível de Agressividade
+
+## Parâmetros
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Total de clipes | Em quantas subordens sua ordem será dividida. Inteiro de 2 a 200. Cada clipe deve valer pelo menos \$10, então o tamanho da sua ordem limita a contagem. | 10 |
+| Agressividade | Nível de 1 a 5. Clipes simultâneos por nível: 1, até 2, até 5, até 10, até 20. Maior agressividade envia ordens com mais frequência para execuções mais rápidas. | 3 |
+| Clipes irregulares (opcional) | Varia os tamanhos dos clipes para que a divisão seja menos uniforme. | Desativado |
+| Apenas Reduzir (opcional) | Restringe o enxame a reduzir uma posição existente. | Desativado |
+
+## Exemplo
+
+Vender 5,000 HYPE a um preço de \$40, cerca de \$200,000 de nocional. Com Total de clipes em 100, cada clipe é de 50 HYPE, aproximadamente \$2,000. Com Agressividade 4, até 10 clipes trabalham o livro ao mesmo tempo até os 5,000 HYPE serem preenchidos. Clipes irregulares variaria esses tamanhos em vez de imprimir 50 HYPE uniformes em cada um.
+
+<Note>
+  Clipes têm valor mínimo de \$10, então um enxame precisa de pelo menos \$20 de valor de ordem. O formulário mostra o máximo de clipes que o seu tamanho atual suporta.
+</Note>

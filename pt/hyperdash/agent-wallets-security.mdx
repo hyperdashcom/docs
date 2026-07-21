@@ -1,0 +1,58 @@
+---
+title: "Carteiras API e Segurança"
+description: "Como as carteiras de agente, os métodos de login e a proteção de dois fatores funcionam no Hyperdash."
+---
+
+O Hyperdash executa suas operações por meio de uma carteira de agente (API): uma chave de negociação separada que a sua própria carteira aprova para assinar ordens em seu nome. Isso permite negociar sem confirmar cada ordem na sua carteira, enquanto saques e transferências continuam exigindo uma assinatura da sua própria carteira.
+
+## Como funcionam as carteiras de agente
+
+<Steps>
+  <Step title="Conecte ou crie uma carteira">
+    Na configuração da Carteira do Terminal, conecte uma carteira existente ou crie uma nova carteira não custodial protegida pela Turnkey. Veja [Integração e Depósitos](/pt/hyperdash/onboarding-deposits).
+  </Step>
+  <Step title="Aprove o agente">
+    O Hyperdash gera um novo par de chaves no seu navegador, e a sua carteira assina uma aprovação registrando-o como o seu agente de negociação. A chave do agente é válida por 180 dias e é criptografada no seu navegador antes de ser armazenada.
+  </Step>
+  <Step title="Aprove o builder">
+    Uma segunda assinatura habilita a negociação no Hyperdash. A partir daí, cada ordem que você coloca, incluindo os [tipos de ordem](/pt/hyperdash/orders/overview) automatizados, é assinada pela chave do agente.
+  </Step>
+</Steps>
+
+O **Gerenciador de Agentes** mostra o endereço e a expiração do seu agente com os status Ativo, Expira em 30 dias, Expira Em Breve e Expirado, além da ação **Atualizar Chave do Agente**.
+
+## FAQ de segurança
+
+<AccordionGroup>
+  <Accordion title="O que uma carteira de agente pode e não pode fazer?">
+    A chave do agente assina apenas ações de negociação: colocar, modificar e cancelar ordens. Saques e transferências de ativos são assinados pela sua própria carteira, nunca pelo agente.
+  </Accordion>
+
+  <Accordion title="Quem guarda minhas chaves?">
+    A chave privada da sua carteira nunca sai da sua carteira; você aprova o agente e assina os saques por conta própria. Carteiras criadas pelo Hyperdash são não custodiais e protegidas pela Turnkey. A chave do agente é gerada no seu navegador e criptografada ali antes do armazenamento, o que alimenta recursos como o [Copytrading](/pt/hyperdash/autotrade).
+  </Accordion>
+
+  <Accordion title="Como atualizo ou revogo um agente?">
+    Abra o Gerenciador de Agentes e use **Atualizar Chave do Agente**: uma chave totalmente nova substitui a antiga. Você precisa estar com a carteira original conectada; o app bloqueia atualizações a partir de um endereço diferente. Refazer a configuração de carteira também cancela o registro de agentes Hyperdash anteriores antes de aprovar um novo.
+  </Accordion>
+
+  <Accordion title="O que acontece quando meu agente expira?">
+    As chaves de agente são válidas por 180 dias. Uma chave expirada não pode mais assinar ordens, então atualize-a pelo Gerenciador de Agentes para continuar negociando.
+  </Accordion>
+
+  <Accordion title="Quais métodos de login são suportados?">
+    Google, Apple, link mágico por e-mail ou login com carteira. O login com carteira só pede a assinatura de uma mensagem: é gratuito e não envia nenhuma transação.
+  </Accordion>
+
+  <Accordion title="Como configuro a proteção de dois fatores?">
+    Em Configurações, na seção Segurança, ative uma passkey (biometria ou uma chave de segurança) ou um app autenticador. A configuração do autenticador mostra um QR code ou uma chave de configuração, verifica um código de 6 dígitos e então emite códigos de backup de uso único que você pode baixar. Passkeys precisam ser removidas antes de ativar um app autenticador.
+  </Accordion>
+
+  <Accordion title="Quando a verificação de dois fatores é solicitada?">
+    Depois do login, com a opção de confiar no dispositivo por 30 dias, e novamente antes de sacar fundos. Se você perder o seu dispositivo de 2FA, cada código de recuperação de backup funciona uma única vez.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Guarde os seus códigos de recuperação de backup ao ativar um app autenticador. Se você perder o seu dispositivo de 2FA e não tiver os códigos, pode perder permanentemente o acesso à sua conta.
+</Note>

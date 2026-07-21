@@ -1,56 +1,49 @@
 ---
 title: "Jelajahi Trader"
-description: "Panduan untuk menjelajahi wallet trader dengan Hyperdash"
-icon: "crosshairs-simple"
-"og:image": "https://hyperdash.com/og.png"
+description: "Temukan, filter, dan lacak wallet trader di Hyperdash."
 ---
 
-**Halaman Jelajahi memungkinkan Anda untuk melihat trader Hyperliquid unggulan, dan menerapkan filter ke pencarian.**
+Explore adalah hub penemuan trader Hyperdash. Jelajahi setiap wallet yang trading di pasar Hyperliquid, filter semesta itu menjadi trader yang penting bagi Anda, dan lacak mereka dari satu sidebar.
 
-Koleksi wallet terkenal telah ditandai untuk kenyamanan Anda.
+## Bagian Explore
 
-**Pelacakan**
+- **Kohort**: trader yang dikelompokkan berdasarkan PnL sepanjang waktu dan berdasarkan ukuran wallet, dengan positioning tiap grup. Lihat [Kohort, Top Trader dan Perubahan Posisi](/id/hyperdash/cohorts-top-traders-position-changes).
+- **Copytrading**: wallet terbaik untuk disalin, diperingkat berdasarkan copy score dan ROI. Lihat [Copy Trading](/id/hyperdash/copy-trade).
+- **Tagged**: trader dan fund yang dikenal, diberi label untuk kemudahan.
+- **Leaderboard**: trader berkinerja terbaik, termasuk leaderboard per aset.
+- **Global**: seluruh semesta trader dengan filter.
 
-Semua wallet yang ditemukan di Hyperdash dapat dilacak, dan diorganisir menggunakan list. List dapat diberi nama kustom dan ikon berwarna.
+## Memfilter trader global
 
-Pengguna dapat mengatur 'alias' untuk setiap wallet yang dilacak dan menambahkannya ke list yang dibuat untuk penandaan, pelacakan, dan manajemen yang mudah.
+| Filter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Periode waktu | 1d, 7d, 30d, atau Semua | 7d |
+| Nilai akun | Nilai akun minimum dan maksimum dalam USD | Bebas |
+| PNL | Untung dan rugi bersih minimum dan maksimum dalam USD | Bebas |
+| Gaya trading | Semua, Algo, Scalp, Intraday, Swing, Position | Semua |
+| Copy score | Rentang 0 hingga 100 | 0 hingga 100 |
 
-Melacak wallet memungkinkan Anda melihat feed langsung dari trade mereka di terminal trading.
+Hasil menampilkan PnL, ekuitas, total trade, win rate, rasio Sharpe, max drawdown, leverage, pemakaian margin, dan aset yang diperdagangkan tiap trader.
 
-### Pemfilteran Trader Global
+## Melacak wallet
 
-Anda dapat memfilter semua trader di Hyperliquid berdasarkan:
+<Steps>
+  <Step title="Lacak wallet">
+    Tekan **Lacak** pada baris trader mana pun di Explore, di tabel Top Traders di terminal, atau dari profil trader.
+  </Step>
+  <Step title="Beri nama dan kelompokkan">
+    Beri wallet sebuah alias dan simpan ke sebuah daftar. Setiap akun dimulai dengan daftar **Main**, dan Anda dapat membuat daftar baru dengan nama dan warna kustom.
+  </Step>
+  <Step title="Kelola daftar Anda">
+    Ganti nama wallet, pindahkan antar daftar, atau berhenti melacaknya kapan saja. Daftar dapat dibagikan lewat tautan, dan daftar yang dibagikan terbuka hanya-baca sampai penerimanya menggandakannya ke akun mereka sendiri.
+  </Step>
+  <Step title="Pantau feed-nya">
+    Aktivitas dari wallet yang dilacak mengalir ke feed **Dilacak** di terminal trading dan panel Recent Activity di sidebar Explore. Filter feed berdasarkan daftar, arah, buka atau tutup, dan ukuran nosional.
+  </Step>
+</Steps>
 
-- Tipe Trader
-  - Algo
-  - Scalp
-  - Intraday
-  - Swing
-  - Position
-- Nilai Akun: total nilai akun di akun perps.
-- PnL (sepanjang waktu): Profit dan Loss Bersih.
-- Win Rate (%): Persentase trade yang menguntungkan.
-- Sharpe Ratio: Ukuran return yang disesuaikan risiko trader.
+<Note>
+  Masuk untuk menggunakan pelacakan: wallet dan daftar yang dilacak disimpan ke akun Hyperdash Anda sehingga mengikuti Anda di semua perangkat.
+</Note>
 
-**Kohort**
-
-Lihat informasi agregat tentang grup trader berdasarkan PnL dan ukuran akun. Ini termasuk informasi tentang posisi dan kinerja.
-
-- **Diurutkan berdasarkan PNL Sepanjang Waktu**
-  - Sangat Menguntungkan - \$1m+
-  - Sangat Menguntungkan - \$100k-1M
-  - Menguntungkan - \$10k-100k
-  - Sedikit Menguntungkan - \$0-10k
-  - Sedikit Merugi - \$0 hingga -10k
-  - Merugi - \$-10k hingga -100k
-  - Sangat Merugi - \$-100k hingga -1m
-  - Rekt - \$-1m+
-- **Diurutkan berdasarkan Ukuran Akun**
-  - Kraken - \$5m+
-  - Paus Besar - \$1m-5m
-  - Paus - \$500k-1m
-  - Hiu - \$100k-500k
-  - Lumba-lumba - \$50k-100k
-  - Ikan Besar - \$10-50k
-  - Ikan - \$250-10k
-  - Udang - \$0-250
+Untuk hubungan antara aktivitas wallet yang dilacak dan notifikasi platform, lihat [Peringatan dan Kotak Masuk](/id/hyperdash/alerts-inbox).

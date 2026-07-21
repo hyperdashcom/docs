@@ -1,99 +1,56 @@
 ---
 title: "Trading-Leitfaden"
-description: "Kurzer Überblick über das Trading auf Hyperdash und Ordertypen."
+description: "Trading-Grundlagen auf Hyperdash: Spot vs. Perps, Margin, Hebel und die Trading-Oberfläche."
+hidden: true
 ---
 
-**Spot vs Perpetuals (kurzer Überblick über den Unterschied zwischen Spot und Perpetuals)**
+Dieser Leitfaden behandelt die Grundlagen des Handels auf Hyperdash: wie sich Spot- und Perpetual-Märkte unterscheiden, wie Margin und Hebel bei Perps funktionieren und welche Oberflächenfunktionen die Ausführung beschleunigen.
+
+## Spot vs. Perpetuals
 
 **Spot**
 
-- Sie kaufen oder verkaufen den tatsächlichen Vermögenswert (wie HYPE, BTC, ETH).
-- Sie besitzen ihn direkt und können ihn von der Börse auf externe Wallets übertragen.
-- Gewinn nur wenn der Preis steigt (es sei denn, Sie verkaufen, was Sie bereits halten).
+- Sie kaufen oder verkaufen das tatsächliche Asset (wie HYPE, BTC, ETH) auf einem USDC-notierten Paar.
+- Es gehört Ihnen direkt: Käufe werden in Ihr Wallet abgewickelt und können versendet oder übertragen werden.
+- Kein Hebel, kein Funding, kein Liquidationsrisiko. Siehe die eigene Seite [Spot-Handel](/de/hyperdash/spot-trading).
 
 **Perpetual Futures (Perps)**
 
-- Sie besitzen den Vermögenswert nicht, Sie handeln einen Vertrag, der an seinen Preis gebunden ist.
-- Sie können long gehen (auf steigende Preise setzen) oder short (auf fallende Preise setzen).
-- Kein Ablaufdatum — Sie können so lange halten wie Sie möchten, aber Sie werden Finanzierungsraten erhalten oder zahlen.
-- Nutzt Hebel: Handeln Sie größere Positionen mit weniger Kapital (Bis zu **40x Hebel**).
-- Finanzierungsraten halten Perp-Preise im Einklang mit dem Spot-Markt.
+- Sie handeln einen Kontrakt, der an den Preis des Assets gekoppelt ist, nicht das Asset selbst.
+- Sie können long (steigender Preis) oder short (fallender Preis) gehen, ohne Verfall: Halten Sie so lange Sie wollen und erhalten oder zahlen Sie dabei Funding.
+- Funding fällt stündlich an und hält die Perp-Preise im Einklang mit dem Spot-Markt.
+- Mit Hebel handeln Sie größere Größen mit weniger Kapital. Der maximale Hebel variiert je Markt.
 
-**Cross vs Isolierte Margin-Optionen**
+## Cross- vs. isolierte Margin
 
-Cross-Positionen werden liquidiert, wenn der Kontowert (einschließlich unrealisierter Gewinne und Verluste) kleiner als die _Erhaltungsmarge_ mal der gesamten offenen Nominalposition ist. Die Erhaltungsmarge ist derzeit auf die Hälfte der Anfangsmarge bei maximalem Hebel festgelegt.
+- **Cross**: Alle Cross-Positionen teilen sich Ihr Cross-Margin-Guthaben als Sicherheit. Bei einer Liquidation können Ihr Cross-Margin-Guthaben und alle verbleibenden offenen Positionen im Cross-Modus verloren gehen.
+- **Isoliert**: Die Margin ist auf die einzelne Position beschränkt. Erreicht die Margin-Quote dieser Position 100 %, wird nur diese Position liquidiert. Margin kann der Position hinzugefügt oder entnommen werden.
 
-Isolierte Positionen werden nach derselben Erhaltungsmargen-Logik liquidiert, aber die einzigen Eingaben für die Berechnung sind die isolierte Margin und der Nominalwert der isolierten Position.
+Der Margin-Modus wird je Markt im Trade-Panel festgelegt. Der Standard ist Cross.
 
-**Hebel-Optionen**
+## Hebel
 
-Jedes Paar hat zugehörige Hebel-Optionen, die Sie mit dem Schieberegler anpassen können.
+Der Hebel wird je Markt mit dem Schieberegler in der Hebelsteuerung festgelegt, von 1x bis zum Maximum des jeweiligen Marktes. Die Maxima unterscheiden sich je Markt und werden in der Steuerung angezeigt. Einstellungen über 10x zeigen eine Warnung: Ein höherer Hebel erhöht das Liquidationsrisiko.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-**Long vs Short**
+## Long, Short und Umkehren
 
-Trades können zwischen Long und Short umgeschaltet werden.
+Perp-Trades können im Trade-Panel zwischen Long und Short umgeschaltet werden. **Umkehren** schließt eine Position und eröffnet eine gleich große in Gegenrichtung, macht also aus Longs Shorts und aus Shorts Longs. Über das Positionsmenü können Sie auch alle Positionen, alle Longs oder alle Shorts umkehren.
 
-**Trading-Interface-Funktionen**
+## Handeln aus dem Chart
 
-- Anzeigen als: Wählen Sie einen verfügbaren Trader aus oder geben Sie eine Adresse ein, um deren Trade-Eröffnungen und -Schließungen auf dem Chart anzuzeigen.
-- Plus-Zeichen-Menü - Durch Klicken auf das Plus-Symbol auf der Chart-Achse sind Optionen für Limit Short, Stop Long oder Anzeigen als verfügbar.
-  - Limit Short: Schnell eine Limit-Order für einen Short zu diesem Preis einrichten.
-  - Stop Long: Schnell eine Limit-Long-Order zu diesem Preis einrichten.
+- **View as**: Suchen Sie einen Trader oder fügen Sie eine Adresse ein, um dessen Positionen, offene Orders und Ausführungen über Ihren Chart zu legen.
+- **Quick Orders**: Klicken Sie auf das Plus-Symbol an der Preisskala des Charts, um ein Orderticket zu diesem Preis zu öffnen, mit Ein-Klick-Optionen für Limit Long oder Limit Short (Limit Kaufen oder Limit Verkaufen auf Spot), Stop Long oder Stop Short, Take-Profit und Stop-Loss.
+- **Beobachtungsmodus**: Durchstöbern Sie das gesamte Terminal aus Sicht einer anderen Adresse. Der Handel ist im Beobachtungsmodus deaktiviert.
 
-# **Ordertypen**
+# Ordertypen
 
-**Market vs Limit Order**
+Jeder Ordertyp hat eine eigene Referenzseite mit Platzierungsverhalten, Parametern, Standardwerten und einem durchgerechneten Beispiel. Beginnen Sie mit der [Übersicht der Ordertypen](/de/hyperdash/orders/overview) oder springen Sie direkt zu einem Typ:
 
-- Market: Eine Order, die sofort zum aktuellen Marktpreis ausgeführt wird
-- Limit: Eine Order, die zum ausgewählten Limitpreis oder besser ausgeführt wird
-
-### Take Profit und Stop Loss
-
-- Take Profit: Eine Limit-Order, die aktiviert wird, um Gewinne mitzunehmen, wenn der Preis den ausgewählten Preis erreicht
-- Stop Loss: Eine Limit-Order, die aktiviert wird, um Verluste zu minimieren, wenn der Preis den ausgewählten Stop-Preis erreicht
-
-### Reverse
-
-- Schließt den ausgewählten Trade und eröffnet einen gleichen Trade in die entgegengesetzte Richtung (wandelt Longs in Shorts und Shorts in Longs um).
-
-## Erweiterte Ordertypen
-
-### TWAP (Zeitgewichteter Durchschnittspreis)
-
-Führt eine Order proportional über einen festgelegten Zeitraum aus.
-
-**Stealth : **Führt Ihren TWAP über unsere Infrastruktur statt on-chain aus, für eine privatere Ausführung.
-
-**Zeit und/oder Größe randomisieren (Optional):** Wenn Randomisieren aktiviert ist, werden Größe und Timing jedes Sub-Trades automatisch in einem bestimmten Bereich angepasst, typischerweise bis zu 20% höher oder niedriger als die ursprüngliche Trade-Größe und 20% früher oder später ausgeführt.
-
-### Scale Orders
-
-Platzieren Sie automatisch Orders über einen Preisbereich.
-
-Enthält Parameter für die Anzahl der Orders und den Skew-Betrag (Verhältnis zwischen End- und Startpreisen. Wenn zum Beispiel der Größen-Skew 2,0 beträgt, dann wird eine Limit-Order für den Endpreis mit der doppelten Größe des Startpreises platziert. Ein Größen-Skew von 1,0 erstellt gleich große Orders.
-
-### Stop Limit
-
-Wird zu einer Limit-Order beim festgelegten Auslösepreis.
-
-### Stop Market
-
-Wird zu einer Market-Order beim festgelegten Auslösepreis.
-
-### Chase Orders
-
-Platziert eine Limit-Order zum besten Bid/Ask und aktualisiert sie kontinuierlich bis zur Ausführung.
-
-**Chase bis:** Legt den Preis fest, bis zu dem verfolgt wird, bis der Preis dieses Limit überschreitet.
-
-**Stalk-Distanz:** Der Orderpreis bleibt in einem festen Abstand vom besten Bid.
-
-### Swarm Orders
-
-Teilt Ihre Order in kleinere Teilaufträge auf und platziert sie über einen Zeitraum, um die Marktauswirkung zu reduzieren.
-
-Die Gesamtorder kann in bis zu 200 Teilaufträge aufgeteilt werden (Mindestgröße \$10 pro Teilauftrag)\
-\
-Wählen Sie ein 'Aggressionslevel' zwischen 1-5, höhere Aggression platziert Orders häufiger für schnellere Ausführungen.
+- [Market](/de/hyperdash/orders/market) und [Limit](/de/hyperdash/orders/limit)
+- [Scale](/de/hyperdash/orders/scale): gestaffelte Limit-Orders über eine Preisspanne
+- [Stop-Limit](/de/hyperdash/orders/stop-limit) und [Stop-Market](/de/hyperdash/orders/stop-market)
+- [Chase](/de/hyperdash/orders/chase): eine Limit-Order, die dem besten Geld- oder Briefkurs folgt
+- [TWAP](/de/hyperdash/orders/twap) und [Swarm](/de/hyperdash/orders/swarm): große Größen mit weniger Markteinfluss abarbeiten
+- [Take-Profit / Stop-Loss](/de/hyperdash/orders/take-profit-stop-loss) und [Trailing-Stop](/de/hyperdash/orders/trailing-stop)

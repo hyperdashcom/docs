@@ -1,0 +1,40 @@
+---
+title: "Prise de profit et Limite de perte"
+description: "Définissez des déclencheurs de sortie sur une position, exécutés en ordre au marché, limite, poursuite ou TWAP quand votre prix est atteint."
+---
+
+La Prise de profit et la Limite de perte (TP/SL) prédéfinissent vos sorties : une prise de profit clôture tout ou partie d'une position à un niveau en profit, et une limite de perte plafonne vos pertes. Vous pouvez attacher un TP/SL en plaçant un ordre ou l'ajouter à toute position ouverte, et vous choisissez comment chaque sortie s'exécute.
+
+## Comment les ordres sont placés
+
+- Chaque jambe est un déclencheur. Rien ne se place dans le carnet tant que le prix n'atteint pas votre déclencheur, puis l'ordre de sortie est placé automatiquement.
+- Définissez chaque jambe par prix, ou par gain/perte en pourcentage ou en \$. L'autre champ se convertit automatiquement à partir de votre prix d'entrée et de la taille de la position.
+- Choisissez l'exécution de sortie par jambe : **Marché** clôture immédiatement avec un glissement plafonné à 5%, **Limite** place un ordre au prix de déclenchement, **Poursuite** suit le meilleur bid ou ask, et **TWAP** découpe la sortie sur une fenêtre définie.
+- Le premier déclencheur atteint lance la sortie, et la stratégie la suit jusqu'à ce que la taille soit clôturée.
+- **Configurer le montant** clôture une portion de la position au lieu de sa totalité, définie en pourcentage de la position ou en montant fixe de l'actif.
+
+## Quand l'utiliser
+
+- Encadrer une position avec un objectif de profit et une limite de risque en une seule étape.
+- Imposer une discipline de risque sans surveiller l'écran.
+- Sortir par paliers : prendre un profit partiel à un objectif pendant que le stop couvre la position entière.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Prix TP / Gain | Déclencheur de prise de profit. Saisissez un prix, ou un gain en % ou en \$. Doit être au-dessus du prix mark pour les longs et en dessous pour les shorts. | Aucun |
+| Prix SL / Perte | Déclencheur de limite de perte. Saisissez un prix, ou une perte en % ou en \$. Doit être en dessous du prix mark pour les longs et au-dessus pour les shorts. | Aucun |
+| Type d'ordre (par jambe) | Exécution Marché, Limite, Poursuite ou TWAP une fois déclenché. | Marché |
+| Durée (TWAP uniquement) | Fenêtre sur laquelle la sortie TWAP est découpée, de 30 secondes à 1 heure. | 5m |
+| Configurer le montant (optionnel) | Taille de sortie partielle, en pourcentage de la position ou en montant de l'actif. | 100% de la position |
+
+Au moins l'un des deux, TP ou SL, est requis. Les deux peuvent être définis sur la même position.
+
+## Exemple
+
+Vous êtes long 0.2 BTC depuis \$65,000. Vous définissez une prise de profit à \$71,500 (un gain de 10%) en sortie Limite et une limite de perte à \$61,750 (une perte de 5%) en sortie Marché, toutes deux sur la taille totale. Si BTC monte à \$71,500, une vente limite se place à ce prix. Si BTC chute au contraire à \$61,750, la position est clôturée immédiatement au marché avec un glissement plafonné à 5%.
+
+<Note>
+  Les sorties autres qu'au marché comportent un risque d'exécution : une sortie limite, poursuite ou TWAP peut ne pas clôturer entièrement la position lors d'un mouvement rapide. Un stop au marché peut aussi s'exécuter à un prix pire que son déclencheur si le marché saute par-dessus votre niveau.
+</Note>

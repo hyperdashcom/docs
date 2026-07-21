@@ -1,0 +1,58 @@
+---
+title: "Portefeuilles API et sécurité"
+description: "Comment fonctionnent les portefeuilles agents, les méthodes de connexion et la protection à deux facteurs sur Hyperdash."
+---
+
+Hyperdash exécute vos trades via un portefeuille agent API : une clé de trading distincte que votre propre portefeuille approuve pour signer les ordres en votre nom. Cela vous permet de trader sans confirmer chaque ordre dans votre portefeuille, tandis que les retraits et transferts nécessitent toujours une signature de votre propre portefeuille.
+
+## Comment fonctionnent les portefeuilles agents
+
+<Steps>
+  <Step title="Connectez ou créez un portefeuille">
+    Dans la configuration du Terminal Wallet, connectez un portefeuille existant ou créez un nouveau portefeuille non-custodial sécurisé par Turnkey. Voir [Intégration et Dépôts](/fr/hyperdash/onboarding-deposits).
+  </Step>
+  <Step title="Approuvez l'agent">
+    Hyperdash génère une nouvelle paire de clés dans votre navigateur, et votre portefeuille signe une approbation qui l'enregistre comme votre agent de trading. La clé d'agent est valide 180 jours et est chiffrée dans votre navigateur avant d'être stockée.
+  </Step>
+  <Step title="Approuvez le builder">
+    Une seconde signature active le trading sur Hyperdash. Dès lors, chaque ordre que vous placez, y compris les [types d'ordres](/fr/hyperdash/orders/overview) automatisés, est signé par la clé d'agent.
+  </Step>
+</Steps>
+
+Le **Gestionnaire d'agents** affiche l'adresse et l'expiration de votre agent avec les statuts Actif, Expire dans 30 jours, Expire bientôt et Expiré, plus une action **Actualiser la clé d'agent**.
+
+## FAQ sécurité
+
+<AccordionGroup>
+  <Accordion title="Que peut faire un portefeuille agent, et que ne peut-il pas faire ?">
+    La clé d'agent signe uniquement les actions de trading : placement, modification et annulation d'ordres. Les retraits et transferts d'actifs sont signés par votre propre portefeuille, jamais par l'agent.
+  </Accordion>
+
+  <Accordion title="Qui détient mes clés ?">
+    La clé privée de votre portefeuille ne quitte jamais votre portefeuille ; vous approuvez l'agent et signez les retraits vous-même. Les portefeuilles créés via Hyperdash sont non-custodial et sécurisés par Turnkey. La clé d'agent est générée dans votre navigateur et y est chiffrée avant stockage, ce qui alimente des fonctionnalités comme le [Copytrading](/fr/hyperdash/autotrade).
+  </Accordion>
+
+  <Accordion title="Comment actualiser ou révoquer un agent ?">
+    Ouvrez le Gestionnaire d'agents et utilisez **Actualiser la clé d'agent** : une clé entièrement nouvelle remplace l'ancienne. Le portefeuille d'origine doit être connecté ; l'application bloque les actualisations depuis une adresse différente. Relancer la configuration du portefeuille désenregistre aussi les agents Hyperdash précédents avant d'en approuver un nouveau.
+  </Accordion>
+
+  <Accordion title="Que se passe-t-il quand mon agent expire ?">
+    Les clés d'agent sont valides 180 jours. Une clé expirée ne peut plus signer d'ordres, actualisez-la donc depuis le Gestionnaire d'agents pour continuer à trader.
+  </Accordion>
+
+  <Accordion title="Quelles méthodes de connexion sont prises en charge ?">
+    Google, Apple, magic link par e-mail ou connexion par portefeuille. La connexion par portefeuille vous demande uniquement de signer un message : c'est gratuit et aucune transaction n'est envoyée.
+  </Accordion>
+
+  <Accordion title="Comment configurer la protection à deux facteurs ?">
+    Dans Paramètres, sous Sécurité, activez soit une passkey (biométrie ou clé de sécurité), soit une application d'authentification. La configuration de l'application affiche un QR code ou une clé de configuration, vérifie un code à 6 chiffres, puis délivre des codes de secours à usage unique que vous pouvez télécharger. Les passkeys doivent être supprimées avant d'activer une application d'authentification.
+  </Accordion>
+
+  <Accordion title="Quand la vérification à deux facteurs m'est-elle demandée ?">
+    Après la connexion, avec une option pour faire confiance à l'appareil pendant 30 jours, et à nouveau avant tout retrait de fonds. Si vous perdez votre appareil 2FA, chaque code de récupération de secours fonctionne une seule fois.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Sauvegardez vos codes de récupération de secours quand vous activez une application d'authentification. Si vous perdez votre appareil 2FA et n'avez aucun code, vous pouvez perdre définitivement l'accès à votre compte.
+</Note>

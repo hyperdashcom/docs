@@ -1,0 +1,38 @@
+---
+title: "Order Market"
+description: "Eksekusi segera pada harga terbaik yang tersedia, dengan batas slippage yang tegas."
+---
+
+Order market membeli atau menjual segera pada harga terbaik di order book. Jenis order ini mengutamakan kecepatan dan kepastian eksekusi di atas harga tertentu, dan merupakan jenis order default di panel trading Hyperdash.
+
+## Cara order ditempatkan
+
+- Mengirim order immediate-or-cancel yang mengambil likuiditas dari harga terbaik ke luar hingga ukuran Anda terisi.
+- Order dihargai dari harga tengah saat ini yang disesuaikan dengan batas max slippage Anda, sehingga tidak dapat terisi lebih buruk dari batas tersebut. Ukuran yang akan melampaui batas dibatalkan, bukan dibiarkan menunggu, sehingga penyelesaian tidak dijamin di pasar yang tipis.
+- Perkiraan slippage dari order book live ditampilkan di samping batas Anda sebelum mengirim, misalnya "Perkiraan: 0.01% / Maks 8%".
+- Pemicu Take Profit dan Stop Loss opsional dikirim bersama order masuknya.
+
+## Kapan digunakan
+
+- Anda perlu masuk atau keluar sekarang juga, dan kecepatan lebih penting daripada beberapa basis poin.
+- Anda memperdagangkan pergerakan cepat di mana order yang menunggu akan tertinggal.
+- Anda menutup posisi dengan cepat, dipadukan dengan Hanya Kurangi (Reduce Only).
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Ukuran | Dalam aset atau dalam USD. Slider mengukur order sebagai persentase margin tersedia pada leverage saat ini. | Tidak ada |
+| Take Profit / Stop Loss (opsional) | Lampirkan pemicu TP dan SL berdasarkan harga atau berdasarkan persentase untung dan rugi. | Nonaktif |
+| Hanya Kurangi (opsional) | Muncul saat ada posisi terbuka. Order hanya dapat mengurangi posisi, tidak pernah menambah atau membaliknya. | Nonaktif |
+| Slippage | Batas max slippage Anda, harga eksekusi terburuk yang Anda terima. Klik barisnya untuk menyesuaikan. | 8% |
+
+Panel juga menampilkan harga likuidasi, nilai order, margin diperlukan, dan biaya. Nilai order minimum adalah \$10.
+
+## Contoh
+
+BTC diperdagangkan di \$118,400. Anda melakukan market buy 0.25 BTC (nosional \$29,600) pada leverage 10x menggunakan margin \$2,960. Panel memperkirakan slippage 0.01%, sehingga Anda memperkirakan pengisian rata-rata di sekitar \$118,412.
+
+<Note>
+  Perkiraan slippage hanyalah perkiraan, bukan jaminan. Di pasar yang bergerak cepat, pengisian dapat terjadi di mana saja hingga batas max slippage Anda.
+</Note>

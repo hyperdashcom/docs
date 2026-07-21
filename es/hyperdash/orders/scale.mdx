@@ -1,0 +1,40 @@
+---
+title: "Órdenes Escala"
+description: "Coloca una escalera de órdenes límite a lo largo de un rango de precios en un solo ticket."
+---
+
+Las órdenes Escala dividen una orden en una escalera de órdenes límite a lo largo de un rango de precios que tú defines, buscando un precio promedio mejor que el de una sola ejecución. Encuentra Escala en el selector **Profesional** del panel de trading.
+
+## Cómo coloca las órdenes
+
+- Coloca tus órdenes Totales como órdenes límite individuales en una sola acción, todas válidas hasta cancelar.
+- Los precios se distribuyen de forma uniforme desde el Precio inicial hasta el Precio final.
+- Los tamaños escalan linealmente a lo largo de la escalera según el Sesgo y siempre suman tu Tamaño total. Con Totales en 1, todo el tamaño se coloca al Precio inicial.
+- Cada orden se ejecuta de forma independiente, así que un movimiento superficial ejecuta solo una parte de la escalera.
+
+## Cuándo usarlas
+
+- Acumular en la debilidad o distribuir en la fortaleza a lo largo de un rango en lugar de elegir un solo precio.
+- Promediar una entrada cuando esperas vaivenes dentro de un rango.
+- Cargar más tamaño hacia el extremo lejano del rango con el Sesgo.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Tamaño | Total entre todas las órdenes, en el activo o en USD. | Ninguno |
+| Precio inicial | Precio de la primera orden. Haz clic en **Medio** para precargar el precio medio actual. | Ninguno |
+| Precio final | Precio de la última orden. | Ninguno |
+| Totales | Número de órdenes límite en la escalera, de 1 a 100. | Ninguno |
+| Sesgo | Relación entre el tamaño de la última orden y el de la primera. 1.0 coloca tamaños iguales; 2.0 hace que la orden final tenga el doble de tamaño que la inicial. | 1.00 |
+| Solo Reducir (opcional) | Se muestra con una posición abierta. Las órdenes solo pueden reducirla. | Desactivado |
+
+El panel muestra una vista previa de la primera y la última orden, el precio promedio, el valor de la orden y el margen requerido antes de colocar la escalera.
+
+## Ejemplo
+
+HYPE cotiza a \$40 y quieres un largo de 100 HYPE aprovechando la debilidad: Precio inicial \$40, Precio final \$36, Totales 5, Sesgo 2.0. Hyperdash coloca compras límite en \$40, \$39, \$38, \$37 y \$36, con tamaños de 13.3, 16.7, 20, 23.3 y 26.7 HYPE. Si toda la escalera se ejecuta, tu entrada promedio es de unos \$37.67, frente a \$38.00 con tamaños iguales.
+
+<Note>
+  Cada orden de la escalera debe valer al menos \$10. Si la orden más pequeña quedara por debajo de ese valor, el panel te avisa: reduce Totales o aumenta el Tamaño.
+</Note>

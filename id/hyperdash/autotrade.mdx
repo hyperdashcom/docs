@@ -1,0 +1,61 @@
+---
+title: "Copytrading"
+description: "Salin atau lawan trader mana pun secara otomatis dari wallet khusus, dengan batas risiko yang dapat dikonfigurasi."
+---
+
+Copytrade adalah satu mesin eksekusi yang dibangun di Hyperdash. Ia mencerminkan (Copytrade) atau mengambil sisi berlawanan dari (Countertrade) posisi perp hingga 10 trader target, trading secara otomatis dari wallet yang didedikasikan untuk strategi tersebut.
+
+## Cara kerjanya
+
+<Steps>
+  <Step title="Pilih target Anda">
+    Mulai dari profil trader, bagian Copytraders di [Explore](/id/hyperdash/wallet-explore), atau tempel alamat wallet mana pun. Satu wallet Copytrade dapat mengikuti hingga 10 trader, dengan modal dibagi rata atau dengan bobot kustom.
+  </Step>
+  <Step title="Konfigurasikan risiko">
+    Pilih Copytrade atau Countertrade, lalu atur batas leverage, aturan entri, dan opsi ukuran Anda (tabel di bawah). Untuk satu trader, sebuah grafik memproyeksikan PNL 30 hari mereka pada alokasi \$1,000, dibalik untuk countertrading.
+  </Step>
+  <Step title="Danai wallet">
+    **Create New**: Hyperdash membuat wallet khusus dan mendanainya dengan USDC dari wallet utama Anda. **Use Existing**: hubungkan wallet Anda sendiri yang memegang minimal \$100 USDC, buat API key (berlaku 180 hari), setujui builder fee 0.05%, dan aktifkan mode akun unified. Dana tetap berada di wallet Anda sendiri.
+  </Step>
+  <Step title="Mulai dan kelola">
+    Tekan **Start**. Wallet tampil sebagai Running di tab Copytrade dengan ekuitas, PNL, posisi, dan log-nya. Buka **Copytrade Settings** kapan saja untuk mengedit konfigurasi, menjeda, atau melanjutkan.
+  </Step>
+</Steps>
+
+## Pengaturan
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Mode trading | Copytrade mencerminkan posisi, Countertrade mengambil sisi berlawanan | Copytrade |
+| Trader target | Hingga 10 alamat per wallet, bobot sama rata atau kustom | Bobot sama rata |
+| Leverage posisi maksimum | Membatasi posisi salinan bahkan saat target memakai lebih tinggi, 1x hingga 40x | 20x |
+| Hanya salin posisi yang baru dibuka | Melewati posisi yang sudah terbuka saat Copytrade dimulai; hanya dapat diubah saat berhenti | Nonaktif |
+| Entri terburuk maksimum | Seberapa jauh entri Anda boleh lebih buruk dibanding trader tersebut, 0% hingga 50% | 10% |
+| Sertakan aset spot dan staking | Menyertakan HYPE spot dan staking dalam perhitungan ukuran salinan | Nonaktif |
+| Filter aset | Whitelist atau blacklist aset tertentu (tab Assets di pengaturan) | Semua aset |
+
+## Menghentikan, mengarsipkan, menghapus
+
+- **Stop** selalu menutup posisi terbuka wallet tersebut, sehingga tidak ada yang dibiarkan tanpa pengelolaan. Wallet yang dihentikan dapat dilanjutkan lagi nanti.
+- **Archive** menutup posisi, mengembalikan saldo wallet buatan Hyperdash ke wallet utama Anda, dan memindahkannya ke Archived. Tidak dapat dibatalkan. Untuk wallet yang dihubungkan, Anda memilih apakah posisi ditutup otomatis atau tetap terbuka dalam kustodi Anda.
+- **Delete** menghapus wallet Copytrade secara permanen dari daftar Anda.
+
+<Note>
+  Menyalin trader yang bertanda algoritmik memunculkan peringatan dalam aplikasi: copytrading mungkin tidak mereplikasi hasil mereka karena perbedaan kecepatan eksekusi.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Berapa biaya Copytrading?">
+    Trading melalui Hyperdash menggunakan builder fee 0.05%, yang disetujui wallet terhubung saat penyiapan. Biaya trading standar bursa tetap berlaku.
+  </Accordion>
+
+  <Accordion title="Siapa yang memegang dana saya?">
+    Wallet yang dibuat dikelola di bawah akun Hyperdash Anda, dan mengarsipkannya mengembalikan saldonya ke wallet utama Anda. Wallet yang dihubungkan tetap dalam kustodi Anda: Hyperdash memperdagangkannya melalui API key yang kedaluwarsa setelah 180 hari dan dapat dibuat ulang dari tab Copytrade.
+  </Accordion>
+
+  <Accordion title="Bisakah saya mengganti trader setelah mulai?">
+    Bisa, dari tab Allocation di Copytrade Settings. Menghapus seorang trader menutup posisi salinannya pada sinkronisasi berikutnya.
+  </Accordion>
+</AccordionGroup>

@@ -1,0 +1,36 @@
+---
+title: "Protección dinámica (Trailing Stop)"
+description: "Protege las ganancias abiertas con un stop que sigue automáticamente al precio a la distancia que elijas."
+---
+
+La protección dinámica (trailing stop) sigue al mercado mientras se mueve a tu favor. Defines un retroceso, un porcentaje o una distancia fija en USD, y el stop se activa si el precio revierte esa cantidad desde el mejor precio que tu posición ha alcanzado. Deja correr a las ganadoras mientras asegura la ganancia automáticamente.
+
+## Cómo coloca las órdenes
+
+- Se configura desde una posición abierta y cubre la posición completa. La infraestructura de Hyperdash monitorea el mercado, así que nada queda en el libro público mientras el stop está activo.
+- Hyperdash registra el precio pico, el más alto alcanzado para largos o el más bajo para cortos, y recalcula el stop con cada nuevo extremo favorable: pico menos el retroceso para largos, pico más el retroceso para cortos. Solo se ajusta a tu favor, nunca se afloja.
+- Cuando el precio revierte hasta el precio de stop, la salida se envía como **Mercado**, o como **Perseguir**, una orden límite fijada a la parte superior del libro que se actualiza hasta ejecutarse.
+- Una protección dinámica por posición: confirmar nuevos ajustes la reemplaza, y puedes quitarla en cualquier momento.
+
+## Cuándo usarla
+
+- Asegurar ganancias en una posición ganadora sin elegir un precio de salida por adelantado.
+- Montar una tendencia: el stop sigue al precio y nunca cede terreno.
+- Reemplazar la gestión manual de stops: se acabó editar un stop fijo después de cada tramo al alza.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Modo de retroceso | **Por porcentaje** (porcentaje del precio, menor a 100) o **Por distancia** (monto fijo en USD). | Por distancia |
+| Retroceso | El valor de seguimiento en % o USD. El modal muestra una vista previa del precio de stop proyectado. | Ninguno |
+| Tipo de orden | Cómo se ejecuta la salida: **Mercado** o **Perseguir**. | Mercado |
+| Tamaño | Cubre tu posición completa. | Posición completa |
+
+## Ejemplo
+
+Estás largo 500 HYPE con un precio de marca de \$45.00 y defines un retroceso del 5%, así que el stop inicial es \$42.75. HYPE sube hasta \$50.00 y el stop lo sigue hasta \$47.50. El precio entonces revierte a \$47.50, el stop se activa y una orden de mercado cierra la posición.
+
+<Note>
+  El stop solo se mueve con nuevos extremos favorables. En un mercado lateral se queda quieto, y una mecha brusca que lo alcance cierra la posición aunque el precio se recupere de inmediato.
+</Note>

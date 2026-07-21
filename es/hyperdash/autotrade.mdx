@@ -1,0 +1,61 @@
+---
+title: "Copytrading"
+description: "Copia o contrarresta automáticamente a cualquier trader desde una billetera dedicada, con límites de riesgo configurables."
+---
+
+Copytrade es un motor de ejecución integrado en Hyperdash. Refleja (Copytrade) o toma el lado opuesto de (Countertrade) las posiciones de perps de hasta 10 traders objetivo, operando automáticamente desde una billetera dedicada a esa estrategia.
+
+## Cómo funciona
+
+<Steps>
+  <Step title="Elige tus objetivos">
+    Empieza desde el perfil de un trader, desde la sección de Copytraders de [Explorar](/es/hyperdash/wallet-explore), o pega cualquier dirección de billetera. Una billetera de Copytrade puede seguir hasta 10 traders, con el capital dividido en partes iguales o con pesos personalizados.
+  </Step>
+  <Step title="Configura el riesgo">
+    Elige Copytrade o Countertrade, y luego define tu tope de apalancamiento, las reglas de entrada y las opciones de dimensionamiento (tabla abajo). Para un solo trader, un gráfico proyecta su PNL de 30 días sobre una asignación de \$1,000, invertido para el countertrading.
+  </Step>
+  <Step title="Fondea una billetera">
+    **Crear nueva**: Hyperdash crea una billetera dedicada y la fondea con USDC desde tu billetera principal. **Usar existente**: conecta tu propia billetera con al menos \$100 USDC, crea una clave API (válida 180 días), aprueba la comisión de builder del 0.05% y habilita el modo de cuenta unificada. Los fondos permanecen en tu propia billetera.
+  </Step>
+  <Step title="Inicia y gestiona">
+    Presiona **Iniciar**. La billetera aparece como En ejecución en la pestaña de Copytrade con su patrimonio, PNL, posiciones y registros. Abre la **Configuración de autotrade** en cualquier momento para editar la configuración, pausar o reanudar.
+  </Step>
+</Steps>
+
+## Configuración
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Modo de trading | Copytrade refleja las posiciones, Countertrade toma el lado opuesto | Copytrade |
+| Traders objetivo | Hasta 10 direcciones por billetera, con pesos iguales o personalizados | Pesos iguales |
+| Apalancamiento máximo de posición | Limita las posiciones copiadas aunque el objetivo use más, de 1x a 40x | 20x |
+| Copiar solo posiciones recién abiertas | Omite las posiciones ya abiertas cuando Copytrade arranca; solo se puede cambiar mientras está detenido | Desactivado |
+| Desviación máxima de entrada | Cuánto peor puede ser tu entrada frente a la del trader, de 0% a 50% | 10% |
+| Incluir spot y activos en staking | Incluye spot y HYPE en staking en el dimensionamiento de la copia | Desactivado |
+| Filtros de activos | Lista blanca o lista negra de activos específicos (pestaña Activos en la configuración) | Todos los activos |
+
+## Detener, archivar, eliminar
+
+- **Detener** siempre cierra las posiciones abiertas de la billetera, así nada queda sin gestionar. Una billetera detenida puede reanudarse más tarde.
+- **Archivar** cierra las posiciones, devuelve el saldo de una billetera creada por Hyperdash a tu billetera principal y la mueve a Archivado. No se puede deshacer. Para billeteras conectadas, tú eliges si las posiciones se cierran automáticamente o quedan abiertas bajo tu custodia.
+- **Eliminar** quita de forma permanente una billetera de Copytrade de tu lista.
+
+<Note>
+  Copiar a un trader etiquetado como algorítmico dispara una advertencia en la app: el copytrading puede no replicar sus resultados por diferencias de velocidad de ejecución.
+</Note>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Cuánto cuesta el Copytrading?">
+    Operar a través de Hyperdash usa una comisión de builder del 0.05%, que las billeteras conectadas aprueban durante la configuración. Aplican las comisiones estándar de trading del exchange.
+  </Accordion>
+
+  <Accordion title="¿Quién custodia mis fondos?">
+    Una billetera creada se gestiona bajo tu cuenta de Hyperdash, y al archivarla su saldo vuelve a tu billetera principal. Una billetera conectada permanece bajo tu custodia: Hyperdash la opera a través de una clave API que expira a los 180 días y puede regenerarse desde la pestaña de Copytrade.
+  </Accordion>
+
+  <Accordion title="¿Puedo cambiar de traders después de empezar?">
+    Sí, desde la pestaña de Asignación en la Configuración de autotrade. Al eliminar un trader, sus posiciones copiadas se cierran en la siguiente sincronización.
+  </Accordion>
+</AccordionGroup>

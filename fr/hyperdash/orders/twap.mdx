@@ -1,0 +1,37 @@
+---
+title: "TWAP"
+description: "Exécutez de grands ordres en parts égales dans le temps pour réduire l'impact de marché."
+---
+
+Le TWAP (Time Weighted Average Price, prix moyen pondéré dans le temps) exécute votre ordre en parts égales sur une durée que vous définissez, en visant le prix moyen du marché sur la fenêtre plutôt qu'une exécution unique. L'objectif est de minimiser l'impact de marché quand votre taille est grande par rapport à la liquidité disponible.
+
+## Comment les ordres sont placés
+
+- Divise votre taille totale en sous-ordres égaux, un toutes les 30 secondes sur votre durée. Le formulaire prévisualise la durée, le nombre d'ordres et la taille par sous-ordre.
+- Avec Furtif activé, le TWAP s'exécute via notre infrastructure plutôt qu'on-chain, pour une exécution plus privée.
+- Les options de randomisation font varier la taille des sous-ordres et, avec Furtif, les intervalles, pour rendre le schéma d'exécution moins prévisible.
+- Un TWAP en cours peut être modifié ou arrêté. Lors d'une modification, la nouvelle taille totale doit être supérieure au montant déjà exécuté.
+
+## Quand l'utiliser
+
+- Entrer dans une grande position ou en sortir sans faire bouger le marché
+- Moyenner une position sur une fenêtre définie plutôt que de viser une exécution unique
+- Rendre votre exécution plus difficile à suivre avec Furtif et les options de randomisation
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Durée | Fenêtre d'exécution en heures et minutes. Doit être supérieure à 5 minutes et inférieure à 24 heures. | Aucun |
+| Furtif | Exécute votre TWAP via notre infrastructure plutôt qu'on-chain, pour une exécution plus privée. | Activé |
+| Randomiser la taille (optionnel) | Ajuste aléatoirement la taille de chaque sous-ordre jusqu'à +/-20% tout en respectant les contraintes du TWAP. | Désactivé |
+| Randomiser le temps (optionnel) | Disponible avec Furtif. Décale aléatoirement chaque intervalle jusqu'à +/-20% pour rendre le timing moins prévisible. | Désactivé |
+| Réduction uniquement (optionnel) | Restreint le TWAP à la réduction d'une position existante. | Désactivé |
+
+## Exemple
+
+Vous voulez acheter 2 BTC sur 2 heures. Cela représente 240 intervalles de 30 secondes, donc Hyperdash place 240 sous-ordres d'environ 0.0083 BTC chacun. À un prix du BTC de \$118,000, chaque sous-ordre représente environ \$980 de notionnel. Avec Randomiser la taille activé, les sous-ordres varient en taille tout en totalisant toujours 2 BTC.
+
+<Note>
+  Chaque sous-ordre doit valoir au moins \$10. Si votre taille répartie sur la durée tombe en dessous, raccourcissez la durée ou augmentez la taille.
+</Note>

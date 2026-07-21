@@ -1,0 +1,40 @@
+---
+title: "Take Profit y Stop Loss"
+description: "Define activadores de salida sobre una posición que se ejecutan como orden de mercado, límite, Perseguir o TWAP cuando se alcanza tu precio."
+---
+
+Take Profit y Stop Loss (TP/SL) predefinen tus salidas: un take profit cierra parte o la totalidad de una posición en un nivel con ganancia, y un stop loss limita tus pérdidas. Puedes adjuntar TP/SL al colocar una orden o añadirlos a cualquier posición abierta, y tú eliges cómo se ejecuta cada salida.
+
+## Cómo coloca las órdenes
+
+- Cada pata es un activador. Nada nuevo queda en el libro hasta que el precio alcanza tu activador; entonces la orden de salida se coloca automáticamente.
+- Define cada pata por precio, o por ganancia/pérdida en porcentaje o en \$. El otro campo se convierte automáticamente a partir de tu precio de entrada y el tamaño de la posición.
+- Elige la ejecución de salida por pata: **Mercado** cierra de inmediato con slippage limitado al 5%, **Límite** deja una orden al precio de activación, **Perseguir** sigue el mejor bid o ask, y **TWAP** trocea la salida en una ventana definida.
+- El activador que se dispara primero inicia la salida, y la estrategia le da seguimiento hasta cerrar el tamaño.
+- **Configurar monto** cierra una porción de la posición en lugar de la totalidad, definida como porcentaje de la posición o una cantidad fija del activo.
+
+## Cuándo usarlos
+
+- Encuadrar una posición con un objetivo de ganancia y un límite de riesgo en un solo paso.
+- Imponer disciplina de riesgo sin estar mirando la pantalla.
+- Salir por partes: tomar ganancia parcial en un objetivo mientras el stop cubre la posición completa.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Precio TP / Ganancia | Activador de take profit. Ingresa un precio, o una ganancia en % o \$. Debe estar por encima del precio de marca para largos y por debajo para cortos. | Ninguno |
+| Precio SL / Pérdida | Activador de stop loss. Ingresa un precio, o una pérdida en % o \$. Debe estar por debajo del precio de marca para largos y por encima para cortos. | Ninguno |
+| Tipo de orden (por pata) | Ejecución Mercado, Límite, Perseguir o TWAP una vez activado. | Mercado |
+| Duración (solo TWAP) | Ventana en la que se trocea la salida TWAP, de 30 segundos a 1 hora. | 5m |
+| Configurar monto (opcional) | Tamaño de la salida parcial, como porcentaje de la posición o cantidad del activo. | 100% de la posición |
+
+Se requiere al menos uno de los dos, TP o SL. Ambos pueden establecerse en la misma posición.
+
+## Ejemplo
+
+Estás largo 0.2 BTC desde \$65,000. Estableces un take profit en \$71,500 (una ganancia del 10%) como salida Límite y un stop loss en \$61,750 (una pérdida del 5%) como salida Mercado, ambos por el tamaño completo. Si BTC sube hasta \$71,500, una venta límite queda a ese precio. Si en cambio BTC cae a \$61,750, la posición se cierra de inmediato a mercado con slippage limitado al 5%.
+
+<Note>
+  Las salidas que no son de mercado conllevan riesgo de ejecución: una salida límite, Perseguir o TWAP puede no cerrar por completo la posición durante un movimiento rápido. Un stop de mercado también puede ejecutarse peor que su precio de activación si el mercado salta tu nivel.
+</Note>
