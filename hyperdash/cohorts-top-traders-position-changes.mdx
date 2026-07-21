@@ -1,32 +1,36 @@
 ---
 title: "Cohorts, Top Traders and Position Changes"
-description: "Guide to interpreting trader groups"
+description: "Market intelligence tabs in the terminal: cohort positioning, top trader positions, position changes, and live TWAPs."
 ---
 
-Hyperdash aggregates and displays real time data on traders in the trading terminal for market insights
+For every perpetual market, the trading terminal includes market intelligence tabs built from live trader data: **Top Traders**, **Cohorts**, **Position Changes**, and **Current TWAPs**. Use them to see who is positioned where, and who is moving the market right now.
 
-### **Cohorts**
+### Cohorts
 
-View the current notional and absolute trader Long to Short ratio and Realised to Unrealised PnL ratio of traders on any pair, segmented based on PnL of traders or wallet size
+For the selected market, each trader group shows three breakdowns: long versus short notional, the number of traders long versus short, and how many are in profit versus at a loss on unrealized PnL. A global row aggregates every trader in the market, then two cohort families segment it: PNL cohorts (Extremely Profitable down to Rekt, by all-time PnL) and size cohorts (Kraken down to Shrimp, by wallet size). The exact range for each cohort is shown next to its name in the app.
 
-You can also explore each cohort for a wider overview of their positioning across all major pairs, and their Long to Short ratio graphically over different time frames. Also included is a breakdown of the traders comprised within each cohort.
+Click any cohort to open its detail page: total value, PnL, wallet count, positioning across all major markets, a historical positioning chart, and the list of wallets in the cohort, each of which you can [track](/hyperdash/wallet-explore).
 
 <iframe src="https://www.youtube.com/embed/D8vkfFYPmWw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
+<Note>
+  Cohort participation is only tracked on perpetual markets. Spot markets show a Holders view instead of Top Traders and no cohort data.
+</Note>
+
 ### Top Traders
 
-See how top traders on each pair are positioned, including their entries, live liquidations levels, unrealised PnL and funding payments. You can filter for traders that are long or short with associated entries and notional trade size.
+The largest positions on the pair, with each trader's entry price, liquidation price, notional size, unrealized PnL, funding paid, account value, and copy score. Filter to longs only, shorts only, or all, and track any trader straight from the table.
 
 <iframe src="https://www.youtube.com/embed/6Sx629kRXTw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
 ### Position Changes
 
-See how traders positions change over various time frames, including their previous and new position size. This is useful to see which traders are responsible for large recent moves that may be affecting the market.
+How trader positions changed over a selected window: 15 minutes, 1 hour, 4 hours, 24 hours, 3 days, or 7 days (default 15 minutes). Each row shows the previous position, the change, and the current position, filterable to longs or shorts. This is the fastest way to see which traders are behind a large recent move.
 
 <iframe src="https://www.youtube.com/embed/f2sQmbGH0GQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-### Active TWAPs
+### Current TWAPs
 
-Displays traders with active TWAP orders on the pair you are viewing, with the total order size, remaining size to deploy, time left and total progress to date.
+Traders with active TWAP orders on the pair you are viewing: side, total size, executed size, remaining size, value, progress, time, and status. For the order type itself, see [TWAP](/hyperdash/orders/twap).
 
 <iframe src="https://www.youtube.com/embed/NjnxKEeBkUg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />

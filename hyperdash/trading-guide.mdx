@@ -3,44 +3,45 @@ title: "Trading Guide"
 description: "Trading basics on Hyperdash: spot vs perps, margin, leverage, and the trading interface."
 ---
 
-**Spot vs Perpetuals (brief overview of the difference between spot and perpetuals)**
+This guide covers the fundamentals of trading on Hyperdash: how spot and perpetual markets differ, how margin and leverage work on perps, and the interface features that speed up execution.
+
+## Spot vs perpetuals
 
 **Spot**
 
-- You buy or sell the actual asset (like HYPE, BTC, ETH).
-- You own it directly, and can transfer it out of the exchange to external wallets.
-- Profit only when price goes up (unless you sell what you already hold).
+- You buy or sell the actual asset (like HYPE, BTC, ETH) on a USDC-quoted pair.
+- You own it directly: purchases settle to your wallet and can be sent or transferred out.
+- No leverage, no funding, no liquidation risk. See the dedicated [Spot Trading](/hyperdash/spot-trading) page.
 
-**Perpetual Futures (Perps)**
+**Perpetual futures (perps)**
 
-- You don't own the asset, you trade a contract tied to its price.
-- You can go long (bet price goes up) or short (bet price goes down).
-- No expiry date — you can hold as long as you want, but will earn or incur funding rate payments.
-- Uses leverage: trade bigger size with smaller capital (Up to **40x Leverage**).
-- Funding rates keep perp prices in line with the spot market.
+- You trade a contract tied to the asset's price rather than the asset itself.
+- You can go long (price up) or short (price down), with no expiry: hold as long as you want, earning or paying funding.
+- Funding accrues hourly and keeps perp prices in line with the spot market.
+- Leverage lets you trade bigger size with less capital. Maximum leverage varies by market.
 
-**Cross vs Isolated Margin options**
+## Cross vs isolated margin
 
-Cross positions are liquidated when the account value (including unrealized profit and loss) is less than the _maintenance margin_ times the total open notional position. The maintenance margin is currently set to half of the initial margin at max leverage.
+- **Cross**: all cross positions share your cross margin balance as collateral. In a liquidation, your cross margin balance and any remaining open positions in cross mode may be forfeited.
+- **Isolated**: margin is restricted to the individual position. If that position's margin ratio reaches 100%, only that position is liquidated. Margin can be added or removed on the position.
 
-Isolated positions are liquidated by the same maintenance margin logic, but the only inputs to the computation are the isolated margin and the notional value of the isolated position.
+Margin mode is set per market from the trade panel. The default is cross.
 
-**Leverage options**
+## Leverage
 
-Each pair has an associated leverage options, which you can adjust using the slider.
+Leverage is set per market with the slider in the leverage control, from 1x up to that market's maximum. Maximums differ by market and are shown in the control. Settings above 10x show a warning: higher leverage increases the risk of liquidation.
 
 <iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
-**Long vs Short**
+## Long, short, and reverse
 
-Trades can be toggled to be taken as a long or a short.
+Perp trades can be toggled between long and short in the trade panel. **Reverse** closes a position and opens an equal one in the opposite direction, flipping longs into shorts and shorts into longs. You can also reverse all positions, all longs, or all shorts from the positions menu.
 
-**Trading interface features**
+## Trading from the chart
 
-- View as: Select an available trader or enter an address to display their trade opens and closes overlayed onto the chart.
-- Plus sign menu - By clicking the plus icon on the chart axis, options to Limit short, stop long or view as are available.
-  - Limit short: quickly set up a limit order for a short at the price.
-  - Stop long: quickly set up a limit long order at the price.
+- **View as**: search a trader or paste an address to overlay their positions, open orders, and fills on your chart.
+- **Quick orders**: click the plus icon on the chart's price scale to open an order ticket at that price, with one-click limit long or short (limit buy or sell on spot), stop long or short, take profit, and stop loss.
+- **Snoop mode**: browse the entire terminal as another address. Trading is disabled while snooping.
 
 # Order Types
 
@@ -52,7 +53,3 @@ Every order type has its own reference page with placement behavior, parameters,
 - [Chase](/hyperdash/orders/chase): a limit order that follows the best bid or ask
 - [TWAP](/hyperdash/orders/twap) and [Swarm](/hyperdash/orders/swarm): work large size with less market impact
 - [Take Profit / Stop Loss](/hyperdash/orders/take-profit-stop-loss) and [Trailing Stop](/hyperdash/orders/trailing-stop)
-
-### Reverse
-
-- Closes the selected trade and opens an equal trade in the opposite direction (flips longs into shorts and shorts into longs).

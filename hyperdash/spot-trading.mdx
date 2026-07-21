@@ -1,0 +1,75 @@
+---
+title: "Spot Trading"
+description: "Buy and sell assets outright on USDC-quoted spot markets that settle to your wallet."
+---
+
+Spot trading on Hyperdash means buying and selling the asset itself, not a contract tied to its price. Every spot market is quoted in USDC and trades 24/7, and what you buy you own: spot purchases settle on-chain to your wallet and can be sent or transferred out.
+
+## How spot balances work
+
+- Buys are funded from your spot USDC balance. Sells draw on the token balance you hold: you can only sell what you own.
+- Balance reserved by a resting order shows as held and cannot be used by other orders until that order fills or is canceled.
+- The trade panel shows your available USDC and available token balance, with **Deposit** and **Perps to Spot** shortcuts. USDC moves freely between your perps and spot accounts through the transfer modal (unified accounts share one balance and skip this step).
+- Your holdings appear in the Balances table with amount, available, value, entry price, and PNL, plus actions to **Send**, **Transfer**, or set a TP/SL on a holding.
+
+## Placing a spot order
+
+<Steps>
+  <Step title="Pick a spot market">
+    Select a spot pair, for example HYPE/USDC, in the asset selector.
+  </Step>
+  <Step title="Choose an order type">
+    Market and Limit are top-level tabs. The **Pro** dropdown adds Scale, Stop Limit, and Chase on the limit side, and TWAP, Stop Market, and Swarm on the market side. Accounts with OTC access also see an OTC tab.
+  </Step>
+  <Step title="Set side and size">
+    Choose Buy or Sell, then size in the token or in USD, or use the slider to size as a percentage of your available balance. The panel shows order value, estimated slippage, and your maker and taker fee rates.
+  </Step>
+  <Step title="Submit">
+    Market and limit buys can first attach Take Profit and Stop Loss triggers, by price or by gain and loss in % or \$. TP/SL exits execute as market orders.
+  </Step>
+</Steps>
+
+Each order type has its own reference page: start with the [Order Types overview](/hyperdash/orders/overview), or jump to [Market](/hyperdash/orders/market), [Limit](/hyperdash/orders/limit), [Scale](/hyperdash/orders/scale), [Stop Limit](/hyperdash/orders/stop-limit), [Stop Market](/hyperdash/orders/stop-market), [Chase](/hyperdash/orders/chase), [TWAP](/hyperdash/orders/twap), or [Swarm](/hyperdash/orders/swarm).
+
+## Settings
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Max slippage | Caps how far a spot market-style fill can move against you. Click the **Est / Max** slippage readout in the order form to adjust. | 8% |
+| Take Profit / Stop Loss | Optional on market and limit buys. Triggers by price, or by gain and loss in % or \$. | Off |
+
+Minimum order value is \$10. Order types that split into multiple orders, such as Scale, TWAP, and Swarm, require each child order to clear the same minimum.
+
+## Spot vs perps
+
+| | Spot | Perps |
+| --- | --- | --- |
+| Ownership | You own the asset; it settles to your wallet | Contract exposure only |
+| Direction | Buy, or sell what you hold | Long or short |
+| Leverage | None; orders are fully funded | Varies by market |
+| Funding | None | Accrues hourly |
+| Liquidation | None | Possible on leveraged positions |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Can I short on spot?">
+    No. Spot sells are limited to the balance you hold. For short exposure, use a perp market: see the [Trading Guide](/hyperdash/trading-guide).
+  </Accordion>
+
+  <Accordion title="How do I fund my spot balance?">
+    Deposit directly, or transfer USDC from your perps account with the **Perps to Spot** button. See [Onboarding and Deposits](/hyperdash/onboarding-deposits).
+  </Accordion>
+
+  <Accordion title="Do spot trades pay funding?">
+    No. Funding applies only to perpetuals. Spot costs are the maker and taker fee rates shown in the order form; see [Fees, Referrals and Rewards](/hyperdash/fees-referrals-rewards).
+  </Accordion>
+
+  <Accordion title="Can I set a TP/SL on tokens I already hold?">
+    Yes. Use the TP/SL action in the Balances table to attach Take Profit or Stop Loss triggers to an existing holding.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Tokens reserved by resting orders are held: they cannot be sold or sent until the order fills or is canceled. The panel warns you when an existing order is already using part of a balance.
+</Note>
