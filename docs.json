@@ -26,6 +26,7 @@
          "hyperdash/trading-guide",
          "hyperdash/spot-trading",
          "hyperdash/markets-assets",
+         "hyperdash/tradeable-markets",
          "hyperdash/copy-trade",
          "hyperdash/autotrade",
          "hyperdash/portfolio-analytics",
