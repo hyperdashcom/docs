@@ -1,0 +1,40 @@
+---
+title: "Scale Orders"
+description: "Place a ladder of limit orders across a price range in a single ticket."
+---
+
+Scale orders split one order into a ladder of limit orders across a price range you define, targeting a better average price than a single fill. Find Scale under the **Pro** selector in the trade panel.
+
+## How it places orders
+
+- Places your Total Orders as individual limit orders in one action, all good till canceled.
+- Prices are spaced evenly from Start Price to End Price.
+- Sizes scale linearly across the ladder according to Size Skew and always sum to your total Size. With Total Orders of 1, the full size is placed at the Start Price.
+- Each order fills independently, so a shallow move fills only part of the ladder.
+
+## When to use it
+
+- Accumulating into weakness or distributing into strength across a range instead of picking one price.
+- Averaging into an entry when you expect chop inside a range.
+- Weighting more size toward the far end of the range with Size Skew.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Size | Total across all orders, in the asset or in USD. | None |
+| Start Price | Price of the first order. Click **Mid** to prefill the current mid price. | None |
+| End Price | Price of the last order. | None |
+| Total Orders | Number of limit orders in the ladder, 1 to 100. | None |
+| Size Skew | Ratio of the last order's size to the first. 1.0 places equal sizes; 2.0 makes the end order twice the start order. | 1.00 |
+| Reduce Only (optional) | Shown with an open position. Orders can only reduce it. | Off |
+
+The panel previews the first and last order, average price, order value, and margin required before you place the ladder.
+
+## Example
+
+HYPE trades at \$40 and you want a 100 HYPE long into weakness: Start Price \$40, End Price \$36, Total Orders 5, Size Skew 2.0. Hyperdash places limit buys at \$40, \$39, \$38, \$37, and \$36, sized 13.3, 16.7, 20, 23.3, and 26.7 HYPE. If the whole ladder fills, your average entry is about \$37.67, versus \$38.00 with equal sizing.
+
+<Note>
+  Every order in the ladder must be worth at least \$10. If the smallest order would fall below that, the panel warns you: lower Total Orders or raise Size.
+</Note>

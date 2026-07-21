@@ -1,0 +1,37 @@
+---
+title: "Swarm Orders"
+description: "Split a large order into up to 200 smaller clips dispatched in parallel to reduce market impact."
+---
+
+Swarm orders break your order into smaller sub-orders, called clips, and dispatch them in controlled parallel waves. The objective is filling meaningful size quickly while avoiding the slippage and footprint of a single large order.
+
+## How it places orders
+
+- Splits your total size into your chosen number of clips: equal sizes by default, varied sizes when Irregular Clips is enabled.
+- Each clip is an immediate-or-cancel order priced at market plus a slippage allowance, so clips take liquidity rather than resting on the book.
+- Aggression sets how many clips are in flight at once; as each completes, the next dispatches until all are processed.
+- Completion is not guaranteed: a clip that errors or cannot fill within its slippage allowance is marked rejected and is not retried; the order reports how many clips failed.
+- Stopping a swarm cancels its pending clips; only dispatched clips count toward your fill.
+
+## When to use it
+
+- Filling size fast without showing one large order to the market
+- Executing quicker than a TWAP window while still limiting impact
+- Tuning the tradeoff between fill speed and footprint with the Aggression level
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Total Clips | How many sub-orders your order will be broken into. Integer from 2 to 200. Each clip must be worth at least \$10, so your order size caps the count. | 10 |
+| Aggression | Level 1 to 5. Simultaneous clips per level: 1, up to 2, up to 5, up to 10, up to 20. Higher aggression places orders more frequently for faster fills. | 3 |
+| Irregular Clips (optional) | Varies clip sizes so the split is less uniform. | Off |
+| Reduce Only (optional) | Restricts the swarm to reducing an existing position. | Off |
+
+## Example
+
+Sell 5,000 HYPE at a \$40 price, about \$200,000 of notional. With Total Clips at 100, each clip is 50 HYPE, roughly \$2,000. At Aggression 4, up to 10 clips work the book at once until all 5,000 HYPE is filled. Irregular Clips would vary those sizes instead of printing a uniform 50 HYPE each.
+
+<Note>
+  Clips have a \$10 minimum value, so a swarm needs at least \$20 of order value. The form shows the maximum clips your current size supports.
+</Note>

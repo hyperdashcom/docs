@@ -1,0 +1,36 @@
+---
+title: "Trailing Stop"
+description: "Protect open profits with a stop that automatically follows price at your chosen distance."
+---
+
+A Trailing Stop follows the market as it moves in your favor. You set a retracement, a percentage or a fixed USD distance, and the stop triggers if price reverses by that amount from the best price your position has reached. It lets winners run while locking in profit automatically.
+
+## How it places orders
+
+- Set from an open position and sized to the full position. Hyperdash infrastructure monitors the market, so nothing rests on the public book while the stop is active.
+- Hyperdash tracks the peak price, the highest reached for longs or lowest for shorts, and recalculates the stop on every new favorable extreme: peak minus the retracement for longs, peak plus it for shorts. It only tightens, never loosens.
+- When price reverses to the stop price, the exit is sent as **Market**, or **Chase**, a limit order pinned to the top of the book that updates until filled.
+- One trailing stop per position: confirming new settings replaces it, and you can remove it at any time.
+
+## When to use it
+
+- Lock in profits on a winner without picking an exit price in advance.
+- Ride a trend: the stop follows price and never gives ground back.
+- Replace manual stop management: no more editing a fixed stop after every leg higher.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Retracement mode | **By Percent** (percentage of price, under 100) or **By Distance** (fixed USD amount). | By Distance |
+| Retracement | The trail value in % or USD. The modal previews the projected stop price. | None |
+| Order type | How the exit executes: **Market** or **Chase**. | Market |
+| Size | Covers your full position. | Full position |
+
+## Example
+
+You are long 500 HYPE at a mark price of \$45.00 and set a 5% retracement, so the initial stop is \$42.75. HYPE rallies to \$50.00 and the stop follows up to \$47.50. Price then reverses to \$47.50, the stop triggers, and a market order closes the position.
+
+<Note>
+  The stop moves only on new favorable extremes. In sideways chop it stays put, and a sharp wick that reaches it closes the position even if price recovers immediately after.
+</Note>

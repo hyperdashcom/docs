@@ -1,0 +1,37 @@
+---
+title: "Stop Limit"
+description: "Trigger a limit order at your stop price and set a hard bound on the worst price you will accept."
+---
+
+A Stop Limit order waits until the market reaches your stop price, then places a limit order at your limit price. Nothing trades before the trigger, and once triggered your order fills only at the limit price or better.
+
+## How it places orders
+
+- No trade executes at submission. The order waits until the asset price reaches your stop price.
+- With **Stealth** on (the default), Hyperdash infrastructure watches price and places the order only once triggered, keeping it hidden until then. With Stealth off, the stop is placed publicly on-chain as a trigger order.
+- At trigger, a limit order at your limit price is sent to the book and fills at that price or better.
+- Not guaranteed to complete: if price gaps through your limit, the order rests unfilled until price trades back or you cancel.
+
+## When to use it
+
+- Trade breakouts: buy above resistance or sell below support, only once the level actually breaks.
+- Cap your worst fill instead of taking whatever a market order gets.
+- Exit at a defined trigger with price control. Enable **Reduce Only** so the order can only close your position.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Stop Price (USD) | Trigger price: above the current price for buys, below for sells. | None |
+| Limit Price | Price of the limit order placed at trigger. | Current price |
+| Size | In the asset or USD. Minimum order value \$10. | None |
+| Reduce Only (optional) | Order can only reduce an existing position. | Off |
+| Stealth (optional) | Routes the stop through Hyperdash infrastructure, off-book until triggered. | On |
+
+## Example
+
+BTC trades at \$117,400 and you want to buy a breakout above \$120,000. You place a Stop Limit: stop \$120,000, limit \$120,250, size 0.5 BTC. When BTC hits \$120,000, a limit buy at \$120,250 is placed and fills at that price or better. If BTC gaps straight to \$120,600, it rests at \$120,250 unfilled.
+
+<Note>
+  A stop limit trades price risk for fill risk: size the gap between stop and limit for the market's volatility so a fast move cannot jump both. When execution matters more than price, use a [Stop Market](/hyperdash/orders/stop-market).
+</Note>

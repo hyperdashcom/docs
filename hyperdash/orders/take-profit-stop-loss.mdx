@@ -1,0 +1,40 @@
+---
+title: "Take Profit and Stop Loss"
+description: "Set exit triggers on a position that execute as a market, limit, chase, or TWAP order when your price is reached."
+---
+
+Take Profit and Stop Loss (TP/SL) predefine your exits: a take profit closes some or all of a position at a level in profit, and a stop loss caps your downside. You can attach TP/SL while placing an order or add them to any open position, and you choose how each exit executes.
+
+## How it places orders
+
+- Each leg is a trigger. Nothing new rests on the book until price reaches your trigger, then the exit order is placed automatically.
+- Set each leg by price, or by gain/loss in percent or \$. The other field converts automatically from your entry price and position size.
+- Choose the exit execution per leg: **Market** closes immediately with slippage capped at 5%, **Limit** rests an order at the trigger price, **Chase** follows the best bid or ask, and **TWAP** slices the exit over a set window.
+- Whichever trigger fires first starts the exit, and the strategy tracks it until the size is closed.
+- **Configure Amount** closes a portion of the position instead of all of it, set as a percent of the position or a fixed asset amount.
+
+## When to use it
+
+- Bracket a position with a profit target and a risk limit in one step.
+- Enforce risk discipline without watching the screen.
+- Scale out: take partial profit at a target while the stop covers the full position.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| TP Price / Gain | Take profit trigger. Enter a price, or a gain in % or \$. Must be above the mark price for longs and below it for shorts. | None |
+| SL Price / Loss | Stop loss trigger. Enter a price, or a loss in % or \$. Must be below the mark price for longs and above it for shorts. | None |
+| Order Type (per leg) | Market, Limit, Chase, or TWAP execution once triggered. | Market |
+| Duration (TWAP only) | Window the TWAP exit is sliced over, from 30 seconds to 1 hour. | 5m |
+| Configure Amount (optional) | Partial exit size, as a percent of the position or an asset amount. | 100% of position |
+
+At least one of TP or SL is required. Both can be set on the same position.
+
+## Example
+
+You are long 0.2 BTC from \$65,000. You set a take profit at \$71,500 (a 10% gain) as a Limit exit and a stop loss at \$61,750 (a 5% loss) as a Market exit, both on full size. If BTC trades up to \$71,500, a limit sell rests at that price. If BTC instead drops to \$61,750, the position closes immediately at market with slippage capped at 5%.
+
+<Note>
+  Non-market exits carry fill risk: a limit, chase, or TWAP exit may not fully close the position during a fast move. A market stop can also fill worse than its trigger price if the market gaps through your level.
+</Note>

@@ -1,0 +1,38 @@
+---
+title: "Market Order"
+description: "Execute immediately at the best available price, with a hard cap on slippage."
+---
+
+A market order buys or sells immediately at the best prices in the book. It prioritizes speed and certainty of execution over a specific price, and it is the default order type in the Hyperdash trade panel.
+
+## How it places orders
+
+- Submits an immediate-or-cancel order that takes liquidity from the best price outward until your size is filled.
+- The order is priced from the current mid adjusted by your max slippage cap, so it cannot fill worse than the cap. Size that would exceed the cap is canceled, not left resting, so completion is not guaranteed in thin markets.
+- Estimated slippage from the live order book is shown next to your cap before you submit, for example "Est: 0.01% / Max 8%".
+- Optional Take Profit and Stop Loss triggers are submitted together with the entry.
+
+## When to use it
+
+- You need to be in or out now, and immediacy matters more than a few basis points.
+- You are trading fast moves where a resting order would be left behind.
+- You are closing a position quickly, paired with Reduce Only.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Size | In the asset or in USD. The slider sizes the order as a percentage of available margin at current leverage. | None |
+| Take Profit / Stop Loss (optional) | Attach TP and SL triggers by price or by gain and loss percentage. | Off |
+| Reduce Only (optional) | Shown with an open position. The order can only reduce it, never increase or flip it. | Off |
+| Slippage | Your max slippage cap, the worst execution price you accept. Click the row to adjust. | 8% |
+
+The panel also shows liquidation price, order value, margin required, and fees. Minimum order value is \$10.
+
+## Example
+
+BTC trades at \$118,400. You market buy 0.25 BTC (\$29,600 notional) at 10x leverage using \$2,960 of margin. The panel estimates 0.01% slippage, so you expect an average fill near \$118,412.
+
+<Note>
+  Estimated slippage is an estimate, not a guarantee. In a fast market the fill can land anywhere up to your max slippage cap.
+</Note>

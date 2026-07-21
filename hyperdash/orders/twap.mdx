@@ -1,0 +1,37 @@
+---
+title: "TWAP"
+description: "Execute large orders in equal parts over time to reduce market impact."
+---
+
+TWAP (Time Weighted Average Price) executes your order in equal parts over a duration you set, targeting the average market price across the window instead of a single fill. The objective is minimizing market impact when your size is large relative to available liquidity.
+
+## How it places orders
+
+- Splits your total size into equal sub-orders, one every 30 seconds across your duration. The form previews runtime, number of orders, and size per sub-order.
+- With Stealth enabled, the TWAP executes through our infrastructure instead of on-chain for more private execution.
+- The randomize options vary sub-order sizes and, with Stealth, intervals to make the execution pattern less predictable.
+- A running TWAP can be edited or stopped. When editing, the new total size must be greater than the amount already executed.
+
+## When to use it
+
+- Entering or exiting a large position without moving the market
+- Averaging into a position over a set window instead of timing a single fill
+- Keeping your execution harder to track with Stealth and the randomize options
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Duration | Execution window in hours and minutes. Must be greater than 5 minutes and less than 24 hours. | None |
+| Stealth | Executes your TWAP through our infrastructure instead of on-chain for more private execution. | On |
+| Randomize Size (optional) | Randomly adjusts each sub-order size by up to +/-20% while keeping TWAP constraints. | Off |
+| Randomize Time (optional) | Available with Stealth. Randomly shifts each interval by up to +/-20% to make timing less predictable. | Off |
+| Reduce Only (optional) | Restricts the TWAP to reducing an existing position. | Off |
+
+## Example
+
+You want to buy 2 BTC over 2 hours. That is 240 intervals of 30 seconds, so Hyperdash places 240 sub-orders of roughly 0.0083 BTC each. At a \$118,000 BTC price, each sub-order is about \$980 of notional. With Randomize Size enabled, sub-orders vary in size while still summing to 2 BTC.
+
+<Note>
+  Every sub-order must be worth at least \$10. If your size spread across the duration falls below that, shorten the duration or increase the size.
+</Note>

@@ -1,0 +1,38 @@
+---
+title: "Limit Order"
+description: "Rest an order in the book and fill only at your chosen price or better."
+---
+
+A limit order executes only at the price you set, or better: buys at your limit price or lower, sells at your limit price or higher. You control the price; the trade is that a fill is not guaranteed.
+
+## How it places orders
+
+- Places a single order at your limit price, good till canceled: it works until it fills or you cancel it.
+- If your price is away from the market, the order rests in the book until price reaches it.
+- If your price crosses the market (a buy above the best ask, a sell below the best bid), it executes immediately at the better available prices.
+- Fills can be partial, and no slippage applies: your limit price is the worst price you can receive.
+
+## When to use it
+
+- You want price certainty and are willing to wait for the market to come to you.
+- You are bidding dips or offering into strength without watching the chart.
+- You want to set an entry with Take Profit and Stop Loss attached in one ticket.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Limit Price (USD) | The worst price you will accept. Click **Mid** to prefill the current mid price. | None |
+| Size | In the asset or in USD, with a slider to size as a percentage of available margin at current leverage. | None |
+| Take Profit / Stop Loss (optional) | Attach TP and SL triggers by price or by gain and loss percentage. | Off |
+| Reduce Only (optional) | Shown with an open position. The order can only reduce it, never increase or flip it. | Off |
+
+The panel shows liquidation price, order value, margin required, and fees. Minimum order value is \$10.
+
+## Example
+
+BTC trades at \$118,400. You place a limit buy for 0.1 BTC at \$116,000: order value \$11,600, margin required \$1,160 at 10x leverage. If BTC trades down through \$116,000 you fill at \$116,000 or better. If it never gets there, the order stays open until you cancel it.
+
+<Note>
+  A buy limit placed above the current price (or a sell below it) is marketable: it begins filling immediately like a market order, capped at your limit price.
+</Note>

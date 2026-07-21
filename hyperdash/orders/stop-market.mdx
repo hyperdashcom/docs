@@ -1,0 +1,36 @@
+---
+title: "Stop Market"
+description: "Trigger a market order at your stop price for guaranteed execution when a level breaks."
+---
+
+A Stop Market order waits until the asset price reaches your stop price, then executes immediately at market. The objective is certainty of execution: when your level breaks you are filled, at the cost of accepting whatever prices the book offers at that moment.
+
+## How it places orders
+
+- No trade executes at submission. The order waits until the asset price reaches your stop price.
+- With **Stealth** on (the default), Hyperdash infrastructure watches price and sends the order only once triggered, keeping it hidden until then. With Stealth off, the stop is placed publicly on-chain as a trigger order.
+- At trigger, a market order for the full size executes immediately, taking liquidity at the best available prices until filled.
+- The fill price is not guaranteed. In fast or thin markets the average fill can be worse than your stop price, since the order walks the book once triggered.
+
+## When to use it
+
+- Protect a position with a hard exit: when your level breaks you want out, not a resting order. Enable **Reduce Only** so it can only close the position.
+- Enter momentum trades where missing the move costs more than a few ticks of slippage.
+- Trade around events or thin books where price can gap through a limit price entirely.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Stop Price (USD) | Trigger price: above the current price for buys, below for sells. | None |
+| Size | In the asset or USD. Minimum order value \$10. | None |
+| Reduce Only (optional) | Order can only reduce an existing position. | Off |
+| Stealth (optional) | Routes the stop through Hyperdash infrastructure, off-book until triggered. | On |
+
+## Example
+
+You are long 400 HYPE from \$41.00 and want a hard stop under support at \$42.50. You place a sell Stop Market: stop \$42.00, size 400 HYPE, Reduce Only on. If HYPE trades down to \$42.00, the position is closed at market immediately, for example at an average of \$41.96 in a normal book.
+
+<Note>
+  A stop market guarantees the exit, not the price. If capping your worst fill matters more, use a [Stop Limit](/hyperdash/orders/stop-limit) and accept the risk of resting unfilled.
+</Note>
