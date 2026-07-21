@@ -503,5 +503,11 @@
    "github": "https://github.com/mintlify",
    "linkedin": "https://linkedin.com/company/mintlify"
   }
+ },
+ "integrations": {
+  "posthog": {
+   "apiKey": "phc_MCnJ3IgwjqgT2SPQjZx1Ywroz9SvA86L9QOqlxp7rhS",
+   "apiHost": "https://us.i.posthog.com"
+  }
  }
 }
