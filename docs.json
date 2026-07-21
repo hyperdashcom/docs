@@ -20,12 +20,12 @@
         "group": "Documentation",
         "pages": [
          "hyperdash/about-hyperdash",
-         "hyperdash/onboarding-deposits",
+        "hyperdash/onboarding-deposits",
+        "hyperdash/agent-wallets-security",
          "hyperdash/fees-referrals-rewards",
          "hyperdash/trading-guide",
          "hyperdash/spot-trading",
-         "hyperdash/quicktrade",
-         "hyperdash/markets-assets",
+        "hyperdash/markets-assets",
          "hyperdash/copy-trade",
          "hyperdash/autotrade",
          "hyperdash/portfolio-analytics",
@@ -34,14 +34,13 @@
          "hyperdash/wallet-explore",
          "hyperdash/trading-indicators",
          "hyperdash/cohorts-top-traders-position-changes",
-         "hyperdash/agent-wallets-security",
-         "hyperdash/shortcuts",
+        "hyperdash/shortcuts",
          "hyperdash/get-help",
          "hyperdash/perp-rfq"
         ]
        },
        {
-        "group": "Order Types",
+        "group": "Trading Execution",
         "pages": [
          "hyperdash/orders/overview",
          "hyperdash/orders/market",
@@ -53,7 +52,8 @@
          "hyperdash/orders/twap",
          "hyperdash/orders/swarm",
          "hyperdash/orders/take-profit-stop-loss",
-         "hyperdash/orders/trailing-stop"
+        "hyperdash/orders/trailing-stop",
+        "hyperdash/quicktrade"
         ]
        }
       ]
