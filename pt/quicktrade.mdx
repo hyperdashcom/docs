@@ -1,0 +1,60 @@
+---
+title: "Quick Trade"
+description: "Trading com um clique: botões de compra e venda com tamanhos predefinidos que disparam ordens instantaneamente com as suas configurações salvas."
+---
+
+O Quick Trade é trading com um clique para mercados rápidos: duas fileiras de botões com tamanhos predefinidos, compra em cima e venda embaixo, que disparam ordens no instante em que você os pressiona, sem tocar no formulário de ordem. Ele vem como um widget **Quick Trade** que você adiciona ao seu layout pela gaveta de widgets (categoria Ferramentas), e os mesmos botões aparecem embutidos no widget de Notícias quando você clica na pílula de ticker de uma manchete. O Quick Trade funciona apenas em mercados perp, incluindo os [mercados xyz](/pt/markets-assets); spot não é suportado.
+
+## Como funciona
+
+<Steps>
+  <Step title="Vincule um mercado">
+    Adicione o widget Quick Trade e vincule-o a um mercado perp. O cabeçalho do widget mostra o preço de marcação ao vivo, a variação de 24h, um controle de alavancagem e o tipo de ordem ativo.
+  </Step>
+  <Step title="Defina seus tamanhos e o tipo de ordem">
+    A engrenagem no widget abre as Configurações, onde você escolhe os três tamanhos de botão, o tipo de ordem e o comportamento de alavancagem e confirmação. Cada alteração salva imediatamente: na sua conta quando você está logado, e no seu navegador em qualquer caso.
+  </Step>
+  <Step title="Dispare">
+    Pressione um botão de tamanho na fileira de compra ou de venda. Com a confirmação ativada, um popover ancorado nesse botão resume mercado, lado, tamanho e tipo de ordem: confirme para enviar, ou pressione Escape ou clique em outro lugar para cancelar. Marque **Não perguntar novamente** para trading com um clique de verdade.
+  </Step>
+</Steps>
+
+Cada pressionamento dispara sua própria ordem independente, então cliques rápidos consecutivos funcionam em paralelo: os botões nunca ficam travados enquanto uma ordem está em andamento.
+
+## Configurações
+
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Tamanhos dos botões | Três valores em USD compartilhados pelas fileiras de compra e venda, de \$10 a \$10,000,000 cada | \$100, \$1,000, \$10,000 |
+| Significado dos tamanhos | **Nocional**: um botão de \$10,000 abre uma posição de \$10,000. **Margem**: um botão de \$10,000 gasta \$10,000 de margem, e o tamanho da posição é a margem vezes a alavancagem. | Nocional |
+| Tipo de ordem | [Mercado](/pt/orders/market), Limite no mid (deixa uma [ordem limite](/pt/orders/limit) no preço médio), [Chase](/pt/orders/chase) ou [Swarm](/pt/orders/swarm) | Mercado |
+| Slippage máximo | Apenas ordens de mercado: slippage máximo a partir do preço médio, até 50% | 1% |
+| Clipes | Apenas Swarm: número de clipes, de 2 a 200 | 5 |
+| Agressividade | Apenas Swarm: de 1 a 5 | 3 |
+| Clipes irregulares | Apenas Swarm: varia os tamanhos dos clipes para que a divisão seja menos uniforme | Desativado |
+| Sempre usar alavancagem máxima | Eleva o mercado à sua alavancagem máxima antes de disparar. Quando desativado, as ordens usam a alavancagem que você já tiver definida para aquele mercado. Escolher uma alavancagem manualmente no widget desativa esta opção. | Desativado |
+| Confirmar antes de colocar | Mostra o popover de resumo da ordem antes de qualquer envio | Ativado |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Quais mercados o Quick Trade suporta?">
+    Apenas mercados perp, incluindo os mercados xyz (ações, índices, commodities, FX). Mercados spot não são suportados.
+  </Accordion>
+
+  <Accordion title="Qual é o tamanho mínimo de ordem?">
+    \$10 de nocional por ordem. O Swarm precisa de pelo menos \$20 de nocional para poder dividir em dois clipes.
+  </Accordion>
+
+  <Accordion title="O que acontece se a alavancagem máxima não puder ser aplicada?">
+    Com tamanho em nocional, a ordem ainda dispara na sua alavancagem atual e você recebe um aviso. Com tamanho em margem, a ordem é cancelada, porque o tamanho da posição depende da alavancagem que não pôde ser definida.
+  </Accordion>
+
+  <Accordion title="Minhas configurações me acompanham entre dispositivos?">
+    Quando você está logado, as configurações são salvas na sua conta. Elas também ficam espelhadas no seu navegador, então sobrevivem a uma atualização de página e funcionam deslogado naquele dispositivo.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Com a confirmação desativada, um pressionamento envia a ordem imediatamente e não há como desfazer. Mantenha **Confirmar antes de colocar** ativado até os seus tamanhos e o tipo de ordem estarem bem calibrados.
+</Note>

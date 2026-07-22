@@ -1,0 +1,36 @@
+---
+title: "Stop-Market"
+description: "Lösen Sie am Stop-Preis eine Market-Order aus, für garantierte Ausführung, wenn ein Niveau bricht."
+---
+
+Eine Stop-Market-Order wartet, bis der Assetpreis Ihren Stop-Preis erreicht, und wird dann sofort zum Marktpreis ausgeführt. Das Ziel ist Ausführungssicherheit: Wenn Ihr Niveau bricht, werden Sie ausgeführt, um den Preis, den das Orderbuch in diesem Moment bietet.
+
+## So werden Orders platziert
+
+- Beim Absenden wird nichts ausgeführt. Die Order wartet, bis der Assetpreis Ihren Stop-Preis erreicht.
+- Mit aktivierter Option **Verdeckt** (Standard) überwacht die Hyperdash-Infrastruktur den Preis und sendet die Order erst beim Auslösen. Bis dahin bleibt sie unsichtbar. Ist Verdeckt deaktiviert, wird der Stop öffentlich On-Chain als Trigger-Order platziert.
+- Beim Auslösen wird eine Market-Order über die volle Größe sofort ausgeführt und nimmt Liquidität zu den besten verfügbaren Preisen auf, bis sie gefüllt ist.
+- Der Ausführungspreis ist nicht garantiert. In schnellen oder illiquiden Märkten kann die durchschnittliche Ausführung schlechter als Ihr Stop-Preis sein, da die Order nach dem Auslösen das Orderbuch abarbeitet.
+
+## Wann einsetzen
+
+- Eine Position mit einem harten Ausstieg schützen: Wenn Ihr Niveau bricht, wollen Sie raus, keine ruhende Order. Aktivieren Sie **Nur reduzieren**, damit sie die Position nur schließen kann.
+- In Momentum-Trades einsteigen, bei denen eine verpasste Bewegung mehr kostet als ein paar Ticks Slippage.
+- Um Events oder in dünnen Orderbüchern handeln, wo der Preis komplett über einen Limitpreis hinwegspringen kann.
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Stop-Preis (USD) | Auslösungspreis: über dem aktuellen Preis für Käufe, darunter für Verkäufe. | Keiner |
+| Größe | Im Asset oder in USD. Mindestorderwert \$10. | Keiner |
+| Nur reduzieren (optional) | Die Order kann eine bestehende Position nur reduzieren. | Aus |
+| Verdeckt (optional) | Leitet den Stop über die Hyperdash-Infrastruktur, bis zum Auslösen außerhalb des Orderbuchs. | An |
+
+## Beispiel
+
+Sie sind mit 400 HYPE ab \$41.00 long und wollen einen harten Stop unter der Unterstützung bei \$42.50. Sie platzieren eine Verkaufs-Stop-Market-Order: Stop \$42.00, Größe 400 HYPE, Nur reduzieren aktiviert. Fällt HYPE auf \$42.00, wird die Position sofort zum Marktpreis geschlossen, zum Beispiel zu durchschnittlich \$41.96 in einem normalen Orderbuch.
+
+<Note>
+  Eine Stop-Market-Order garantiert den Ausstieg, nicht den Preis. Wenn die Begrenzung Ihrer schlechtesten Ausführung wichtiger ist, verwenden Sie eine [Stop-Limit-Order](/de/orders/stop-limit) und akzeptieren Sie das Risiko, unausgeführt liegen zu bleiben.
+</Note>

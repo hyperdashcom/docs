@@ -1,0 +1,29 @@
+---
+title: "Tipos de órdenes"
+description: "Todos los tipos de órdenes en Hyperdash: qué hace cada uno, cuándo usarlo y los parámetros que lo controlan."
+---
+
+Hyperdash te ofrece un kit de ejecución completo, desde órdenes simples de mercado y límite hasta estrategias algorítmicas que trabajan tamaños grandes a lo largo del tiempo o reaccionan a los precios en vivo. Cada tipo de orden tiene su propia página con el comportamiento de colocación, los parámetros, los valores por defecto y un ejemplo práctico.
+
+## Cómo elegir un tipo de orden
+
+| Tipo de orden | Cómo se ejecuta | Objetivo | Parámetros clave |
+| --- | --- | --- | --- |
+| [Mercado](/es/orders/market) | Se ejecuta de inmediato al mejor precio disponible, con tope en tu slippage máximo | Ejecución inmediata | Tamaño, Slippage máximo |
+| [Límite](/es/orders/limit) | Queda en el libro a tu precio o mejor hasta ejecutarse o cancelarse | Control de precio, capturar el spread | Precio límite, Tamaño |
+| [Escala](/es/orders/scale) | Coloca hasta 100 órdenes límite a lo largo de un rango de precios, con tamaños según el sesgo | Entrada pasiva escalonada, mejor precio promedio | Precio inicial y final, Totales, Sesgo |
+| [Stop límite](/es/orders/stop-limit) | Al alcanzarse el precio de activación, coloca una orden límite a tu precio límite | Entrada en ruptura o salida de protección con control de precio | Precio de activación, Precio límite, Sigilo |
+| [Stop mercado](/es/orders/stop-market) | Al alcanzarse el precio de activación, se ejecuta a mercado | Reacción garantizada a un nivel de precio | Precio de activación, Sigilo |
+| [Perseguir (Chase)](/es/orders/chase) | Orden límite que sigue el mejor bid o ask, reajustando su precio continuamente | Ejecuciones rápidas sin dejar de ser pasiva | Perseguir hasta, Solo Reducir |
+| [TWAP](/es/orders/twap) | Subórdenes iguales cada 30 segundos durante la duración que elijas | Minimizar el impacto de mercado en el tiempo | Duración, Sigilo, Aleatorizar |
+| [Enjambre (Swarm)](/es/orders/swarm) | Divide el tamaño en hasta 200 clips, despachados según el nivel de agresión | Minimizar el impacto con una ejecución más rápida | Clips totales, Agresión |
+| [Take Profit / Stop Loss](/es/orders/take-profit-stop-loss) | Órdenes con activador que cierran una posición en objetivos de ganancia o de pérdida | Asegurar ganancias, limitar pérdidas | Precio o porcentaje de TP y SL |
+| [Protección dinámica (Trailing Stop)](/es/orders/trailing-stop) | Stop que sigue el pico del precio y sale ante un retroceso definido | Proteger ganancias dejando correr a las ganadoras | Retroceso, Tipo de orden de salida |
+
+<Note>
+  El Sigilo (Stealth) en las órdenes stop y los TWAP dirige la ejecución a través de la infraestructura de Hyperdash en lugar de colocar un activador visible on-chain, manteniendo tus niveles privados hasta que se disparan.
+</Note>
+
+## Gestión de posiciones
+
+Además de entradas y salidas, puedes invertir una posición (cerrarla y abrir el mismo tamaño en la dirección opuesta) y gestionar TP/SL, protecciones dinámicas y margen directamente desde la tabla de posiciones.

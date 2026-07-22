@@ -1,0 +1,61 @@
+---
+title: "Copytrading"
+description: "Kopieren oder kontern Sie automatisch jeden Trader aus einem dedizierten Wallet, mit konfigurierbaren Risikolimits."
+---
+
+Copytrade ist eine auf Hyperdash aufgebaute Ausführungs-Engine. Sie spiegelt (Copytrade) die Perp-Positionen von bis zu 10 Ziel-Tradern oder nimmt die Gegenseite ein (Countertrade) und handelt automatisch aus einem Wallet, das dieser Strategie gewidmet ist.
+
+## So funktioniert es
+
+<Steps>
+  <Step title="Ziele wählen">
+    Starten Sie von einem Trader-Profil, dem Copytrading-Bereich von [Entdecken](/de/wallet-explore), oder fügen Sie eine beliebige Wallet-Adresse ein. Ein Copytrade-Wallet kann bis zu 10 Tradern folgen, mit gleichmäßig oder nach eigenen Gewichten aufgeteiltem Kapital.
+  </Step>
+  <Step title="Risiko konfigurieren">
+    Wählen Sie Copytrade oder Countertrade und legen Sie dann Hebelobergrenze, Einstiegsregeln und Größenoptionen fest (Tabelle unten). Bei einem einzelnen Trader projiziert ein Chart dessen 30-Tage-PNL auf eine Allokation von \$1,000, invertiert beim Countertrading.
+  </Step>
+  <Step title="Wallet finanzieren">
+    **Neu erstellen**: Hyperdash erstellt ein dediziertes Wallet und finanziert es mit USDC aus Ihrem primären Wallet. **Vorhandene verwenden**: Verbinden Sie Ihr eigenes Wallet mit mindestens \$100 USDC, erstellen Sie einen API-Schlüssel (180 Tage gültig), genehmigen Sie die Builder-Gebühr von 0.05 % und aktivieren Sie den Unified-Konto-Modus. Die Mittel bleiben in Ihrem eigenen Wallet.
+  </Step>
+  <Step title="Starten und verwalten">
+    Drücken Sie **Starten**. Das Wallet erscheint als Läuft im Copytrade-Tab mit Eigenkapital, PNL, Positionen und Protokollen. Öffnen Sie jederzeit die **Copytrade-Einstellungen**, um die Konfiguration zu bearbeiten, zu pausieren oder fortzusetzen.
+  </Step>
+</Steps>
+
+## Einstellungen
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Handelsmodus | Copytrade spiegelt Positionen, Countertrade nimmt die Gegenseite | Copytrade |
+| Ziel-Trader | Bis zu 10 Adressen je Wallet, gleiche oder eigene Gewichte | Gleiche Gewichte |
+| Maximaler Positionshebel | Begrenzt kopierte Positionen, auch wenn das Ziel mehr nutzt, 1x bis 40x | 20x |
+| Nur neu eröffnete Positionen kopieren | Überspringt Positionen, die beim Start des Copytrade bereits offen sind; nur im gestoppten Zustand änderbar | Aus |
+| Max. schlechterer Einstieg | Wie viel schlechter Ihr Einstieg gegenüber dem Trader sein darf, 0 % bis 50 % | 10 % |
+| Spot- und gestakte Assets einbeziehen | Bezieht Spot- und gestaktes HYPE in die Copy-Größenberechnung ein | Aus |
+| Asset-Filter | Bestimmte Assets zulassen oder sperren (Assets-Tab in den Einstellungen) | Alle Assets |
+
+## Stoppen, Archivieren, Löschen
+
+- **Stoppen** schließt immer die offenen Positionen des Wallets, damit nichts unverwaltet zurückbleibt. Ein gestopptes Wallet kann später fortgesetzt werden.
+- **Archivieren** schließt Positionen, gibt das Guthaben eines von Hyperdash erstellten Wallets an Ihr primäres Wallet zurück und verschiebt es nach Archiviert. Kann nicht rückgängig gemacht werden. Bei verbundenen Wallets wählen Sie, ob Positionen automatisch geschlossen werden oder in Ihrer Verwahrung offen bleiben.
+- **Löschen** entfernt ein Copytrade-Wallet dauerhaft aus Ihrer Liste.
+
+<Note>
+  Das Kopieren eines als algorithmisch markierten Traders löst eine Warnung in der App aus: Copytrading kann dessen Ergebnisse aufgrund von Unterschieden in der Ausführungsgeschwindigkeit möglicherweise nicht replizieren.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Was kostet Copytrading?">
+    Der Handel über Hyperdash nutzt eine Builder-Gebühr von 0.05 %, die verbundene Wallets während der Einrichtung genehmigen. Es gelten die üblichen Handelsgebühren der Börse.
+  </Accordion>
+
+  <Accordion title="Wer verwahrt meine Mittel?">
+    Ein erstelltes Wallet wird unter Ihrem Hyperdash-Konto verwaltet, und das Archivieren gibt sein Guthaben an Ihr primäres Wallet zurück. Ein verbundenes Wallet bleibt in Ihrer Verwahrung: Hyperdash handelt darüber mit einem API-Schlüssel, der nach 180 Tagen abläuft und im Copytrade-Tab neu erstellt werden kann.
+  </Accordion>
+
+  <Accordion title="Kann ich Trader nach dem Start wechseln?">
+    Ja, über den Allokations-Tab in den Copytrade-Einstellungen. Das Entfernen eines Traders schließt dessen kopierte Positionen bei der nächsten Synchronisierung.
+  </Accordion>
+</AccordionGroup>

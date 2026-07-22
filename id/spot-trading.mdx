@@ -1,0 +1,75 @@
+---
+title: "Trading Spot"
+description: "Beli dan jual aset secara langsung di pasar spot berdenominasi USDC yang diselesaikan ke wallet Anda."
+---
+
+Trading spot di Hyperdash berarti membeli dan menjual asetnya sendiri, bukan kontrak yang terkait dengan harganya. Setiap pasar spot dikuotasikan dalam USDC dan diperdagangkan 24/7, dan apa yang Anda beli menjadi milik Anda: pembelian spot diselesaikan on-chain ke wallet Anda dan dapat dikirim atau ditransfer keluar.
+
+## Cara kerja saldo spot
+
+- Pembelian didanai dari saldo USDC spot Anda. Penjualan menggunakan saldo token yang Anda pegang: Anda hanya dapat menjual apa yang Anda miliki.
+- Saldo yang dicadangkan oleh order yang menunggu ditampilkan sebagai ditahan dan tidak dapat digunakan oleh order lain hingga order itu terisi atau dibatalkan.
+- Panel trading menampilkan USDC tersedia dan saldo token tersedia Anda, dengan pintasan **Deposit** dan **Perps ke Spot**. USDC berpindah bebas antara akun perps dan spot Anda melalui modal transfer (akun unified berbagi satu saldo dan melewati langkah ini).
+- Kepemilikan Anda muncul di tabel Saldo dengan jumlah, tersedia, nilai, harga masuk, dan PNL, plus aksi untuk **Kirim**, **Transfer**, atau memasang TP/SL pada sebuah kepemilikan.
+
+## Memasang order spot
+
+<Steps>
+  <Step title="Pilih pasar spot">
+    Pilih pasangan spot, misalnya HYPE/USDC, di pemilih aset.
+  </Step>
+  <Step title="Pilih jenis order">
+    Market dan Limit adalah tab utama. Dropdown **Profesional** menambahkan Scale, Stop Limit, dan Chase di sisi limit, serta TWAP, Stop Market, dan Swarm di sisi market. Akun dengan akses OTC juga melihat tab OTC.
+  </Step>
+  <Step title="Atur sisi dan ukuran">
+    Pilih Beli atau Jual, lalu tentukan ukuran dalam token atau dalam USD, atau gunakan slider untuk mengukur sebagai persentase saldo tersedia Anda. Panel menampilkan nilai order, perkiraan slippage, dan tarif biaya maker dan taker Anda.
+  </Step>
+  <Step title="Kirim">
+    Pembelian market dan limit dapat terlebih dahulu melampirkan pemicu Take Profit dan Stop Loss, berdasarkan harga atau berdasarkan untung dan rugi dalam % atau \$. Keluar TP/SL dieksekusi sebagai order market.
+  </Step>
+</Steps>
+
+Setiap jenis order memiliki halaman referensinya sendiri: mulai dari [ikhtisar Jenis Order](/id/orders/overview), atau langsung ke [Market](/id/orders/market), [Limit](/id/orders/limit), [Scale](/id/orders/scale), [Stop Limit](/id/orders/stop-limit), [Stop Market](/id/orders/stop-market), [Chase](/id/orders/chase), [TWAP](/id/orders/twap), atau [Swarm](/id/orders/swarm).
+
+## Pengaturan
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Max slippage | Membatasi seberapa jauh pengisian bergaya market di spot dapat bergerak melawan Anda. Klik tampilan slippage **Perkiraan / Maks** di formulir order untuk menyesuaikan. | 8% |
+| Take Profit / Stop Loss | Opsional pada pembelian market dan limit. Pemicu berdasarkan harga, atau berdasarkan untung dan rugi dalam % atau \$. | Nonaktif |
+
+Nilai order minimum adalah \$10. Jenis order yang terpecah menjadi beberapa order, seperti Scale, TWAP, dan Swarm, mengharuskan setiap order turunannya memenuhi minimum yang sama.
+
+## Spot vs perps
+
+| | Spot | Perps |
+| --- | --- | --- |
+| Kepemilikan | Anda memiliki asetnya; diselesaikan ke wallet Anda | Hanya eksposur kontrak |
+| Arah | Beli, atau jual yang Anda pegang | Long atau short |
+| Leverage | Tidak ada; order didanai penuh | Bervariasi per pasar |
+| Funding | Tidak ada | Terakumulasi setiap jam |
+| Likuidasi | Tidak ada | Mungkin terjadi pada posisi ber-leverage |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Bisakah saya short di spot?">
+    Tidak. Penjualan spot terbatas pada saldo yang Anda pegang. Untuk eksposur short, gunakan pasar perp: lihat [Panduan Trading](/id/trading-guide).
+  </Accordion>
+
+  <Accordion title="Bagaimana cara mendanai saldo spot saya?">
+    Deposit langsung, atau transfer USDC dari akun perps Anda dengan tombol **Perps ke Spot**. Lihat [Onboarding dan Deposit](/id/onboarding-deposits).
+  </Accordion>
+
+  <Accordion title="Apakah trade spot membayar funding?">
+    Tidak. Funding hanya berlaku untuk perpetual. Biaya spot adalah tarif maker dan taker yang ditampilkan di formulir order; lihat [Biaya, Referral & Rewards](/id/fees-referrals-rewards).
+  </Accordion>
+
+  <Accordion title="Bisakah saya memasang TP/SL pada token yang sudah saya pegang?">
+    Bisa. Gunakan aksi TP/SL di tabel Saldo untuk melampirkan pemicu Take Profit atau Stop Loss pada kepemilikan yang ada.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Token yang dicadangkan oleh order yang menunggu berstatus ditahan: tidak dapat dijual atau dikirim hingga order terisi atau dibatalkan. Panel memperingatkan Anda saat order yang ada sudah menggunakan sebagian saldo.
+</Note>

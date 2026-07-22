@@ -1,0 +1,61 @@
+---
+title: "Copytrading"
+description: "Copiez ou contrez automatiquement n'importe quel trader depuis un portefeuille dédié, avec des limites de risque configurables."
+---
+
+Copytrade est un moteur d'exécution intégré à Hyperdash. Il réplique (Copytrade) ou prend le côté opposé (Contre-trade) des positions perps de jusqu'à 10 traders cibles, en tradant automatiquement depuis un portefeuille dédié à cette stratégie.
+
+## Fonctionnement
+
+<Steps>
+  <Step title="Choisissez vos cibles">
+    Partez d'un profil de trader, de la section Copytraders de la page [Explorer](/fr/wallet-explore), ou collez n'importe quelle adresse de portefeuille. Un portefeuille Copytrade peut suivre jusqu'à 10 traders, avec un capital réparti équitablement ou selon des pondérations personnalisées.
+  </Step>
+  <Step title="Configurez le risque">
+    Choisissez Copytrade ou Contre-trade, puis définissez votre plafond de levier, vos règles d'entrée et vos options de dimensionnement (tableau ci-dessous). Pour un trader unique, un graphique projette son PNL sur 30 jours sur une allocation de \$1,000, inversé pour le contre-trading.
+  </Step>
+  <Step title="Approvisionnez un portefeuille">
+    **Créer un nouveau** : Hyperdash crée un portefeuille dédié et l'approvisionne en USDC depuis votre portefeuille principal. **Utiliser un existant** : connectez votre propre portefeuille détenant au moins \$100 en USDC, créez une clé API (valide 180 jours), approuvez les frais de builder de 0.05% et activez le mode compte unifié. Les fonds restent dans votre propre portefeuille.
+  </Step>
+  <Step title="Démarrez et gérez">
+    Appuyez sur **Démarrer**. Le portefeuille apparaît comme En cours dans l'onglet Copytrade avec son équité, son PNL, ses positions et ses journaux. Ouvrez les **Paramètres Copytrade** à tout moment pour modifier la configuration, mettre en pause ou reprendre.
+  </Step>
+</Steps>
+
+## Réglages
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Mode de trading | Copytrade réplique les positions, Contre-trade prend le côté opposé | Copytrade |
+| Traders cibles | Jusqu'à 10 adresses par portefeuille, pondérations égales ou personnalisées | Pondérations égales |
+| Levier maximal par position | Plafonne les positions copiées même quand la cible utilise davantage, de 1x à 40x | 20x |
+| Copier uniquement les nouvelles positions | Ignore les positions déjà ouvertes au démarrage du Copytrade ; modifiable uniquement à l'arrêt | Désactivé |
+| Entrée dégradée maximale | De combien votre entrée peut être pire que celle du trader, de 0% à 50% | 10% |
+| Inclure le spot et les actifs stakés | Inclut le spot et le HYPE staké dans le dimensionnement de copie | Désactivé |
+| Filtres d'actifs | Liste blanche ou liste noire d'actifs spécifiques (onglet Actifs des paramètres) | Tous les actifs |
+
+## Arrêter, archiver, supprimer
+
+- **Arrêter** clôture toujours les positions ouvertes du portefeuille, pour que rien ne reste sans gestion. Un portefeuille arrêté peut être relancé plus tard.
+- **Archiver** clôture les positions, renvoie le solde d'un portefeuille créé par Hyperdash vers votre portefeuille principal et le déplace dans Archivés. Irréversible. Pour les portefeuilles connectés, vous choisissez si les positions se clôturent automatiquement ou restent ouvertes sous votre garde.
+- **Supprimer** retire définitivement un portefeuille Copytrade de votre liste.
+
+<Note>
+  Copier un trader marqué comme algorithmique déclenche un avertissement dans l'application : le copytrading peut ne pas répliquer ses résultats en raison des différences de vitesse d'exécution.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Combien coûte le Copytrading ?">
+    Trader via Hyperdash implique des frais de builder de 0.05%, que les portefeuilles connectés approuvent lors de la configuration. Les frais de trading standard de l'exchange s'appliquent.
+  </Accordion>
+
+  <Accordion title="Qui détient mes fonds ?">
+    Un portefeuille créé est géré sous votre compte Hyperdash, et l'archivage renvoie son solde vers votre portefeuille principal. Un portefeuille connecté reste sous votre garde : Hyperdash le trade via une clé API qui expire après 180 jours et peut être régénérée depuis l'onglet Copytrade.
+  </Accordion>
+
+  <Accordion title="Puis-je changer de traders après le démarrage ?">
+    Oui, depuis l'onglet Allocation des Paramètres Copytrade. Retirer un trader clôture ses positions copiées à la prochaine synchronisation.
+  </Accordion>
+</AccordionGroup>

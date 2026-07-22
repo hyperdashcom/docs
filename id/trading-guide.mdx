@@ -1,0 +1,56 @@
+---
+title: "Panduan Trading"
+description: "Dasar-dasar trading di Hyperdash: spot vs perps, margin, leverage, dan antarmuka trading."
+hidden: true
+---
+
+Panduan ini mencakup dasar-dasar trading di Hyperdash: perbedaan pasar spot dan perpetual, cara kerja margin dan leverage di perps, dan fitur antarmuka yang mempercepat eksekusi.
+
+## Spot vs perpetual
+
+**Spot**
+
+- Anda membeli atau menjual aset sebenarnya (seperti HYPE, BTC, ETH) pada pasangan berdenominasi USDC.
+- Anda memilikinya secara langsung: pembelian diselesaikan ke wallet Anda dan dapat dikirim atau ditransfer keluar.
+- Tanpa leverage, tanpa funding, tanpa risiko likuidasi. Lihat halaman khusus [Trading Spot](/id/spot-trading).
+
+**Perpetual futures (perps)**
+
+- Anda memperdagangkan kontrak yang terkait dengan harga aset, bukan asetnya sendiri.
+- Anda dapat long (harga naik) atau short (harga turun), tanpa kedaluwarsa: pegang selama yang Anda mau, sambil menerima atau membayar funding.
+- Funding terakumulasi setiap jam dan menjaga harga perp sejalan dengan pasar spot.
+- Leverage memungkinkan Anda trading dengan ukuran lebih besar memakai modal lebih kecil. Leverage maksimum bervariasi per pasar.
+
+## Margin cross vs isolated
+
+- **Cross**: semua posisi cross berbagi saldo margin cross Anda sebagai jaminan. Dalam likuidasi, saldo margin cross Anda dan posisi terbuka tersisa dalam mode cross dapat hangus.
+- **Isolated**: margin dibatasi pada posisi individual. Jika rasio margin posisi itu mencapai 100%, hanya posisi itu yang dilikuidasi. Margin dapat ditambahkan atau dikurangi pada posisi tersebut.
+
+Mode margin diatur per pasar dari panel trading. Default-nya cross.
+
+## Leverage
+
+Leverage diatur per pasar dengan slider di kontrol leverage, dari 1x hingga maksimum pasar tersebut. Maksimum berbeda per pasar dan ditampilkan di kontrol. Pengaturan di atas 10x menampilkan peringatan: leverage lebih tinggi meningkatkan risiko likuidasi.
+
+<iframe src="https://www.youtube.com/embed/dUq46nZV6DY" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## Long, short, dan reverse
+
+Trade perp dapat dialihkan antara long dan short di panel trading. **Reverse** menutup posisi dan membuka posisi yang sama besar ke arah berlawanan, mengubah long menjadi short dan short menjadi long. Anda juga dapat membalik semua posisi, semua long, atau semua short dari menu posisi.
+
+## Trading dari grafik
+
+- **View as**: cari seorang trader atau tempel alamat untuk menampilkan posisi, order terbuka, dan pengisian mereka di atas grafik Anda.
+- **Order cepat**: klik ikon plus pada skala harga grafik untuk membuka tiket order pada harga tersebut, dengan satu klik untuk limit long atau short (limit buy atau sell di spot), stop long atau short, take profit, dan stop loss.
+- **Mode Snoop**: jelajahi seluruh terminal sebagai alamat lain. Trading dinonaktifkan selama snooping.
+
+# Jenis Order
+
+Setiap jenis order memiliki halaman referensinya sendiri berisi perilaku penempatan, parameter, nilai default, dan contoh penerapan. Mulai dari [ikhtisar Jenis Order](/id/orders/overview), atau langsung ke salah satu jenis:
+
+- [Market](/id/orders/market) dan [Limit](/id/orders/limit)
+- [Scale](/id/orders/scale): order limit berjenjang di sepanjang rentang harga
+- [Stop Limit](/id/orders/stop-limit) dan [Stop Market](/id/orders/stop-market)
+- [Chase](/id/orders/chase): order limit yang mengikuti bid atau ask terbaik
+- [TWAP](/id/orders/twap) dan [Swarm](/id/orders/swarm): eksekusi ukuran besar dengan dampak pasar lebih kecil
+- [Take Profit / Stop Loss](/id/orders/take-profit-stop-loss) dan [Trailing Stop](/id/orders/trailing-stop)

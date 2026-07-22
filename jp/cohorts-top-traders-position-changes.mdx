@@ -1,0 +1,36 @@
+---
+title: "コホート、トップトレーダー、ポジション変更"
+description: "ターミナルのマーケットインテリジェンスタブ：コホートのポジショニング、トップトレーダーのポジション、ポジション変更、ライブTWAP。"
+---
+
+すべてのパーペチュアル市場について、トレーディングターミナルにはライブのトレーダーデータから構築されたマーケットインテリジェンスタブがあります。**トップトレーダー**、**コホート**、**ポジション変更**、**現在のTWAP**です。誰がどこにポジションを取っているか、いま誰が市場を動かしているかを見るために使ってください。
+
+### コホート
+
+選択した市場について、各トレーダーグループには3つの内訳が表示されます。ロング対ショートの想定元本、ロングとショートのトレーダー数、そして未実現PnLで利益が出ているトレーダーと損失を抱えているトレーダーの数です。グローバル行はその市場の全トレーダーを集計し、2つのコホートファミリーがそれを分割します。PNLコホート（累計PnLで、超収益からREKTまで）とサイズコホート（ウォレットサイズで、クラーケンからシュリンプまで）です。各コホートの正確なレンジは、アプリ内で名前の横に表示されます。
+
+任意のコホートをクリックすると詳細ページが開きます。合計値、PnL、ウォレット数、主要市場全体でのポジショニング、過去のポジショニングチャート、そしてコホートに属するウォレットの一覧です。各ウォレットは[追跡](/jp/wallet-explore)できます。
+
+<iframe src="https://www.youtube.com/embed/D8vkfFYPmWw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+<Note>
+  コホートへの参加はパーペチュアル市場でのみ追跡されます。スポット市場にはトップトレーダーの代わりにホルダービューが表示され、コホートデータはありません。
+</Note>
+
+### トップトレーダー
+
+そのペアの最大ポジションが、各トレーダーのエントリー価格、清算価格、想定元本サイズ、未実現PnL、支払い済みファンディング、口座価値、コピースコアとともに表示されます。ロングのみ、ショートのみ、すべてで絞り込め、テーブルから直接任意のトレーダーを追跡できます。
+
+<iframe src="https://www.youtube.com/embed/6Sx629kRXTw" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+### ポジション変更
+
+選択した時間枠でトレーダーのポジションがどう変化したかを表示します。15分、1時間、4時間、24時間、3日、7日です（デフォルトは15分）。各行には以前のポジション、変化、現在のポジションが表示され、ロングまたはショートで絞り込めます。直近の大きな動きの背後にどのトレーダーがいるかを見る最速の方法です。
+
+<iframe src="https://www.youtube.com/embed/f2sQmbGH0GQ" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+### 現在のTWAP
+
+表示中のペアでアクティブなTWAP注文を持つトレーダーが表示されます。サイド、合計サイズ、執行済みサイズ、残りサイズ、金額、進捗、時間、ステータスです。注文タイプ自体については[TWAP](/jp/orders/twap)を参照してください。
+
+<iframe src="https://www.youtube.com/embed/NjnxKEeBkUg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />

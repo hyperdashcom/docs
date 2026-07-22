@@ -1,0 +1,37 @@
+---
+title: "Stop limite"
+description: "Déclenchez un ordre limite à votre prix de déclenchement et fixez une borne stricte sur le pire prix que vous acceptez."
+---
+
+Un ordre Stop limite attend que le marché atteigne votre prix de déclenchement, puis place un ordre limite à votre prix limite. Rien ne se trade avant le déclenchement, et une fois déclenché, votre ordre s'exécute uniquement au prix limite ou mieux.
+
+## Comment les ordres sont placés
+
+- Aucun trade ne s'exécute à la soumission. L'ordre attend que le prix de l'actif atteigne votre prix de déclenchement.
+- Avec **Furtif** activé (par défaut), l'infrastructure Hyperdash surveille le prix et ne place l'ordre qu'une fois déclenché, en le gardant caché jusque-là. Avec Furtif désactivé, le stop est placé publiquement on-chain comme ordre à déclenchement.
+- Au déclenchement, un ordre limite à votre prix limite est envoyé au carnet et s'exécute à ce prix ou mieux.
+- L'exécution complète n'est pas garantie : si le prix saute par-dessus votre limite, l'ordre reste non exécuté jusqu'à ce que le prix revienne ou que vous l'annuliez.
+
+## Quand l'utiliser
+
+- Trader les cassures : acheter au-dessus d'une résistance ou vendre sous un support, uniquement quand le niveau casse réellement.
+- Plafonner votre pire exécution au lieu de prendre ce qu'un ordre au marché obtient.
+- Sortir à un déclencheur défini avec contrôle du prix. Activez **Réduction uniquement** pour que l'ordre ne puisse que clôturer votre position.
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Prix de déclenchement (USD) | Prix de déclenchement : au-dessus du prix actuel pour les achats, en dessous pour les ventes. | Aucun |
+| Prix limite | Prix de l'ordre limite placé au déclenchement. | Prix actuel |
+| Taille | Dans l'actif ou en USD. Valeur minimale d'ordre \$10. | Aucun |
+| Réduction uniquement (optionnel) | L'ordre ne peut que réduire une position existante. | Désactivé |
+| Furtif (optionnel) | Route le stop via l'infrastructure Hyperdash, hors carnet jusqu'au déclenchement. | Activé |
+
+## Exemple
+
+BTC s'échange à \$117,400 et vous voulez acheter une cassure au-dessus de \$120,000. Vous placez un Stop limite : déclenchement \$120,000, limite \$120,250, taille 0.5 BTC. Quand BTC touche \$120,000, un achat limite à \$120,250 est placé et s'exécute à ce prix ou mieux. Si BTC saute directement à \$120,600, l'ordre reste à \$120,250 sans être exécuté.
+
+<Note>
+  Un stop limite échange le risque de prix contre le risque d'exécution : dimensionnez l'écart entre le déclenchement et la limite selon la volatilité du marché, afin qu'un mouvement rapide ne puisse pas sauter les deux. Quand l'exécution compte plus que le prix, utilisez un [Stop marché](/fr/orders/stop-market).
+</Note>

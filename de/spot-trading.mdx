@@ -1,0 +1,75 @@
+---
+title: "Spot-Handel"
+description: "Kaufen und verkaufen Sie Assets direkt auf USDC-notierten Spot-Märkten, die in Ihr Wallet abgewickelt werden."
+---
+
+Spot-Handel auf Hyperdash bedeutet, das Asset selbst zu kaufen und zu verkaufen, keinen an seinen Preis gekoppelten Kontrakt. Jeder Spot-Markt ist in USDC notiert und handelt rund um die Uhr, und was Sie kaufen, gehört Ihnen: Spot-Käufe werden On-Chain in Ihr Wallet abgewickelt und können versendet oder übertragen werden.
+
+## So funktionieren Spot-Guthaben
+
+- Käufe werden aus Ihrem Spot-USDC-Guthaben finanziert. Verkäufe greifen auf das gehaltene Token-Guthaben zu: Sie können nur verkaufen, was Sie besitzen.
+- Durch eine ruhende Order reserviertes Guthaben wird als gesperrt angezeigt und kann von anderen Orders nicht verwendet werden, bis die Order ausgeführt oder storniert wird.
+- Das Trade-Panel zeigt Ihr verfügbares USDC- und Token-Guthaben, mit den Shortcuts **Einzahlen** und **Perps zu Spot**. USDC bewegt sich über das Übertragungsfenster frei zwischen Ihrem Perps- und Spot-Konto (Unified-Konten teilen sich ein Guthaben und überspringen diesen Schritt).
+- Ihre Bestände erscheinen in der Kontostände-Tabelle mit Betrag, verfügbarem Anteil, Wert, Einstiegspreis und PNL, plus Aktionen zum **Senden**, **Übertragen** oder Setzen eines TP/SL auf einen Bestand.
+
+## Eine Spot-Order platzieren
+
+<Steps>
+  <Step title="Spot-Markt auswählen">
+    Wählen Sie in der Asset-Auswahl ein Spot-Paar, zum Beispiel HYPE/USDC.
+  </Step>
+  <Step title="Ordertyp wählen">
+    Markt und Limit sind Tabs auf oberster Ebene. Das **Pro**-Dropdown ergänzt Scale, Stop-Limit und Chase auf der Limit-Seite sowie TWAP, Stop-Market und Swarm auf der Market-Seite. Konten mit OTC-Zugang sehen zusätzlich einen OTC-Tab.
+  </Step>
+  <Step title="Seite und Größe festlegen">
+    Wählen Sie Kaufen oder Verkaufen und bemessen Sie die Größe im Token oder in USD, oder nutzen Sie den Schieberegler für einen Prozentsatz Ihres verfügbaren Guthabens. Das Panel zeigt Orderwert, geschätzte Slippage und Ihre Maker- und Taker-Gebührensätze.
+  </Step>
+  <Step title="Absenden">
+    Market- und Limit-Käufe können vorab Take-Profit- und Stop-Loss-Trigger anhängen, nach Preis oder nach Gewinn und Verlust in % oder \$. TP/SL-Ausstiege werden als Market-Orders ausgeführt.
+  </Step>
+</Steps>
+
+Jeder Ordertyp hat eine eigene Referenzseite: Beginnen Sie mit der [Übersicht der Ordertypen](/de/orders/overview) oder springen Sie direkt zu [Market](/de/orders/market), [Limit](/de/orders/limit), [Scale](/de/orders/scale), [Stop-Limit](/de/orders/stop-limit), [Stop-Market](/de/orders/stop-market), [Chase](/de/orders/chase), [TWAP](/de/orders/twap) oder [Swarm](/de/orders/swarm).
+
+## Einstellungen
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Max. Slippage | Begrenzt, wie weit sich eine marktähnliche Spot-Ausführung gegen Sie bewegen kann. Klicken Sie im Orderformular auf die **Est / Max**-Slippage-Anzeige, um sie anzupassen. | 8 % |
+| Take-Profit / Stop-Loss | Optional bei Market- und Limit-Käufen. Trigger nach Preis oder nach Gewinn und Verlust in % oder \$. | Aus |
+
+Der Mindestorderwert beträgt \$10. Ordertypen, die in mehrere Orders aufteilen, wie Scale, TWAP und Swarm, erfordern, dass jede Teilorder dasselbe Minimum erreicht.
+
+## Spot vs. Perps
+
+| | Spot | Perps |
+| --- | --- | --- |
+| Eigentum | Sie besitzen das Asset; es wird in Ihr Wallet abgewickelt | Nur Kontrakt-Exposure |
+| Richtung | Kaufen, oder verkaufen, was Sie halten | Long oder Short |
+| Hebel | Keiner; Orders sind voll finanziert | Variiert je Markt |
+| Funding | Keins | Fällt stündlich an |
+| Liquidation | Keine | Möglich bei gehebelten Positionen |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Kann ich auf Spot shorten?">
+    Nein. Spot-Verkäufe sind auf das gehaltene Guthaben beschränkt. Für Short-Exposure nutzen Sie einen Perp-Markt: siehe [Trading-Leitfaden](/de/trading-guide).
+  </Accordion>
+
+  <Accordion title="Wie finanziere ich mein Spot-Guthaben?">
+    Zahlen Sie direkt ein oder übertragen Sie USDC von Ihrem Perps-Konto mit der Schaltfläche **Perps zu Spot**. Siehe [Onboarding und Einzahlungen](/de/onboarding-deposits).
+  </Accordion>
+
+  <Accordion title="Zahlen Spot-Trades Funding?">
+    Nein. Funding gilt nur für Perpetuals. Die Spot-Kosten sind die im Orderformular angezeigten Maker- und Taker-Gebührensätze; siehe [Gebühren, Empfehlungen und Belohnungen](/de/fees-referrals-rewards).
+  </Accordion>
+
+  <Accordion title="Kann ich ein TP/SL auf Token setzen, die ich bereits halte?">
+    Ja. Verwenden Sie die TP/SL-Aktion in der Kontostände-Tabelle, um Take-Profit- oder Stop-Loss-Trigger an einen bestehenden Bestand anzuhängen.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Durch ruhende Orders reservierte Token sind gesperrt: Sie können nicht verkauft oder versendet werden, bis die Order ausgeführt oder storniert wird. Das Panel warnt Sie, wenn eine bestehende Order bereits einen Teil eines Guthabens verwendet.
+</Note>

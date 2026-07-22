@@ -1,0 +1,60 @@
+---
+title: "Quick Trade"
+description: "Trading satu klik: tombol beli dan jual berukuran preset yang langsung mengirim order dengan pengaturan tersimpan Anda."
+---
+
+Quick Trade adalah trading satu klik untuk pasar yang cepat: dua baris tombol berukuran preset, beli di atas jual, yang mengirim order begitu Anda menekannya, tanpa menyentuh formulir order. Fitur ini hadir sebagai widget **Quick Trade** yang Anda tambahkan ke layout dari laci widget (kategori Tools), dan tombol yang sama muncul inline di widget News saat Anda mengklik pil ticker pada sebuah headline. Quick Trade hanya berfungsi di pasar perp, termasuk [xyz markets](/id/markets-assets); spot tidak didukung.
+
+## Cara kerjanya
+
+<Steps>
+  <Step title="Tautkan pasar">
+    Tambahkan widget Quick Trade dan tautkan ke sebuah pasar perp. Header widget menampilkan harga mark live, perubahan 24 jam, kontrol leverage, dan jenis order aktif.
+  </Step>
+  <Step title="Atur ukuran dan jenis order Anda">
+    Ikon roda gigi pada widget membuka Pengaturan, tempat Anda memilih tiga ukuran tombol, jenis order, serta perilaku leverage dan konfirmasi. Setiap perubahan langsung tersimpan: ke akun Anda saat login, dan ke browser Anda dalam kondisi apa pun.
+  </Step>
+  <Step title="Eksekusi">
+    Tekan tombol ukuran di baris beli atau jual. Dengan konfirmasi aktif, popover yang menempel pada tombol itu merangkum pasar, sisi, ukuran, dan jenis order: konfirmasi untuk mengirim, atau tekan Escape atau klik di tempat lain untuk membatalkan. Centang **Jangan tanya lagi** untuk trading satu klik sepenuhnya.
+  </Step>
+</Steps>
+
+Setiap tekanan mengirim order independennya sendiri, jadi klik beruntun yang cepat bekerja secara paralel: tombol tidak pernah terkunci saat ada order yang sedang berjalan.
+
+## Pengaturan
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Ukuran tombol | Tiga jumlah USD yang dipakai bersama oleh baris beli dan jual, masing-masing \$10 hingga \$10,000,000 | \$100, \$1,000, \$10,000 |
+| Arti ukuran | **Nosional**: tombol \$10,000 membuka posisi \$10,000. **Margin**: tombol \$10,000 memakai margin \$10,000, dan ukuran posisi adalah margin dikali leverage. | Nosional |
+| Jenis order | [Market](/id/orders/market), Limit di tengah (memasang [order limit](/id/orders/limit) pada harga tengah), [Chase](/id/orders/chase), atau [Swarm](/id/orders/swarm) | Market |
+| Max slippage | Khusus order market: slippage maksimum dari harga tengah, hingga 50% | 1% |
+| Klip | Khusus Swarm: jumlah klip, 2 hingga 200 | 5 |
+| Keagresifan | Khusus Swarm: 1 hingga 5 | 3 |
+| Klip tidak sekata | Khusus Swarm: memvariasikan ukuran klip agar pecahannya tidak seragam | Nonaktif |
+| Selalu gunakan leverage maksimum | Menaikkan pasar ke leverage maksimumnya sebelum mengirim. Saat nonaktif, order memakai leverage apa pun yang sudah Anda atur untuk pasar itu. Memilih leverage secara manual di widget menonaktifkan opsi ini. | Nonaktif |
+| Konfirmasi sebelum memasang | Menampilkan popover ringkasan order sebelum apa pun dikirim | Aktif |
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Pasar apa saja yang didukung Quick Trade?">
+    Hanya pasar perp, termasuk xyz markets (ekuitas, indeks, komoditas, FX). Pasar spot tidak didukung.
+  </Accordion>
+
+  <Accordion title="Berapa ukuran order minimum?">
+    Nosional \$10 per order. Swarm membutuhkan nosional minimal \$20 agar dapat terpecah menjadi dua klip.
+  </Accordion>
+
+  <Accordion title="Apa yang terjadi jika leverage maksimum tidak dapat diterapkan?">
+    Dengan ukuran nosional, order tetap terkirim pada leverage Anda saat ini dan Anda mendapat peringatan. Dengan ukuran margin, order dibatalkan, karena ukuran posisi bergantung pada leverage yang gagal diatur.
+  </Accordion>
+
+  <Accordion title="Apakah pengaturan saya mengikuti saya di berbagai perangkat?">
+    Saat Anda login, pengaturan tersimpan ke akun Anda. Pengaturan juga dicerminkan di browser Anda, sehingga bertahan setelah refresh dan tetap berfungsi saat logout di perangkat itu.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Dengan konfirmasi nonaktif, satu tekanan langsung mengirim order dan tidak ada pembatalan. Biarkan **Konfirmasi sebelum memasang** aktif sampai ukuran dan jenis order Anda benar-benar pas.
+</Note>

@@ -1,0 +1,40 @@
+---
+title: "跟单交易"
+description: "在 Hyperdash 上发现盈利的交易者，自动跟单或反向跟单他们的交易。"
+hidden: true
+---
+
+Hyperdash 上的跟单交易让您跟随盈利的交易者，绝不错过任何动作：每笔交易都实时自动复制。您选择跟随谁、承担多少风险，平台为您执行。
+
+<Note>
+  跟单交易运行在 [**Autotrade**](/cn/autotrade)（Hyperdash 的自动化执行引擎）之上。钱包设置、注资、风险设置，以及如何启动、停止和编辑策略，请参见该页面。
+</Note>
+
+<iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+
+## 使用方式
+
+<Steps>
+  <Step title="发现交易者">
+    [探索](/cn/wallet-explore)的跟单板块列出最值得跟单的前 100 名交易者，并提供聚焦股票以及顶级 BTC、HYPE 和 CL 交易者等精选标签。可按跟单评分、ROI、权益或近期活跃度排序；每张卡片显示 ROI、权益、成交量和最近交易时间。
+  </Step>
+  <Step title="跟单或反向">
+    在交易者卡片或主页上，选择**跟单**镜像其仓位，或选择**反向跟单**持有相反方向。您也可以直接粘贴任意钱包地址，单个钱包最多可跟随 10 位交易者。
+  </Step>
+  <Step title="配置并启动">
+    设置资金分配、杠杆上限和筛选条件，然后为专用钱包注资。完整流程见 [Autotrade 页面](/cn/autotrade)。
+  </Step>
+  <Step title="跟踪表现">
+    跟单标签页按运行中、已停止和已归档列出您的钱包，显示权益、盈亏、持仓，以及每个钱包的日志，记录每一次操作（和被跳过的交易及原因）。您还可以分享盈亏卡片。
+  </Step>
+</Steps>
+
+## 会复制什么
+
+跟单交易从您的 Autotrade 钱包发出真实订单；它不是一条提醒信息流。当目标交易者开立或平掉永续仓位时，您的钱包会镜像（或反向）该操作，数量按您的分配计算，并受您的风险设置约束：最大仓位杠杆上限、可选的仅新开仓位模式、最差进场价限制，以及资产白名单或黑名单。现货和已质押的 HYPE 可选择性计入跟单数量。
+
+如果您只想观察顶级交易者的持仓而不进行交易，请改用[顶级交易者与仓位变动](/cn/cohorts-top-traders-position-changes)。
+
+## 停止与资金
+
+您的跟单资金存放在专用于该策略的钱包中。停止始终会平掉该钱包的持仓，已停止的钱包可以稍后恢复。归档 Hyperdash 创建的钱包会平掉仓位并将余额退回您的主钱包。关于托管、充值和 0.05% Builder 费用的详情，见 [Autotrade 页面](/cn/autotrade)。

@@ -1,0 +1,53 @@
+---
+title: "RWA Perps"
+description: "Trade perpetuals on stocks, pre-IPO companies, indices, commodities, and FX through the xyz (HIP-3) markets, 24/7."
+---
+
+The xyz (HIP-3) markets on Hyperdash are perpetuals on real-world assets: stocks, pre-IPO companies, equity indices, commodities, and FX. They trade like the crypto perps you already know, USDC margined with no expiry, but they reference markets that close overnight and on weekends, so pricing works differently during those hours. The markets are built and operated by [trade.xyz](https://trade.xyz).
+
+## What you can trade
+
+| Asset class | Description |
+| --- | --- |
+| US equities | Stocks with external pricing across pre-market, regular, after-hours, and overnight sessions |
+| International equities | Korean, Japanese, Hong Kong, and Chinese listings priced off their home exchanges |
+| Pre-IPO perps (IPOPs) | Cash-settled contracts on private companies expected to list. No ownership or allocation rights; they convert to standard equity perps at listing, and alternative outcomes settle under predefined per-market rules |
+| Equity indices | US, Japanese, and Korean index exposure |
+| Commodities | Metals and energy markets |
+| FX | Currency pairs with round-the-clock weekday pricing |
+
+The full pair list lives in [Tradeable Markets](/tradeable-markets) and updates weekly as new markets launch.
+
+## How pricing works when markets close
+
+Three prices drive every xyz market, refreshed every few seconds:
+
+- **Oracle price**: the funding reference and a mark input. While the underlying market is open, it tracks a fair price drawn from multiple external venues and data providers. When the underlying is closed (nights, weekends, holidays, halts), an internal mechanism takes over and the perp's own order book leads, nudging the oracle toward book prices over a smoothed 30 minute window.
+- **Mark price**: the median of the oracle, the oracle plus a short average of the perp's premium, and the book's best bid, best ask, and last trade. Margin, liquidations, trigger orders, and unrealized PnL all use mark.
+- **Discovery bounds**: while the underlying is closed, mark can only move within a band of 1 divided by max leverage around a reference price, so a 20x market moves at most 5 percent at a time. Sustained pressure re-anchors the band a limited number of times per direction, after which it becomes a hard cap until the underlying reopens and pricing snaps back to the live external price.
+
+## Funding, margin, and liquidation
+
+- **Funding** uses the standard premium and interest rate formula scaled by a 0.5 multiplier, so holding through weekend price discovery costs less than crypto-standard funding. Pre-listing IPOPs use a 0.005 multiplier.
+- **Margin modes** are cross (default), isolated, and strict isolated, where margin is only released as the position closes.
+- **Liquidations** are measured against the xyz mark price. An onchain backstop liquidator vault covers cross-margin xyz markets, making auto-deleveraging less likely. A position whose liquidation price sits outside the active discovery bounds cannot be liquidated while those bounds are in effect.
+- **Fees**: growth mode on eligible non-crypto markets cuts all-in fees by at least 90 percent from the standard schedule.
+
+## Market hours
+
+xyz markets trade on Hyperdash 24/7. What changes is the pricing source, based on each market's external window, all times Eastern (ET):
+
+| Market | External pricing window, Eastern (ET) |
+| --- | --- |
+| US equities | Sunday 8:00 PM to Friday 8:00 PM |
+| Commodities | Sunday 6:00 PM to Friday 5:00 PM, with a daily 5:00 to 6:00 PM pause |
+| FX | Sunday 5:00 PM to Friday 5:00 PM, open through most US holidays |
+| International equities | Home exchange sessions on their local holiday calendars |
+
+US equities close fully on major US holidays, with early closes on a few dates, while futures, metals, and energy typically run reduced holiday hours. Whenever an external window is closed, internal pricing and discovery bounds take over and trading continues.
+
+<Note>
+Per-contract specifications (leverage tiers, bound configurations, holiday and roll schedules) are maintained at [docs.trade.xyz](https://docs.trade.xyz) and change over time. Check them there before sizing a position.
+</Note>
+
+All standard [order types](/orders/overview) work on xyz markets, and [Perp RFQ](/perp-rfq) brings block liquidity to many of them. For how markets are organized on Hyperdash, see [Markets and Assets](/markets-assets).

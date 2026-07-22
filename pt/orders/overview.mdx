@@ -1,0 +1,29 @@
+---
+title: "Tipos de Ordem"
+description: "Todos os tipos de ordem do Hyperdash: o que cada um faz, quando usar e os parâmetros que os controlam."
+---
+
+O Hyperdash oferece um kit completo de execução, de ordens simples de mercado e limite a estratégias algorítmicas que trabalham tamanhos grandes ao longo do tempo ou reagem a preços ao vivo. Cada tipo de ordem tem sua própria página com o comportamento de colocação, os parâmetros, os padrões e um exemplo prático.
+
+## Escolhendo um tipo de ordem
+
+| Tipo de ordem | Como executa | Objetivo | Parâmetros principais |
+| --- | --- | --- | --- |
+| [Mercado](/pt/orders/market) | Executa imediatamente ao melhor preço disponível, limitada pelo seu slippage máximo | Execução imediata | Tamanho, Slippage Máximo |
+| [Limite](/pt/orders/limit) | Fica no livro ao seu preço ou melhor até ser executada ou cancelada | Controle de preço, capturar o spread | Preço Limite, Tamanho |
+| [Escalonar](/pt/orders/scale) | Coloca até 100 ordens limite ao longo de uma faixa de preço, com tamanhos definidos pelo desvio | Entrada passiva em escada, melhor preço médio | Preço Inicial e Final, Total de Ordens, Desvio de Tamanho |
+| [Stop Limite](/pt/orders/stop-limit) | No preço de stop, coloca uma ordem limite ao seu preço limite | Entrada em rompimento ou saída protetiva com controle de preço | Preço de Stop, Preço Limite, Furtivo |
+| [Stop Mercado](/pt/orders/stop-market) | No preço de stop, executa a mercado | Reação garantida a um nível de preço | Preço de Stop, Furtivo |
+| [Perseguir](/pt/orders/chase) | Ordem limite que segue o melhor bid ou ask, reprecificando continuamente | Execuções rápidas mantendo-se passivo | Perseguir até, Apenas Reduzir |
+| [TWAP](/pt/orders/twap) | Subordens iguais a cada 30 segundos ao longo da duração escolhida | Minimizar o impacto no mercado ao longo do tempo | Duração, Furtivo, Randomizar |
+| [Enxame](/pt/orders/swarm) | Divide o tamanho em até 200 clipes, despachados conforme o nível de agressividade | Minimizar o impacto com conclusão mais rápida | Total de Clipes, Agressividade |
+| [Take Profit / Stop Loss](/pt/orders/take-profit-stop-loss) | Ordens de gatilho que fecham uma posição em alvos de lucro ou perda | Garantir ganhos, limitar perdas | Preço ou Percentual de TP e SL |
+| [Stop Móvel](/pt/orders/trailing-stop) | Stop que acompanha o pico do preço e sai em uma retração definida | Proteger lucros deixando os vencedores correrem | Retração, Tipo de Ordem de Saída |
+
+<Note>
+  O modo Furtivo (Stealth) em ordens stop e TWAPs roteia a execução pela infraestrutura do Hyperdash em vez de colocar um gatilho visível on-chain, mantendo seus níveis privados até serem disparados.
+</Note>
+
+## Gestão de posições
+
+Além de entradas e saídas, você pode reverter uma posição (fechá-la e abrir o mesmo tamanho na direção oposta) e gerenciar TP/SL, stops móveis e margem diretamente pela tabela de posições.

@@ -1,0 +1,58 @@
+---
+title: "API Wallets and Security"
+description: "How agent wallets, sign-in methods, and two-factor protection work on Hyperdash."
+---
+
+Hyperdash executes your trades through an agent api wallet: a separate trading key that your own wallet approves to sign orders on your behalf. This lets you trade without confirming every order in your wallet, while withdrawals and transfers still require a signature from your own wallet.
+
+## How agent wallets work
+
+<Steps>
+  <Step title="Connect or create a wallet">
+    In the Terminal Wallet setup, connect an existing wallet or create a new non-custodial wallet secured by Turnkey. See [Onboarding and Deposits](/onboarding-deposits).
+  </Step>
+  <Step title="Approve the agent">
+    Hyperdash generates a fresh keypair in your browser, and your wallet signs an approval registering it as your trading agent. The agent key is valid for 180 days and is encrypted in your browser before it is stored.
+  </Step>
+  <Step title="Approve the builder">
+    A second signature enables trading on Hyperdash. From then on, every order you place, including automated [order types](/orders/overview), is signed by the agent key.
+  </Step>
+</Steps>
+
+The **Agent Manager** shows your agent's address and expiry with statuses Active, Expires in 30 days, Expires Soon, and Expired, plus a **Refresh Agent Key** action.
+
+## Security FAQ
+
+<AccordionGroup>
+  <Accordion title="What can an agent wallet do, and what can it not do?">
+    The agent key signs trading actions only: placing, modifying, and cancelling orders. Withdrawals and asset transfers are signed by your own wallet, never by the agent.
+  </Accordion>
+
+  <Accordion title="Who holds my keys?">
+    Your wallet's private key never leaves your wallet; you approve the agent and sign withdrawals yourself. Wallets created through Hyperdash are non-custodial and secured by Turnkey. The agent key is generated in your browser and encrypted there before storage, which is what powers features like [Copytrading](/autotrade).
+  </Accordion>
+
+  <Accordion title="How do I refresh or revoke an agent?">
+    Open the Agent Manager and use **Refresh Agent Key**: a brand-new key replaces the old one. You must have the original wallet connected; the app blocks refreshes from a different address. Re-running wallet setup also deregisters previous Hyperdash agents before approving a new one.
+  </Accordion>
+
+  <Accordion title="What happens when my agent expires?">
+    Agent keys are valid for 180 days. An expired key can no longer sign orders, so refresh it from the Agent Manager to keep trading.
+  </Accordion>
+
+  <Accordion title="What sign-in methods are supported?">
+    Google, Apple, email magic link, or wallet sign-in. Wallet sign-in only asks you to sign a message: it is free and sends no transaction.
+  </Accordion>
+
+  <Accordion title="How do I set up two-factor protection?">
+    In Settings under Security, enable either a passkey (biometrics or a security key) or an authenticator app. Authenticator setup shows a QR code or setup key, verifies a 6-digit code, then issues one-time backup codes you can download. Passkeys must be removed before enabling an authenticator app.
+  </Accordion>
+
+  <Accordion title="When am I asked for two-factor verification?">
+    After sign-in, with an option to trust the device for 30 days, and again before withdrawing funds. If you lose your 2FA device, a backup recovery code works once each.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Save your backup recovery codes when you enable an authenticator app. If you lose your 2FA device and have no codes, you can permanently lose access to your account.
+</Note>

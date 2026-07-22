@@ -1,0 +1,75 @@
+---
+title: "Trading Spot"
+description: "Compra y vende activos directamente en mercados spot cotizados en USDC que se liquidan en tu billetera."
+---
+
+El trading spot en Hyperdash significa comprar y vender el activo en sí, no un contrato vinculado a su precio. Todos los mercados spot cotizan en USDC y operan 24/7, y lo que compras es tuyo: las compras spot se liquidan on-chain en tu billetera y pueden enviarse o transferirse fuera.
+
+## Cómo funcionan los saldos spot
+
+- Las compras se financian desde tu saldo spot de USDC. Las ventas usan el saldo del token que posees: solo puedes vender lo que es tuyo.
+- El saldo reservado por una orden en reposo se muestra como retenido y no puede usarse en otras órdenes hasta que esa orden se ejecute o se cancele.
+- El panel de trading muestra tu USDC disponible y tu saldo disponible del token, con accesos directos para **Depositar** y **Perps a Spot**. El USDC se mueve libremente entre tus cuentas de perps y spot a través del modal de transferencia (las cuentas unificadas comparten un solo saldo y se saltan este paso).
+- Tus tenencias aparecen en la tabla de Saldos con monto, disponible, valor, precio de entrada y PNL, además de acciones para **Enviar**, **Transferir** o establecer un TP/SL sobre una tenencia.
+
+## Colocar una orden spot
+
+<Steps>
+  <Step title="Elige un mercado spot">
+    Selecciona un par spot, por ejemplo HYPE/USDC, en el selector de activos.
+  </Step>
+  <Step title="Elige un tipo de orden">
+    Mercado y Límite son pestañas de primer nivel. El menú **Profesional** añade Escala, Stop límite y Perseguir en el lado límite, y TWAP, Stop mercado y Enjambre en el lado mercado. Las cuentas con acceso OTC también ven una pestaña OTC.
+  </Step>
+  <Step title="Define lado y tamaño">
+    Elige Comprar o Vender, luego dimensiona en el token o en USD, o usa el deslizador para dimensionar como porcentaje de tu saldo disponible. El panel muestra el valor de la orden, el slippage estimado y tus tasas de comisión maker y taker.
+  </Step>
+  <Step title="Envía">
+    Las compras de mercado y límite pueden adjuntar primero activadores de Take Profit y Stop Loss, por precio o por ganancia y pérdida en % o \$. Las salidas de TP/SL se ejecutan como órdenes de mercado.
+  </Step>
+</Steps>
+
+Cada tipo de orden tiene su propia página de referencia: empieza por la [vista general de tipos de órdenes](/es/orders/overview), o ve directo a [Mercado](/es/orders/market), [Límite](/es/orders/limit), [Escala](/es/orders/scale), [Stop límite](/es/orders/stop-limit), [Stop mercado](/es/orders/stop-market), [Perseguir](/es/orders/chase), [TWAP](/es/orders/twap) o [Enjambre](/es/orders/swarm).
+
+## Configuración
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Slippage máximo | Limita cuánto puede moverse en tu contra una ejecución spot de tipo mercado. Haz clic en el indicador de slippage **Est / Max** del formulario de orden para ajustarlo. | 8% |
+| Take Profit / Stop Loss | Opcional en compras de mercado y límite. Activadores por precio, o por ganancia y pérdida en % o \$. | Desactivado |
+
+El valor mínimo de la orden es \$10. Los tipos de orden que se dividen en varias órdenes, como Escala, TWAP y Enjambre, requieren que cada orden hija supere el mismo mínimo.
+
+## Spot vs perps
+
+| | Spot | Perps |
+| --- | --- | --- |
+| Propiedad | Posees el activo; se liquida en tu billetera | Solo exposición vía contrato |
+| Dirección | Comprar, o vender lo que posees | Largo o corto |
+| Apalancamiento | Ninguno; las órdenes se financian por completo | Varía según el mercado |
+| Funding | Ninguno | Se acumula cada hora |
+| Liquidación | Ninguna | Posible en posiciones apalancadas |
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Puedo ir en corto en spot?">
+    No. Las ventas spot se limitan al saldo que posees. Para exposición corta, usa un mercado de perps: consulta la [Guía de Trading](/es/trading-guide).
+  </Accordion>
+
+  <Accordion title="¿Cómo fondeo mi saldo spot?">
+    Deposita directamente, o transfiere USDC desde tu cuenta de perps con el botón **Perps a Spot**. Consulta [Incorporación y Depósitos](/es/onboarding-deposits).
+  </Accordion>
+
+  <Accordion title="¿Las operaciones spot pagan funding?">
+    No. El funding aplica solo a los perpetuos. Los costos en spot son las tasas de comisión maker y taker que se muestran en el formulario de orden; consulta [Comisiones, Referidos y Recompensas](/es/fees-referrals-rewards).
+  </Accordion>
+
+  <Accordion title="¿Puedo poner un TP/SL en tokens que ya poseo?">
+    Sí. Usa la acción TP/SL en la tabla de Saldos para adjuntar activadores de Take Profit o Stop Loss a una tenencia existente.
+  </Accordion>
+</AccordionGroup>
+
+<Note>
+  Los tokens reservados por órdenes en reposo quedan retenidos: no pueden venderse ni enviarse hasta que la orden se ejecute o se cancele. El panel te avisa cuando una orden existente ya está usando parte de un saldo.
+</Note>

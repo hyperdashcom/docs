@@ -1,0 +1,36 @@
+---
+title: "Stop Market"
+description: "Picu order market pada harga henti Anda untuk eksekusi terjamin saat sebuah level tembus."
+---
+
+Order Stop Market (label **Hentikan Market** di aplikasi) menunggu hingga harga aset mencapai harga henti Anda, lalu langsung dieksekusi pada harga pasar. Tujuannya kepastian eksekusi: saat level Anda tembus, order Anda terisi, dengan konsekuensi menerima harga apa pun yang ditawarkan order book pada saat itu.
+
+## Cara order ditempatkan
+
+- Tidak ada transaksi yang dieksekusi saat pengiriman. Order menunggu hingga harga aset mencapai harga henti Anda.
+- Dengan **Stealth** aktif (default), infrastruktur Hyperdash memantau harga dan mengirim order hanya setelah terpicu, sehingga tetap tersembunyi sampai saat itu. Dengan Stealth nonaktif, stop dipasang secara publik on-chain sebagai order pemicu.
+- Saat terpicu, order market untuk seluruh ukuran langsung dieksekusi, mengambil likuiditas pada harga terbaik yang tersedia hingga terisi.
+- Harga pengisian tidak dijamin. Di pasar yang cepat atau tipis, pengisian rata-rata bisa lebih buruk dari harga henti Anda, karena order menyusuri order book setelah terpicu.
+
+## Kapan digunakan
+
+- Melindungi posisi dengan keluar yang tegas: saat level Anda tembus, Anda ingin keluar, bukan order yang menunggu. Aktifkan **Hanya Kurangi** agar order hanya dapat menutup posisi.
+- Masuk trade momentum di mana melewatkan pergerakan lebih mahal daripada beberapa tick slippage.
+- Trading di sekitar peristiwa penting atau order book tipis di mana harga bisa melompati harga limit sepenuhnya.
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Harga henti (USD) | Harga pemicu: di atas harga saat ini untuk beli, di bawahnya untuk jual. | Tidak ada |
+| Ukuran | Dalam aset atau USD. Nilai order minimum \$10. | Tidak ada |
+| Hanya Kurangi (opsional) | Order hanya dapat mengurangi posisi yang ada. | Nonaktif |
+| Stealth (opsional) | Merutekan stop melalui infrastruktur Hyperdash, di luar order book hingga terpicu. | Aktif |
+
+## Contoh
+
+Anda long 400 HYPE dari \$41.00 dan ingin stop tegas di bawah support di \$42.50. Anda memasang Stop Market jual: stop \$42.00, ukuran 400 HYPE, Hanya Kurangi aktif. Jika HYPE turun ke \$42.00, posisi langsung ditutup pada harga pasar, misalnya di rata-rata \$41.96 pada order book normal.
+
+<Note>
+  Stop market menjamin keluarnya posisi, bukan harganya. Jika membatasi pengisian terburuk lebih penting, gunakan [Stop Limit](/id/orders/stop-limit) dan terima risiko order menunggu tanpa terisi.
+</Note>

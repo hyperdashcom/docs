@@ -1,0 +1,37 @@
+---
+title: "Stop límite"
+description: "Activa una orden límite a tu precio de activación y fija un tope estricto para el peor precio que aceptarás."
+---
+
+Una orden Stop límite espera hasta que el mercado alcanza tu precio de activación y entonces coloca una orden límite a tu precio límite. Nada se opera antes del activador, y una vez activada, tu orden se ejecuta solo al precio límite o mejor.
+
+## Cómo coloca las órdenes
+
+- Nada se ejecuta al enviarla. La orden espera hasta que el precio del activo alcanza tu precio de activación.
+- Con **Sigilo** activado (el valor por defecto), la infraestructura de Hyperdash vigila el precio y coloca la orden solo cuando se activa, manteniéndola oculta hasta entonces. Con Sigilo desactivado, el stop se coloca públicamente on-chain como orden con activador.
+- Al activarse, se envía al libro una orden límite a tu precio límite, que se ejecuta a ese precio o mejor.
+- No está garantizado que se complete: si el precio salta por encima de tu límite, la orden queda en el libro sin ejecutarse hasta que el precio regrese o la canceles.
+
+## Cuándo usarla
+
+- Operar rupturas: comprar por encima de una resistencia o vender por debajo de un soporte, solo cuando el nivel realmente se rompe.
+- Poner un tope a tu peor ejecución en lugar de aceptar lo que consiga una orden de mercado.
+- Salir en un activador definido con control de precio. Activa **Solo Reducir** para que la orden solo pueda cerrar tu posición.
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Precio de activación (USD) | Precio que dispara la orden: por encima del precio actual para compras, por debajo para ventas. | Ninguno |
+| Precio límite | Precio de la orden límite colocada al activarse. | Precio actual |
+| Tamaño | En el activo o en USD. Valor mínimo de la orden \$10. | Ninguno |
+| Solo Reducir (opcional) | La orden solo puede reducir una posición existente. | Desactivado |
+| Sigilo (opcional) | Dirige el stop a través de la infraestructura de Hyperdash, fuera del libro hasta activarse. | Activado |
+
+## Ejemplo
+
+BTC cotiza a \$117,400 y quieres comprar una ruptura por encima de \$120,000. Colocas un Stop límite: activación \$120,000, límite \$120,250, tamaño 0.5 BTC. Cuando BTC toca \$120,000, se coloca una compra límite a \$120,250 que se ejecuta a ese precio o mejor. Si BTC salta directo a \$120,600, la orden queda en \$120,250 sin ejecutarse.
+
+<Note>
+  Un stop límite cambia riesgo de precio por riesgo de ejecución: dimensiona la distancia entre activación y límite según la volatilidad del mercado, de modo que un movimiento rápido no pueda saltarse ambos. Cuando la ejecución importa más que el precio, usa un [Stop mercado](/es/orders/stop-market).
+</Note>

@@ -1,0 +1,36 @@
+---
+title: "Chase Orders"
+description: "A limit order that follows the best bid or ask continuously, repricing until it fills or reaches your limit."
+---
+
+Chase places a limit order at the top of the book and keeps it there, following the best bid (for buys and longs) or best ask (for sells and shorts) as the market moves. The objective is passive execution: fill near the touch without crossing the spread. Chase works on both perps and spot markets, and is also an exit type for [Take Profit and Stop Loss](/orders/take-profit-stop-loss).
+
+## How it places orders
+
+- Submits a single post-only limit order at the best bid (buys) or best ask (sells). The order rests passively and never crosses the spread.
+- Orders are refreshed every 500ms: whenever the top of book moves, the resting order is repriced to the new best price.
+- Partial fills are tracked, and the remaining size keeps chasing until the order is fully filled or canceled.
+- If a **Chase To** price is set, the chase stops and cancels its resting order once the best bid or ask crosses that limit. It does not continue to rest at the limit price, and a chase whose Chase To is already outside the top of book is rejected at submission.
+- One chase runs at a time per wallet and market.
+
+## When to use it
+
+- Capture maker fills near the top of the book without paying the spread.
+- Work an order in a moving market without manually canceling and replacing limit orders.
+- Exit a position passively: enable **Reduce Only**, or select Chase as a TP/SL exit type.
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Size | Order size in the asset or USDC notional. Minimum order value is \$10. | None |
+| Chase To (optional) | Price limit for the chase. Leave blank to chase until filled or canceled. For buys and longs the price must be at or above the current price, for sells and shorts at or below. When the best bid or ask crosses this limit, the chase stops and cancels. | Blank, chase until filled or canceled |
+| Reduce Only (optional) | Restricts the order to reducing an existing position. | Off |
+
+## Example
+
+You want to buy 100 HYPE with the book at \$44.60 bid, \$44.62 ask. You submit a Chase buy with Chase To \$45.00. The order rests at \$44.60, and as the bid ticks up to \$44.70 and \$44.85 it reprices with it, collecting maker fills along the way. If the bid trades up through \$45.00, the chase cancels any unfilled remainder instead of following further.
+
+<Note>
+  A chase rests on the passive side only, so it is not guaranteed to complete. In a fast trending market the price can run ahead of your order, and with a Chase To set you may finish with a partial fill.
+</Note>
