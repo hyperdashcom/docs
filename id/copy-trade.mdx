@@ -1,14 +1,9 @@
 ---
 title: "Copy Trading"
 description: "Temukan trader yang profit di Hyperdash dan salin atau lawan trade mereka secara otomatis."
-hidden: true
 ---
 
-Copy trading di Hyperdash memungkinkan Anda mengikuti trader yang profit dan tidak pernah melewatkan pergerakan: setiap trade disalin secara otomatis, secara real time. Anda memilih siapa yang diikuti dan seberapa besar risiko yang diambil, dan platform mengeksekusi untuk Anda.
-
-<Note>
-  Copy trading berjalan di atas [**Autotrade**](/id/autotrade), mesin eksekusi otomatis Hyperdash. Lihat halaman itu untuk penyiapan wallet, pendanaan, pengaturan risiko, serta cara memulai, menghentikan, dan mengedit strategi.
-</Note>
+Copy trading di Hyperdash memungkinkan Anda mengikuti trader yang profit dan tidak pernah melewatkan pergerakan: setiap trade disalin secara otomatis, secara real time. Anda memilih siapa yang diikuti dan seberapa besar risiko yang diambil, dan platform mengeksekusi untuk Anda. Ia mencerminkan (Copytrade) atau mengambil sisi berlawanan dari (Countertrade) posisi perp hingga 10 trader target, dari wallet yang didedikasikan untuk strategi tersebut.
 
 <iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
@@ -21,20 +16,57 @@ Copy trading di Hyperdash memungkinkan Anda mengikuti trader yang profit dan tid
   <Step title="Salin atau lawan">
     Dari kartu atau profil trader, pilih **Copytrade** untuk mencerminkan posisi mereka atau **Countertrade** untuk mengambil sisi berlawanan. Anda juga dapat menempelkan alamat wallet mana pun secara langsung, dan mengikuti hingga 10 trader dari satu wallet.
   </Step>
-  <Step title="Konfigurasikan dan mulai">
-    Atur alokasi, batas leverage, dan filter Anda, lalu danai wallet khusus. Panduan lengkap ada di [halaman Autotrade](/id/autotrade).
+  <Step title="Konfigurasikan risiko">
+    Atur alokasi, batas leverage, aturan entri, dan filter aset Anda. Daftar lengkapnya ada di tabel Pengaturan di bawah. Untuk satu trader, sebuah grafik memproyeksikan PNL 30 hari mereka pada alokasi \$1,000, dibalik untuk countertrading.
   </Step>
-  <Step title="Pantau kinerja">
-    Tab Copytrade mencantumkan wallet Anda dalam Running, Stopped, dan Archived, dengan ekuitas, PNL, posisi, dan log per wallet yang menunjukkan setiap aksi yang diambil (dan trade yang dilewati, beserta alasannya). Anda juga dapat membagikan kartu PNL.
+  <Step title="Danai wallet">
+    **Create New**: Hyperdash membuat wallet khusus dan mendanainya dengan USDC dari wallet utama Anda. **Use Existing**: hubungkan wallet Anda sendiri yang memegang minimal \$100 USDC, buat API key (berlaku 180 hari), setujui builder fee 0.05%, dan aktifkan mode akun unified. Dana tetap berada di wallet Anda sendiri.
+  </Step>
+  <Step title="Mulai dan pantau">
+    Tekan **Start**. Tab Copytrade mencantumkan wallet Anda dalam Running, Stopped, dan Archived, dengan ekuitas, PNL, posisi, dan log per wallet yang menunjukkan setiap aksi yang diambil (dan trade yang dilewati, beserta alasannya). Buka **Copytrade Settings** kapan saja untuk mengedit konfigurasi, menjeda, atau melanjutkan, dan Anda juga dapat membagikan kartu PNL.
   </Step>
 </Steps>
 
 ## Apa yang disalin
 
-Copy trading memasang order sungguhan dari wallet Autotrade Anda; ini bukan feed peringatan. Saat trader target membuka atau menutup posisi perp, wallet Anda mencerminkannya (atau melawannya), dengan ukuran sesuai alokasi Anda dan tunduk pada pengaturan risiko Anda: batas leverage posisi maksimum, mode opsional hanya-posisi-baru, batas entri terburuk maksimum, dan whitelist atau blacklist aset. HYPE spot dan staking secara opsional dapat dihitung dalam ukuran salinan.
+Copy trading memasang order sungguhan dari wallet Copytrade Anda; ini bukan feed peringatan. Saat trader target membuka atau menutup posisi perp, wallet Anda mencerminkannya (atau melawannya), dengan ukuran sesuai alokasi Anda dan tunduk pada pengaturan risiko Anda: batas leverage posisi maksimum, mode opsional hanya-posisi-baru, batas entri terburuk maksimum, dan whitelist atau blacklist aset. HYPE spot dan staking secara opsional dapat dihitung dalam ukuran salinan.
 
 Jika Anda ingin memantau positioning top trader tanpa memperdagangkannya, gunakan [Top Trader dan Perubahan Posisi](/id/cohorts-top-traders-position-changes) sebagai gantinya.
 
-## Menghentikan dan dana
+## Pengaturan
 
-Modal copy trading Anda berada di wallet yang didedikasikan untuk strategi tersebut. Menghentikan selalu menutup posisi terbuka wallet itu, dan wallet yang dihentikan dapat dilanjutkan lagi nanti. Mengarsipkan wallet buatan Hyperdash menutup posisi dan mengembalikan saldonya ke wallet utama Anda. Detail tentang kustodi, deposit, dan builder fee 0.05% ada di [halaman Autotrade](/id/autotrade).
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Mode trading | Copytrade mencerminkan posisi, Countertrade mengambil sisi berlawanan | Copytrade |
+| Trader target | Hingga 10 alamat per wallet, bobot sama rata atau kustom | Bobot sama rata |
+| Leverage posisi maksimum | Membatasi posisi salinan bahkan saat target memakai lebih tinggi, 1x hingga 40x | 20x |
+| Hanya salin posisi yang baru dibuka | Melewati posisi yang sudah terbuka saat Copytrade dimulai; hanya dapat diubah saat berhenti | Nonaktif |
+| Entri terburuk maksimum | Seberapa jauh entri Anda boleh lebih buruk dibanding trader tersebut, 0% hingga 50% | 10% |
+| Sertakan aset spot dan staking | Menyertakan HYPE spot dan staking dalam perhitungan ukuran salinan | Nonaktif |
+| Filter aset | Whitelist atau blacklist aset tertentu (tab Assets di pengaturan) | Semua aset |
+
+## Menghentikan, mengarsipkan, menghapus
+
+- **Stop** selalu menutup posisi terbuka wallet tersebut, sehingga tidak ada yang dibiarkan tanpa pengelolaan. Wallet yang dihentikan dapat dilanjutkan lagi nanti.
+- **Archive** menutup posisi, mengembalikan saldo wallet buatan Hyperdash ke wallet utama Anda, dan memindahkannya ke Archived. Tidak dapat dibatalkan. Untuk wallet yang dihubungkan, Anda memilih apakah posisi ditutup otomatis atau tetap terbuka dalam kustodi Anda.
+- **Delete** menghapus wallet Copytrade secara permanen dari daftar Anda.
+
+<Note>
+  Menyalin trader yang bertanda algoritmik memunculkan peringatan dalam aplikasi: copytrading mungkin tidak mereplikasi hasil mereka karena perbedaan kecepatan eksekusi.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Berapa biaya copy trading?">
+    Trading melalui Hyperdash menggunakan builder fee 0.05%, yang disetujui wallet terhubung saat penyiapan. Biaya trading standar bursa tetap berlaku.
+  </Accordion>
+
+  <Accordion title="Siapa yang memegang dana saya?">
+    Wallet yang dibuat dikelola di bawah akun Hyperdash Anda, dan mengarsipkannya mengembalikan saldonya ke wallet utama Anda. Wallet yang dihubungkan tetap dalam kustodi Anda: Hyperdash memperdagangkannya melalui API key yang kedaluwarsa setelah 180 hari dan dapat dibuat ulang dari tab Copytrade.
+  </Accordion>
+
+  <Accordion title="Bisakah saya mengganti trader setelah mulai?">
+    Bisa, dari tab Allocation di Copytrade Settings. Menghapus seorang trader menutup posisi salinannya pada sinkronisasi berikutnya.
+  </Accordion>
+</AccordionGroup>

@@ -1,14 +1,9 @@
 ---
 title: "Copy Trading"
 description: "Descubra traders lucrativos no Hyperdash e copie ou opere contra as operações deles automaticamente."
-hidden: true
 ---
 
-O copy trading no Hyperdash permite seguir traders lucrativos e não perder nenhum movimento: cada operação é copiada automaticamente, em tempo real. Você escolhe quem seguir e quanto risco assumir, e a plataforma executa por você.
-
-<Note>
-  O copy trading roda no [**Autotrade**](/pt/autotrade), o motor de execução automatizada do Hyperdash. Veja aquela página para configuração de carteira, financiamento, ajustes de risco e como iniciar, parar e editar uma estratégia.
-</Note>
+O copy trading no Hyperdash permite seguir traders lucrativos e não perder nenhum movimento: cada operação é copiada automaticamente, em tempo real. Você escolhe quem seguir e quanto risco assumir, e a plataforma executa por você. Ela espelha (Copytrade) ou toma o lado oposto (Countertrade) das posições perp de até 10 traders-alvo, a partir de uma carteira dedicada a essa estratégia.
 
 <iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
@@ -21,20 +16,57 @@ O copy trading no Hyperdash permite seguir traders lucrativos e não perder nenh
   <Step title="Copie ou opere contra">
     A partir de um cartão ou perfil de trader, escolha **Copytrade** para espelhar as posições ou **Countertrade** para tomar o lado oposto. Você também pode colar qualquer endereço de carteira diretamente, e seguir até 10 traders a partir de uma única carteira.
   </Step>
-  <Step title="Configure e inicie">
-    Defina a sua alocação, o teto de alavancagem e os filtros, então financie uma carteira dedicada. O passo a passo completo está na [página do Autotrade](/pt/autotrade).
+  <Step title="Configure o risco">
+    Defina a sua alocação, o teto de alavancagem, as regras de entrada e os filtros de ativos. A lista completa está na tabela de Configurações abaixo. Para um único trader, um gráfico projeta o PNL de 30 dias dele sobre uma alocação de \$1,000, invertido para countertrading.
   </Step>
-  <Step title="Acompanhe o desempenho">
-    A aba Copy Trade lista as suas carteiras em Em execução, Paradas e Arquivadas, com patrimônio, PNL, posições e logs por carteira mostrando cada ação tomada (e as operações puladas, com os motivos). Você também pode compartilhar um cartão de PNL.
+  <Step title="Financie uma carteira">
+    **Criar Nova**: o Hyperdash cria uma carteira dedicada e a financia com USDC da sua carteira principal. **Usar Existente**: conecte a sua própria carteira com pelo menos \$100 em USDC, crie uma chave de API (válida por 180 dias), aprove a taxa de builder de 0.05% e ative o modo de conta unificada. Os fundos permanecem na sua própria carteira.
+  </Step>
+  <Step title="Inicie e acompanhe">
+    Pressione **Iniciar**. A aba Copy Trade lista as suas carteiras em Em execução, Paradas e Arquivadas, com patrimônio, PNL, posições e logs por carteira mostrando cada ação tomada (e as operações puladas, com os motivos). Abra as **Configurações de Copytrade** a qualquer momento para editar a configuração, pausar ou retomar. Você também pode compartilhar um cartão de PNL.
   </Step>
 </Steps>
 
 ## O que é copiado
 
-O copy trading coloca ordens reais a partir da sua carteira de Autotrade; não é um feed de alertas. Quando um trader-alvo abre ou fecha uma posição de perp, a sua carteira a espelha (ou opera contra), dimensionada pela sua alocação e sujeita aos seus ajustes de risco: um teto de alavancagem máxima por posição, um modo opcional de copiar apenas posições novas, um limite de entrada pior máxima e listas de ativos permitidos ou bloqueados. Spot e HYPE em staking podem opcionalmente contar para o dimensionamento das cópias.
+O copy trading coloca ordens reais a partir da sua carteira de Copytrade; não é um feed de alertas. Quando um trader-alvo abre ou fecha uma posição de perp, a sua carteira a espelha (ou opera contra), dimensionada pela sua alocação e sujeita aos seus ajustes de risco: um teto de alavancagem máxima por posição, um modo opcional de copiar apenas posições novas, um limite de entrada pior máxima e listas de ativos permitidos ou bloqueados. Spot e HYPE em staking podem opcionalmente contar para o dimensionamento das cópias.
 
 Se você quer observar o posicionamento dos melhores traders sem operá-lo, use [Melhores Traders e Mudanças de Posição](/pt/cohorts-top-traders-position-changes) em vez disso.
 
-## Parada e fundos
+## Configurações
 
-O seu capital de copy trading vive em uma carteira dedicada à estratégia. Parar sempre fecha as posições abertas daquela carteira, e uma carteira parada pode ser retomada depois. Arquivar uma carteira criada pelo Hyperdash fecha as posições e devolve o saldo à sua carteira principal. Os detalhes sobre custódia, depósitos e a taxa de builder de 0.05% estão na [página do Autotrade](/pt/autotrade).
+| Parâmetro | Descrição e opções | Padrão |
+| --- | --- | --- |
+| Modo de negociação | Copytrade espelha as posições, Countertrade toma o lado oposto | Copytrade |
+| Traders-alvo | Até 10 endereços por carteira, pesos iguais ou personalizados | Pesos iguais |
+| Alavancagem máxima da posição | Limita as posições copiadas mesmo quando o alvo usa mais, de 1x a 40x | 20x |
+| Copiar apenas posições recém-abertas | Ignora posições já abertas quando o Copytrade inicia; alterável apenas enquanto parado | Desativado |
+| Entrada Pior Máx | O quanto a sua entrada pode ser pior que a do trader, de 0% a 50% | 10% |
+| Incluir spot e ativos em staking | Inclui spot e HYPE em staking no dimensionamento das cópias | Desativado |
+| Filtros de ativos | Lista de ativos permitidos ou bloqueados (aba Ativos nas configurações) | Todos os ativos |
+
+## Parar, arquivar, excluir
+
+- **Parar** sempre fecha as posições abertas da carteira, para que nada fique sem gestão. Uma carteira parada pode ser retomada depois.
+- **Arquivar** fecha as posições, devolve o saldo de uma carteira criada pelo Hyperdash à sua carteira principal e a move para Arquivadas. Não pode ser desfeito. Para carteiras conectadas, você escolhe se as posições fecham automaticamente ou permanecem abertas sob a sua custódia.
+- **Excluir** remove permanentemente uma carteira de Copytrade da sua lista.
+
+<Note>
+  Copiar um trader marcado como algorítmico dispara um aviso no app: o copytrading pode não replicar os resultados dele devido a diferenças na velocidade de execução.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Quanto custa o copy trading?">
+    Negociar pelo Hyperdash usa uma taxa de builder de 0.05%, que as carteiras conectadas aprovam durante a configuração. As taxas de negociação padrão da exchange se aplicam.
+  </Accordion>
+
+  <Accordion title="Quem guarda meus fundos?">
+    Uma carteira criada é gerenciada sob a sua conta Hyperdash, e arquivá-la devolve o saldo à sua carteira principal. Uma carteira conectada permanece sob a sua custódia: o Hyperdash a negocia por meio de uma chave de API que expira após 180 dias e pode ser regenerada pela aba Copy Trade.
+  </Accordion>
+
+  <Accordion title="Posso trocar de traders depois de começar?">
+    Sim, pela aba Alocação nas Configurações de Copytrade. Remover um trader fecha as posições copiadas dele na próxima sincronização.
+  </Accordion>
+</AccordionGroup>

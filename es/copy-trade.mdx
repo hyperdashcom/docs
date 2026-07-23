@@ -1,14 +1,9 @@
 ---
 title: "Copy Trading"
 description: "Descubre traders rentables en Hyperdash y copia o contrarresta sus operaciones automáticamente."
-hidden: true
 ---
 
-El copy trading en Hyperdash te permite seguir a traders rentables y no perderte ningún movimiento: cada operación se copia automáticamente, en tiempo real. Tú eliges a quién seguir y cuánto riesgo asumir, y la plataforma ejecuta por ti.
-
-<Note>
-  El copy trading corre sobre [**Autotrade**](/es/autotrade), el motor de ejecución automatizada de Hyperdash. Consulta esa página para la configuración de la billetera, el fondeo, los ajustes de riesgo, y cómo iniciar, detener y editar una estrategia.
-</Note>
+El copy trading en Hyperdash te permite seguir a traders rentables y no perderte ningún movimiento: cada operación se copia automáticamente, en tiempo real. Tú eliges a quién seguir y cuánto riesgo asumir, y la plataforma ejecuta por ti. Refleja (Copytrade) o toma el lado opuesto de (Countertrade) las posiciones de perps de hasta 10 traders objetivo, desde una billetera dedicada a esa estrategia.
 
 <iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
@@ -21,20 +16,57 @@ El copy trading en Hyperdash te permite seguir a traders rentables y no perderte
   <Step title="Copia o contrarresta">
     Desde la tarjeta o el perfil de un trader, elige **Copytrade** para reflejar sus posiciones o **Countertrade** para tomar el lado opuesto. También puedes pegar directamente cualquier dirección de billetera, y seguir hasta 10 traders desde una sola billetera.
   </Step>
-  <Step title="Configura y arranca">
-    Define tu asignación, tu tope de apalancamiento y tus filtros, y luego fondea una billetera dedicada. El recorrido completo está en la [página de Autotrade](/es/autotrade).
+  <Step title="Configura el riesgo">
+    Define tu asignación, tu tope de apalancamiento, las reglas de entrada y los filtros de activos. La lista completa está en la tabla de Configuración abajo. Para un solo trader, un gráfico proyecta su PNL de 30 días sobre una asignación de \$1,000, invertido para el countertrading.
   </Step>
-  <Step title="Sigue el rendimiento">
-    La pestaña de Copytrade lista tus billeteras bajo En ejecución, Detenido y Archivado, con patrimonio, PNL, posiciones y registros por billetera que muestran cada acción tomada (y las operaciones omitidas, con sus motivos). También puedes compartir una tarjeta de PNL.
+  <Step title="Fondea una billetera">
+    **Crear nueva**: Hyperdash crea una billetera dedicada y la fondea con USDC desde tu billetera principal. **Usar existente**: conecta tu propia billetera con al menos \$100 USDC, crea una clave API (válida 180 días), aprueba la comisión de builder del 0.05% y habilita el modo de cuenta unificada. Los fondos permanecen en tu propia billetera.
+  </Step>
+  <Step title="Inicia y gestiona">
+    Presiona **Iniciar**. La pestaña de Copytrade lista tus billeteras bajo En ejecución, Detenido y Archivado, con patrimonio, PNL, posiciones y registros por billetera que muestran cada acción tomada (y las operaciones omitidas, con sus motivos). Abre la **Configuración de Copytrade** en cualquier momento para editar, pausar o reanudar, y puedes compartir una tarjeta de PNL.
   </Step>
 </Steps>
 
 ## Qué se copia
 
-El copy trading coloca órdenes reales desde tu billetera de Autotrade; no es un feed de alertas. Cuando un trader objetivo abre o cierra una posición de perps, tu billetera la refleja (o la contrarresta), dimensionada según tu asignación y sujeta a tus ajustes de riesgo: un tope de apalancamiento máximo de posición, un modo opcional de solo posiciones nuevas, un límite de desviación máxima de entrada, y listas blancas o negras de activos. El spot y el HYPE en staking pueden opcionalmente contar para el dimensionamiento de la copia.
+El copy trading coloca órdenes reales desde tu billetera de Copytrade; no es un feed de alertas. Cuando un trader objetivo abre o cierra una posición de perps, tu billetera la refleja (o la contrarresta), dimensionada según tu asignación y sujeta a tus ajustes de riesgo: un tope de apalancamiento máximo de posición, un modo opcional de solo posiciones nuevas, un límite de desviación máxima de entrada, y listas blancas o negras de activos. El spot y el HYPE en staking pueden opcionalmente contar para el dimensionamiento de la copia.
 
 Si quieres observar el posicionamiento de los mejores traders sin operarlo, usa en su lugar [Mejores Traders y Cambios de Posición](/es/cohorts-top-traders-position-changes).
 
-## Detener y fondos
+## Configuración
 
-Tu capital de copy trading vive en una billetera dedicada a la estrategia. Detener siempre cierra las posiciones abiertas de esa billetera, y una billetera detenida puede reanudarse más tarde. Archivar una billetera creada por Hyperdash cierra las posiciones y devuelve el saldo a tu billetera principal. Los detalles sobre custodia, depósitos y la comisión de builder del 0.05% están en la [página de Autotrade](/es/autotrade).
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Modo de trading | Copytrade refleja las posiciones, Countertrade toma el lado opuesto | Copytrade |
+| Traders objetivo | Hasta 10 direcciones por billetera, con pesos iguales o personalizados | Pesos iguales |
+| Apalancamiento máximo de posición | Limita las posiciones copiadas aunque el objetivo use más, de 1x a 40x | 20x |
+| Copiar solo posiciones recién abiertas | Omite las posiciones ya abiertas cuando Copytrade arranca; solo se puede cambiar mientras está detenido | Desactivado |
+| Desviación máxima de entrada | Cuánto peor puede ser tu entrada frente a la del trader, de 0% a 50% | 10% |
+| Incluir spot y activos en staking | Incluye spot y HYPE en staking en el dimensionamiento de la copia | Desactivado |
+| Filtros de activos | Lista blanca o lista negra de activos específicos (pestaña Activos en la configuración) | Todos los activos |
+
+## Detener, archivar, eliminar
+
+- **Detener** siempre cierra las posiciones abiertas de la billetera, así nada queda sin gestionar. Una billetera detenida puede reanudarse más tarde.
+- **Archivar** cierra las posiciones, devuelve el saldo de una billetera creada por Hyperdash a tu billetera principal y la mueve a Archivado. No se puede deshacer. Para billeteras conectadas, tú eliges si las posiciones se cierran automáticamente o quedan abiertas bajo tu custodia.
+- **Eliminar** quita de forma permanente una billetera de Copytrade de tu lista.
+
+<Note>
+  Copiar a un trader etiquetado como algorítmico dispara una advertencia en la app: el copytrading puede no replicar sus resultados por diferencias de velocidad de ejecución.
+</Note>
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿Cuánto cuesta el Copytrading?">
+    Operar a través de Hyperdash usa una comisión de builder del 0.05%, que las billeteras conectadas aprueban durante la configuración. Aplican las comisiones estándar de trading del exchange.
+  </Accordion>
+
+  <Accordion title="¿Quién custodia mis fondos?">
+    Una billetera creada se gestiona bajo tu cuenta de Hyperdash, y al archivarla su saldo vuelve a tu billetera principal. Una billetera conectada permanece bajo tu custodia: Hyperdash la opera a través de una clave API que expira a los 180 días y puede regenerarse desde la pestaña de Copytrade.
+  </Accordion>
+
+  <Accordion title="¿Puedo cambiar de traders después de empezar?">
+    Sí, desde la pestaña de Asignación en la Configuración de Copytrade. Al eliminar un trader, sus posiciones copiadas se cierran en la siguiente sincronización.
+  </Accordion>
+</AccordionGroup>

@@ -1,14 +1,9 @@
 ---
 title: "Copy Trading"
 description: "Discover profitable traders on Hyperdash and automatically copy or counter their trades."
-hidden: true
 ---
 
-Copy trading on Hyperdash lets you follow profitable traders and never miss a move: every trade is copied automatically, in real time. You pick who to follow and how much risk to take, and the platform executes for you.
-
-<Note>
-  Copy trading runs on [**Autotrade**](/autotrade), Hyperdash's automated execution engine. See that page for wallet setup, funding, risk settings, and how to start, stop, and edit a strategy.
-</Note>
+Copy trading on Hyperdash lets you follow profitable traders and never miss a move: every trade is copied automatically, in real time. You pick who to follow and how much risk to take, and the platform executes for you. It mirrors (Copytrade) or takes the opposite side of (Countertrade) the perp positions of up to 10 target traders, from a wallet dedicated to that strategy.
 
 <iframe src="https://www.youtube.com/embed/mcYtsWFWEXk" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
 
@@ -21,20 +16,57 @@ Copy trading on Hyperdash lets you follow profitable traders and never miss a mo
   <Step title="Copy or counter">
     From a trader card or profile, choose **Copytrade** to mirror their positions or **Countertrade** to take the opposite side. You can also paste any wallet address directly, and follow up to 10 traders from a single wallet.
   </Step>
-  <Step title="Configure and start">
-    Set your allocation, leverage cap, and filters, then fund a dedicated wallet. Full walkthrough on the [Autotrade page](/autotrade).
+  <Step title="Configure risk">
+    Set your allocation, leverage cap, entry rules, and asset filters. The full list is in [Settings](#settings) below. For a single trader, a chart projects their 30 day PNL onto a \$1,000 allocation, inverted for countertrading.
   </Step>
-  <Step title="Track performance">
-    The Copytrade tab lists your wallets under Running, Stopped, and Archived, with equity, PNL, positions, and per-wallet logs showing every action taken (and trades skipped, with reasons). You can also share a PNL card.
+  <Step title="Fund a wallet">
+    **Create New**: Hyperdash creates a dedicated wallet and funds it with USDC from your primary wallet. **Use Existing**: connect your own wallet holding at least \$100 USDC, create an API key (valid 180 days), approve the 0.05% builder fee, and enable unified account mode. Funds stay in your own wallet.
+  </Step>
+  <Step title="Start and track">
+    Press **Start**. The Copytrade tab lists your wallets under Running, Stopped, and Archived, with equity, PNL, positions, and per-wallet logs showing every action taken (and trades skipped, with reasons). Open **Copytrade Settings** any time to edit, pause, or resume, and you can share a PNL card.
   </Step>
 </Steps>
 
 ## What gets copied
 
-Copy trading places real orders from your Autotrade wallet; it is not an alert feed. When a target trader opens or closes a perp position, your wallet mirrors it (or counters it), sized to your allocation and subject to your risk settings: a max position leverage cap, an optional new-positions-only mode, a max worse entry limit, and asset whitelists or blacklists. Spot and staked HYPE can optionally count toward copy sizing.
+Copy trading places real orders from your Copytrade wallet; it is not an alert feed. When a target trader opens or closes a perp position, your wallet mirrors it (or counters it), sized to your allocation and subject to your risk settings: a max position leverage cap, an optional new-positions-only mode, a max worse entry limit, and asset whitelists or blacklists. Spot and staked HYPE can optionally count toward copy sizing.
 
 If you want to watch top-trader positioning without trading it, use [Top Traders and Position Changes](/cohorts-top-traders-position-changes) instead.
 
-## Stopping and funds
+## Settings
 
-Your copy trading capital lives in a wallet dedicated to the strategy. Stopping always closes that wallet's open positions, and a stopped wallet can be resumed later. Archiving a Hyperdash-created wallet closes positions and returns the balance to your primary wallet. Details on custody, deposits, and the 0.05% builder fee are on the [Autotrade page](/autotrade).
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Trading mode | Copytrade mirrors positions, Countertrade takes the opposite side | Copytrade |
+| Target traders | Up to 10 addresses per wallet, equal or custom weights | Equal weights |
+| Max position leverage | Caps copied positions even when the target uses more, 1x to 40x | 20x |
+| Only copy newly opened positions | Skips positions already open when Copytrade starts; changeable only while stopped | Off |
+| Max worse entry | How much worse your entry can be vs the trader, 0% to 50% | 10% |
+| Include spot and staked assets | Includes spot and staked HYPE in copy sizing | Off |
+| Asset filters | Whitelist or blacklist specific assets (Assets tab in settings) | All assets |
+
+## Stopping, archiving, deleting
+
+- **Stop** always closes the wallet's open positions, so nothing is left unmanaged. A stopped wallet can be resumed later.
+- **Archive** closes positions, returns a Hyperdash-created wallet's balance to your primary wallet, and moves it to Archived. Cannot be undone. For connected wallets, you choose whether positions close automatically or stay open in your custody.
+- **Delete** permanently removes a Copytrade wallet from your list.
+
+<Note>
+  Copying a trader tagged as algorithmic triggers an in-app warning: copytrading may not replicate their results due to execution speed differences.
+</Note>
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How much does copy trading cost?">
+    Trading through Hyperdash uses a 0.05% builder fee, which connected wallets approve during setup. Standard exchange trading fees apply.
+  </Accordion>
+
+  <Accordion title="Who holds my funds?">
+    A created wallet is managed under your Hyperdash account, and archiving returns its balance to your primary wallet. A connected wallet stays in your custody: Hyperdash trades it through an API key that expires after 180 days and can be regenerated from the Copytrade tab.
+  </Accordion>
+
+  <Accordion title="Can I change traders after starting?">
+    Yes, from the Allocation tab in Copytrade Settings. Removing a trader closes its copied positions on the next sync.
+  </Accordion>
+</AccordionGroup>
