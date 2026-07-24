@@ -7,7 +7,7 @@ description: "Solicita liquidez ampliada para órdenes grandes de perps y ejecut
   Perp RFQ está en **beta privada**. [Solicita acceso](https://hyperdash.com/rfq) y nuestro equipo verificará tu elegibilidad.
 </Note>
 
-Perp RFQ (solicitud de cotización) trae liquidez institucional bajo demanda a Hyperdash. En lugar de trabajar una orden grande a través del libro visible, solicitas cotizaciones a creadores de mercado en lista blanca que compiten en tiempo real para cotizar tu operación: mayor tamaño, mejor ejecución, mejores precios.
+Perp RFQ (solicitud de cotización) trae liquidez institucional bajo demanda a Hyperdash. En lugar de trabajar una orden grande a través del libro visible, solicitas liquidez a creadores de mercado en lista blanca, que responden añadiendo liquidez en ambos lados directamente al libro de órdenes: mayor tamaño, mejor ejecución, mejores precios.
 
 ## Cómo funciona RFQ
 
@@ -16,10 +16,10 @@ Perp RFQ (solicitud de cotización) trae liquidez institucional bajo demanda a H
     Abre la pestaña **RFQ** en el panel de trading, elige tu mercado y define tu tamaño en USDC o en el activo. Elige Comprar/Largo o Vender/Corto. Tu dirección permanece oculta para los creadores de mercado a menos que marques **Revelar el lado**.
   </Step>
   <Step title="Los creadores de mercado responden">
-    Los creadores de mercado en lista blanca reciben el mercado y el tamaño de tu solicitud y tienen **5 segundos** para cotizar o pasar. Los creadores de mercado que responden añaden liquidez real directamente al libro de órdenes público.
+    Los creadores de mercado en lista blanca reciben el mercado y el tamaño de tu solicitud y tienen **5 segundos** para responder o pasar. Los creadores de mercado que responden añaden liquidez real en ambos lados directamente al libro de órdenes público.
   </Step>
-  <Step title="Revisa tus cotizaciones">
-    Tu ticket de RFQ muestra cada cotización a medida que llega, junto con tu slippage estimado actualizado, el precio promedio de ejecución y la mejora frente al libro previo a la RFQ.
+  <Step title="Observa cómo mejora el libro">
+    Tu ticket de RFQ sigue el libro de órdenes a medida que llega la liquidez, mostrando tu slippage estimado actualizado, el precio promedio de ejecución y la mejora frente al libro previo a la RFQ.
   </Step>
   <Step title="Opera, o retírate">
     Tienes **30 segundos** para ejecutar. Nada se opera hasta que confirmas, y puedes cancelar la solicitud o dejarla expirar en cualquier momento.
@@ -31,15 +31,15 @@ Perp RFQ (solicitud de cotización) trae liquidez institucional bajo demanda a H
 | Parámetro | Valor |
 | --- | --- |
 | Tamaño máximo de orden | \$500,000 de nocional por solicitud |
-| Ventana de cotización | 30 segundos, luego la solicitud expira |
-| Tiempo de respuesta del creador de mercado | 5 segundos para cotizar o pasar |
+| Ventana de ejecución | 30 segundos, luego la solicitud expira |
+| Tiempo de respuesta del creador de mercado | 5 segundos para añadir liquidez o pasar |
 | Entrada del tamaño | Nocional en USDC o cantidad del activo base |
 | Dirección | Oculta para los creadores de mercado por defecto, con opción de revelar el lado |
 | Acceso | Beta privada, solo por invitación |
 
 ## Mercados en vivo
 
-Mercados donde los creadores de mercado están cotizando activamente hoy:
+Mercados donde los creadores de mercado están aportando liquidez activamente hoy:
 
 | Grupo | Mercados |
 | --- | --- |
@@ -79,18 +79,18 @@ El resto del universo soportado, que se irá activando mercado a mercado a medid
   </Accordion>
 
   <Accordion title="¿Por qué revelaría mi lado?">
-    Revelarlo permite a los creadores de mercado cotizar un solo lado en lugar de ambos, lo que puede afinar tu precio. Mantenerlo oculto evita señalar tu intención. La elección es tuya en cada solicitud.
+    Revelarlo permite a los creadores de mercado añadir liquidez en un solo lado en lugar de ambos, lo que puede afinar tu precio. Mantenerlo oculto evita señalar tu intención. La elección es tuya en cada solicitud.
   </Accordion>
 
   <Accordion title="¿Estoy obligado a operar después de solicitar?">
-    No. Las cotizaciones no son vinculantes. Tú eliges si ejecutar, y si no haces nada la solicitud simplemente expira a los 30 segundos.
+    No. La liquidez añadida permanece en el libro público. Tú eliges si ejecutar, y si no haces nada la solicitud simplemente expira a los 30 segundos.
   </Accordion>
 
   <Accordion title="¿RFQ tiene un costo adicional?">
     No. No hay comisión adicional por usar RFQ. Las comisiones estándar de trading de Hyperdash aplican a la orden ejecutada.
   </Accordion>
 
-  <Accordion title="¿Qué pasa si ningún creador de mercado cotiza?">
+  <Accordion title="¿Qué pasa si ningún creador de mercado responde?">
     La solicitud expira a los 30 segundos y nada se ejecuta. Puedes enviar una nueva solicitud en cualquier momento.
   </Accordion>
 </AccordionGroup>
