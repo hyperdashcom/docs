@@ -3,13 +3,13 @@ title: "Perp RFQ"
 description: "Demandez une liquidité renforcée pour les grands ordres perps et exécutez avec un meilleur prix."
 ---
 
+<Note>
+  Le Perp RFQ est en **bêta privée**. L'accès se fait sur invitation uniquement pendant que nous intégrons des teneurs de marché et étendons la couverture. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
+</Note>
+
 Le Perp RFQ (Request for Quote, demande de cotation) apporte à Hyperdash une liquidité institutionnelle à la demande. Au lieu de travailler un grand ordre à travers le carnet visible, vous demandez des cotations à des teneurs de marché en liste blanche qui rivalisent en temps réel pour pricer votre trade : plus de taille, une meilleure exécution, un meilleur prix.
 
-Le RFQ est disponible sur 35\+ marchés couvrant actions, matières premières et crypto.
-
-<Note>
-  Le Perp RFQ est actuellement sur invitation uniquement. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
-</Note>
+13 marchés sont aujourd'hui en direct pour le RFQ, et le reste de la liste prise en charge sera déployé à mesure que les teneurs de marché élargissent leur couverture.
 
 ## Comment fonctionne le RFQ
 
@@ -37,28 +37,41 @@ Le RFQ est disponible sur 35\+ marchés couvrant actions, matières premières e
 | Temps de réponse des teneurs de marché | 5 secondes pour coter ou passer |
 | Saisie de la taille | Notionnel USDC ou montant dans l'actif de base |
 | Direction | Cachée aux teneurs de marché par défaut, révélation du côté optionnelle |
-| Accès | Sur invitation uniquement |
+| Accès | Bêta privée, sur invitation uniquement |
 
-## Marchés disponibles
+## Marchés en direct
+
+Marchés où les teneurs de marché cotent activement aujourd'hui :
+
+| Groupe | Marchés |
+| --- | --- |
+| Actions Mag 7 | AAPL, AMZN, GOOGL, META, MSFT, NVDA, TSLA |
+| Semi-conducteurs et mémoire | MU, SNDK, SKHX |
+| Indices | SP500, XYZ100 |
+| Pré-IPO | SPCX |
+
+La liste en vigueur est toujours affichée dans le sélecteur d'actifs RFQ de l'application.
+
+## Marchés pris en charge
+
+Le reste de l'univers pris en charge, mis en ligne marché par marché à mesure que la couverture s'étend :
 
 <Frame>
-  ![RFQ is available for 35\+ pairs across equities, commodities and crypto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+  ![RFQ coverage spans equities, indices, commodities and crypto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
 </Frame>
 
 | Catégorie | Marchés |
 | --- | --- |
 | Crypto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
-| Actions | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Actions | AMD, ARM, CBRS, COIN, CRCL, HOOD, HYUNDAI, INTC, MRVL, MSTR, SMSN |
 | Matières premières | GOLD, SILVER, CL, BRENTOIL |
-| Indices et ETF | SP500, XYZ100, EWY, DRAM |
-
-La liste en vigueur est toujours affichée dans le sélecteur d'actifs RFQ de l'application, et elle s'étend à mesure que les teneurs de marché élargissent leur couverture.
+| Indices et ETF | EWY, DRAM |
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="Comment obtenir l'accès ?">
-    Le Perp RFQ est sur invitation uniquement. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
+    Le Perp RFQ est en bêta privée et sur invitation uniquement. [Demandez l'accès](https://hyperdash.com/rfq) et notre équipe vérifiera votre éligibilité.
   </Accordion>
 
   <Accordion title="Que voient les teneurs de marché ?">

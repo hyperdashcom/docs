@@ -3,13 +3,13 @@ title: "Perp RFQ"
 description: "대규모 무기한 선물 주문을 위한 유동성 확대를 요청하고 개선된 가격으로 실행합니다."
 ---
 
+<Note>
+  Perp RFQ는 **비공개 베타** 단계입니다. 마켓 메이커를 온보딩하고 커버리지를 확장하는 동안 액세스는 초대 전용입니다. [액세스를 요청](https://hyperdash.com/rfq)하시면 저희 팀이 자격을 확인합니다.
+</Note>
+
 Perp RFQ(견적 요청)는 기관급 유동성을 Hyperdash에 온디맨드로 가져옵니다. 큰 주문을 눈에 보이는 호가창에서 집행하는 대신, 화이트리스트에 등록된 마켓 메이커들에게 견적을 요청하면 이들이 실시간으로 경쟁하며 거래 가격을 제시합니다. 더 큰 수량, 개선된 실행, 더 나은 가격입니다.
 
-RFQ는 주식, 원자재, 암호화폐에 걸쳐 35\+개 마켓에서 사용할 수 있습니다.
-
-<Note>
-  Perp RFQ는 현재 초대 전용입니다. [액세스를 요청](https://hyperdash.com/rfq)하시면 저희 팀이 자격을 확인합니다.
-</Note>
+현재 13개 마켓에서 RFQ가 라이브로 제공되며, 지원 목록의 나머지 마켓은 마켓 메이커가 커버리지를 추가함에 따라 순차적으로 열립니다.
 
 ## RFQ 작동 방식
 
@@ -37,28 +37,41 @@ RFQ는 주식, 원자재, 암호화폐에 걸쳐 35\+개 마켓에서 사용할 
 | 마켓 메이커 응답 시간 | 견적 또는 패스까지 5초 |
 | 수량 입력 | USDC 명목 가치 또는 기초 자산 수량 |
 | 방향 | 기본적으로 마켓 메이커에게 숨김, 방향 공개는 선택 사항 |
-| 액세스 | 초대 전용 |
+| 액세스 | 비공개 베타, 초대 전용 |
 
-## 이용 가능한 마켓
+## 라이브 마켓
+
+마켓 메이커가 현재 활발히 견적을 제시하고 있는 마켓입니다.
+
+| 그룹 | 마켓 |
+| --- | --- |
+| Mag 7 주식 | AAPL, AMZN, GOOGL, META, MSFT, NVDA, TSLA |
+| 반도체 및 메모리 | MU, SNDK, SKHX |
+| 지수 | SP500, XYZ100 |
+| 프리 IPO | SPCX |
+
+실시간 목록은 항상 앱의 RFQ 자산 선택기에 표시됩니다.
+
+## 지원 마켓
+
+지원 대상의 나머지 마켓으로, 마켓 메이커의 커버리지가 추가되는 대로 마켓별로 순차 라이브됩니다.
 
 <Frame>
-  ![RFQ is available for 35\+ pairs across equities, commodities and crypto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+  ![RFQ coverage spans equities, indices, commodities and crypto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
 </Frame>
 
 | 카테고리 | 마켓 |
 | --- | --- |
 | 암호화폐 | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
-| 주식 | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| 주식 | AMD, ARM, CBRS, COIN, CRCL, HOOD, HYUNDAI, INTC, MRVL, MSTR, SMSN |
 | 원자재 | GOLD, SILVER, CL, BRENTOIL |
-| 지수 및 ETF | SP500, XYZ100, EWY, DRAM |
-
-실시간 목록은 항상 앱의 RFQ 자산 선택기에 표시되며, 마켓 메이커의 커버리지가 늘어남에 따라 확장됩니다.
+| 지수 및 ETF | EWY, DRAM |
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="액세스는 어떻게 받나요?">
-    Perp RFQ는 초대 전용입니다. [액세스를 요청](https://hyperdash.com/rfq)하시면 저희 팀이 자격을 확인합니다.
+    Perp RFQ는 비공개 베타이며 초대 전용입니다. [액세스를 요청](https://hyperdash.com/rfq)하시면 저희 팀이 자격을 확인합니다.
   </Accordion>
 
   <Accordion title="마켓 메이커는 무엇을 보나요?">

@@ -3,13 +3,13 @@ title: "Perp RFQ"
 description: "为大额永续订单请求更多流动性，以更优价格执行。"
 ---
 
+<Note>
+  Perp RFQ 目前处于**内测（private beta）**阶段。在我们接入做市商并扩大覆盖范围期间，访问仅限邀请。[申请访问](https://hyperdash.com/rfq)，我们的团队会核实您的资格。
+</Note>
+
 Perp RFQ（询价，Request for Quote）将机构流动性按需引入 Hyperdash。您无需在可见的订单簿中慢慢消化大单，而是向白名单做市商发起询价，由他们实时竞争为您的交易定价：更大数量、更好执行、更优价格。
 
-RFQ 覆盖股票、大宗商品和加密货币的 35\+ 个市场。
-
-<Note>
-  Perp RFQ 目前仅限邀请使用。[申请访问](https://hyperdash.com/rfq)，我们的团队会核实您的资格。
-</Note>
+目前已有 13 个市场开放 RFQ，其余受支持的市场将随做市商扩大覆盖而陆续上线。
 
 ## RFQ 运作方式
 
@@ -37,28 +37,41 @@ RFQ 覆盖股票、大宗商品和加密货币的 35\+ 个市场。
 | 做市商响应时间 | 5 秒内报价或放弃 |
 | 数量输入 | USDC 名义价值或基础资产数量 |
 | 方向 | 默认对做市商隐藏，可选择披露方向 |
-| 访问权限 | 仅限邀请 |
+| 访问权限 | 内测，仅限邀请 |
 
-## 可用市场
+## 已上线市场
+
+做市商目前正在积极报价的市场：
+
+| 分组 | 市场 |
+| --- | --- |
+| Mag 7 股票 | AAPL, AMZN, GOOGL, META, MSFT, NVDA, TSLA |
+| 半导体与存储 | MU, SNDK, SKHX |
+| 指数 | SP500, XYZ100 |
+| Pre-IPO | SPCX |
+
+实时列表始终显示在应用内的 RFQ 资产选择器中。
+
+## 支持的市场
+
+其余受支持的市场，将随覆盖范围扩大逐个上线：
 
 <Frame>
-  ![RFQ 覆盖股票、大宗商品和加密货币的 35\+ 个交易对](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+  ![RFQ 覆盖股票、指数、大宗商品和加密货币](https://hyperdash.com/landing/rfq/rfq-markets.webp)
 </Frame>
 
 | 类别 | 市场 |
 | --- | --- |
 | 加密货币 | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
-| 股票 | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| 股票 | AMD, ARM, CBRS, COIN, CRCL, HOOD, HYUNDAI, INTC, MRVL, MSTR, SMSN |
 | 大宗商品 | GOLD, SILVER, CL, BRENTOIL |
-| 指数与 ETF | SP500, XYZ100, EWY, DRAM |
-
-实时列表始终显示在应用内的 RFQ 资产选择器中，并随做市商扩大覆盖而增加。
+| 指数与 ETF | EWY, DRAM |
 
 ## 常见问题
 
 <AccordionGroup>
   <Accordion title="如何获得访问权限？">
-    Perp RFQ 仅限邀请。[申请访问](https://hyperdash.com/rfq)，我们的团队会核实您的资格。
+    Perp RFQ 目前处于内测阶段，仅限邀请。[申请访问](https://hyperdash.com/rfq)，我们的团队会核实您的资格。
   </Accordion>
 
   <Accordion title="做市商能看到什么？">

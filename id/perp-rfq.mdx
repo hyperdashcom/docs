@@ -3,13 +3,13 @@ title: "Perp RFQ"
 description: "Minta likuiditas tambahan untuk order perp besar dan eksekusi dengan harga yang lebih baik."
 ---
 
+<Note>
+  Perp RFQ berada dalam **beta privat**. Akses hanya lewat undangan selama kami melakukan onboarding market maker dan memperluas cakupan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
+</Note>
+
 Perp RFQ (Request for Quote) menghadirkan likuiditas institusional sesuai permintaan ke Hyperdash. Alih-alih mengeksekusi order besar melalui order book yang terlihat, Anda meminta kuotasi dari market maker whitelist yang bersaing secara real time untuk menetapkan harga trade Anda: ukuran lebih besar, eksekusi lebih baik, harga lebih baik.
 
-RFQ tersedia untuk 35\+ pasar di ekuitas, komoditas, dan kripto.
-
-<Note>
-  Perp RFQ saat ini hanya lewat undangan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
-</Note>
+Saat ini 13 pasar sudah live untuk RFQ, dan sisa daftar yang didukung akan diluncurkan seiring market maker menambah cakupan.
 
 ## Cara kerja RFQ
 
@@ -37,28 +37,41 @@ RFQ tersedia untuk 35\+ pasar di ekuitas, komoditas, dan kripto.
 | Waktu balasan market maker | 5 detik untuk memberi kuotasi atau melewatkan |
 | Input ukuran | Nosional USDC atau jumlah aset dasar |
 | Arah | Tersembunyi dari market maker secara default, dengan opsi mengungkap sisi |
-| Akses | Hanya lewat undangan |
+| Akses | Beta privat, hanya lewat undangan |
 
-## Pasar yang tersedia
+## Pasar live
+
+Pasar tempat market maker aktif memberi kuotasi saat ini:
+
+| Grup | Pasar |
+| --- | --- |
+| Ekuitas Mag 7 | AAPL, AMZN, GOOGL, META, MSFT, NVDA, TSLA |
+| Semikonduktor dan memori | MU, SNDK, SKHX |
+| Indeks | SP500, XYZ100 |
+| Pra-IPO | SPCX |
+
+Daftar live selalu ditampilkan di pemilih aset RFQ dalam aplikasi.
+
+## Pasar yang didukung
+
+Sisa pasar yang didukung, yang akan live satu per satu seiring cakupan ditambahkan:
 
 <Frame>
-  ![RFQ tersedia untuk 35\+ pasangan di ekuitas, komoditas dan kripto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
+  ![Cakupan RFQ mencakup ekuitas, indeks, komoditas dan kripto](https://hyperdash.com/landing/rfq/rfq-markets.webp)
 </Frame>
 
 | Kategori | Pasar |
 | --- | --- |
 | Kripto | BTC, ETH, HYPE, SOL, XRP, ZEC, LIT |
-| Ekuitas | AAPL, AMD, AMZN, ARM, CBRS, COIN, CRCL, GOOGL, HOOD, HYUNDAI, INTC, META, MRVL, MSFT, MSTR, MU, NVDA, SKHX, SMSN, SNDK, SPCX, TSLA |
+| Ekuitas | AMD, ARM, CBRS, COIN, CRCL, HOOD, HYUNDAI, INTC, MRVL, MSTR, SMSN |
 | Komoditas | GOLD, SILVER, CL, BRENTOIL |
-| Indeks & ETF | SP500, XYZ100, EWY, DRAM |
-
-Daftar live selalu ditampilkan di pemilih aset RFQ dalam aplikasi, dan bertambah seiring market maker menambah cakupan.
+| Indeks & ETF | EWY, DRAM |
 
 ## FAQ
 
 <AccordionGroup>
   <Accordion title="Bagaimana cara mendapatkan akses?">
-    Perp RFQ hanya lewat undangan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
+    Perp RFQ berada dalam beta privat dan hanya lewat undangan. [Minta akses](https://hyperdash.com/rfq) dan tim kami akan memverifikasi kelayakan Anda.
   </Accordion>
 
   <Accordion title="Apa yang dilihat market maker?">
