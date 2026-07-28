@@ -8,7 +8,7 @@ Chase-TWAP teilt Ihre Order wie ein normaler [TWAP](/de/orders/twap) in Ein-Minu
 ## So werden Orders platziert
 
 - Teilt Ihre Dauer in feste Ein-Minuten-Clips. Das Formular zeigt Clip-Intervall, Anzahl der Clips und Größe je Clip.
-- Während jedes Clips verfolgt eine Post-only-Limit-Order den besten Bid (Käufe) oder besten Ask (Verkäufe) und arbeitet das offene Ziel dieses Clips ab. Sie liegt passiv im Buch und überschreitet den Spread nie.
+- Während jedes Clips verfolgt eine Post-only-Limit-Order den besten Bid (Käufe) oder besten Ask (Verkäufe) und arbeitet das offene Ziel dieses Clips ab. Sie wird etwa alle 2 Sekunden neu bepreist, wenn sich die Spitze des Buchs bewegt, liegt passiv im Buch und überschreitet den Spread nie.
 - Am Ende jedes Clips wird die Chase-Order storniert und ihre Ausführungen werden abgeglichen, sodass die nächste Minute die aktualisierte Restmenge arbeitet.
 - Alle fünf Clips und erneut zur finalen Deadline führt eine Market-Order aus, was die Chase-Legs nicht ausgeführt haben, begrenzt auf 8% Slippage.
 - Clips werden aus einem kumulierten Ziel statt aus einem festen Betrag je Clip bemessen. Eine nicht vollständig ausgeführte Minute rollt so automatisch in die nächste, und der letzte Clip trifft exakt Ihre Gesamtgröße.
@@ -26,7 +26,6 @@ Chase-TWAP teilt Ihre Order wie ein normaler [TWAP](/de/orders/twap) in Ein-Minu
 | --- | --- | --- |
 | Größe | Gesamte Ordergröße im Asset oder als USDC-Nominalwert. | Keiner |
 | Dauer | Ausführungsfenster. Muss mindestens 5 Minuten und höchstens 24 Stunden betragen. | Keiner |
-| Refresh-Aggressivität | Wie oft die liegende Chase-Order neu bepreist wird, von 1 bis 10. 1 bepreist alle 10 Sekunden neu, 5 alle 2 Sekunden, 10 jede Sekunde. Höhere Werte folgen dem Buch enger. | 5 |
 | Nur reduzieren (optional) | Beschränkt die Order auf das Reduzieren einer bestehenden Position. | Aus |
 
 ## Beispiel

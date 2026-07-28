@@ -8,7 +8,7 @@ TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/
 ## Cara order ditempatkan
 
 - Membagi durasi Anda menjadi klip tetap satu menit. Formulir menampilkan interval klip, jumlah klip, dan ukuran per klip.
-- Selama tiap klip, satu order limit post-only mengejar bid terbaik (beli) atau ask terbaik (jual), mengerjakan target tersisa klip tersebut. Order menunggu secara pasif dan tidak pernah melintasi spread.
+- Selama tiap klip, satu order limit post-only mengejar bid terbaik (beli) atau ask terbaik (jual), mengerjakan target tersisa klip tersebut. Order mengubah harga sekitar tiap 2 detik saat puncak order book bergerak, menunggu secara pasif, dan tidak pernah melintasi spread.
 - Di akhir tiap klip, order chase dibatalkan dan eksekusinya direkonsiliasi, sehingga menit berikutnya mengerjakan kekurangan yang sudah diperbarui.
 - Setiap lima klip, dan sekali lagi pada tenggat akhir, satu order market mengisi apa yang tidak terisi oleh chase, dibatasi slippage 8%.
 - Ukuran klip dihitung dari target kumulatif, bukan jumlah tetap per klip, sehingga menit yang kurang terisi otomatis bergulir ke klip berikutnya dan klip terakhir menutup tepat pada ukuran total Anda.
@@ -26,7 +26,6 @@ TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/
 | --- | --- | --- |
 | Ukuran | Ukuran total order dalam aset atau nosional USDC. | Tidak ada |
 | Durasi | Jendela eksekusi. Minimal 5 menit dan maksimal 24 jam. | Tidak ada |
-| Agresivitas Refresh | Seberapa sering order chase yang menunggu mengubah harga, dari 1 sampai 10. Nilai 1 mengubah harga tiap 10 detik, 5 tiap 2 detik, 10 tiap detik. Nilai lebih tinggi mengikuti order book lebih dekat. | 5 |
 | Hanya Kurangi (opsional) | Membatasi order hanya untuk mengurangi posisi yang ada. | Nonaktif |
 
 ## Contoh

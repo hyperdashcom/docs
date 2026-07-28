@@ -8,7 +8,7 @@ Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/
 ## Comment les ordres sont placés
 
 - Découpe votre durée en tranches fixes d'une minute. Le formulaire affiche l'intervalle de tranche, le nombre de tranches et la taille par tranche.
-- Pendant chaque tranche, un ordre limite post-only poursuit le meilleur bid (achats) ou le meilleur ask (ventes) et travaille l'objectif restant de cette tranche. Il repose passivement et ne franchit jamais le spread.
+- Pendant chaque tranche, un ordre limite post-only poursuit le meilleur bid (achats) ou le meilleur ask (ventes) et travaille l'objectif restant de cette tranche. Il reprice environ toutes les 2 secondes lorsque le haut du carnet bouge, repose passivement et ne franchit jamais le spread.
 - À la fin de chaque tranche, la poursuite est annulée et ses exécutions sont réconciliées, de sorte que la minute suivante travaille le déficit mis à jour.
 - Toutes les cinq tranches, et de nouveau à l'échéance finale, un ordre au marché exécute ce que les poursuites n'ont pas exécuté, plafonné à 8% de slippage.
 - Les tranches sont dimensionnées à partir d'un objectif cumulé et non d'un montant fixe par tranche, donc une minute incomplète bascule automatiquement sur la suivante et la dernière tranche atteint exactement votre taille totale.
@@ -26,7 +26,6 @@ Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/
 | --- | --- | --- |
 | Taille | Taille totale de l'ordre dans l'actif ou en notionnel USDC. | Aucun |
 | Durée | Fenêtre d'exécution. Doit être d'au moins 5 minutes et d'au plus 24 heures. | Aucun |
-| Agressivité de rafraîchissement | Fréquence de repricing de la poursuite en carnet, de 1 à 10. 1 reprice toutes les 10 secondes, 5 toutes les 2 secondes, 10 chaque seconde. Les valeurs élevées suivent le carnet de plus près. | 5 |
 | Réduire uniquement (optionnel) | Restreint l'ordre à la réduction d'une position existante. | Désactivé |
 
 ## Exemple

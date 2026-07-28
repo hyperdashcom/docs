@@ -8,7 +8,7 @@ O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/t
 ## Como as ordens são colocadas
 
 - Divide sua duração em clipes fixos de um minuto. O formulário mostra o intervalo do clipe, o número de clipes e o tamanho por clipe.
-- Durante cada clipe, uma ordem limite post-only persegue o melhor bid (compras) ou o melhor ask (vendas), trabalhando o objetivo pendente daquele clipe. Ela repousa de forma passiva e nunca cruza o spread.
+- Durante cada clipe, uma ordem limite post-only persegue o melhor bid (compras) ou o melhor ask (vendas), trabalhando o objetivo pendente daquele clipe. Ela reprecifica a cada 2 segundos aproximadamente conforme o topo do livro se move, repousa de forma passiva e nunca cruza o spread.
 - No fim de cada clipe a perseguição é cancelada e suas execuções são reconciliadas, de modo que o minuto seguinte trabalha o déficit atualizado.
 - A cada cinco clipes, e novamente no prazo final, uma ordem a mercado executa o que as perseguições não executaram, com limite de 8% de slippage.
 - Os clipes são dimensionados a partir de um alvo acumulado e não de um valor fixo por clipe, então um minuto incompleto passa automaticamente para o seguinte e o clipe final resolve exatamente o seu tamanho total.
@@ -26,7 +26,6 @@ O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/t
 | --- | --- | --- |
 | Tamanho | Tamanho total da ordem no ativo ou em nocional USDC. | Nenhum |
 | Duração | Janela de execução. Deve ser de no mínimo 5 minutos e no máximo 24 horas. | Nenhum |
-| Agressividade de atualização | Com que frequência a perseguição em repouso reprecifica, de 1 a 10. 1 reprecifica a cada 10 segundos, 5 a cada 2 segundos, 10 a cada segundo. Valores mais altos acompanham o livro mais de perto. | 5 |
 | Somente Reduzir (opcional) | Restringe a ordem a reduzir uma posição existente. | Desativado |
 
 ## Exemplo

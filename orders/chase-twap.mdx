@@ -8,7 +8,7 @@ Chase TWAP splits your order into one-minute clips like a standard [TWAP](/order
 ## How it places orders
 
 - Divides your duration into fixed one-minute clips. The form previews the clip interval, the number of clips, and the size per clip.
-- During each clip, one post-only limit order chases the best bid (buys) or best ask (sells), working that clip's outstanding target. It rests passively and never crosses the spread.
+- During each clip, one post-only limit order chases the best bid (buys) or best ask (sells), working that clip's outstanding target. It reprices about every 2 seconds as the top of book moves, rests passively, and never crosses the spread.
 - At the end of each clip the chase is canceled and its fills are reconciled, so the next minute works the updated shortfall.
 - Every five clips, and again at the final deadline, one market order fills whatever the chase legs did not, capped at 8% slippage.
 - Clips are sized from a cumulative target rather than a fixed per-clip amount, so an underfilled minute rolls into the next one automatically and the final clip resolves to your exact total size.
@@ -26,7 +26,6 @@ Chase TWAP splits your order into one-minute clips like a standard [TWAP](/order
 | --- | --- | --- |
 | Size | Total order size in the asset or USDC notional. | None |
 | Duration | Execution window. Must be at least 5 minutes and no more than 24 hours. | None |
-| Refresh Aggression | How often the resting chase reprices, from 1 to 10. 1 reprices every 10 seconds, 5 every 2 seconds, 10 every second. Higher values follow the book more closely. | 5 |
 | Reduce Only (optional) | Restricts the order to reducing an existing position. | Off |
 
 ## Example
