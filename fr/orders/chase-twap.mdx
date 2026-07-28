@@ -1,0 +1,42 @@
+---
+title: "TWAP de poursuite (Chase TWAP)"
+description: "Un TWAP qui exécute chaque tranche en ordre de poursuite passif et balaie le reliquat au marché."
+---
+
+Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/orders/twap) classique, mais au lieu d'envoyer chaque tranche au marché il la travaille en ordre [de poursuite (Chase)](/fr/orders/chase) post-only en haut du carnet. Ce que la poursuite n'exécute pas est reporté et balayé au marché à cadence fixe. L'objectif est le rythme d'un TWAP avec des prix maker sur la majeure partie de la taille. Le Chase TWAP est disponible uniquement sur les marchés perpétuels.
+
+## Comment les ordres sont placés
+
+- Découpe votre durée en tranches fixes d'une minute. Le formulaire affiche l'intervalle de tranche, le nombre de tranches et la taille par tranche.
+- Pendant chaque tranche, un ordre limite post-only poursuit le meilleur bid (achats) ou le meilleur ask (ventes) et travaille l'objectif restant de cette tranche. Il repose passivement et ne franchit jamais le spread.
+- À la fin de chaque tranche, la poursuite est annulée et ses exécutions sont réconciliées, de sorte que la minute suivante travaille le déficit mis à jour.
+- Toutes les cinq tranches, et de nouveau à l'échéance finale, un ordre au marché exécute ce que les poursuites n'ont pas exécuté, plafonné à 8% de slippage.
+- Les tranches sont dimensionnées à partir d'un objectif cumulé et non d'un montant fixe par tranche, donc une minute incomplète bascule automatiquement sur la suivante et la dernière tranche atteint exactement votre taille totale.
+- Les poursuites en carnet et les ordres au marché en cours sont toujours bornés par votre taille restante, la stratégie ne peut donc pas surexécuter.
+
+## Quand l'utiliser
+
+- Travailler une taille importante dans le temps en captant des exécutions maker au lieu de payer le spread à chaque tranche
+- Obtenir le rythme d'un TWAP avec un meilleur prix moyen qu'un TWAP uniquement au marché sur un carnet calme ou en range
+- Accumuler ou distribuer une position perpétuelle où l'achèvement compte, le balayage périodique garantissant la progression
+
+## Paramètres
+
+| Paramètre | Description et options | Par défaut |
+| --- | --- | --- |
+| Taille | Taille totale de l'ordre dans l'actif ou en notionnel USDC. | Aucun |
+| Durée | Fenêtre d'exécution. Doit être d'au moins 5 minutes et d'au plus 24 heures. | Aucun |
+| Agressivité de rafraîchissement | Fréquence de repricing de la poursuite en carnet, de 1 à 10. 1 reprice toutes les 10 secondes, 5 toutes les 2 secondes, 10 chaque seconde. Les valeurs élevées suivent le carnet de plus près. | 5 |
+| Réduire uniquement (optionnel) | Restreint l'ordre à la réduction d'une position existante. | Désactivé |
+
+## Exemple
+
+Vous voulez acheter 6 BTC sur 60 minutes. Hyperdash crée 60 tranches d'une minute d'environ 0,1 BTC chacune. À la minute une, un achat post-only repose au meilleur bid et reprice au fil du bid, exécutant 0,07 BTC. La minute deux travaille alors 0,13 BTC, le reliquat plus la nouvelle tranche. À la minute cinq, le déficit cumulé est balayé par un seul ordre au marché, puis le cycle se répète. À la minute 60, un balayage final solde le reste pour compléter les 6 BTC.
+
+<Note>
+  Chaque tranche d'une minute doit valoir au moins \$10. En dessous, l'exécution se reporte sur les tranches suivantes et le balayage périodique fait davantage de travail. Raccourcissez la durée ou augmentez la taille pour garder les tranches au-dessus du minimum.
+</Note>
+
+<Note>
+  Les poursuites reposent uniquement du côté passif, donc sur un marché à tendance rapide une plus grande part de votre taille est exécutée par les balayages au marché que par des ordres maker. Le Chase TWAP garantit l'achèvement avant votre échéance, pas un taux d'exécution maker.
+</Note>

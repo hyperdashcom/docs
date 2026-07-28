@@ -1,0 +1,42 @@
+---
+title: "TWAP Perseguir (Chase TWAP)"
+description: "Un TWAP que trabaja cada porción como una orden pasiva de persecución y barre el faltante a mercado."
+---
+
+Chase TWAP divide tu orden en clips de un minuto igual que un [TWAP](/es/orders/twap) estándar, pero en lugar de enviar cada clip a mercado lo trabaja como una orden [Perseguir (Chase)](/es/orders/chase) post-only en la cima del libro. Lo que la persecución no llena se arrastra al siguiente clip y se barre a mercado con una cadencia fija. El objetivo es el ritmo de un TWAP con precios de maker en la mayor parte del tamaño. Chase TWAP solo está disponible en mercados de perpetuos.
+
+## Cómo coloca las órdenes
+
+- Divide tu duración en clips fijos de un minuto. El formulario muestra el intervalo del clip, el número de clips y el tamaño por clip.
+- Durante cada clip, una orden límite post-only persigue el mejor bid (compras) o el mejor ask (ventas), trabajando el objetivo pendiente de ese clip. Descansa de forma pasiva y nunca cruza el spread.
+- Al final de cada clip la persecución se cancela y sus ejecuciones se reconcilian, de modo que el minuto siguiente trabaja el faltante actualizado.
+- Cada cinco clips, y de nuevo en el plazo final, una orden de mercado llena lo que las persecuciones no llenaron, con un límite de 8% de deslizamiento.
+- Los clips se dimensionan a partir de un objetivo acumulado y no de una cantidad fija por clip, así que un minuto incompleto pasa automáticamente al siguiente y el clip final resuelve exactamente tu tamaño total.
+- Las persecuciones en descanso y las órdenes de mercado en vuelo siempre están acotadas por tu tamaño restante, por lo que la estrategia no puede sobreejecutar.
+
+## Cuándo usarlo
+
+- Trabajar tamaño grande en el tiempo capturando ejecuciones de maker en lugar de pagar el spread en cada clip
+- Obtener el ritmo de un TWAP con mejor precio promedio que un TWAP solo a mercado en un libro tranquilo o en rango
+- Acumular o distribuir una posición de perpetuos donde completar importa, ya que el barrido periódico garantiza avance
+
+## Parámetros
+
+| Parámetro | Descripción y opciones | Por defecto |
+| --- | --- | --- |
+| Tamaño | Tamaño total de la orden en el activo o en nocional USDC. | Ninguno |
+| Duración | Ventana de ejecución. Debe ser de al menos 5 minutos y como máximo 24 horas. | Ninguno |
+| Agresividad de refresco | Con qué frecuencia se reprecia la persecución en descanso, de 1 a 10. 1 reprecia cada 10 segundos, 5 cada 2 segundos, 10 cada segundo. Los valores más altos siguen el libro más de cerca. | 5 |
+| Solo Reducir (opcional) | Restringe la orden a reducir una posición existente. | Desactivado |
+
+## Ejemplo
+
+Quieres comprar 6 BTC en 60 minutos. Hyperdash crea 60 clips de un minuto de aproximadamente 0.1 BTC cada uno. En el minuto uno una compra post-only descansa en el mejor bid y se reprecia según se mueve el bid, llenando 0.07 BTC. El minuto dos trabaja entonces 0.13 BTC, el sobrante más el clip nuevo. En el minuto cinco el faltante acumulado se barre con una sola orden de mercado, y el ciclo se repite. En el minuto 60 un barrido final cierra cualquier resto para completar los 6 BTC.
+
+<Note>
+  Cada clip de un minuto debe valer al menos \$10. Por debajo de eso, la ejecución se arrastra a clips posteriores y el barrido periódico hace más trabajo. Acorta la duración o aumenta el tamaño para mantener los clips por encima del mínimo.
+</Note>
+
+<Note>
+  Las persecuciones descansan solo en el lado pasivo, así que en un mercado con tendencia rápida más parte de tu tamaño se llena mediante los barridos a mercado que con órdenes maker. Chase TWAP garantiza completar antes de tu plazo, no una tasa de ejecución maker.
+</Note>

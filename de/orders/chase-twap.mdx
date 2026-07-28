@@ -1,0 +1,42 @@
+---
+title: "Chase-TWAP"
+description: "Ein TWAP, der jede Tranche als passive Chase-Order arbeitet und Restmengen am Markt abräumt."
+---
+
+Chase-TWAP teilt Ihre Order wie ein normaler [TWAP](/de/orders/twap) in Ein-Minuten-Clips auf, schickt jeden Clip aber nicht an den Markt, sondern arbeitet ihn als Post-only-[Chase-Order](/de/orders/chase) an der Spitze des Orderbuchs. Was die Chase-Order nicht ausführt, wird übertragen und in festem Takt am Markt abgeräumt. Ziel ist das Tempo eines TWAP bei Maker-Preisen für den Großteil der Größe. Chase-TWAP ist ausschließlich auf Perp-Märkten verfügbar.
+
+## So werden Orders platziert
+
+- Teilt Ihre Dauer in feste Ein-Minuten-Clips. Das Formular zeigt Clip-Intervall, Anzahl der Clips und Größe je Clip.
+- Während jedes Clips verfolgt eine Post-only-Limit-Order den besten Bid (Käufe) oder besten Ask (Verkäufe) und arbeitet das offene Ziel dieses Clips ab. Sie liegt passiv im Buch und überschreitet den Spread nie.
+- Am Ende jedes Clips wird die Chase-Order storniert und ihre Ausführungen werden abgeglichen, sodass die nächste Minute die aktualisierte Restmenge arbeitet.
+- Alle fünf Clips und erneut zur finalen Deadline führt eine Market-Order aus, was die Chase-Legs nicht ausgeführt haben, begrenzt auf 8% Slippage.
+- Clips werden aus einem kumulierten Ziel statt aus einem festen Betrag je Clip bemessen. Eine nicht vollständig ausgeführte Minute rollt so automatisch in die nächste, und der letzte Clip trifft exakt Ihre Gesamtgröße.
+- Liegende Chase-Orders und laufende Market-Orders sind stets durch Ihre Restgröße begrenzt, die Strategie kann daher nicht überausführen.
+
+## Wann einsetzen
+
+- Große Größe über die Zeit arbeiten und dabei Maker-Ausführungen mitnehmen, statt in jedem Clip den Spread zu zahlen
+- Das Tempo eines TWAP mit besserem Durchschnittspreis als ein reiner Market-TWAP in einem ruhigen oder seitwärts laufenden Buch
+- Eine Perp-Position auf- oder abbauen, bei der die Fertigstellung zählt, da das periodische Abräumen den Fortschritt sichert
+
+## Parameter
+
+| Parameter | Beschreibung und Optionen | Standard |
+| --- | --- | --- |
+| Größe | Gesamte Ordergröße im Asset oder als USDC-Nominalwert. | Keiner |
+| Dauer | Ausführungsfenster. Muss mindestens 5 Minuten und höchstens 24 Stunden betragen. | Keiner |
+| Refresh-Aggressivität | Wie oft die liegende Chase-Order neu bepreist wird, von 1 bis 10. 1 bepreist alle 10 Sekunden neu, 5 alle 2 Sekunden, 10 jede Sekunde. Höhere Werte folgen dem Buch enger. | 5 |
+| Nur reduzieren (optional) | Beschränkt die Order auf das Reduzieren einer bestehenden Position. | Aus |
+
+## Beispiel
+
+Sie möchten 6 BTC über 60 Minuten kaufen. Hyperdash erstellt 60 Ein-Minuten-Clips von je rund 0,1 BTC. In Minute eins liegt ein Post-only-Kauf am besten Bid und wird mit dem Bid neu bepreist, dabei werden 0,07 BTC ausgeführt. Minute zwei arbeitet dann 0,13 BTC, den Rest plus den neuen Clip. In Minute fünf wird die aufgelaufene Restmenge mit einer einzelnen Market-Order abgeräumt, danach wiederholt sich der Zyklus. In Minute 60 schließt ein finales Abräumen den Rest ab, sodass die vollen 6 BTC ausgeführt sind.
+
+<Note>
+  Jeder Ein-Minuten-Clip muss mindestens \$10 wert sein. Darunter verschiebt sich die Ausführung in spätere Clips und das periodische Abräumen übernimmt mehr Arbeit. Verkürzen Sie die Dauer oder erhöhen Sie die Größe, damit die Clips über dem Minimum bleiben.
+</Note>
+
+<Note>
+  Die Chase-Legs liegen nur auf der passiven Seite. In einem schnell trendenden Markt wird daher mehr Ihrer Größe über die Market-Abräumungen als über Maker-Orders ausgeführt. Chase-TWAP garantiert die Fertigstellung bis zu Ihrer Deadline, keine Maker-Ausführungsquote.
+</Note>

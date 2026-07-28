@@ -1,0 +1,42 @@
+---
+title: "TWAP Chase"
+description: "TWAP yang mengeksekusi tiap potongan sebagai order chase pasif dan menyapu sisanya di market."
+---
+
+TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/twap) standar, tetapi alih-alih mengirim tiap klip ke market, klip tersebut dieksekusi sebagai order [Chase](/id/orders/chase) post-only di puncak order book. Bagian yang tidak terisi oleh chase dibawa ke klip berikutnya dan disapu di market pada irama tetap. Tujuannya adalah ritme TWAP dengan harga maker untuk sebagian besar ukuran. TWAP Chase hanya tersedia di pasar perp.
+
+## Cara order ditempatkan
+
+- Membagi durasi Anda menjadi klip tetap satu menit. Formulir menampilkan interval klip, jumlah klip, dan ukuran per klip.
+- Selama tiap klip, satu order limit post-only mengejar bid terbaik (beli) atau ask terbaik (jual), mengerjakan target tersisa klip tersebut. Order menunggu secara pasif dan tidak pernah melintasi spread.
+- Di akhir tiap klip, order chase dibatalkan dan eksekusinya direkonsiliasi, sehingga menit berikutnya mengerjakan kekurangan yang sudah diperbarui.
+- Setiap lima klip, dan sekali lagi pada tenggat akhir, satu order market mengisi apa yang tidak terisi oleh chase, dibatasi slippage 8%.
+- Ukuran klip dihitung dari target kumulatif, bukan jumlah tetap per klip, sehingga menit yang kurang terisi otomatis bergulir ke klip berikutnya dan klip terakhir menutup tepat pada ukuran total Anda.
+- Order chase yang menunggu dan order market yang sedang dikirim selalu dibatasi ukuran sisa Anda, sehingga strategi tidak dapat mengeksekusi berlebih.
+
+## Kapan digunakan
+
+- Mengerjakan ukuran besar sepanjang waktu sambil memperoleh eksekusi maker alih-alih membayar spread di tiap klip
+- Mendapatkan ritme TWAP dengan harga rata-rata lebih baik daripada TWAP market-saja pada order book yang tenang atau sideways
+- Menambah atau mengurangi posisi perp yang penyelesaiannya penting, karena sapuan berkala menjamin kemajuan
+
+## Parameter
+
+| Parameter | Deskripsi dan opsi | Default |
+| --- | --- | --- |
+| Ukuran | Ukuran total order dalam aset atau nosional USDC. | Tidak ada |
+| Durasi | Jendela eksekusi. Minimal 5 menit dan maksimal 24 jam. | Tidak ada |
+| Agresivitas Refresh | Seberapa sering order chase yang menunggu mengubah harga, dari 1 sampai 10. Nilai 1 mengubah harga tiap 10 detik, 5 tiap 2 detik, 10 tiap detik. Nilai lebih tinggi mengikuti order book lebih dekat. | 5 |
+| Hanya Kurangi (opsional) | Membatasi order hanya untuk mengurangi posisi yang ada. | Nonaktif |
+
+## Contoh
+
+Anda ingin membeli 6 BTC dalam 60 menit. Hyperdash membuat 60 klip satu menit masing-masing sekitar 0,1 BTC. Pada menit pertama, order beli post-only menunggu di bid terbaik dan mengubah harga mengikuti pergerakan bid, terisi 0,07 BTC. Menit kedua kemudian mengerjakan 0,13 BTC, yaitu sisa ditambah klip baru. Pada menit kelima kekurangan yang terkumpul disapu dengan satu order market, lalu siklusnya berulang. Pada menit ke-60 sapuan terakhir menutup sisa sehingga seluruh 6 BTC terisi.
+
+<Note>
+  Tiap klip satu menit harus bernilai minimal \$10. Di bawah itu, eksekusi bergulir ke klip berikutnya dan sapuan berkala mengerjakan lebih banyak. Persingkat durasi atau tambah ukuran agar klip tetap di atas minimum.
+</Note>
+
+<Note>
+  Order chase hanya menunggu di sisi pasif, jadi pada pasar yang tren cepat lebih banyak ukuran Anda terisi lewat sapuan market dibanding order maker. TWAP Chase menjamin penyelesaian sebelum tenggat Anda, bukan rasio eksekusi maker.
+</Note>

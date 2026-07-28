@@ -1,0 +1,42 @@
+---
+title: "Chase TWAP"
+description: "A TWAP that works each slice as a passive chase order, sweeping any shortfall at market."
+---
+
+Chase TWAP splits your order into one-minute clips like a standard [TWAP](/orders/twap), but instead of sending each clip to market it works the clip as a post-only [Chase](/orders/chase) order at the top of the book. Whatever the chase does not fill carries forward and is swept at market on a fixed cadence. The objective is TWAP pacing with maker pricing on most of the size. Chase TWAP is available on perp markets only.
+
+## How it places orders
+
+- Divides your duration into fixed one-minute clips. The form previews the clip interval, the number of clips, and the size per clip.
+- During each clip, one post-only limit order chases the best bid (buys) or best ask (sells), working that clip's outstanding target. It rests passively and never crosses the spread.
+- At the end of each clip the chase is canceled and its fills are reconciled, so the next minute works the updated shortfall.
+- Every five clips, and again at the final deadline, one market order fills whatever the chase legs did not, capped at 8% slippage.
+- Clips are sized from a cumulative target rather than a fixed per-clip amount, so an underfilled minute rolls into the next one automatically and the final clip resolves to your exact total size.
+- Resting chases and in-flight market orders are always bounded by your remaining size, so the strategy cannot overfill.
+
+## When to use it
+
+- Work large size over time while capturing maker fills instead of paying the spread on every clip
+- Get TWAP pacing with better average pricing than a market-only TWAP in a calm or ranging book
+- Accumulate or distribute a perp position where completion still matters, since the periodic sweep guarantees progress
+
+## Parameters
+
+| Parameter | Description and options | Default |
+| --- | --- | --- |
+| Size | Total order size in the asset or USDC notional. | None |
+| Duration | Execution window. Must be at least 5 minutes and no more than 24 hours. | None |
+| Refresh Aggression | How often the resting chase reprices, from 1 to 10. 1 reprices every 10 seconds, 5 every 2 seconds, 10 every second. Higher values follow the book more closely. | 5 |
+| Reduce Only (optional) | Restricts the order to reducing an existing position. | Off |
+
+## Example
+
+You want to buy 6 BTC over 60 minutes. Hyperdash creates 60 one-minute clips of roughly 0.1 BTC each. In minute one a post-only buy rests at the best bid and reprices as the bid moves, filling 0.07 BTC. Minute two then works 0.13 BTC, the leftover plus the new clip. At minute five the accumulated shortfall is swept with a single market order, and the cycle repeats. At minute 60 a final sweep closes out any remainder so the full 6 BTC is filled.
+
+<Note>
+  Each one-minute clip must be worth at least \$10. Below that, execution carries into later clips and the periodic sweep does more of the work. Shorten the duration or increase the size to keep clips above the minimum.
+</Note>
+
+<Note>
+  The chase legs rest on the passive side, so in a fast trending market more of your size fills through the market sweeps than through maker orders. Chase TWAP guarantees completion by your deadline, not a maker fill rate.
+</Note>
