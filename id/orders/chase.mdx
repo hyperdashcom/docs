@@ -3,14 +3,14 @@ title: "Order Chase"
 description: "Order limit yang terus mengikuti bid atau ask terbaik, diperbarui harganya hingga terisi atau mencapai batas Anda."
 ---
 
-Chase (label **Kejar** di aplikasi) menempatkan order limit di puncak order book dan menjaganya tetap di sana, mengikuti bid terbaik (untuk beli dan long) atau ask terbaik (untuk jual dan short) saat pasar bergerak. Tujuannya eksekusi pasif: terisi di dekat harga teratas tanpa melintasi spread. Chase berfungsi di pasar perp maupun spot, dan juga tersedia sebagai jenis keluar untuk [Take Profit dan Stop Loss](/id/orders/take-profit-stop-loss).
+Chase (label **Kejar** di aplikasi) menempatkan order limit post-only pada harga pasif terbaik yang tersedia dan menjaganya tetap di sana, memperbarui harga saat pasar bergerak. Order ini tidak sekadar ikut antre di bid atau ask terbaik: ia berada satu tick di dalam sisi berlawanan order book, di depan semua order yang sudah mengantre di harga teratas. Tujuannya eksekusi pasif dengan prioritas antrean: terisi cepat tanpa melintasi spread. Chase berfungsi di pasar perp maupun spot, dan juga tersedia sebagai jenis keluar untuk [Take Profit dan Stop Loss](/id/orders/take-profit-stop-loss).
 
 ## Cara order ditempatkan
 
-- Mengirim satu order limit post-only pada bid terbaik (beli) atau ask terbaik (jual). Order menunggu secara pasif dan tidak pernah melintasi spread.
+- Mengirim satu order limit post-only satu tick di bawah ask terbaik (beli) atau satu tick di atas bid terbaik (jual), sehingga berada di depan semua order yang mengantre di harga teratas. Saat spread hanya satu tick, harga itu adalah bid atau ask terbaik itu sendiri. Order menunggu secara pasif dan tidak pernah melintasi spread.
 - Order diperbarui setiap 500ms: setiap kali puncak order book bergerak, order yang menunggu diperbarui ke harga terbaik yang baru.
 - Pengisian parsial dilacak, dan sisa ukuran terus mengejar hingga order terisi penuh atau dibatalkan.
-- Jika harga **Kejar hingga** (Chase To) ditetapkan, chase berhenti dan membatalkan order yang menunggu begitu bid atau ask terbaik melintasi batas tersebut. Order tidak lanjut menunggu di harga batas itu, dan chase yang batas Kejar hingga-nya sudah berada di luar puncak order book ditolak saat pengiriman.
+- Jika harga **Kejar hingga** (Chase To) ditetapkan, order hanya memperbarui harga sampai batas itu lalu menunggu di sana alih-alih melewatinya. Chase berhenti dan membatalkan order begitu bid terbaik (beli) atau ask terbaik (jual) itu sendiri melewati batas tersebut, dan chase yang batas Kejar hingga-nya sudah berada di luar harga teratas ditolak saat pengiriman.
 - Satu chase berjalan pada satu waktu per wallet dan pasar.
 
 ## Kapan digunakan
@@ -24,12 +24,12 @@ Chase (label **Kejar** di aplikasi) menempatkan order limit di puncak order book
 | Parameter | Deskripsi dan opsi | Default |
 | --- | --- | --- |
 | Ukuran | Ukuran order dalam aset atau nosional USDC. Nilai order minimum \$10. | Tidak ada |
-| Kejar hingga (opsional) | Batas harga untuk chase. Biarkan kosong untuk mengejar hingga terisi atau dibatalkan. Untuk beli dan long, harga harus sama dengan atau di atas harga saat ini; untuk jual dan short, sama dengan atau di bawahnya. Saat bid atau ask terbaik melintasi batas ini, chase berhenti dan membatalkan order. | Kosong, mengejar hingga terisi atau dibatalkan |
+| Kejar hingga (opsional) | Batas harga untuk chase. Biarkan kosong untuk mengejar hingga terisi atau dibatalkan. Untuk beli dan long, harga harus sama dengan atau di atas harga saat ini; untuk jual dan short, sama dengan atau di bawahnya. Order menunggu di batas Anda alih-alih memperbarui harga melewatinya, dan dibatalkan begitu bid atau ask terbaik melewatinya. | Kosong, mengejar hingga terisi atau dibatalkan |
 | Hanya Kurangi (opsional) | Membatasi order hanya untuk mengurangi posisi yang ada. | Nonaktif |
 
 ## Contoh
 
-Anda ingin membeli 100 HYPE dengan order book di bid \$44.60, ask \$44.62. Anda mengirim Chase buy dengan Kejar hingga \$45.00. Order menunggu di \$44.60, dan saat bid naik ke \$44.70 lalu \$44.85, order ikut diperbarui, mengumpulkan pengisian maker di sepanjang jalan. Jika bid naik menembus \$45.00, chase membatalkan sisa yang belum terisi alih-alih terus mengikuti.
+Anda ingin membeli 100 HYPE dengan order book di bid \$44.600, ask \$44.620. Pada level itu harga HYPE bergerak dalam kelipatan \$0.001, jadi order beli post-only Anda menunggu di \$44.619, satu tick di bawah ask dan di depan semua order yang mengantre di \$44.600. Saat order book bergerak, harganya diperbarui agar tetap satu tick di dalam ask. Dengan Kejar hingga \$45.00, order terus bekerja sampai harga itu dan menunggu di sana alih-alih melewatinya, lalu membatalkan sisa yang belum terisi begitu bid menembus \$45.00.
 
 <Note>
   Chase hanya menunggu di sisi pasif, jadi tidak dijamin selesai. Di pasar yang sedang tren cepat, harga bisa berlari mendahului order Anda, dan dengan Kejar hingga yang ditetapkan Anda bisa berakhir dengan pengisian parsial.

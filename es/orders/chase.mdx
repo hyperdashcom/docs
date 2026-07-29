@@ -3,14 +3,14 @@ title: "Órdenes Perseguir (Chase)"
 description: "Una orden límite que sigue el mejor bid o ask continuamente, reajustando su precio hasta ejecutarse o alcanzar tu límite."
 ---
 
-Perseguir (Chase) coloca una orden límite en la parte superior del libro y la mantiene ahí, siguiendo el mejor bid (para compras y largos) o el mejor ask (para ventas y cortos) a medida que el mercado se mueve. El objetivo es la ejecución pasiva: ejecutarte cerca del mejor precio sin cruzar el spread. Perseguir funciona tanto en mercados de perps como de spot, y también es un tipo de salida para [Take Profit y Stop Loss](/es/orders/take-profit-stop-loss).
+Perseguir (Chase) coloca una orden límite post only al mejor precio pasivo disponible y la mantiene ahí, reajustándola a medida que el mercado se mueve. No se limita a unirse al mejor bid o ask: se coloca un tick dentro del lado opuesto del libro, por delante de todo lo que ya está en cola en la mejor cotización. El objetivo es la ejecución pasiva con prioridad de cola: ejecutarte rápido sin cruzar el spread. Perseguir funciona tanto en mercados de perps como de spot, y también es un tipo de salida para [Take Profit y Stop Loss](/es/orders/take-profit-stop-loss).
 
 ## Cómo coloca las órdenes
 
-- Envía una única orden límite post only al mejor bid (compras) o al mejor ask (ventas). La orden queda pasiva en el libro y nunca cruza el spread.
+- Envía una única orden límite post only un tick por debajo del mejor ask (compras) o un tick por encima del mejor bid (ventas), de modo que queda por delante de todas las órdenes en cola en la mejor cotización. Cuando el spread es de un solo tick, ese precio es el propio mejor bid o ask. La orden queda pasiva en el libro y nunca cruza el spread.
 - Las órdenes se actualizan cada 500 ms: cada vez que la parte superior del libro se mueve, la orden en reposo se reajusta al nuevo mejor precio.
 - Las ejecuciones parciales se registran, y el tamaño restante sigue persiguiendo hasta que la orden se ejecuta por completo o se cancela.
-- Si se define un precio de **Perseguir hasta**, la persecución se detiene y cancela su orden en reposo cuando el mejor bid o ask cruza ese límite. No se queda esperando al precio límite, y una persecución cuyo Perseguir hasta ya está fuera de la parte superior del libro se rechaza al enviarla.
+- Si se define un precio de **Perseguir hasta**, la orden solo se reajusta hasta ese límite y luego se queda ahí en lugar de pasarlo. La persecución se detiene y se cancela cuando el propio mejor bid (compras) o mejor ask (ventas) supera el límite, y una persecución cuyo Perseguir hasta ya está más allá de la mejor cotización se rechaza al enviarla.
 - Solo puede correr una persecución a la vez por billetera y mercado.
 
 ## Cuándo usarlas
@@ -24,12 +24,12 @@ Perseguir (Chase) coloca una orden límite en la parte superior del libro y la m
 | Parámetro | Descripción y opciones | Por defecto |
 | --- | --- | --- |
 | Tamaño | Tamaño de la orden en el activo o en nocional USDC. El valor mínimo de la orden es \$10. | Ninguno |
-| Perseguir hasta (opcional) | Precio límite de la persecución. Déjalo en blanco para perseguir hasta ejecución o cancelación. Para compras y largos el precio debe ser igual o mayor que el precio actual; para ventas y cortos, igual o menor. Cuando el mejor bid o ask cruza este límite, la persecución se detiene y se cancela. | En blanco, persigue hasta ejecutarse o cancelarse |
+| Perseguir hasta (opcional) | Precio límite de la persecución. Déjalo en blanco para perseguir hasta ejecución o cancelación. Para compras y largos el precio debe ser igual o mayor que el precio actual; para ventas y cortos, igual o menor. La orden se queda en tu límite en lugar de reajustarse más allá, y se cancela cuando el mejor bid o ask lo supera. | En blanco, persigue hasta ejecutarse o cancelarse |
 | Solo Reducir (opcional) | Restringe la orden a reducir una posición existente. | Desactivado |
 
 ## Ejemplo
 
-Quieres comprar 100 HYPE con el libro en \$44.60 bid, \$44.62 ask. Envías una compra Perseguir con Perseguir hasta en \$45.00. La orden queda en \$44.60 y, a medida que el bid sube a \$44.70 y \$44.85, se reajusta con él, capturando ejecuciones como maker por el camino. Si el bid cruza \$45.00, la persecución cancela cualquier remanente sin ejecutar en lugar de seguir subiendo.
+Quieres comprar 100 HYPE con el libro en \$44.600 bid, \$44.620 ask. A ese nivel los precios de HYPE avanzan en incrementos de \$0.001, así que tu compra post only queda en \$44.619, un tick por debajo del ask y por delante de todo lo que está en cola en \$44.600. A medida que el libro se mueve, se reajusta para mantenerse un tick dentro del ask. Con Perseguir hasta en \$45.00 sigue trabajando hasta ese precio y se queda ahí en lugar de pasarlo, y cancela cualquier remanente sin ejecutar cuando el bid cruza \$45.00.
 
 <Note>
   Una persecución permanece solo en el lado pasivo, así que no está garantizado que se complete. En un mercado con tendencia rápida el precio puede correr por delante de tu orden, y con un Perseguir hasta definido puedes terminar con una ejecución parcial.

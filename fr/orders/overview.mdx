@@ -14,7 +14,7 @@ Hyperdash vous donne une boîte à outils d'exécution complète, des simples or
 | [Échelonnage](/fr/orders/scale) | Place jusqu'à 100 ordres limites sur une plage de prix, avec des tailles réparties selon le skew | Entrée passive en échelle, meilleur prix moyen | Prix de départ et de fin, Nombre d'ordres, Size skew |
 | [Stop limite](/fr/orders/stop-limit) | Au prix de déclenchement, place un ordre limite à votre prix limite | Entrée sur cassure ou sortie de protection avec contrôle du prix | Prix de déclenchement, Prix limite, Furtif |
 | [Stop marché](/fr/orders/stop-market) | Au prix de déclenchement, s'exécute au marché | Réaction garantie à un niveau de prix | Prix de déclenchement, Furtif |
-| [Poursuite](/fr/orders/chase) | Ordre limite qui suit le meilleur bid ou ask, en se repositionnant en continu | Exécution rapide tout en restant passif | Poursuivre jusqu'à, Réduction uniquement |
+| [Poursuite](/fr/orders/chase) | Ordre limite post-only placé un tick à l'intérieur du côté opposé du carnet, se repositionnant en continu | Exécution rapide tout en restant passif | Poursuivre jusqu'à, Réduction uniquement |
 | [TWAP](/fr/orders/twap) | Sous-ordres égaux toutes les 30 secondes sur la durée de votre choix | Minimiser l'impact de marché dans le temps | Durée, Furtif, Randomiser |
 | [Chase TWAP](/fr/orders/chase-twap) | Tranches d'une minute travaillées en ordres de poursuite passifs, avec un balayage au marché toutes les cinq minutes | Rythme de TWAP avec prix maker | Durée, Agressivité de rafraîchissement |
 | [Essaim](/fr/orders/swarm) | Divise la taille en jusqu'à 200 clips, envoyés selon le niveau d'agressivité | Minimiser l'impact avec une exécution plus rapide | Nombre total de clips, Agressivité |

@@ -3,14 +3,14 @@ title: "Chase Orders"
 description: "A limit order that follows the best bid or ask continuously, repricing until it fills or reaches your limit."
 ---
 
-Chase places a limit order at the top of the book and keeps it there, following the best bid (for buys and longs) or best ask (for sells and shorts) as the market moves. The objective is passive execution: fill near the touch without crossing the spread. Chase works on both perps and spot markets, and is also an exit type for [Take Profit and Stop Loss](/orders/take-profit-stop-loss).
+Chase places a post-only limit order at the best passive price available and keeps it there, repricing as the market moves. It does not simply join the best bid or ask: it rests one tick inside the opposite side of the book, ahead of everything already queued at the touch. The objective is passive execution with queue priority: fill quickly without crossing the spread. Chase works on both perps and spot markets, and is also an exit type for [Take Profit and Stop Loss](/orders/take-profit-stop-loss).
 
 ## How it places orders
 
-- Submits a single post-only limit order at the best bid (buys) or best ask (sells). The order rests passively and never crosses the spread.
+- Submits a single post-only limit order one tick below the best ask (buys) or one tick above the best bid (sells), so it sits ahead of every order queued at the touch. When the spread is a single tick, that price is the best bid or ask itself. The order rests passively and never crosses the spread.
 - Orders are refreshed every 500ms: whenever the top of book moves, the resting order is repriced to the new best price.
 - Partial fills are tracked, and the remaining size keeps chasing until the order is fully filled or canceled.
-- If a **Chase To** price is set, the chase stops and cancels its resting order once the best bid or ask crosses that limit. It does not continue to rest at the limit price, and a chase whose Chase To is already outside the top of book is rejected at submission.
+- If a **Chase To** price is set, the order reprices only as far as that limit and then rests there instead of leaning past it. The chase stops and cancels once the best bid (buys) or best ask (sells) itself moves past the limit, and a chase whose Chase To is already past the touch is rejected at submission.
 - One chase runs at a time per wallet and market.
 
 ## When to use it
@@ -24,12 +24,12 @@ Chase places a limit order at the top of the book and keeps it there, following 
 | Parameter | Description and options | Default |
 | --- | --- | --- |
 | Size | Order size in the asset or USDC notional. Minimum order value is \$10. | None |
-| Chase To (optional) | Price limit for the chase. Leave blank to chase until filled or canceled. For buys and longs the price must be at or above the current price, for sells and shorts at or below. When the best bid or ask crosses this limit, the chase stops and cancels. | Blank, chase until filled or canceled |
+| Chase To (optional) | Price limit for the chase. Leave blank to chase until filled or canceled. For buys and longs the price must be at or above the current price, for sells and shorts at or below. The order rests at your limit rather than repricing past it, and cancels once the best bid or ask moves past it. | Blank, chase until filled or canceled |
 | Reduce Only (optional) | Restricts the order to reducing an existing position. | Off |
 
 ## Example
 
-You want to buy 100 HYPE with the book at \$44.60 bid, \$44.62 ask. You submit a Chase buy with Chase To \$45.00. The order rests at \$44.60, and as the bid ticks up to \$44.70 and \$44.85 it reprices with it, collecting maker fills along the way. If the bid trades up through \$45.00, the chase cancels any unfilled remainder instead of following further.
+You want to buy 100 HYPE with the book at \$44.600 bid, \$44.620 ask. HYPE prices step in \$0.001 increments at that level, so your post-only buy rests at \$44.619, one tick under the ask and ahead of everything queued at \$44.600. As the book moves it reprices to stay one tick inside the ask. With Chase To at \$45.00 it keeps working up to that price and rests there rather than passing it, then cancels any unfilled remainder once the bid trades up through \$45.00.
 
 <Note>
   A chase rests on the passive side only, so it is not guaranteed to complete. In a fast trending market the price can run ahead of your order, and with a Chase To set you may finish with a partial fill.

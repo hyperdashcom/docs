@@ -3,14 +3,14 @@ title: "Ordres de poursuite (Chase)"
 description: "Un ordre limite qui suit en continu le meilleur bid ou ask, en se repositionnant jusqu'à exécution ou jusqu'à votre limite."
 ---
 
-La Poursuite place un ordre limite en tête de carnet et l'y maintient, en suivant le meilleur bid (pour les achats et les longs) ou le meilleur ask (pour les ventes et les shorts) à mesure que le marché bouge. L'objectif est une exécution passive : être exécuté près du meilleur prix sans traverser le spread. La Poursuite fonctionne sur les marchés perps et spot, et sert aussi de type de sortie pour la [Prise de profit et la Limite de perte](/fr/orders/take-profit-stop-loss).
+La Poursuite place un ordre limite passif uniquement (post-only) au meilleur prix passif disponible et l'y maintient, en le repositionnant à mesure que le marché bouge. Elle ne se contente pas de rejoindre le meilleur bid ou ask : elle se place un tick à l'intérieur du côté opposé du carnet, devant tout ce qui attend déjà à la meilleure limite. L'objectif est une exécution passive avec priorité de file : être exécuté rapidement sans traverser le spread. La Poursuite fonctionne sur les marchés perps et spot, et sert aussi de type de sortie pour la [Prise de profit et la Limite de perte](/fr/orders/take-profit-stop-loss).
 
 ## Comment les ordres sont placés
 
-- Soumet un seul ordre limite passif uniquement (post-only) au meilleur bid (achats) ou au meilleur ask (ventes). L'ordre reste passif et ne traverse jamais le spread.
+- Soumet un seul ordre limite passif uniquement (post-only) un tick sous le meilleur ask (achats) ou un tick au-dessus du meilleur bid (ventes), de sorte qu'il passe devant tous les ordres en file à la meilleure limite. Quand le spread ne fait qu'un tick, ce prix est le meilleur bid ou ask lui-même. L'ordre reste passif et ne traverse jamais le spread.
 - Les ordres sont actualisés toutes les 500 ms : dès que la tête de carnet bouge, l'ordre au repos est repositionné au nouveau meilleur prix.
 - Les exécutions partielles sont suivies, et la taille restante continue la poursuite jusqu'à exécution complète ou annulation de l'ordre.
-- Si un prix **Poursuivre jusqu'à** est défini, la poursuite s'arrête et annule son ordre au repos dès que le meilleur bid ou ask franchit cette limite. Elle ne reste pas au prix limite, et une poursuite dont le prix Poursuivre jusqu'à est déjà hors de la tête de carnet est rejetée à la soumission.
+- Si un prix **Poursuivre jusqu'à** est défini, l'ordre ne se repositionne que jusqu'à cette limite puis y reste au lieu de la dépasser. La poursuite s'arrête et s'annule dès que le meilleur bid (achats) ou le meilleur ask (ventes) franchit lui-même la limite, et une poursuite dont le prix Poursuivre jusqu'à est déjà au-delà de la meilleure limite est rejetée à la soumission.
 - Une seule poursuite s'exécute à la fois par portefeuille et par marché.
 
 ## Quand l'utiliser
@@ -24,12 +24,12 @@ La Poursuite place un ordre limite en tête de carnet et l'y maintient, en suiva
 | Paramètre | Description et options | Par défaut |
 | --- | --- | --- |
 | Taille | Taille de l'ordre dans l'actif ou en notionnel USDC. La valeur minimale d'un ordre est de \$10. | Aucun |
-| Poursuivre jusqu'à (optionnel) | Limite de prix de la poursuite. Laissez vide pour poursuivre jusqu'à exécution ou annulation. Pour les achats et les longs, le prix doit être égal ou supérieur au prix actuel ; pour les ventes et les shorts, égal ou inférieur. Quand le meilleur bid ou ask franchit cette limite, la poursuite s'arrête et s'annule. | Vide, poursuite jusqu'à exécution ou annulation |
+| Poursuivre jusqu'à (optionnel) | Limite de prix de la poursuite. Laissez vide pour poursuivre jusqu'à exécution ou annulation. Pour les achats et les longs, le prix doit être égal ou supérieur au prix actuel ; pour les ventes et les shorts, égal ou inférieur. L'ordre reste à votre limite au lieu de se repositionner au-delà, et s'annule quand le meilleur bid ou ask la franchit. | Vide, poursuite jusqu'à exécution ou annulation |
 | Réduction uniquement (optionnel) | Restreint l'ordre à la réduction d'une position existante. | Désactivé |
 
 ## Exemple
 
-Vous voulez acheter 100 HYPE avec un carnet à \$44.60 bid, \$44.62 ask. Vous soumettez un achat Poursuite avec Poursuivre jusqu'à \$45.00. L'ordre se place à \$44.60, et quand le bid monte à \$44.70 puis \$44.85, il se repositionne avec lui, en collectant des exécutions maker au passage. Si le bid franchit \$45.00, la poursuite annule tout reliquat non exécuté au lieu de continuer à suivre.
+Vous voulez acheter 100 HYPE avec un carnet à \$44.600 bid, \$44.620 ask. À ce niveau, les prix de HYPE avancent par pas de \$0.001, donc votre achat post-only se place à \$44.619, un tick sous l'ask et devant tout ce qui attend à \$44.600. À mesure que le carnet bouge, il se repositionne pour rester un tick à l'intérieur de l'ask. Avec Poursuivre jusqu'à \$45.00, il continue de travailler jusqu'à ce prix et y reste au lieu de le dépasser, puis annule tout reliquat non exécuté quand le bid franchit \$45.00.
 
 <Note>
   Une poursuite reste uniquement du côté passif, son exécution complète n'est donc pas garantie. Dans un marché en forte tendance, le prix peut distancer votre ordre, et avec un Poursuivre jusqu'à défini, vous pouvez terminer avec une exécution partielle.
