@@ -1,0 +1,93 @@
+---
+title: "Widgets"
+description: "Every widget you can add to a layout, and how to link widgets so they follow the same asset or watchlist."
+---
+
+Widgets are the panels that make up a [layout](/layouts). Open the **Add Widget** drawer, search or browse by category, and drag one onto the grid.
+
+## Charts
+
+| Widget | Description |
+| --- | --- |
+| Price Chart | The full trading chart for a market, with drawing tools and indicators. |
+| Liquidations Chart | Liquidation heatmap showing where leveraged positions get forced out. See [Trading indicators](/trading-indicators). |
+| Stops Chart | Stop loss heatmap showing where clusters of stops sit. |
+| Historical Funding Rate | Funding rate over time for a perp market, for spotting persistent long or short pressure. |
+| Cohort Heatmap | Cohort positioning across markets in a single grid, so you can see at a glance which groups are long or short where. |
+| Price heatmap | Price performance across a set of assets, sized and coloured by move. |
+
+## Feed
+
+| Widget | Description |
+| --- | --- |
+| Orderbook | Live bids and asks for the linked market, with depth. |
+| Orderbook (Node) | The orderbook sourced directly from a Hyperliquid node. |
+| Trades | Live trade prints for the linked market. |
+| News | Real-time headlines. Click a ticker pill on a headline to trade it inline with [Quick Trade](/quicktrade). |
+
+## Portfolio
+
+| Widget | Description |
+| --- | --- |
+| Positions | Your open positions, with entry, liquidation price, size, and unrealized PnL. |
+| Balances | Your balances across perps and spot. |
+| Open Orders | Your resting orders, cancellable from the table. |
+| TWAP | Your own running TWAP orders and their progress. |
+| Current TWAPs | Other traders' active TWAPs on the market you are viewing. |
+| Fills | Your individual executions. |
+| History | Your completed trading history. |
+| Transfers | Deposits, withdrawals, and transfers in and out of your account. |
+| Copytrade | Your active copy trading relationships and their performance. See [Copy Trading](/copy-trade). |
+| Watchlist | The assets you have starred. Doubles as a source that other widgets can follow, covered below. |
+
+## Alpha
+
+| Widget | Description |
+| --- | --- |
+| Top Traders | The largest positions on the market, with entry, liquidation price, PnL, and copy score. |
+| Cohorts | How each trader cohort is positioned on the market, by PnL tier and by wallet size. |
+| Position Changes | How trader positions shifted over a window from 15 minutes to 7 days. |
+| Tracked | Live activity from the wallets you track. See [Wallet tracking](/wallet-explore). |
+
+For what the Alpha widgets show in depth, see [Cohorts, Top Traders and Position Changes](/cohorts-top-traders-position-changes).
+
+## Tools
+
+| Widget | Description |
+| --- | --- |
+| Quick Trade | One-click preset-size buttons that fire orders instantly. See [Quick Trade](/quicktrade). |
+
+## Widget linking
+
+By default each widget shows whatever asset it was pointed at. Linking ties widgets together so that changing the asset in one changes it in all of them, which is what turns a pile of widgets into a working terminal.
+
+### Link groups
+
+There are six link groups, each with a colour. Open the link menu in a widget header and pick a colour to add that widget to the group.
+
+| Group | Colour |
+| --- | --- |
+| 1 | Blue |
+| 2 | Yellow |
+| 3 | Purple |
+| 4 | Red |
+| 5 | Orange |
+| 6 | Teal |
+
+Every widget in the same group follows the same asset. Put a price chart, an orderbook, and a trades feed in Blue and they move together. Put a second set in Yellow and you can watch two markets side by side without either one disturbing the other.
+
+Widgets that are not linked to anything can be set to **None**, so they stay where you point them regardless of what the rest of the layout is doing.
+
+### Target
+
+**Target** is a separate, unnumbered role. A widget set to Target follows the asset you are actively trading rather than a colour group. Only the Price Chart and Quick Trade can hold the Target role.
+
+### Following a watchlist
+
+Linking is not limited to a single asset. The **Watchlist** and **Price heatmap** widgets can act as the source for a group, in which case they pass a whole list of assets to the widgets following them instead of one ticker.
+
+This is how you drive a layout from a list: star the assets you care about, point the rest of the layout at the Watchlist, and the widgets that consume a list will work through your whole watchlist rather than a single market.
+
+<Note>
+  Not every widget can be linked. Widgets showing your own account data, such as Positions, Balances, and Fills, are always about you rather than a market, so they have nothing to follow.
+</Note>
