@@ -1,30 +1,58 @@
 ---
 title: "Onboarding, Deposits & Wallets"
-description: "Guide to onboarding to Hyperdash for new users"
+description: "How to sign in, fund your account, and manage wallets on Hyperdash."
 ---
 
-### Onboarding
+## Signing in
 
-Login: Users can login via:
+You can sign in with:
 
-- Google authentication
-- Via Email
-- Directly via an EVM compatible Wallet
+- Google
+- Apple
+- Email
+- Any EVM compatible wallet
 
-In the case of google or email login, a wallet will be generated for the user to deposit funds with in order to trade.
+If you sign in with Google, Apple, or email, Hyperdash generates a non-custodial wallet for you, secured by Turnkey, and you deposit into that wallet to trade. Two factor authentication is available on your account once you are signed in.
 
-### Deposits
+## Deposits
 
-Deposits can be made directly via multiple methods, no limits and instantly:
+The deposit modal groups everything under three tabs: **All**, **Crypto**, and **Cash**. Pick a currency and a method, and Hyperdash shows the settlement time and any minimum before you confirm.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### Crypto
 
-- Wallet connect: supports multiple chains and assets.
-- Card payment: currently supports visa.
-- Transfer (send to your Hyperdash wallet from another wallet, compatible with multiple assets and chains).
-- Connect via Exchange Deposit: Currently supporting Coinbase (more coming soon).
+- **Crypto**: send from any wallet or exchange. Supported networks are Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM, and Hyperliquid.
+- Choose **Deposit Only** to keep the asset you sent, or **Swap to USDC** to have it converted on arrival.
+- **Exchanges**: deposit straight from a connected exchange account. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex, and BtcTurk are supported.
 
-Once you have deposited you can view the assets in your account, and use all features of Hyperdash.
+### Cash
+
+| Method | How it works | Currencies |
+| --- | --- | --- |
+| Bank Transfer | A virtual account in your own name, so you can wire in from your bank. Availability depends on your country. | All supported currencies |
+| Card | Visa and Mastercard, including Apple Pay and Google Pay. Hyperdash compares live quotes across payment providers so you can pick the best rate. | All supported currencies |
+| Revolut Pay | Pay directly from your Revolut balance. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay and Google Pay | Available on their own and as a card option. | All supported currencies |
+| PayPal | Pay from your PayPal balance or a linked account. | EUR |
+| CashApp | Pay from your CashApp balance. | USD |
+| PIX | Brazil's instant payment rail. | BRL |
+| SPEI | Mexico's interbank transfer rail. | MXN |
+| BLIK | Poland's mobile payment rail. | PLN |
+| UPI | India's instant payment rail. | INR |
+| Interac | Canadian bank transfer over Interac. | CAD |
+
+### Supported currencies
+
+Hyperdash accepts deposits in 34 fiat currencies:
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+Not every method supports every currency. The deposit modal only shows the methods available for the currency you pick, and hides anything unavailable in your country.
+
+<Note>
+  Deposits are restricted in sanctioned jurisdictions, and bank transfer coverage is narrower than the other methods. If a method does not appear for you, it is not available for your country or your selected currency.
+</Note>
+
+Once a deposit settles you can see the balance in your account and use every Hyperdash feature.
 
 ## Importing a Wallet
 

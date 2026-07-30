@@ -1,30 +1,58 @@
 ---
 title: "Integração, Depósitos e Carteiras"
-description: "Guia de integração ao Hyperdash para novos usuários"
+description: "Como entrar, financiar sua conta e gerenciar carteiras no Hyperdash."
 ---
 
-### Integração
+## Entrar
 
-Login: Os usuários podem fazer login via:
+Você pode entrar com:
 
-- Autenticação do Google
-- Por e-mail
-- Diretamente via uma carteira compatível com EVM
+- Google
+- Apple
+- E-mail
+- Qualquer carteira compatível com EVM
 
-No caso de login pelo Google ou e-mail, uma carteira será gerada para o usuário depositar fundos para negociar.
+Se você entrar com Google, Apple ou e-mail, o Hyperdash gera uma carteira não-custodial para você, protegida pelo Turnkey, e você deposita nela para negociar. A autenticação de dois fatores fica disponível na sua conta depois de entrar.
 
-### Depósitos
+## Depósitos
 
-Os depósitos podem ser feitos diretamente através de vários métodos, sem limites e instantaneamente:
+O modal de depósito agrupa tudo em três abas: **Todos**, **Cripto** e **Dinheiro**. Escolha uma moeda e um método, e o Hyperdash mostra o tempo de liquidação e qualquer mínimo antes de você confirmar.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### Cripto
 
-- Wallet connect: suporta múltiplas redes e ativos.
-- Pagamento com cartão: atualmente suporta Visa.
-- Transferência (envie para sua carteira Hyperdash de outra carteira, compatível com múltiplos ativos e redes).
-- Conectar via Depósito de Exchange: Atualmente suporta Coinbase (mais em breve).
+- **Cripto**: envie de qualquer carteira ou exchange. As redes suportadas são Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM e Hyperliquid.
+- Escolha **Apenas depositar** para manter o ativo que você enviou, ou **Converter para USDC** para que seja convertido na chegada.
+- **Exchanges**: deposite direto de uma conta de exchange conectada. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex e BtcTurk são suportadas.
 
-Depois de depositar, você pode visualizar os ativos em sua conta e usar todos os recursos do Hyperdash.
+### Dinheiro
+
+| Método | Como funciona | Moedas |
+| --- | --- | --- |
+| Transferência bancária | Uma conta virtual no seu próprio nome, para você transferir do seu banco. A disponibilidade depende do seu país. | Todas as moedas suportadas |
+| Cartão | Visa e Mastercard, incluindo Apple Pay e Google Pay. O Hyperdash compara cotações ao vivo entre provedores de pagamento para você escolher a melhor taxa. | Todas as moedas suportadas |
+| Revolut Pay | Pague direto do seu saldo Revolut. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay e Google Pay | Disponíveis por conta própria e como opção de cartão. | Todas as moedas suportadas |
+| PayPal | Pague do seu saldo PayPal ou de uma conta vinculada. | EUR |
+| CashApp | Pague do seu saldo CashApp. | USD |
+| PIX | O sistema de pagamentos instantâneos do Brasil. | BRL |
+| SPEI | O sistema de transferências interbancárias do México. | MXN |
+| BLIK | O sistema de pagamentos móveis da Polônia. | PLN |
+| UPI | O sistema de pagamentos instantâneos da Índia. | INR |
+| Interac | Transferência bancária canadense via Interac. | CAD |
+
+### Moedas suportadas
+
+O Hyperdash aceita depósitos em 34 moedas fiduciárias:
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+Nem todo método suporta todas as moedas. O modal de depósito mostra apenas os métodos disponíveis para a moeda escolhida e oculta o que não estiver disponível no seu país.
+
+<Note>
+  Depósitos são restritos em jurisdições sancionadas, e a cobertura de transferência bancária é mais estreita que a dos outros métodos. Se um método não aparecer, ele não está disponível para o seu país ou para a moeda selecionada.
+</Note>
+
+Quando um depósito liquida, você vê o saldo na sua conta e pode usar todos os recursos do Hyperdash.
 
 ## Importar uma Carteira
 

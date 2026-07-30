@@ -1,30 +1,58 @@
 ---
 title: "온보딩, 입금 및 지갑"
-description: "신규 사용자를 위한 Hyperdash 온보딩 가이드"
+description: "Hyperdash에서 로그인하고 계정에 자금을 넣고 지갑을 관리하는 방법입니다."
 ---
 
-### 온보딩
+## 로그인
 
-로그인: 사용자는 다음을 통해 로그인할 수 있습니다:
+다음 방법으로 로그인할 수 있습니다:
 
-- Google 인증
+- Google
+- Apple
 - 이메일
-- EVM 호환 지갑으로 직접 연결
+- EVM 호환 지갑
 
-Google 또는 이메일 로그인의 경우, 사용자가 거래를 위해 자금을 입금할 수 있는 지갑이 생성됩니다.
+Google, Apple 또는 이메일로 로그인하면 Hyperdash가 Turnkey로 보호되는 비수탁 지갑을 생성하며, 해당 지갑에 입금하여 거래합니다. 로그인 후 계정에서 2단계 인증을 사용할 수 있습니다.
 
-### 입금
+## 입금
 
-입금은 여러 방법을 통해 제한 없이 즉시 가능합니다:
+입금 창은 모든 항목을 **전체**, **크립토**, **현금** 세 개의 탭으로 구분합니다. 통화와 방법을 선택하면 Hyperdash가 확인 전에 정산 시간과 최소 금액을 표시합니다.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### 크립토
 
-- 지갑 연결: 여러 체인과 자산을 지원합니다.
-- 카드 결제: 현재 Visa를 지원합니다.
-- 전송 (다른 지갑에서 Hyperdash 지갑으로 전송, 여러 자산과 체인과 호환).
-- 거래소 입금으로 연결: 현재 Coinbase 지원 (추가 예정).
+- **크립토**: 어떤 지갑이나 거래소에서든 보낼 수 있습니다. 지원 네트워크는 Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM, Hyperliquid입니다.
+- 보낸 자산을 그대로 보유하려면 **입금만**을, 도착 시 USDC로 변환하려면 **USDC로 스왑**을 선택하세요.
+- **거래소**: 연결한 거래소 계정에서 바로 입금합니다. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex, BtcTurk를 지원합니다.
 
-입금이 완료되면 계정의 자산을 확인하고 Hyperdash의 모든 기능을 사용할 수 있습니다.
+### 현금
+
+| 방법 | 작동 방식 | 통화 |
+| --- | --- | --- |
+| 은행 이체 | 본인 명의의 가상 계좌가 발급되어 은행에서 송금할 수 있습니다. 이용 가능 여부는 국가에 따라 다릅니다. | 지원되는 모든 통화 |
+| 카드 | Apple Pay와 Google Pay를 포함한 Visa 및 Mastercard. Hyperdash가 여러 결제 제공업체의 실시간 견적을 비교해 가장 좋은 조건을 고를 수 있게 합니다. | 지원되는 모든 통화 |
+| Revolut Pay | Revolut 잔액에서 바로 결제합니다. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay 및 Google Pay | 단독으로도, 카드 옵션으로도 사용할 수 있습니다. | 지원되는 모든 통화 |
+| PayPal | PayPal 잔액 또는 연결된 계정에서 결제합니다. | EUR |
+| CashApp | CashApp 잔액에서 결제합니다. | USD |
+| PIX | 브라질의 실시간 결제망입니다. | BRL |
+| SPEI | 멕시코의 은행 간 이체망입니다. | MXN |
+| BLIK | 폴란드의 모바일 결제망입니다. | PLN |
+| UPI | 인도의 실시간 결제망입니다. | INR |
+| Interac | Interac을 통한 캐나다 은행 이체입니다. | CAD |
+
+### 지원 통화
+
+Hyperdash는 34개 법정 통화로 입금을 받습니다:
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+모든 방법이 모든 통화를 지원하는 것은 아닙니다. 입금 창은 선택한 통화에 사용 가능한 방법만 표시하고, 해당 국가에서 이용할 수 없는 항목은 숨깁니다.
+
+<Note>
+  제재 대상 국가에서는 입금이 제한되며, 은행 이체의 지원 범위는 다른 방법보다 좁습니다. 특정 방법이 보이지 않는다면 해당 국가나 선택한 통화에서 이용할 수 없는 것입니다.
+</Note>
+
+입금이 정산되면 계정에서 잔액을 확인하고 Hyperdash의 모든 기능을 사용할 수 있습니다.
 
 ## 지갑 가져오기
 

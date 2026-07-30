@@ -1,30 +1,58 @@
 ---
 title: "オンボーディング、入金とウォレット"
-description: "新規ユーザー向けHyperdashオンボーディングガイド"
+description: "Hyperdashへのログイン、入金、ウォレット管理の方法。"
 ---
 
-### オンボーディング
+## ログイン
 
-ログイン：ユーザーは以下の方法でログインできます：
+次の方法でログインできます：
 
-- Google認証
-- メール
-- EVM互換ウォレットで直接
+- Google
+- Apple
+- メールアドレス
+- EVM互換のウォレット
 
-Googleまたはメールでログインした場合、取引用の資金を入金するためのウォレットが生成されます。
+Google、Apple、またはメールアドレスでログインすると、HyperdashがTurnkeyで保護された非カストディアルウォレットを生成し、そのウォレットに入金して取引します。ログイン後はアカウントで二要素認証を利用できます。
 
-### 入金
+## 入金
 
-入金は複数の方法で直接、制限なく即座に行うことができます：
+入金モーダルはすべてを**すべて**、**暗号資産**、**現金**の3つのタブに分けています。通貨と方法を選ぶと、確認前に着金までの時間と最低額が表示されます。
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### 暗号資産
 
-- ウォレットコネクト：複数のチェーンとアセットをサポート。
-- カード決済：現在Visaをサポート。
-- 転送（別のウォレットからHyperdashウォレットに送信、複数のアセットとチェーンに対応）。
-- 取引所入金経由で接続：現在Coinbaseをサポート（今後追加予定）。
+- **暗号資産**：任意のウォレットや取引所から送金できます。対応ネットワークはEthereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM、Hyperliquidです。
+- 送った資産をそのまま保有する場合は**入金のみ**、着金時にUSDCへ変換する場合は**USDCにスワップ**を選択します。
+- **取引所**：連携した取引所アカウントから直接入金します。Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex、BtcTurkに対応しています。
 
-入金が完了すると、アカウント内のアセットを確認し、Hyperdashのすべての機能を使用できます。
+### 現金
+
+| 方法 | 仕組み | 通貨 |
+| --- | --- | --- |
+| 銀行振込 | ご本人名義の仮想口座が発行され、ご自身の銀行から振り込めます。利用可否は国によって異なります。 | 対応するすべての通貨 |
+| カード | Apple PayとGoogle Payを含むVisaおよびMastercard。Hyperdashが複数の決済プロバイダのリアルタイム見積もりを比較し、最良のレートを選べます。 | 対応するすべての通貨 |
+| Revolut Pay | Revolutの残高から直接支払います。 | EUR、GBP、PLN、RON、CZK、HUF、CHF |
+| Apple PayとGoogle Pay | 単独でも、カードのオプションとしても利用できます。 | 対応するすべての通貨 |
+| PayPal | PayPalの残高または連携アカウントから支払います。 | EUR |
+| CashApp | CashAppの残高から支払います。 | USD |
+| PIX | ブラジルの即時決済システムです。 | BRL |
+| SPEI | メキシコの銀行間送金システムです。 | MXN |
+| BLIK | ポーランドのモバイル決済システムです。 | PLN |
+| UPI | インドの即時決済システムです。 | INR |
+| Interac | Interacを利用したカナダの銀行振込です。 | CAD |
+
+### 対応通貨
+
+Hyperdashは34の法定通貨で入金を受け付けています：
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+すべての方法がすべての通貨に対応しているわけではありません。入金モーダルは選択した通貨で利用できる方法のみを表示し、お住まいの国で利用できないものは非表示にします。
+
+<Note>
+  制裁対象地域では入金が制限され、銀行振込の対応範囲は他の方法より狭くなっています。ある方法が表示されない場合、それはお住まいの国または選択した通貨では利用できません。
+</Note>
+
+入金が着金すると、アカウントで残高を確認し、Hyperdashのすべての機能を利用できます。
 
 ## ウォレットのインポート
 

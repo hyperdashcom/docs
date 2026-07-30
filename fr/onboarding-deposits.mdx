@@ -1,30 +1,58 @@
 ---
 title: "Intégration, Dépôts et Portefeuilles"
-description: "Guide d'intégration à Hyperdash pour les nouveaux utilisateurs"
+description: "Comment se connecter, alimenter son compte et gérer ses portefeuilles sur Hyperdash."
 ---
 
-### Intégration
+## Se connecter
 
-Connexion : Les utilisateurs peuvent se connecter via :
+Vous pouvez vous connecter avec :
 
-- Authentification Google
-- Par e-mail
-- Directement via un portefeuille compatible EVM
+- Google
+- Apple
+- E-mail
+- Tout portefeuille compatible EVM
 
-Dans le cas d'une connexion Google ou e-mail, un portefeuille sera généré pour l'utilisateur afin de déposer des fonds pour trader.
+Si vous vous connectez avec Google, Apple ou par e-mail, Hyperdash génère pour vous un portefeuille non-custodial sécurisé par Turnkey, et vous déposez sur ce portefeuille pour trader. L'authentification à deux facteurs est disponible sur votre compte une fois connecté.
 
-### Dépôts
+## Dépôts
 
-Les dépôts peuvent être effectués directement via plusieurs méthodes, sans limites et instantanément :
+La fenêtre de dépôt regroupe tout en trois onglets : **Tous**, **Crypto** et **Espèces**. Choisissez une devise et une méthode, et Hyperdash affiche le délai de règlement et tout minimum avant confirmation.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### Crypto
 
-- Wallet connect : prend en charge plusieurs chaînes et actifs.
-- Paiement par carte : actuellement prend en charge Visa.
-- Transfert (envoyez vers votre portefeuille Hyperdash depuis un autre portefeuille, compatible avec plusieurs actifs et chaînes).
-- Connexion via dépôt Exchange : Actuellement prend en charge Coinbase (plus à venir bientôt).
+- **Crypto** : envoyez depuis n'importe quel portefeuille ou exchange. Les réseaux pris en charge sont Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM et Hyperliquid.
+- Choisissez **Dépôt uniquement** pour conserver l'actif envoyé, ou **Convertir en USDC** pour qu'il soit converti à l'arrivée.
+- **Exchanges** : déposez directement depuis un compte d'exchange connecté. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex et BtcTurk sont pris en charge.
 
-Une fois que vous avez déposé, vous pouvez voir les actifs dans votre compte et utiliser toutes les fonctionnalités de Hyperdash.
+### Espèces
+
+| Méthode | Fonctionnement | Devises |
+| --- | --- | --- |
+| Virement bancaire | Un compte virtuel à votre nom, pour virer depuis votre banque. La disponibilité dépend de votre pays. | Toutes les devises prises en charge |
+| Carte | Visa et Mastercard, y compris Apple Pay et Google Pay. Hyperdash compare les cotations en direct de plusieurs prestataires de paiement pour que vous choisissiez le meilleur taux. | Toutes les devises prises en charge |
+| Revolut Pay | Payez directement depuis votre solde Revolut. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay et Google Pay | Disponibles seuls et comme option de carte. | Toutes les devises prises en charge |
+| PayPal | Payez depuis votre solde PayPal ou un compte lié. | EUR |
+| CashApp | Payez depuis votre solde CashApp. | USD |
+| PIX | Le système de paiement instantané du Brésil. | BRL |
+| SPEI | Le système de virement interbancaire du Mexique. | MXN |
+| BLIK | Le système de paiement mobile de la Pologne. | PLN |
+| UPI | Le système de paiement instantané de l'Inde. | INR |
+| Interac | Virement bancaire canadien via Interac. | CAD |
+
+### Devises prises en charge
+
+Hyperdash accepte les dépôts dans 34 devises fiat :
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+Toutes les méthodes ne prennent pas en charge toutes les devises. La fenêtre de dépôt n'affiche que les méthodes disponibles pour la devise choisie et masque celles indisponibles dans votre pays.
+
+<Note>
+  Les dépôts sont restreints dans les juridictions sous sanctions, et la couverture du virement bancaire est plus étroite que celle des autres méthodes. Si une méthode n'apparaît pas, elle n'est pas disponible pour votre pays ou pour la devise sélectionnée.
+</Note>
+
+Dès qu'un dépôt est réglé, le solde apparaît sur votre compte et vous pouvez utiliser toutes les fonctionnalités de Hyperdash.
 
 ## Importer un Portefeuille
 

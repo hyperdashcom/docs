@@ -1,30 +1,58 @@
 ---
 title: "Onboarding, Deposit & Wallet"
-description: "Panduan onboarding ke Hyperdash untuk pengguna baru"
+description: "Cara masuk, mengisi dana ke akun, dan mengelola wallet di Hyperdash."
 ---
 
-### Onboarding
+## Masuk
 
-Login: Pengguna dapat login melalui:
+Anda dapat masuk dengan:
 
-- Autentikasi Google
-- Melalui Email
-- Langsung melalui Wallet yang kompatibel dengan EVM
+- Google
+- Apple
+- Email
+- Wallet apa pun yang kompatibel dengan EVM
 
-Dalam kasus login Google atau email, wallet akan dibuat untuk pengguna untuk mendepositkan dana untuk trading.
+Jika Anda masuk dengan Google, Apple, atau email, Hyperdash membuat wallet non-kustodial untuk Anda yang diamankan oleh Turnkey, dan Anda melakukan deposit ke wallet itu untuk trading. Autentikasi dua faktor tersedia di akun Anda setelah masuk.
 
-### Deposit
+## Deposit
 
-Deposit dapat dilakukan langsung melalui berbagai metode, tanpa batas dan instan:
+Modal deposit mengelompokkan semuanya dalam tiga tab: **Semua**, **Kripto**, dan **Tunai**. Pilih mata uang dan metode, lalu Hyperdash menampilkan waktu penyelesaian dan minimum apa pun sebelum Anda mengonfirmasi.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### Kripto
 
-- Wallet connect: mendukung berbagai chain dan aset.
-- Pembayaran kartu: saat ini mendukung Visa.
-- Transfer (kirim ke wallet Hyperdash Anda dari wallet lain, kompatibel dengan berbagai aset dan chain).
-- Koneksi melalui Deposit Exchange: Saat ini mendukung Coinbase (lebih banyak segera hadir).
+- **Kripto**: kirim dari wallet atau bursa mana pun. Jaringan yang didukung adalah Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM, dan Hyperliquid.
+- Pilih **Hanya deposit** untuk menyimpan aset yang Anda kirim, atau **Tukar ke USDC** agar dikonversi saat tiba.
+- **Bursa**: deposit langsung dari akun bursa yang terhubung. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex, dan BtcTurk didukung.
 
-Setelah Anda deposit, Anda dapat melihat aset di akun Anda, dan menggunakan semua fitur Hyperdash.
+### Tunai
+
+| Metode | Cara kerjanya | Mata uang |
+| --- | --- | --- |
+| Transfer bank | Rekening virtual atas nama Anda sendiri, sehingga Anda bisa transfer dari bank Anda. Ketersediaan bergantung pada negara Anda. | Semua mata uang yang didukung |
+| Kartu | Visa dan Mastercard, termasuk Apple Pay dan Google Pay. Hyperdash membandingkan kuotasi langsung dari beberapa penyedia pembayaran agar Anda bisa memilih kurs terbaik. | Semua mata uang yang didukung |
+| Revolut Pay | Bayar langsung dari saldo Revolut Anda. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay dan Google Pay | Tersedia sendiri maupun sebagai opsi kartu. | Semua mata uang yang didukung |
+| PayPal | Bayar dari saldo PayPal atau akun yang tertaut. | EUR |
+| CashApp | Bayar dari saldo CashApp Anda. | USD |
+| PIX | Jalur pembayaran instan Brasil. | BRL |
+| SPEI | Jalur transfer antarbank Meksiko. | MXN |
+| BLIK | Jalur pembayaran mobile Polandia. | PLN |
+| UPI | Jalur pembayaran instan India. | INR |
+| Interac | Transfer bank Kanada melalui Interac. | CAD |
+
+### Mata uang yang didukung
+
+Hyperdash menerima deposit dalam 34 mata uang fiat:
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+Tidak semua metode mendukung semua mata uang. Modal deposit hanya menampilkan metode yang tersedia untuk mata uang yang Anda pilih, dan menyembunyikan apa pun yang tidak tersedia di negara Anda.
+
+<Note>
+  Deposit dibatasi di yurisdiksi yang terkena sanksi, dan cakupan transfer bank lebih sempit dibanding metode lain. Jika suatu metode tidak muncul, berarti metode itu tidak tersedia untuk negara Anda atau mata uang yang dipilih.
+</Note>
+
+Setelah deposit selesai, Anda dapat melihat saldo di akun Anda dan menggunakan semua fitur Hyperdash.
 
 ## Mengimpor Wallet
 

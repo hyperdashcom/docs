@@ -1,30 +1,58 @@
 ---
 title: "入门、存款与钱包"
-description: "新用户的 Hyperdash 入门指南"
+description: "如何在 Hyperdash 登录、为账户充值以及管理钱包。"
 ---
 
-### 入门
+## 登录
 
-登录：用户可以通过以下方式登录：
+您可以通过以下方式登录：
 
-- Google 身份验证
+- Google
+- Apple
 - 电子邮件
-- 直接通过 EVM 兼容钱包
+- 任何兼容 EVM 的钱包
 
-如果使用 Google 或电子邮件登录，系统将为用户生成一个钱包，用于存入资金进行交易。
+使用 Google、Apple 或电子邮件登录时，Hyperdash 会为您生成一个由 Turnkey 保护的非托管钱包，您向该钱包充值即可交易。登录后可在账户中启用双重验证。
 
-### 存款
+## 存款
 
-存款可以通过多种方式直接进行，无限额且即时到账：
+存款弹窗将所有方式归为三个标签页：**全部**、**加密货币**和**现金**。选择币种和方式后，Hyperdash 会在您确认前显示到账时间和任何最低限额。
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### 加密货币
 
-- 钱包连接：支持多条链和多种资产。
-- 银行卡支付：目前支持 Visa。
-- 转账（从其他钱包发送到您的 Hyperdash 钱包，兼容多种资产和链）。
-- 通过交易所存款连接：目前支持 Coinbase（更多即将推出）。
+- **加密货币**：可从任意钱包或交易所转入。支持的网络包括 Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM 和 Hyperliquid。
+- 选择**仅存入**以保留您转入的资产，或选择**兑换为 USDC** 让其在到账时自动兑换。
+- **交易所**：直接从已连接的交易所账户存入。支持 Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex 和 BtcTurk。
 
-存款完成后，您可以查看账户中的资产，并使用 Hyperdash 的所有功能。
+### 现金
+
+| 方式 | 运作方式 | 币种 |
+| --- | --- | --- |
+| 银行转账 | 以您本人名义开立的虚拟账户，可从您的银行汇入。可用性取决于您所在的国家或地区。 | 所有支持的币种 |
+| 银行卡 | Visa 和 Mastercard，包含 Apple Pay 与 Google Pay。Hyperdash 会比较多家支付服务商的实时报价，便于您选择最优汇率。 | 所有支持的币种 |
+| Revolut Pay | 直接使用您的 Revolut 余额支付。 | EUR、GBP、PLN、RON、CZK、HUF、CHF |
+| Apple Pay 与 Google Pay | 既可单独使用，也可作为银行卡支付选项。 | 所有支持的币种 |
+| PayPal | 使用您的 PayPal 余额或已关联账户支付。 | EUR |
+| CashApp | 使用您的 CashApp 余额支付。 | USD |
+| PIX | 巴西的即时支付通道。 | BRL |
+| SPEI | 墨西哥的银行间转账通道。 | MXN |
+| BLIK | 波兰的移动支付通道。 | PLN |
+| UPI | 印度的即时支付通道。 | INR |
+| Interac | 通过 Interac 进行的加拿大银行转账。 | CAD |
+
+### 支持的币种
+
+Hyperdash 支持以 34 种法币存款：
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+并非所有方式都支持所有币种。存款弹窗只会显示所选币种可用的方式，并隐藏在您所在国家或地区不可用的选项。
+
+<Note>
+  受制裁地区无法存款，且银行转账的覆盖范围比其他方式更窄。如果某种方式未显示，说明它在您所在的国家或地区、或对所选币种不可用。
+</Note>
+
+存款到账后，您即可在账户中查看余额并使用 Hyperdash 的全部功能。
 
 ## 导入钱包
 

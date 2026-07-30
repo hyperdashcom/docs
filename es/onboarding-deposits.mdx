@@ -1,30 +1,58 @@
 ---
 title: "Incorporación, Depósitos y Billeteras"
-description: "Guía de incorporación a Hyperdash para nuevos usuarios"
+description: "Cómo iniciar sesión, financiar tu cuenta y gestionar billeteras en Hyperdash."
 ---
 
-### Incorporación
+## Iniciar sesión
 
-Inicio de sesión: Los usuarios pueden iniciar sesión a través de:
+Puedes iniciar sesión con:
 
-- Autenticación de Google
-- Por correo electrónico
-- Directamente a través de una billetera compatible con EVM
+- Google
+- Apple
+- Correo electrónico
+- Cualquier billetera compatible con EVM
 
-En el caso de inicio de sesión con Google o correo electrónico, se generará una billetera para que el usuario deposite fondos y pueda operar.
+Si inicias sesión con Google, Apple o correo electrónico, Hyperdash genera una billetera no custodial para ti, asegurada por Turnkey, y depositas en esa billetera para operar. La autenticación de dos factores está disponible en tu cuenta una vez que has iniciado sesión.
 
-### Depósitos
+## Depósitos
 
-Los depósitos se pueden realizar directamente a través de múltiples métodos, sin límites y de forma instantánea:
+El modal de depósito agrupa todo en tres pestañas: **Todos**, **Cripto** y **Efectivo**. Elige una moneda y un método, y Hyperdash muestra el tiempo de liquidación y cualquier mínimo antes de confirmar.
 
-<iframe src="https://www.youtube.com/embed/J4AibaLsbkg" title="YouTube video player" frameborder="0" className="w-full aspect-video rounded-xl" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+### Cripto
 
-- Wallet connect: soporta múltiples cadenas y activos.
-- Pago con tarjeta: actualmente soporta Visa.
-- Transferencia (envía a tu billetera Hyperdash desde otra billetera, compatible con múltiples activos y cadenas).
-- Conexión vía depósito de Exchange: Actualmente soporta Coinbase (más opciones próximamente).
+- **Cripto**: envía desde cualquier billetera o exchange. Las redes compatibles son Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, Solana, Bitcoin, Tron, HyperEVM y Hyperliquid.
+- Elige **Solo depositar** para conservar el activo que enviaste, o **Convertir a USDC** para que se convierta al llegar.
+- **Exchanges**: deposita directamente desde una cuenta de exchange conectada. Se admiten Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex y BtcTurk.
 
-Una vez que hayas depositado, podrás ver los activos en tu cuenta y usar todas las funciones de Hyperdash.
+### Efectivo
+
+| Método | Cómo funciona | Monedas |
+| --- | --- | --- |
+| Transferencia bancaria | Una cuenta virtual a tu propio nombre, para que puedas transferir desde tu banco. La disponibilidad depende de tu país. | Todas las monedas admitidas |
+| Tarjeta | Visa y Mastercard, incluidos Apple Pay y Google Pay. Hyperdash compara cotizaciones en vivo entre proveedores de pago para que elijas la mejor tarifa. | Todas las monedas admitidas |
+| Revolut Pay | Paga directamente desde tu saldo de Revolut. | EUR, GBP, PLN, RON, CZK, HUF, CHF |
+| Apple Pay y Google Pay | Disponibles por sí solos y como opción de tarjeta. | Todas las monedas admitidas |
+| PayPal | Paga desde tu saldo de PayPal o una cuenta vinculada. | EUR |
+| CashApp | Paga desde tu saldo de CashApp. | USD |
+| PIX | El sistema de pagos instantáneos de Brasil. | BRL |
+| SPEI | El sistema de transferencias interbancarias de México. | MXN |
+| BLIK | El sistema de pagos móviles de Polonia. | PLN |
+| UPI | El sistema de pagos instantáneos de India. | INR |
+| Interac | Transferencia bancaria canadiense mediante Interac. | CAD |
+
+### Monedas admitidas
+
+Hyperdash acepta depósitos en 34 monedas fiat:
+
+AUD, BGN, BRL, CAD, CHF, CLP, COP, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, JPY, KRW, MXN, MYR, NOK, NZD, PEN, PHP, PLN, RON, SEK, SGD, THB, TRY, USD, VND, ZAR, ZMW
+
+No todos los métodos admiten todas las monedas. El modal de depósito solo muestra los métodos disponibles para la moneda que elijas y oculta lo que no esté disponible en tu país.
+
+<Note>
+  Los depósitos están restringidos en jurisdicciones sancionadas, y la cobertura de transferencia bancaria es más limitada que la de los demás métodos. Si un método no aparece, no está disponible para tu país o para la moneda seleccionada.
+</Note>
+
+Una vez que se liquide un depósito, podrás ver el saldo en tu cuenta y usar todas las funciones de Hyperdash.
 
 ## Importar una Billetera
 
