@@ -1,0 +1,93 @@
+---
+title: "Widgets"
+description: "Tous les widgets que vous pouvez ajouter à une disposition, et comment les lier pour qu'ils suivent le même actif ou la même liste de suivi."
+---
+
+Les widgets sont les panneaux qui composent une [disposition](/fr/layouts). Ouvrez le tiroir **Ajouter un widget**, cherchez ou parcourez par catégorie, puis faites-en glisser un sur la grille.
+
+## Graphiques
+
+| Widget | Description |
+| --- | --- |
+| Graphique des prix | Le graphique de trading complet d'un marché, avec outils de dessin et indicateurs. |
+| Graphique des liquidations | Carte de chaleur des liquidations montrant où les positions à effet de levier sont liquidées de force. Voir [Indicateurs de trading](/fr/trading-indicators). |
+| Graphique des stops | Carte de chaleur des stop loss montrant où se concentrent les stops. |
+| Taux de financement historique | Taux de financement dans le temps sur un marché perpétuel, pour repérer une pression acheteuse ou vendeuse persistante. |
+| Carte thermique des cohortes | Positionnement des cohortes sur plusieurs marchés dans une seule grille, pour voir d'un coup d'œil quels groupes sont acheteurs ou vendeurs et où. |
+| Price heatmap | Performance des prix sur un ensemble d'actifs, dimensionnée et colorée selon la variation. |
+
+## Flux
+
+| Widget | Description |
+| --- | --- |
+| Carnet d'ordres | Offres et demandes en direct du marché lié, avec la profondeur. |
+| Carnet d'ordres (Node) | Le carnet d'ordres provenant directement d'un nœud Hyperliquid. |
+| Transactions | Transactions en direct du marché lié. |
+| Actualités | Titres en temps réel. Cliquez sur la pastille d'un ticker dans un titre pour le trader sur place avec le [Trading rapide](/fr/quicktrade). |
+
+## Portefeuille
+
+| Widget | Description |
+| --- | --- |
+| Positions | Vos positions ouvertes, avec entrée, prix de liquidation, taille et PnL non réalisé. |
+| Soldes | Vos soldes en perpétuels et au comptant. |
+| Ordres ouverts | Vos ordres au carnet, annulables depuis le tableau. |
+| TWAP | Vos propres ordres TWAP en cours et leur progression. |
+| TWAPs actuels | Les TWAP actifs d'autres traders sur le marché que vous consultez. |
+| Exécutions | Vos exécutions individuelles. |
+| Historique | Votre historique de trades terminés. |
+| Transferts | Dépôts, retraits et transferts entrants et sortants de votre compte. |
+| Copytrade | Vos relations de copy trading actives et leur performance. Voir [Copy Trading](/fr/copy-trade). |
+| Liste de suivi | Les actifs que vous avez mis en favori. Sert aussi de source que d'autres widgets peuvent suivre, comme décrit plus bas. |
+
+## Alpha
+
+| Widget | Description |
+| --- | --- |
+| Meilleurs traders | Les plus grosses positions du marché, avec entrée, prix de liquidation, PnL et copy score. |
+| Cohortes | Comment chaque cohorte de traders est positionnée sur le marché, par palier de PnL et par taille de portefeuille. |
+| Changements de position | Comment les positions des traders ont évolué sur une fenêtre de 15 minutes à 7 jours. |
+| Suivis | Activité en direct des portefeuilles que vous suivez. Voir [Suivi de portefeuilles](/fr/wallet-explore). |
+
+Pour le détail de ce que montrent les widgets Alpha, voir [Cohortes, Meilleurs traders et Changements de position](/fr/cohorts-top-traders-position-changes).
+
+## Outils
+
+| Widget | Description |
+| --- | --- |
+| Trading rapide | Boutons de tailles prédéfinies qui envoient des ordres instantanément en un clic. Voir [Trading rapide](/fr/quicktrade). |
+
+## Liaison des widgets
+
+Par défaut, chaque widget affiche l'actif vers lequel il a été pointé. La liaison relie les widgets entre eux : changer l'actif dans l'un le change dans tous, et c'est ce qui transforme un empilement de widgets en un terminal réellement utilisable.
+
+### Groupes de liaison
+
+Il existe six groupes de liaison, chacun avec une couleur. Ouvrez le menu de liaison dans l'en-tête d'un widget et choisissez une couleur pour l'ajouter au groupe.
+
+| Groupe | Couleur |
+| --- | --- |
+| 1 | Bleu |
+| 2 | Jaune |
+| 3 | Violet |
+| 4 | Rouge |
+| 5 | Orange |
+| 6 | Turquoise |
+
+Tous les widgets d'un même groupe suivent le même actif. Mettez un graphique de prix, un carnet d'ordres et un flux de transactions dans le Bleu et ils se déplacent ensemble. Mettez un second ensemble dans le Jaune et vous surveillez deux marchés côte à côte sans que l'un perturbe l'autre.
+
+Les widgets qui ne sont liés à rien peuvent être réglés sur **Aucun** : ils restent sur l'actif que vous leur avez donné, quoi que fasse le reste de la disposition.
+
+### Cible
+
+**Cible** est un rôle distinct, sans numéro. Un widget réglé sur Cible suit l'actif que vous êtes en train de trader plutôt qu'un groupe de couleur. Seuls le Graphique de prix et le Trading rapide peuvent tenir le rôle de Cible.
+
+### Suivre une liste de suivi
+
+La liaison ne se limite pas à un seul actif. Les widgets **Liste de suivi** et **Price heatmap** peuvent servir de source à un groupe : ils transmettent alors une liste entière d'actifs aux widgets qui les suivent, au lieu d'un seul ticker.
+
+C'est ainsi qu'on pilote une disposition à partir d'une liste : mettez en favori les actifs qui vous intéressent, pointez le reste de la disposition vers la Liste de suivi, et les widgets capables de recevoir une liste parcourront toute votre liste plutôt qu'un marché unique.
+
+<Note>
+  Tous les widgets ne peuvent pas être liés. Ceux qui affichent les données de votre propre compte, comme Positions, Soldes et Exécutions, portent sur vous et non sur un marché : ils n'ont rien à suivre.
+</Note>

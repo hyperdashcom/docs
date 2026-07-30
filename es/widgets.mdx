@@ -1,0 +1,93 @@
+---
+title: "Widgets"
+description: "Todos los widgets que puedes añadir a un diseño, y cómo enlazarlos para que sigan el mismo activo o lista de seguimiento."
+---
+
+Los widgets son los paneles que componen un [diseño](/es/layouts). Abre el cajón **Añadir widget**, busca o navega por categoría, y arrastra uno a la cuadrícula.
+
+## Gráficos
+
+| Widget | Descripción |
+| --- | --- |
+| Gráfico de precios | El gráfico de trading completo de un mercado, con herramientas de dibujo e indicadores. |
+| Gráfico de liquidaciones | Mapa de calor de liquidaciones que muestra dónde se fuerzan cierres de posiciones apalancadas. Consulta [Indicadores de trading](/es/trading-indicators). |
+| Gráfico de stops | Mapa de calor de stop loss que muestra dónde se concentran los stops. |
+| Tasa de funding histórica | Tasa de financiación a lo largo del tiempo en un mercado de perpetuos, para detectar presión persistente de largos o cortos. |
+| Mapa de calor de cohortes | Posicionamiento de cohortes en varios mercados en una sola cuadrícula, para ver de un vistazo qué grupos están largos o cortos y dónde. |
+| Price heatmap | Rendimiento de precios en un conjunto de activos, dimensionado y coloreado según el movimiento. |
+
+## Feed
+
+| Widget | Descripción |
+| --- | --- |
+| Libro de órdenes | Ofertas y demandas en vivo del mercado enlazado, con profundidad. |
+| Libro de órdenes (Node) | El libro de órdenes tomado directamente de un nodo de Hyperliquid. |
+| Operaciones | Operaciones en vivo del mercado enlazado. |
+| Noticias | Titulares en tiempo real. Haz clic en la etiqueta de un ticker en un titular para operarlo al momento con [Quick Trade](/es/quicktrade). |
+
+## Cartera
+
+| Widget | Descripción |
+| --- | --- |
+| Posiciones | Tus posiciones abiertas, con entrada, precio de liquidación, tamaño y PnL no realizado. |
+| Saldos | Tus saldos en perpetuos y spot. |
+| Órdenes abiertas | Tus órdenes en el libro, cancelables desde la tabla. |
+| TWAP | Tus propias órdenes TWAP en curso y su progreso. |
+| TWAPs actuales | Los TWAP activos de otros traders en el mercado que estás viendo. |
+| Ejecuciones | Tus ejecuciones individuales. |
+| Historial | Tu historial de operaciones completadas. |
+| Transferencias | Depósitos, retiros y transferencias de entrada y salida de tu cuenta. |
+| Copytrade | Tus relaciones activas de copy trading y su rendimiento. Consulta [Copy Trading](/es/copy-trade). |
+| Lista de seguimiento | Los activos que has marcado con estrella. También sirve como origen que otros widgets pueden seguir, como se explica más abajo. |
+
+## Alpha
+
+| Widget | Descripción |
+| --- | --- |
+| Mejores traders | Las mayores posiciones del mercado, con entrada, precio de liquidación, PnL y copy score. |
+| Cohortes | Cómo está posicionada cada cohorte de traders en el mercado, por nivel de PnL y por tamaño de cartera. |
+| Cambios de posición | Cómo cambiaron las posiciones de los traders en una ventana de 15 minutos a 7 días. |
+| Rastreados | Actividad en vivo de las carteras que sigues. Consulta [Seguimiento de carteras](/es/wallet-explore). |
+
+Para ver en profundidad qué muestran los widgets de Alpha, consulta [Cohortes, Mejores traders y Cambios de posición](/es/cohorts-top-traders-position-changes).
+
+## Herramientas
+
+| Widget | Descripción |
+| --- | --- |
+| Quick Trade | Botones de tamaño predefinido que envían órdenes al instante con un clic. Consulta [Quick Trade](/es/quicktrade). |
+
+## Enlace entre widgets
+
+Por defecto cada widget muestra el activo al que se le apuntó. El enlace une widgets para que, al cambiar el activo en uno, cambie en todos, que es lo que convierte un montón de widgets en un terminal que funciona.
+
+### Grupos de enlace
+
+Hay seis grupos de enlace, cada uno con un color. Abre el menú de enlace en la cabecera de un widget y elige un color para añadirlo al grupo.
+
+| Grupo | Color |
+| --- | --- |
+| 1 | Azul |
+| 2 | Amarillo |
+| 3 | Morado |
+| 4 | Rojo |
+| 5 | Naranja |
+| 6 | Turquesa |
+
+Todos los widgets del mismo grupo siguen el mismo activo. Pon un gráfico de precios, un libro de órdenes y un feed de operaciones en Azul y se moverán juntos. Pon un segundo conjunto en Amarillo y podrás vigilar dos mercados a la vez sin que uno interfiera con el otro.
+
+Los widgets que no están enlazados a nada pueden ponerse en **Ninguno**, de modo que se quedan donde los apuntes independientemente de lo que haga el resto del diseño.
+
+### Objetivo
+
+**Objetivo** es un rol aparte, sin número. Un widget en Objetivo sigue el activo que estás operando en lugar de un grupo de color. Solo el Gráfico de precios y Quick Trade pueden tener el rol de Objetivo.
+
+### Seguir una lista de seguimiento
+
+El enlace no se limita a un solo activo. Los widgets **Lista de seguimiento** y **Price heatmap** pueden actuar como origen de un grupo, en cuyo caso pasan una lista entera de activos a los widgets que los siguen en lugar de un único ticker.
+
+Así se gobierna un diseño desde una lista: marca con estrella los activos que te interesan, apunta el resto del diseño a la Lista de seguimiento, y los widgets que admiten listas recorrerán toda tu lista en vez de un solo mercado.
+
+<Note>
+  No todos los widgets se pueden enlazar. Los que muestran datos de tu propia cuenta, como Posiciones, Saldos y Ejecuciones, hablan de ti y no de un mercado, así que no tienen nada que seguir.
+</Note>

@@ -1,0 +1,93 @@
+---
+title: "Widgets"
+description: "Alle Widgets, die Sie einem Layout hinzufügen können, und wie Sie sie verknüpfen, damit sie demselben Asset oder derselben Watchlist folgen."
+---
+
+Widgets sind die Panels, aus denen ein [Layout](/de/layouts) besteht. Öffnen Sie die Schublade **Widget hinzufügen**, suchen oder blättern Sie nach Kategorie, und ziehen Sie eines auf das Raster.
+
+## Charts
+
+| Widget | Beschreibung |
+| --- | --- |
+| Preis-Chart | Der vollständige Trading-Chart eines Marktes, mit Zeichenwerkzeugen und Indikatoren. |
+| Liquidations-Chart | Liquidations-Heatmap, die zeigt, wo gehebelte Positionen zwangsweise geschlossen werden. Siehe [Trading-Indikatoren](/de/trading-indicators). |
+| Stop-Chart | Stop-Loss-Heatmap, die zeigt, wo sich Stops ballen. |
+| Historische Funding-Rate | Funding-Rate im Zeitverlauf für einen Perp-Markt, um anhaltenden Long- oder Short-Druck zu erkennen. |
+| Heatmap der Trader-Gruppen | Kohorten-Positionierung über mehrere Märkte in einem Raster, damit auf einen Blick erkennbar ist, welche Gruppen wo long oder short sind. |
+| Preis-Heatmap | Preisentwicklung über eine Reihe von Assets, nach Bewegung in Größe und Farbe abgestuft. |
+
+## Feed
+
+| Widget | Beschreibung |
+| --- | --- |
+| Orderbuch | Live-Geld- und Briefkurse des verknüpften Marktes, mit Tiefe. |
+| Orderbuch (Node) | Das Orderbuch direkt von einem Hyperliquid-Node. |
+| Trades | Live-Trades des verknüpften Marktes. |
+| News | Schlagzeilen in Echtzeit. Klicken Sie auf einen Ticker in einer Schlagzeile, um ihn direkt mit [Quick Trade](/de/quicktrade) zu handeln. |
+
+## Portfolio
+
+| Widget | Beschreibung |
+| --- | --- |
+| Positionen | Ihre offenen Positionen, mit Einstieg, Liquidationspreis, Größe und unrealisiertem PnL. |
+| Kontostände | Ihre Guthaben auf Perps und Spot. |
+| Offene Orders | Ihre ruhenden Orders, direkt aus der Tabelle stornierbar. |
+| TWAP | Ihre eigenen laufenden TWAP-Orders und deren Fortschritt. |
+| Aktuelle TWAPs | Aktive TWAPs anderer Trader auf dem Markt, den Sie gerade ansehen. |
+| Ausführungen | Ihre einzelnen Ausführungen. |
+| Verlauf | Ihr abgeschlossener Handelsverlauf. |
+| Übertragungen | Ein- und Auszahlungen sowie Transfers auf Ihrem Konto. |
+| Copytrade | Ihre aktiven Copy-Trading-Beziehungen und deren Performance. Siehe [Copy Trading](/de/copy-trade). |
+| Watchlist | Die Assets, die Sie markiert haben. Dient zugleich als Quelle, der andere Widgets folgen können, siehe unten. |
+
+## Alpha
+
+| Widget | Beschreibung |
+| --- | --- |
+| Top-Trader | Die größten Positionen im Markt, mit Einstieg, Liquidationspreis, PnL und Copy Score. |
+| Trader-Gruppen | Wie jede Trader-Kohorte im Markt positioniert ist, nach PnL-Stufe und nach Wallet-Größe. |
+| Positionsänderungen | Wie sich Trader-Positionen über ein Fenster von 15 Minuten bis 7 Tagen verschoben haben. |
+| Verfolgte Trader | Live-Aktivität der Wallets, die Sie verfolgen. Siehe [Wallet-Tracking](/de/wallet-explore). |
+
+Was die Alpha-Widgets im Detail zeigen, steht unter [Kohorten, Top-Trader und Positionsänderungen](/de/cohorts-top-traders-position-changes).
+
+## Tools
+
+| Widget | Beschreibung |
+| --- | --- |
+| Quick Trade | Ein-Klick-Buttons mit voreingestellten Größen, die Orders sofort auslösen. Siehe [Quick Trade](/de/quicktrade). |
+
+## Widget-Verknüpfung
+
+Standardmäßig zeigt jedes Widget das Asset, auf das es gerichtet wurde. Die Verknüpfung koppelt Widgets aneinander: Wechseln Sie das Asset in einem, wechselt es in allen. Genau das macht aus einem Haufen Widgets ein funktionierendes Terminal.
+
+### Link-Gruppen
+
+Es gibt sechs Link-Gruppen, jede mit einer Farbe. Öffnen Sie das Link-Menü in der Kopfleiste eines Widgets und wählen Sie eine Farbe, um es der Gruppe hinzuzufügen.
+
+| Gruppe | Farbe |
+| --- | --- |
+| 1 | Blau |
+| 2 | Gelb |
+| 3 | Violett |
+| 4 | Rot |
+| 5 | Orange |
+| 6 | Petrol |
+
+Alle Widgets derselben Gruppe folgen demselben Asset. Legen Sie Preischart, Orderbuch und Trades-Feed auf Blau, bewegen sie sich gemeinsam. Legen Sie einen zweiten Satz auf Gelb, beobachten Sie zwei Märkte nebeneinander, ohne dass einer den anderen stört.
+
+Widgets, die mit nichts verknüpft sind, lassen sich auf **Keine** setzen. Sie bleiben dann auf dem Asset, das Sie ihnen gegeben haben, unabhängig davon, was der Rest des Layouts tut.
+
+### Ziel
+
+**Ziel** ist eine eigene, unnummerierte Rolle. Ein Widget auf Ziel folgt dem Asset, das Sie gerade handeln, statt einer Farbgruppe. Nur der Preischart und Quick Trade können die Ziel-Rolle übernehmen.
+
+### Einer Watchlist folgen
+
+Verknüpfung ist nicht auf ein einzelnes Asset beschränkt. Die Widgets **Watchlist** und **Price heatmap** können als Quelle einer Gruppe dienen und geben dann eine ganze Liste von Assets an die folgenden Widgets weiter statt eines einzelnen Tickers.
+
+So steuern Sie ein Layout über eine Liste: markieren Sie die Assets, die Sie interessieren, richten Sie den Rest des Layouts auf die Watchlist, und die Widgets, die eine Liste verarbeiten können, arbeiten Ihre ganze Watchlist ab statt eines einzelnen Marktes.
+
+<Note>
+  Nicht jedes Widget lässt sich verknüpfen. Widgets mit Ihren eigenen Kontodaten, etwa Positionen, Guthaben und Ausführungen, beziehen sich auf Sie und nicht auf einen Markt und haben daher nichts, dem sie folgen könnten.
+</Note>

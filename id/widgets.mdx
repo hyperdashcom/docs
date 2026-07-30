@@ -1,0 +1,93 @@
+---
+title: "Widget"
+description: "Semua widget yang bisa Anda tambahkan ke layout, dan cara menautkannya agar mengikuti aset atau watchlist yang sama."
+---
+
+Widget adalah panel-panel yang membentuk sebuah [layout](/id/layouts). Buka laci **Tambah widget**, cari atau telusuri per kategori, lalu seret satu ke grid.
+
+## Chart
+
+| Widget | Deskripsi |
+| --- | --- |
+| Grafik Harga | Chart trading lengkap untuk sebuah pasar, dengan alat gambar dan indikator. |
+| Grafik Likuidasi | Heatmap likuidasi yang menunjukkan di mana posisi berleverage dipaksa keluar. Lihat [Indikator trading](/id/trading-indicators). |
+| Grafik Stops | Heatmap stop loss yang menunjukkan di mana stop menumpuk. |
+| Riwayat Funding Rate | Funding rate dari waktu ke waktu pada pasar perp, untuk melihat tekanan long atau short yang bertahan. |
+| Peta Panas Kohort | Posisi cohort di berbagai pasar dalam satu grid, sehingga terlihat sekilas kelompok mana yang long atau short dan di mana. |
+| Price heatmap | Kinerja harga sejumlah aset, dengan ukuran dan warna sesuai besar pergerakan. |
+
+## Feed
+
+| Widget | Deskripsi |
+| --- | --- |
+| Buku pesanan | Bid dan ask langsung untuk pasar yang ditautkan, beserta kedalamannya. |
+| Buku pesanan (Node) | Order book yang diambil langsung dari node Hyperliquid. |
+| Perdagangan | Transaksi langsung pada pasar yang ditautkan. |
+| Berita | Berita utama secara real-time. Klik pil ticker pada sebuah judul untuk langsung memperdagangkannya dengan [Quick Trade](/id/quicktrade). |
+
+## Portofolio
+
+| Widget | Deskripsi |
+| --- | --- |
+| Posisi | Posisi terbuka Anda, dengan harga masuk, harga likuidasi, ukuran, dan PnL belum terealisasi. |
+| Saldo | Saldo Anda di perp dan spot. |
+| Pesanan terbuka | Order Anda yang menunggu, bisa dibatalkan dari tabel. |
+| TWAP | Order TWAP Anda sendiri yang sedang berjalan beserta progresnya. |
+| TWAP saat ini | TWAP aktif trader lain pada pasar yang sedang Anda lihat. |
+| Eksekusi | Eksekusi individual Anda. |
+| Riwayat | Riwayat trading Anda yang sudah selesai. |
+| Transfer | Deposit, penarikan, dan transfer masuk maupun keluar dari akun Anda. |
+| Copytrade | Hubungan copy trading Anda yang aktif beserta kinerjanya. Lihat [Copy Trading](/id/copy-trade). |
+| Daftar Pantau | Aset yang Anda bintangi. Sekaligus menjadi sumber yang bisa diikuti widget lain, dijelaskan di bawah. |
+
+## Alpha
+
+| Widget | Deskripsi |
+| --- | --- |
+| Trader teratas | Posisi terbesar di pasar, dengan harga masuk, harga likuidasi, PnL, dan copy score. |
+| Kohort | Bagaimana setiap cohort trader memposisikan diri di pasar, menurut tingkat PnL dan ukuran wallet. |
+| Perubahan posisi | Bagaimana posisi trader bergeser dalam rentang 15 menit sampai 7 hari. |
+| Dilacak | Aktivitas langsung dari wallet yang Anda lacak. Lihat [Pelacakan wallet](/id/wallet-explore). |
+
+Untuk penjelasan mendalam soal yang ditampilkan widget Alpha, lihat [Cohort, Top Trader, dan Perubahan Posisi](/id/cohorts-top-traders-position-changes).
+
+## Alat
+
+| Widget | Deskripsi |
+| --- | --- |
+| Quick Trade | Tombol ukuran preset sekali klik yang langsung mengirim order. Lihat [Quick Trade](/id/quicktrade). |
+
+## Penautan widget
+
+Secara bawaan setiap widget menampilkan aset yang diarahkan padanya. Penautan mengikat widget satu sama lain sehingga mengganti aset di satu widget mengganti di semuanya, dan inilah yang mengubah tumpukan widget menjadi terminal yang benar-benar bisa dipakai.
+
+### Grup tautan
+
+Ada enam grup tautan, masing-masing dengan warna. Buka menu tautan di header widget dan pilih warna untuk memasukkan widget itu ke grup tersebut.
+
+| Grup | Warna |
+| --- | --- |
+| 1 | Biru |
+| 2 | Kuning |
+| 3 | Ungu |
+| 4 | Merah |
+| 5 | Oranye |
+| 6 | Toska |
+
+Semua widget dalam grup yang sama mengikuti aset yang sama. Taruh price chart, order book, dan feed trade di Biru, maka ketiganya bergerak bersama. Taruh set kedua di Kuning, dan Anda bisa memantau dua pasar berdampingan tanpa saling mengganggu.
+
+Widget yang tidak ditautkan ke apa pun bisa disetel ke **Tidak ada**, sehingga tetap pada aset yang Anda tentukan, apa pun yang dilakukan bagian layout lainnya.
+
+### Target
+
+**Target** adalah peran tersendiri tanpa nomor. Widget yang disetel ke Target mengikuti aset yang sedang Anda perdagangkan, bukan grup warna. Hanya Price Chart dan Quick Trade yang bisa memegang peran Target.
+
+### Mengikuti watchlist
+
+Penautan tidak terbatas pada satu aset. Widget **Watchlist** dan **Price heatmap** bisa menjadi sumber bagi sebuah grup, dan dalam hal itu keduanya meneruskan satu daftar aset penuh ke widget yang mengikutinya, bukan satu ticker saja.
+
+Begitulah cara menjalankan layout dari sebuah daftar: bintangi aset yang Anda perhatikan, arahkan sisa layout ke Watchlist, dan widget yang bisa menerima daftar akan menelusuri seluruh watchlist Anda alih-alih satu pasar saja.
+
+<Note>
+  Tidak semua widget bisa ditautkan. Widget yang menampilkan data akun Anda sendiri, seperti Posisi, Saldo, dan Fill, berbicara tentang Anda dan bukan tentang suatu pasar, jadi tidak ada yang bisa diikuti.
+</Note>
