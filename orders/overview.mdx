@@ -16,7 +16,7 @@ Hyperdash gives you a full execution toolkit, from simple market and limit order
 | [Stop Market](/orders/stop-market) | At the stop price, executes at market | Guaranteed reaction to a price level | Stop Price, Stealth |
 | [Chase](/orders/chase) | Post-only limit order that rests one tick inside the far side of the book, repricing continuously | Fast fills while staying passive | Chase To, Reduce Only |
 | [TWAP](/orders/twap) | Equal sub-orders every 30 seconds over your chosen duration | Minimize market impact over time | Duration, Stealth, Randomize |
-| [Chase TWAP](/orders/chase-twap) | One-minute clips worked as passive chase orders, with a market sweep every five minutes | TWAP pacing with maker pricing | Duration, Refresh Aggression |
+| [Chase TWAP](/orders/chase-twap) | One-minute clips worked as passive chase orders, with a market sweep every five minutes | TWAP pacing with maker pricing | Duration, Reduce Only |
 | [Swarm](/orders/swarm) | Splits size into up to 200 clips, dispatched by aggression level | Minimize impact with faster completion | Total Clips, Aggression |
 | [Take Profit / Stop Loss](/orders/take-profit-stop-loss) | Trigger orders that close a position at profit or loss targets | Lock in gains, cap downside | TP and SL Price or Percent |
 | [Trailing Stop](/orders/trailing-stop) | Stop that tracks the price peak and exits on a set retracement | Protect profits while letting winners run | Retracement, Exit Order Type |

@@ -3,7 +3,7 @@ title: "TWAP de poursuite (Chase TWAP)"
 description: "Un TWAP qui exécute chaque tranche en ordre de poursuite passif et balaie le reliquat au marché."
 ---
 
-Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/orders/twap) classique, mais au lieu d'envoyer chaque tranche au marché il la travaille en ordre [de poursuite (Chase)](/fr/orders/chase) post-only en haut du carnet. Ce que la poursuite n'exécute pas est reporté et balayé au marché à cadence fixe. L'objectif est le rythme d'un TWAP avec des prix maker sur la majeure partie de la taille. Le Chase TWAP est disponible uniquement sur les marchés perpétuels.
+Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/orders/twap) classique, mais au lieu d'envoyer chaque tranche au marché il la travaille en ordre [de poursuite (Chase)](/fr/orders/chase) post-only en haut du carnet. Ce que la poursuite n'exécute pas est reporté et balayé au marché à cadence fixe. L'objectif est le rythme d'un TWAP avec des prix maker sur la majeure partie de la taille. Le Chase TWAP fonctionne sur les marchés perpétuels et spot.
 
 ## Comment les ordres sont placés
 
@@ -18,7 +18,7 @@ Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/
 
 - Travailler une taille importante dans le temps en captant des exécutions maker au lieu de payer le spread à chaque tranche
 - Obtenir le rythme d'un TWAP avec un meilleur prix moyen qu'un TWAP uniquement au marché sur un carnet calme ou en range
-- Accumuler ou distribuer une position perpétuelle où l'achèvement compte, le balayage périodique garantissant la progression
+- Accumuler ou distribuer une position où l'achèvement compte, le balayage périodique garantissant la progression
 
 ## Paramètres
 
@@ -26,7 +26,7 @@ Le Chase TWAP découpe votre ordre en tranches d'une minute comme un [TWAP](/fr/
 | --- | --- | --- |
 | Taille | Taille totale de l'ordre dans l'actif ou en notionnel USDC. | Aucun |
 | Durée | Fenêtre d'exécution. Doit être d'au moins 5 minutes et d'au plus 24 heures. | Aucun |
-| Réduire uniquement (optionnel) | Restreint l'ordre à la réduction d'une position existante. | Désactivé |
+| Réduire uniquement (optionnel) | Restreint l'ordre à la réduction d'une position existante. Sur le spot, cela ne s'applique qu'aux ventes et plafonne l'ordre au solde libre que vous détenez. Un achat spot en Réduire uniquement n'a rien à réduire et se termine immédiatement. | Désactivé |
 
 ## Exemple
 

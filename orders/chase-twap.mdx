@@ -3,7 +3,7 @@ title: "Chase TWAP"
 description: "A TWAP that works each slice as a passive chase order, sweeping any shortfall at market."
 ---
 
-Chase TWAP splits your order into one-minute clips like a standard [TWAP](/orders/twap), but instead of sending each clip to market it works the clip as a post-only [Chase](/orders/chase) order at the top of the book. Whatever the chase does not fill carries forward and is swept at market on a fixed cadence. The objective is TWAP pacing with maker pricing on most of the size. Chase TWAP is available on perp markets only.
+Chase TWAP splits your order into one-minute clips like a standard [TWAP](/orders/twap), but instead of sending each clip to market it works the clip as a post-only [Chase](/orders/chase) order at the top of the book. Whatever the chase does not fill carries forward and is swept at market on a fixed cadence. The objective is TWAP pacing with maker pricing on most of the size. Chase TWAP works on both perp and spot markets.
 
 ## How it places orders
 
@@ -18,7 +18,7 @@ Chase TWAP splits your order into one-minute clips like a standard [TWAP](/order
 
 - Work large size over time while capturing maker fills instead of paying the spread on every clip
 - Get TWAP pacing with better average pricing than a market-only TWAP in a calm or ranging book
-- Accumulate or distribute a perp position where completion still matters, since the periodic sweep guarantees progress
+- Accumulate or distribute a position where completion still matters, since the periodic sweep guarantees progress
 
 ## Parameters
 
@@ -26,7 +26,7 @@ Chase TWAP splits your order into one-minute clips like a standard [TWAP](/order
 | --- | --- | --- |
 | Size | Total order size in the asset or USDC notional. | None |
 | Duration | Execution window. Must be at least 5 minutes and no more than 24 hours. | None |
-| Reduce Only (optional) | Restricts the order to reducing an existing position. | Off |
+| Reduce Only (optional) | Restricts the order to reducing an existing position. On spot it applies to sells only, capping the order at the free balance you hold. A reduce-only spot buy has nothing to reduce and finishes immediately. | Off |
 
 ## Example
 

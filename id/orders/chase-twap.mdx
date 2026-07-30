@@ -3,7 +3,7 @@ title: "TWAP Chase"
 description: "TWAP yang mengeksekusi tiap potongan sebagai order chase pasif dan menyapu sisanya di market."
 ---
 
-TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/twap) standar, tetapi alih-alih mengirim tiap klip ke market, klip tersebut dieksekusi sebagai order [Chase](/id/orders/chase) post-only di puncak order book. Bagian yang tidak terisi oleh chase dibawa ke klip berikutnya dan disapu di market pada irama tetap. Tujuannya adalah ritme TWAP dengan harga maker untuk sebagian besar ukuran. TWAP Chase hanya tersedia di pasar perp.
+TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/twap) standar, tetapi alih-alih mengirim tiap klip ke market, klip tersebut dieksekusi sebagai order [Chase](/id/orders/chase) post-only di puncak order book. Bagian yang tidak terisi oleh chase dibawa ke klip berikutnya dan disapu di market pada irama tetap. Tujuannya adalah ritme TWAP dengan harga maker untuk sebagian besar ukuran. TWAP Chase tersedia di pasar perp maupun spot.
 
 ## Cara order ditempatkan
 
@@ -18,7 +18,7 @@ TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/
 
 - Mengerjakan ukuran besar sepanjang waktu sambil memperoleh eksekusi maker alih-alih membayar spread di tiap klip
 - Mendapatkan ritme TWAP dengan harga rata-rata lebih baik daripada TWAP market-saja pada order book yang tenang atau sideways
-- Menambah atau mengurangi posisi perp yang penyelesaiannya penting, karena sapuan berkala menjamin kemajuan
+- Menambah atau mengurangi posisi yang penyelesaiannya penting, karena sapuan berkala menjamin kemajuan
 
 ## Parameter
 
@@ -26,7 +26,7 @@ TWAP Chase memecah order Anda menjadi klip satu menit seperti [TWAP](/id/orders/
 | --- | --- | --- |
 | Ukuran | Ukuran total order dalam aset atau nosional USDC. | Tidak ada |
 | Durasi | Jendela eksekusi. Minimal 5 menit dan maksimal 24 jam. | Tidak ada |
-| Hanya Kurangi (opsional) | Membatasi order hanya untuk mengurangi posisi yang ada. | Nonaktif |
+| Hanya Kurangi (opsional) | Membatasi order hanya untuk mengurangi posisi yang ada. Di spot hanya berlaku untuk jual, membatasi order pada saldo bebas yang Anda pegang. Order beli spot dengan Hanya Kurangi tidak punya apa pun untuk dikurangi dan langsung selesai. | Nonaktif |
 
 ## Contoh
 

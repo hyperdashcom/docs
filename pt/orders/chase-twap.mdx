@@ -3,7 +3,7 @@ title: "TWAP Perseguir (Chase TWAP)"
 description: "Um TWAP que trabalha cada fatia como ordem passiva de perseguição e varre o que faltar a mercado."
 ---
 
-O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/twap) padrão, mas em vez de enviar cada clipe a mercado ele trabalha o clipe como uma ordem [Perseguir (Chase)](/pt/orders/chase) post-only no topo do livro. O que a perseguição não executar é transportado adiante e varrido a mercado em uma cadência fixa. O objetivo é o ritmo de um TWAP com preços de maker na maior parte do tamanho. O Chase TWAP está disponível apenas em mercados de perpétuos.
+O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/twap) padrão, mas em vez de enviar cada clipe a mercado ele trabalha o clipe como uma ordem [Perseguir (Chase)](/pt/orders/chase) post-only no topo do livro. O que a perseguição não executar é transportado adiante e varrido a mercado em uma cadência fixa. O objetivo é o ritmo de um TWAP com preços de maker na maior parte do tamanho. O Chase TWAP funciona em mercados perpétuos e spot.
 
 ## Como as ordens são colocadas
 
@@ -18,7 +18,7 @@ O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/t
 
 - Trabalhar tamanho grande ao longo do tempo capturando execuções de maker em vez de pagar o spread em cada clipe
 - Obter o ritmo de um TWAP com preço médio melhor que um TWAP apenas a mercado em um livro calmo ou lateral
-- Acumular ou distribuir uma posição de perpétuos em que concluir importa, já que a varredura periódica garante progresso
+- Acumular ou distribuir uma posição em que concluir importa, já que a varredura periódica garante progresso
 
 ## Parâmetros
 
@@ -26,7 +26,7 @@ O Chase TWAP divide sua ordem em clipes de um minuto como um [TWAP](/pt/orders/t
 | --- | --- | --- |
 | Tamanho | Tamanho total da ordem no ativo ou em nocional USDC. | Nenhum |
 | Duração | Janela de execução. Deve ser de no mínimo 5 minutos e no máximo 24 horas. | Nenhum |
-| Somente Reduzir (opcional) | Restringe a ordem a reduzir uma posição existente. | Desativado |
+| Somente Reduzir (opcional) | Restringe a ordem a reduzir uma posição existente. No spot vale apenas para vendas, limitando a ordem ao saldo livre que você detém. Uma compra spot com Somente Reduzir não tem nada a reduzir e termina imediatamente. | Desativado |
 
 ## Exemplo
 
