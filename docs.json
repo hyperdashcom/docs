@@ -1,558 +1,625 @@
 {
- "$schema": "https://mintlify.com/docs.json",
- "theme": "palm",
- "name": "Hyperdash Docs",
- "colors": {
-  "primary": "#FD592B",
-  "light": "#FFFFFF",
-  "dark": "#0D0D0D"
- },
- "favicon": "/images/HD_logo.png",
- "navigation": {
-  "tabs": [
-   {
-    "tab": "Hyperdash Docs",
-    "languages": [
-     {
-      "language": "en",
-      "groups": [
-       {
-        "group": "Documentation",
-        "pages": [
-         "about-hyperdash",
-         "onboarding-deposits",
-         "agent-wallets-security",
-         "fees-referrals-rewards",
-         "trading-guide",
-         "layouts",
-         "widgets",
-         "spot-trading",
-         "markets-assets",
-         "tradeable-markets",
-         "rwa-perps",
-         "copy-trade",
-         "portfolio-analytics",
-         "leaderboard",
-         "alerts-inbox",
-         "wallet-explore",
-         "trading-indicators",
-         "cohorts-top-traders-position-changes",
-         "shortcuts",
-         "get-help",
-         "perp-rfq"
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "palm",
+  "name": "Hyperdash Docs",
+  "colors": {
+    "primary": "#FD592B",
+    "light": "#FFFFFF",
+    "dark": "#0D0D0D"
+  },
+  "favicon": "/images/HD_logo.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Hyperdash Docs",
+        "languages": [
+          {
+            "language": "en",
+            "groups": [
+              {
+                "group": "Documentation",
+                "pages": [
+                  "about-hyperdash",
+                  "onboarding-deposits",
+                  "agent-wallets-security",
+                  "fees-referrals-rewards",
+                  "trading-guide",
+                  "layouts",
+                  "widgets",
+                  "spot-trading",
+                  "markets-assets",
+                  "tradeable-markets",
+                  "rwa-perps",
+                  "copy-trade",
+                  "portfolio-analytics",
+                  "leaderboard",
+                  "alerts-inbox",
+                  "telegram-flows",
+                  "wallet-explore",
+                  "trading-indicators",
+                  "cohorts-top-traders-position-changes",
+                  "shortcuts",
+                  "get-help",
+                  "perp-rfq"
+                ]
+              },
+              {
+                "group": "Trading Execution",
+                "pages": [
+                  "orders/overview",
+                  "orders/market",
+                  "orders/limit",
+                  "orders/scale",
+                  "orders/stop-limit",
+                  "orders/stop-market",
+                  "orders/chase",
+                  "orders/twap",
+                  "orders/chase-twap",
+                  "orders/swarm",
+                  "orders/take-profit-stop-loss",
+                  "orders/trailing-stop",
+                  "quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "es",
+            "groups": [
+              {
+                "group": "Documentación",
+                "pages": [
+                  "es/about-hyperdash",
+                  "es/onboarding-deposits",
+                  "es/agent-wallets-security",
+                  "es/fees-referrals-rewards",
+                  "es/trading-guide",
+                  "es/layouts",
+                  "es/widgets",
+                  "es/spot-trading",
+                  "es/markets-assets",
+                  "es/copy-trade",
+                  "es/portfolio-analytics",
+                  "es/leaderboard",
+                  "es/alerts-inbox",
+                  "es/wallet-explore",
+                  "es/trading-indicators",
+                  "es/cohorts-top-traders-position-changes",
+                  "es/shortcuts",
+                  "es/get-help",
+                  "es/perp-rfq"
+                ]
+              },
+              {
+                "group": "Ejecución de trading",
+                "pages": [
+                  "es/orders/overview",
+                  "es/orders/market",
+                  "es/orders/limit",
+                  "es/orders/scale",
+                  "es/orders/stop-limit",
+                  "es/orders/stop-market",
+                  "es/orders/chase",
+                  "es/orders/twap",
+                  "es/orders/chase-twap",
+                  "es/orders/swarm",
+                  "es/orders/take-profit-stop-loss",
+                  "es/orders/trailing-stop",
+                  "es/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "ko",
+            "groups": [
+              {
+                "group": "문서",
+                "pages": [
+                  "ko/about-hyperdash",
+                  "ko/onboarding-deposits",
+                  "ko/agent-wallets-security",
+                  "ko/fees-referrals-rewards",
+                  "ko/trading-guide",
+                  "ko/layouts",
+                  "ko/widgets",
+                  "ko/spot-trading",
+                  "ko/markets-assets",
+                  "ko/copy-trade",
+                  "ko/portfolio-analytics",
+                  "ko/leaderboard",
+                  "ko/alerts-inbox",
+                  "ko/wallet-explore",
+                  "ko/trading-indicators",
+                  "ko/cohorts-top-traders-position-changes",
+                  "ko/shortcuts",
+                  "ko/get-help",
+                  "ko/perp-rfq"
+                ]
+              },
+              {
+                "group": "트레이딩 실행",
+                "pages": [
+                  "ko/orders/overview",
+                  "ko/orders/market",
+                  "ko/orders/limit",
+                  "ko/orders/scale",
+                  "ko/orders/stop-limit",
+                  "ko/orders/stop-market",
+                  "ko/orders/chase",
+                  "ko/orders/twap",
+                  "ko/orders/chase-twap",
+                  "ko/orders/swarm",
+                  "ko/orders/take-profit-stop-loss",
+                  "ko/orders/trailing-stop",
+                  "ko/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "cn",
+            "groups": [
+              {
+                "group": "文档",
+                "pages": [
+                  "cn/about-hyperdash",
+                  "cn/onboarding-deposits",
+                  "cn/agent-wallets-security",
+                  "cn/fees-referrals-rewards",
+                  "cn/trading-guide",
+                  "cn/layouts",
+                  "cn/widgets",
+                  "cn/spot-trading",
+                  "cn/markets-assets",
+                  "cn/copy-trade",
+                  "cn/portfolio-analytics",
+                  "cn/leaderboard",
+                  "cn/alerts-inbox",
+                  "cn/wallet-explore",
+                  "cn/trading-indicators",
+                  "cn/cohorts-top-traders-position-changes",
+                  "cn/shortcuts",
+                  "cn/get-help",
+                  "cn/perp-rfq"
+                ]
+              },
+              {
+                "group": "交易执行",
+                "pages": [
+                  "cn/orders/overview",
+                  "cn/orders/market",
+                  "cn/orders/limit",
+                  "cn/orders/scale",
+                  "cn/orders/stop-limit",
+                  "cn/orders/stop-market",
+                  "cn/orders/chase",
+                  "cn/orders/twap",
+                  "cn/orders/chase-twap",
+                  "cn/orders/swarm",
+                  "cn/orders/take-profit-stop-loss",
+                  "cn/orders/trailing-stop",
+                  "cn/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "pt",
+            "groups": [
+              {
+                "group": "Documentação",
+                "pages": [
+                  "pt/about-hyperdash",
+                  "pt/onboarding-deposits",
+                  "pt/agent-wallets-security",
+                  "pt/fees-referrals-rewards",
+                  "pt/trading-guide",
+                  "pt/layouts",
+                  "pt/widgets",
+                  "pt/spot-trading",
+                  "pt/markets-assets",
+                  "pt/copy-trade",
+                  "pt/portfolio-analytics",
+                  "pt/leaderboard",
+                  "pt/alerts-inbox",
+                  "pt/wallet-explore",
+                  "pt/trading-indicators",
+                  "pt/cohorts-top-traders-position-changes",
+                  "pt/shortcuts",
+                  "pt/get-help",
+                  "pt/perp-rfq"
+                ]
+              },
+              {
+                "group": "Execução de Ordens",
+                "pages": [
+                  "pt/orders/overview",
+                  "pt/orders/market",
+                  "pt/orders/limit",
+                  "pt/orders/scale",
+                  "pt/orders/stop-limit",
+                  "pt/orders/stop-market",
+                  "pt/orders/chase",
+                  "pt/orders/twap",
+                  "pt/orders/chase-twap",
+                  "pt/orders/swarm",
+                  "pt/orders/take-profit-stop-loss",
+                  "pt/orders/trailing-stop",
+                  "pt/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "jp",
+            "groups": [
+              {
+                "group": "ドキュメント",
+                "pages": [
+                  "jp/about-hyperdash",
+                  "jp/onboarding-deposits",
+                  "jp/agent-wallets-security",
+                  "jp/fees-referrals-rewards",
+                  "jp/trading-guide",
+                  "jp/layouts",
+                  "jp/widgets",
+                  "jp/spot-trading",
+                  "jp/markets-assets",
+                  "jp/copy-trade",
+                  "jp/portfolio-analytics",
+                  "jp/leaderboard",
+                  "jp/alerts-inbox",
+                  "jp/wallet-explore",
+                  "jp/trading-indicators",
+                  "jp/cohorts-top-traders-position-changes",
+                  "jp/shortcuts",
+                  "jp/get-help",
+                  "jp/perp-rfq"
+                ]
+              },
+              {
+                "group": "取引執行",
+                "pages": [
+                  "jp/orders/overview",
+                  "jp/orders/market",
+                  "jp/orders/limit",
+                  "jp/orders/scale",
+                  "jp/orders/stop-limit",
+                  "jp/orders/stop-market",
+                  "jp/orders/chase",
+                  "jp/orders/twap",
+                  "jp/orders/chase-twap",
+                  "jp/orders/swarm",
+                  "jp/orders/take-profit-stop-loss",
+                  "jp/orders/trailing-stop",
+                  "jp/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "fr",
+            "groups": [
+              {
+                "group": "Documentation",
+                "pages": [
+                  "fr/about-hyperdash",
+                  "fr/onboarding-deposits",
+                  "fr/agent-wallets-security",
+                  "fr/fees-referrals-rewards",
+                  "fr/trading-guide",
+                  "fr/layouts",
+                  "fr/widgets",
+                  "fr/spot-trading",
+                  "fr/markets-assets",
+                  "fr/copy-trade",
+                  "fr/portfolio-analytics",
+                  "fr/leaderboard",
+                  "fr/alerts-inbox",
+                  "fr/wallet-explore",
+                  "fr/trading-indicators",
+                  "fr/cohorts-top-traders-position-changes",
+                  "fr/shortcuts",
+                  "fr/get-help",
+                  "fr/perp-rfq"
+                ]
+              },
+              {
+                "group": "Exécution des ordres",
+                "pages": [
+                  "fr/orders/overview",
+                  "fr/orders/market",
+                  "fr/orders/limit",
+                  "fr/orders/scale",
+                  "fr/orders/stop-limit",
+                  "fr/orders/stop-market",
+                  "fr/orders/chase",
+                  "fr/orders/twap",
+                  "fr/orders/chase-twap",
+                  "fr/orders/swarm",
+                  "fr/orders/take-profit-stop-loss",
+                  "fr/orders/trailing-stop",
+                  "fr/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "de",
+            "groups": [
+              {
+                "group": "Dokumentation",
+                "pages": [
+                  "de/about-hyperdash",
+                  "de/onboarding-deposits",
+                  "de/agent-wallets-security",
+                  "de/fees-referrals-rewards",
+                  "de/trading-guide",
+                  "de/layouts",
+                  "de/widgets",
+                  "de/spot-trading",
+                  "de/markets-assets",
+                  "de/copy-trade",
+                  "de/portfolio-analytics",
+                  "de/leaderboard",
+                  "de/alerts-inbox",
+                  "de/wallet-explore",
+                  "de/trading-indicators",
+                  "de/cohorts-top-traders-position-changes",
+                  "de/shortcuts",
+                  "de/get-help",
+                  "de/perp-rfq"
+                ]
+              },
+              {
+                "group": "Handelsausführung",
+                "pages": [
+                  "de/orders/overview",
+                  "de/orders/market",
+                  "de/orders/limit",
+                  "de/orders/scale",
+                  "de/orders/stop-limit",
+                  "de/orders/stop-market",
+                  "de/orders/chase",
+                  "de/orders/twap",
+                  "de/orders/chase-twap",
+                  "de/orders/swarm",
+                  "de/orders/take-profit-stop-loss",
+                  "de/orders/trailing-stop",
+                  "de/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "id",
+            "groups": [
+              {
+                "group": "Dokumentasi",
+                "pages": [
+                  "id/about-hyperdash",
+                  "id/onboarding-deposits",
+                  "id/agent-wallets-security",
+                  "id/fees-referrals-rewards",
+                  "id/trading-guide",
+                  "id/layouts",
+                  "id/widgets",
+                  "id/spot-trading",
+                  "id/markets-assets",
+                  "id/copy-trade",
+                  "id/portfolio-analytics",
+                  "id/leaderboard",
+                  "id/alerts-inbox",
+                  "id/wallet-explore",
+                  "id/trading-indicators",
+                  "id/cohorts-top-traders-position-changes",
+                  "id/shortcuts",
+                  "id/get-help",
+                  "id/perp-rfq"
+                ]
+              },
+              {
+                "group": "Eksekusi Trading",
+                "pages": [
+                  "id/orders/overview",
+                  "id/orders/market",
+                  "id/orders/limit",
+                  "id/orders/scale",
+                  "id/orders/stop-limit",
+                  "id/orders/stop-market",
+                  "id/orders/chase",
+                  "id/orders/twap",
+                  "id/orders/chase-twap",
+                  "id/orders/swarm",
+                  "id/orders/take-profit-stop-loss",
+                  "id/orders/trailing-stop",
+                  "id/quicktrade"
+                ]
+              }
+            ]
+          },
+          {
+            "language": "ru",
+            "groups": [
+              {
+                "group": "Документация",
+                "pages": [
+                  "ru/about-hyperdash",
+                  "ru/onboarding-deposits",
+                  "ru/agent-wallets-security",
+                  "ru/fees-referrals-rewards",
+                  "ru/trading-guide",
+                  "ru/layouts",
+                  "ru/widgets",
+                  "ru/spot-trading",
+                  "ru/markets-assets",
+                  "ru/copy-trade",
+                  "ru/portfolio-analytics",
+                  "ru/leaderboard",
+                  "ru/alerts-inbox",
+                  "ru/wallet-explore",
+                  "ru/trading-indicators",
+                  "ru/cohorts-top-traders-position-changes",
+                  "ru/shortcuts",
+                  "ru/get-help",
+                  "ru/perp-rfq"
+                ]
+              },
+              {
+                "group": "Исполнение сделок",
+                "pages": [
+                  "ru/orders/overview",
+                  "ru/orders/market",
+                  "ru/orders/limit",
+                  "ru/orders/scale",
+                  "ru/orders/stop-limit",
+                  "ru/orders/stop-market",
+                  "ru/orders/chase",
+                  "ru/orders/twap",
+                  "ru/orders/chase-twap",
+                  "ru/orders/swarm",
+                  "ru/orders/take-profit-stop-loss",
+                  "ru/orders/trailing-stop",
+                  "ru/quicktrade"
+                ]
+              }
+            ]
+          }
         ]
-       },
-       {
-        "group": "Trading Execution",
-        "pages": [
-         "orders/overview",
-         "orders/market",
-         "orders/limit",
-         "orders/scale",
-         "orders/stop-limit",
-         "orders/stop-market",
-         "orders/chase",
-         "orders/twap",
-         "orders/chase-twap",
-         "orders/swarm",
-         "orders/take-profit-stop-loss",
-         "orders/trailing-stop",
-         "quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "es",
-      "groups": [
-       {
-        "group": "Documentación",
-        "pages": [
-         "es/about-hyperdash",
-         "es/onboarding-deposits",
-         "es/agent-wallets-security",
-         "es/fees-referrals-rewards",
-         "es/trading-guide",
-         "es/layouts",
-         "es/widgets",
-         "es/spot-trading",
-         "es/markets-assets",
-         "es/copy-trade",
-         "es/portfolio-analytics",
-         "es/leaderboard",
-         "es/alerts-inbox",
-         "es/wallet-explore",
-         "es/trading-indicators",
-         "es/cohorts-top-traders-position-changes",
-         "es/shortcuts",
-         "es/get-help",
-         "es/perp-rfq"
-        ]
-       },
-       {
-        "group": "Ejecución de trading",
-        "pages": [
-         "es/orders/overview",
-         "es/orders/market",
-         "es/orders/limit",
-         "es/orders/scale",
-         "es/orders/stop-limit",
-         "es/orders/stop-market",
-         "es/orders/chase",
-         "es/orders/twap",
-         "es/orders/chase-twap",
-         "es/orders/swarm",
-         "es/orders/take-profit-stop-loss",
-         "es/orders/trailing-stop",
-         "es/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "ko",
-      "groups": [
-       {
-        "group": "문서",
-        "pages": [
-         "ko/about-hyperdash",
-         "ko/onboarding-deposits",
-         "ko/agent-wallets-security",
-         "ko/fees-referrals-rewards",
-         "ko/trading-guide",
-         "ko/layouts",
-         "ko/widgets",
-         "ko/spot-trading",
-         "ko/markets-assets",
-         "ko/copy-trade",
-         "ko/portfolio-analytics",
-         "ko/leaderboard",
-         "ko/alerts-inbox",
-         "ko/wallet-explore",
-         "ko/trading-indicators",
-         "ko/cohorts-top-traders-position-changes",
-         "ko/shortcuts",
-         "ko/get-help",
-         "ko/perp-rfq"
-        ]
-       },
-       {
-        "group": "트레이딩 실행",
-        "pages": [
-         "ko/orders/overview",
-         "ko/orders/market",
-         "ko/orders/limit",
-         "ko/orders/scale",
-         "ko/orders/stop-limit",
-         "ko/orders/stop-market",
-         "ko/orders/chase",
-         "ko/orders/twap",
-         "ko/orders/chase-twap",
-         "ko/orders/swarm",
-         "ko/orders/take-profit-stop-loss",
-         "ko/orders/trailing-stop",
-         "ko/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "cn",
-      "groups": [
-       {
-        "group": "文档",
-        "pages": [
-         "cn/about-hyperdash",
-         "cn/onboarding-deposits",
-         "cn/agent-wallets-security",
-         "cn/fees-referrals-rewards",
-         "cn/trading-guide",
-         "cn/layouts",
-         "cn/widgets",
-         "cn/spot-trading",
-         "cn/markets-assets",
-         "cn/copy-trade",
-         "cn/portfolio-analytics",
-         "cn/leaderboard",
-         "cn/alerts-inbox",
-         "cn/wallet-explore",
-         "cn/trading-indicators",
-         "cn/cohorts-top-traders-position-changes",
-         "cn/shortcuts",
-         "cn/get-help",
-         "cn/perp-rfq"
-        ]
-       },
-       {
-        "group": "交易执行",
-        "pages": [
-         "cn/orders/overview",
-         "cn/orders/market",
-         "cn/orders/limit",
-         "cn/orders/scale",
-         "cn/orders/stop-limit",
-         "cn/orders/stop-market",
-         "cn/orders/chase",
-         "cn/orders/twap",
-         "cn/orders/chase-twap",
-         "cn/orders/swarm",
-         "cn/orders/take-profit-stop-loss",
-         "cn/orders/trailing-stop",
-         "cn/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "pt",
-      "groups": [
-       {
-        "group": "Documentação",
-        "pages": [
-         "pt/about-hyperdash",
-         "pt/onboarding-deposits",
-         "pt/agent-wallets-security",
-         "pt/fees-referrals-rewards",
-         "pt/trading-guide",
-         "pt/layouts",
-         "pt/widgets",
-         "pt/spot-trading",
-         "pt/markets-assets",
-         "pt/copy-trade",
-         "pt/portfolio-analytics",
-         "pt/leaderboard",
-         "pt/alerts-inbox",
-         "pt/wallet-explore",
-         "pt/trading-indicators",
-         "pt/cohorts-top-traders-position-changes",
-         "pt/shortcuts",
-         "pt/get-help",
-         "pt/perp-rfq"
-        ]
-       },
-       {
-        "group": "Execução de Ordens",
-        "pages": [
-         "pt/orders/overview",
-         "pt/orders/market",
-         "pt/orders/limit",
-         "pt/orders/scale",
-         "pt/orders/stop-limit",
-         "pt/orders/stop-market",
-         "pt/orders/chase",
-         "pt/orders/twap",
-         "pt/orders/chase-twap",
-         "pt/orders/swarm",
-         "pt/orders/take-profit-stop-loss",
-         "pt/orders/trailing-stop",
-         "pt/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "jp",
-      "groups": [
-       {
-        "group": "ドキュメント",
-        "pages": [
-         "jp/about-hyperdash",
-         "jp/onboarding-deposits",
-         "jp/agent-wallets-security",
-         "jp/fees-referrals-rewards",
-         "jp/trading-guide",
-         "jp/layouts",
-         "jp/widgets",
-         "jp/spot-trading",
-         "jp/markets-assets",
-         "jp/copy-trade",
-         "jp/portfolio-analytics",
-         "jp/leaderboard",
-         "jp/alerts-inbox",
-         "jp/wallet-explore",
-         "jp/trading-indicators",
-         "jp/cohorts-top-traders-position-changes",
-         "jp/shortcuts",
-         "jp/get-help",
-         "jp/perp-rfq"
-        ]
-       },
-       {
-        "group": "取引執行",
-        "pages": [
-         "jp/orders/overview",
-         "jp/orders/market",
-         "jp/orders/limit",
-         "jp/orders/scale",
-         "jp/orders/stop-limit",
-         "jp/orders/stop-market",
-         "jp/orders/chase",
-         "jp/orders/twap",
-         "jp/orders/chase-twap",
-         "jp/orders/swarm",
-         "jp/orders/take-profit-stop-loss",
-         "jp/orders/trailing-stop",
-         "jp/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "fr",
-      "groups": [
-       {
-        "group": "Documentation",
-        "pages": [
-         "fr/about-hyperdash",
-         "fr/onboarding-deposits",
-         "fr/agent-wallets-security",
-         "fr/fees-referrals-rewards",
-         "fr/trading-guide",
-         "fr/layouts",
-         "fr/widgets",
-         "fr/spot-trading",
-         "fr/markets-assets",
-         "fr/copy-trade",
-         "fr/portfolio-analytics",
-         "fr/leaderboard",
-         "fr/alerts-inbox",
-         "fr/wallet-explore",
-         "fr/trading-indicators",
-         "fr/cohorts-top-traders-position-changes",
-         "fr/shortcuts",
-         "fr/get-help",
-         "fr/perp-rfq"
-        ]
-       },
-       {
-        "group": "Exécution des ordres",
-        "pages": [
-         "fr/orders/overview",
-         "fr/orders/market",
-         "fr/orders/limit",
-         "fr/orders/scale",
-         "fr/orders/stop-limit",
-         "fr/orders/stop-market",
-         "fr/orders/chase",
-         "fr/orders/twap",
-         "fr/orders/chase-twap",
-         "fr/orders/swarm",
-         "fr/orders/take-profit-stop-loss",
-         "fr/orders/trailing-stop",
-         "fr/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "de",
-      "groups": [
-       {
-        "group": "Dokumentation",
-        "pages": [
-         "de/about-hyperdash",
-         "de/onboarding-deposits",
-         "de/agent-wallets-security",
-         "de/fees-referrals-rewards",
-         "de/trading-guide",
-         "de/layouts",
-         "de/widgets",
-         "de/spot-trading",
-         "de/markets-assets",
-         "de/copy-trade",
-         "de/portfolio-analytics",
-         "de/leaderboard",
-         "de/alerts-inbox",
-         "de/wallet-explore",
-         "de/trading-indicators",
-         "de/cohorts-top-traders-position-changes",
-         "de/shortcuts",
-         "de/get-help",
-         "de/perp-rfq"
-        ]
-       },
-       {
-        "group": "Handelsausführung",
-        "pages": [
-         "de/orders/overview",
-         "de/orders/market",
-         "de/orders/limit",
-         "de/orders/scale",
-         "de/orders/stop-limit",
-         "de/orders/stop-market",
-         "de/orders/chase",
-         "de/orders/twap",
-         "de/orders/chase-twap",
-         "de/orders/swarm",
-         "de/orders/take-profit-stop-loss",
-         "de/orders/trailing-stop",
-         "de/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "id",
-      "groups": [
-       {
-        "group": "Dokumentasi",
-        "pages": [
-         "id/about-hyperdash",
-         "id/onboarding-deposits",
-         "id/agent-wallets-security",
-         "id/fees-referrals-rewards",
-         "id/trading-guide",
-         "id/layouts",
-         "id/widgets",
-         "id/spot-trading",
-         "id/markets-assets",
-         "id/copy-trade",
-         "id/portfolio-analytics",
-         "id/leaderboard",
-         "id/alerts-inbox",
-         "id/wallet-explore",
-         "id/trading-indicators",
-         "id/cohorts-top-traders-position-changes",
-         "id/shortcuts",
-         "id/get-help",
-         "id/perp-rfq"
-        ]
-       },
-       {
-        "group": "Eksekusi Trading",
-        "pages": [
-         "id/orders/overview",
-         "id/orders/market",
-         "id/orders/limit",
-         "id/orders/scale",
-         "id/orders/stop-limit",
-         "id/orders/stop-market",
-         "id/orders/chase",
-         "id/orders/twap",
-         "id/orders/chase-twap",
-         "id/orders/swarm",
-         "id/orders/take-profit-stop-loss",
-         "id/orders/trailing-stop",
-         "id/quicktrade"
-        ]
-       }
-      ]
-     },
-     {
-      "language": "ru",
-      "groups": [
-       {
-        "group": "Документация",
-        "pages": [
-         "ru/about-hyperdash",
-         "ru/onboarding-deposits",
-         "ru/agent-wallets-security",
-         "ru/fees-referrals-rewards",
-         "ru/trading-guide",
-         "ru/layouts",
-         "ru/widgets",
-         "ru/spot-trading",
-         "ru/markets-assets",
-         "ru/copy-trade",
-         "ru/portfolio-analytics",
-         "ru/leaderboard",
-         "ru/alerts-inbox",
-         "ru/wallet-explore",
-         "ru/trading-indicators",
-         "ru/cohorts-top-traders-position-changes",
-         "ru/shortcuts",
-         "ru/get-help",
-         "ru/perp-rfq"
-        ]
-       },
-       {
-        "group": "Исполнение сделок",
-        "pages": [
-         "ru/orders/overview",
-         "ru/orders/market",
-         "ru/orders/limit",
-         "ru/orders/scale",
-         "ru/orders/stop-limit",
-         "ru/orders/stop-market",
-         "ru/orders/chase",
-         "ru/orders/twap",
-         "ru/orders/chase-twap",
-         "ru/orders/swarm",
-         "ru/orders/take-profit-stop-loss",
-         "ru/orders/trailing-stop",
-         "ru/quicktrade"
-        ]
-       }
-      ]
-     }
+      }
     ]
-   }
-  ]
- },
- "logo": {
-  "light": "/images/hd_light.png",
-  "dark": "/images/hyperdash-logo-dark.png"
- },
- "redirects": [
-  { "source": "/autotrade", "destination": "/copy-trade" },
-  { "source": "/es/autotrade", "destination": "/es/copy-trade" },
-  { "source": "/ko/autotrade", "destination": "/ko/copy-trade" },
-  { "source": "/cn/autotrade", "destination": "/cn/copy-trade" },
-  { "source": "/pt/autotrade", "destination": "/pt/copy-trade" },
-  { "source": "/jp/autotrade", "destination": "/jp/copy-trade" },
-  { "source": "/fr/autotrade", "destination": "/fr/copy-trade" },
-  { "source": "/de/autotrade", "destination": "/de/copy-trade" },
-  { "source": "/id/autotrade", "destination": "/id/copy-trade" },
-  { "source": "/ru/autotrade", "destination": "/ru/copy-trade" },
-  { "source": "/hyperdash/:slug*", "destination": "/:slug*" },
-  { "source": "/cn/hyperdash/:slug*", "destination": "/cn/:slug*" },
-  { "source": "/de/hyperdash/:slug*", "destination": "/de/:slug*" },
-  { "source": "/es/hyperdash/:slug*", "destination": "/es/:slug*" },
-  { "source": "/fr/hyperdash/:slug*", "destination": "/fr/:slug*" },
-  { "source": "/id/hyperdash/:slug*", "destination": "/id/:slug*" },
-  { "source": "/jp/hyperdash/:slug*", "destination": "/jp/:slug*" },
-  { "source": "/ko/hyperdash/:slug*", "destination": "/ko/:slug*" },
-  { "source": "/ms/hyperdash/:slug*", "destination": "/ms/:slug*" },
-  { "source": "/pt/hyperdash/:slug*", "destination": "/pt/:slug*" },
-  { "source": "/ru/hyperdash/:slug*", "destination": "/ru/:slug*" },
-  { "source": "/th/hyperdash/:slug*", "destination": "/th/:slug*" }
- ],
- "navbar": {
-  "links": [
-   {
-    "label": "Support",
-    "href": "https://docs.hyperdash.com/get-help"
-   }
+  },
+  "logo": {
+    "light": "/images/hd_light.png",
+    "dark": "/images/hyperdash-logo-dark.png"
+  },
+  "redirects": [
+    {
+      "source": "/autotrade",
+      "destination": "/copy-trade"
+    },
+    {
+      "source": "/es/autotrade",
+      "destination": "/es/copy-trade"
+    },
+    {
+      "source": "/ko/autotrade",
+      "destination": "/ko/copy-trade"
+    },
+    {
+      "source": "/cn/autotrade",
+      "destination": "/cn/copy-trade"
+    },
+    {
+      "source": "/pt/autotrade",
+      "destination": "/pt/copy-trade"
+    },
+    {
+      "source": "/jp/autotrade",
+      "destination": "/jp/copy-trade"
+    },
+    {
+      "source": "/fr/autotrade",
+      "destination": "/fr/copy-trade"
+    },
+    {
+      "source": "/de/autotrade",
+      "destination": "/de/copy-trade"
+    },
+    {
+      "source": "/id/autotrade",
+      "destination": "/id/copy-trade"
+    },
+    {
+      "source": "/ru/autotrade",
+      "destination": "/ru/copy-trade"
+    },
+    {
+      "source": "/hyperdash/:slug*",
+      "destination": "/:slug*"
+    },
+    {
+      "source": "/cn/hyperdash/:slug*",
+      "destination": "/cn/:slug*"
+    },
+    {
+      "source": "/de/hyperdash/:slug*",
+      "destination": "/de/:slug*"
+    },
+    {
+      "source": "/es/hyperdash/:slug*",
+      "destination": "/es/:slug*"
+    },
+    {
+      "source": "/fr/hyperdash/:slug*",
+      "destination": "/fr/:slug*"
+    },
+    {
+      "source": "/id/hyperdash/:slug*",
+      "destination": "/id/:slug*"
+    },
+    {
+      "source": "/jp/hyperdash/:slug*",
+      "destination": "/jp/:slug*"
+    },
+    {
+      "source": "/ko/hyperdash/:slug*",
+      "destination": "/ko/:slug*"
+    },
+    {
+      "source": "/ms/hyperdash/:slug*",
+      "destination": "/ms/:slug*"
+    },
+    {
+      "source": "/pt/hyperdash/:slug*",
+      "destination": "/pt/:slug*"
+    },
+    {
+      "source": "/ru/hyperdash/:slug*",
+      "destination": "/ru/:slug*"
+    },
+    {
+      "source": "/th/hyperdash/:slug*",
+      "destination": "/th/:slug*"
+    }
   ],
-  "primary": {
-   "type": "button",
-   "label": "Terminal",
-   "href": "https://hyperdash.com"
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://docs.hyperdash.com/get-help"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Terminal",
+      "href": "https://hyperdash.com"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/mintlify",
+      "github": "https://github.com/mintlify",
+      "linkedin": "https://linkedin.com/company/mintlify"
+    }
+  },
+  "integrations": {
+    "posthog": {
+      "apiKey": "phc_MCnJ3IgwjqgT2SPQjZx1Ywroz9SvA86L9QOqlxp7rhS",
+      "apiHost": "https://us.i.posthog.com"
+    }
   }
- },
- "contextual": {
-  "options": [
-   "copy",
-   "view",
-   "chatgpt",
-   "claude",
-   "perplexity",
-   "mcp",
-   "cursor",
-   "vscode"
-  ]
- },
- "footer": {
-  "socials": {
-   "x": "https://x.com/mintlify",
-   "github": "https://github.com/mintlify",
-   "linkedin": "https://linkedin.com/company/mintlify"
-  }
- },
- "integrations": {
-  "posthog": {
-   "apiKey": "phc_MCnJ3IgwjqgT2SPQjZx1Ywroz9SvA86L9QOqlxp7rhS",
-   "apiHost": "https://us.i.posthog.com"
-  }
- }
 }
