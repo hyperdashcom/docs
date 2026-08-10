@@ -1,0 +1,81 @@
+---
+title: "Telegram Flows Channel"
+description: "Real-time market alerts streamed to Telegram: liquidations, large TWAPs, open interest, volume, and funding surges, plus a daily market summary."
+---
+
+Hyperdash Flows is our public Telegram channel for real-time market alerts, generated directly from node-level Hyperliquid data. Every alert is computed server-side against per-market baselines and posted the moment it triggers, with links back to the relevant chart, asset page, or wallet on Hyperdash.
+
+The channel is tuned for signal over noise. Expect roughly 10 to 15 posts per day, concentrated in the US session.
+
+## Market tiers
+
+Alert thresholds scale by market tier. The tiers referenced throughout this page:
+
+| Tier | Markets |
+| --- | --- |
+| Majors | BTC, ETH |
+| Large alts | SOL, XRP, DOGE, HYPE |
+| HIP3 Markets | Stocks, indices, and commodities |
+| Alts | Every other perp market |
+
+## Liquidations
+
+Posts every liquidation with notional value of $50,000 or more, in real time. Red marks a liquidated long, green a liquidated short.
+
+## TWAP Started
+
+Posts when a new TWAP order begins on a market.
+
+| Parameter | Value |
+| --- | --- |
+| Minimum notional | $50M majors, $25M large alts, $10M all other markets |
+| Survival requirement | The order must remain active for 60 seconds before posting. Orders cancelled within 60 seconds never post |
+
+## OI Surge
+
+Tracks open interest in 5-minute windows and compares each change against the average absolute change of the previous 20 windows (100 minutes).
+
+| Parameter | Value |
+| --- | --- |
+| Trigger multiple | 8x the rolling average (6x for HIP3 Markets) |
+| Minimum move | $25M majors, $10M large alts, $5M HIP3 Markets and alts |
+| Activity minimum | The market's rolling average change must exceed $2M (majors), $1M (large alts), or $500K (HIP3/alts), so inactive books cannot alert off a single order |
+| Cooldown | One post per market per 30 minutes |
+
+## Volume Surge
+
+Detects abnormal 5-minute volume bursts. Crypto markets are measured against their short-term rolling average; HIP3 Markets are measured against their trailing 24-hour pace, which absorbs the normal open and close volume cycle so only genuinely abnormal sessions post.
+
+| Parameter | Value |
+| --- | --- |
+| Crypto trigger | 10x the average of the previous 20 windows, with minimum volume of $150M (majors), $50M (large alts), or $25M (alts) |
+| HIP3 trigger | 15x the market's average 5-minute volume over the trailing 24 hours, with a $25M minimum |
+| Included data | Each post shows the buy/sell imbalance of the window |
+| Cooldown | One post per market per 30 minutes |
+
+## Funding Surge
+
+Each market is measured against its own funding history, so a market that always runs hot cannot alert repeatedly, while a normally calm market alerts on moves that would be routine elsewhere.
+
+| Parameter | Value |
+| --- | --- |
+| Trigger level | The market's 98th percentile of hourly funding (annualized) over the trailing 30 days, with a 30% APR minimum |
+| Onset requirement | Funding must have spent the previous 6 hours below half the trigger level, so only sudden moves post |
+| Reset | After posting, the market cannot post again until funding falls back below half its trigger level |
+| Eligibility | $25M+ 24-hour volume, $5M+ open interest, and at least 7 days of funding history |
+
+## Daily Market Summary
+
+A single digest posted every day at 9:00 AM EST:
+
+- 24-hour volume, liquidation, and open interest totals with day-over-day change
+- The latest Hyperdash News headline
+- Earnings on tradeable HIP3 equity markets, covering upcoming after-close reports and everything reported since the prior close
+- Top 3 gainers and losers by 24-hour price change (markets with $10M+ open interest)
+- Top 3 traders by 24-hour realized PnL and the 3 biggest liquidations
+- The highest and lowest funding rates with their deviation from the 7-day average (markets with $10M+ open interest)
+- Positioning of all four trader PnL cohorts with day-over-day change
+
+<Note>
+Thresholds are reviewed and tuned as markets evolve. This page reflects the current production values.
+</Note>
