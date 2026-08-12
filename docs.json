@@ -60,6 +60,12 @@
                   "orders/trailing-stop",
                   "quicktrade"
                 ]
+              },
+              {
+                "group": "Data & Infrastructure",
+                "pages": [
+                  "data/direct-sentry-peering"
+                ]
               }
             ]
           },
