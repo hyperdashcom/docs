@@ -113,6 +113,12 @@
                   "es/orders/trailing-stop",
                   "es/quicktrade"
                 ]
+              },
+              {
+                "group": "Datos e infraestructura",
+                "pages": [
+                  "es/data/direct-sentry-peering"
+                ]
               }
             ]
           },
@@ -159,6 +165,12 @@
                   "ko/orders/take-profit-stop-loss",
                   "ko/orders/trailing-stop",
                   "ko/quicktrade"
+                ]
+              },
+              {
+                "group": "데이터 및 인프라",
+                "pages": [
+                  "ko/data/direct-sentry-peering"
                 ]
               }
             ]
@@ -207,6 +219,12 @@
                   "cn/orders/trailing-stop",
                   "cn/quicktrade"
                 ]
+              },
+              {
+                "group": "数据与基础设施",
+                "pages": [
+                  "cn/data/direct-sentry-peering"
+                ]
               }
             ]
           },
@@ -253,6 +271,12 @@
                   "pt/orders/take-profit-stop-loss",
                   "pt/orders/trailing-stop",
                   "pt/quicktrade"
+                ]
+              },
+              {
+                "group": "Dados e Infraestrutura",
+                "pages": [
+                  "pt/data/direct-sentry-peering"
                 ]
               }
             ]
@@ -301,6 +325,12 @@
                   "jp/orders/trailing-stop",
                   "jp/quicktrade"
                 ]
+              },
+              {
+                "group": "データとインフラ",
+                "pages": [
+                  "jp/data/direct-sentry-peering"
+                ]
               }
             ]
           },
@@ -347,6 +377,12 @@
                   "fr/orders/take-profit-stop-loss",
                   "fr/orders/trailing-stop",
                   "fr/quicktrade"
+                ]
+              },
+              {
+                "group": "Données et infrastructure",
+                "pages": [
+                  "fr/data/direct-sentry-peering"
                 ]
               }
             ]
@@ -395,6 +431,12 @@
                   "de/orders/trailing-stop",
                   "de/quicktrade"
                 ]
+              },
+              {
+                "group": "Daten & Infrastruktur",
+                "pages": [
+                  "de/data/direct-sentry-peering"
+                ]
               }
             ]
           },
@@ -442,6 +484,12 @@
                   "id/orders/trailing-stop",
                   "id/quicktrade"
                 ]
+              },
+              {
+                "group": "Data & Infrastruktur",
+                "pages": [
+                  "id/data/direct-sentry-peering"
+                ]
               }
             ]
           },
@@ -488,6 +536,12 @@
                   "ru/orders/take-profit-stop-loss",
                   "ru/orders/trailing-stop",
                   "ru/quicktrade"
+                ]
+              },
+              {
+                "group": "Данные и инфраструктура",
+                "pages": [
+                  "ru/data/direct-sentry-peering"
                 ]
               }
             ]
