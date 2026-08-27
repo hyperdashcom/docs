@@ -24,6 +24,21 @@ O modal de depósito agrupa tudo em três abas: **Todos**, **Cripto** e **Dinhei
 - Escolha **Apenas depositar** para manter o ativo que você enviou, ou **Converter para USDC** para que seja convertido na chegada.
 - **Exchanges**: deposite direto de uma conta de exchange conectada. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex e BtcTurk são suportadas.
 
+### Enviar para a rede correta
+
+Os endereços de depósito são específicos de cada rede. O endereço exibido no modal de depósito só aceita o ativo e a rede mostrados acima dele.
+
+<Warning>
+  Ativos enviados na rede errada, para um endereço copiado de outra chain ou em um token não suportado são perdidos permanentemente. A Hyperdash não pode reverter, recuperar nem reembolsar esses envios. Depósitos são transferências on-chain para a sua própria carteira não custodial, então, depois que a transação é transmitida, ninguém consegue desfazê-la. É sua responsabilidade confirmar a rede, o endereço e o ativo antes de enviar.
+</Warning>
+
+Antes de enviar:
+
+- Confirme que a rede corresponde. Os endereços em Ethereum, Arbitrum, Base, Optimism, Polygon, BSC e HyperEVM parecem idênticos, mas não são intercambiáveis.
+- Envie apenas o ativo indicado para aquele endereço.
+- Respeite o depósito mínimo mostrado no modal. Valores menores podem não ser creditados.
+- Envie primeiro um valor pequeno de teste se for seu primeiro depósito de uma carteira ou exchange nova.
+
 ### Dinheiro
 
 | Método | Como funciona | Moedas |
