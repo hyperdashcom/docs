@@ -24,6 +24,21 @@ The deposit modal groups everything under three tabs: **All**, **Crypto**, and *
 - Choose **Deposit Only** to keep the asset you sent, or **Swap to USDC** to have it converted on arrival.
 - **Exchanges**: deposit straight from a connected exchange account. Binance, Coinbase, Bybit, KuCoin, Gate, Bitfinex, and BtcTurk are supported.
 
+### Sending to the right network
+
+Deposit addresses are network specific. The address shown in the deposit modal only accepts the asset and network displayed above it.
+
+<Warning>
+  Assets sent on the wrong network, to an address copied from a different chain, or in a token that is not supported are permanently lost. Hyperdash cannot reverse, recover, or refund them. Deposits are on-chain transfers into your own non-custodial wallet, so once a transaction is broadcast no one can undo it. You are responsible for confirming the network, address, and asset before you send.
+</Warning>
+
+Before you send:
+
+- Confirm the network matches. Addresses on Ethereum, Arbitrum, Base, Optimism, Polygon, BSC, and HyperEVM look identical but are not interchangeable.
+- Send only the asset shown for that address.
+- Meet the minimum deposit shown in the modal. Smaller amounts may not credit.
+- Send a small test amount first if it is your first deposit from a new wallet or exchange.
+
 ### Cash
 
 | Method | How it works | Currencies |
