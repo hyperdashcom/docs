@@ -3,15 +3,78 @@ title: "Direct Sentry Peering"
 description: "A private, whitelisted peer connection between your Hyperliquid node and Hyperdash sentry infrastructure."
 ---
 
-Teams running their own Hyperliquid nodes depend on peers for market data. Public gossip peers are capacity-constrained, disconnect without notice, and degrade under load.
+Teams running their own Hyperliquid nodes depend on peers for market data. Public gossip peers are capacity-constrained, disconnect without notice, and degrade under load, particularly around network upgrades.
 
 <Note>
-  **Direct Sentry Peering is a private, whitelisted connection between your node and Hyperdash sentry infrastructure, colocated with our validator.**
+  **Direct Sentry Peering is a private, whitelisted connection between your node and Hyperdash sentry infrastructure, colocated with our validator.** One hop, no middle layers.
 </Note>
+
+## Who it is for
+
+Teams that already run, or are ready to run, their own non-validating Hyperliquid node and want a stable path to the network:
+
+- Market makers and latency-sensitive trading firms
+- Quant and research funds
+- Data and analytics providers
+- Infrastructure teams building on Hyperliquid
+
+## Peering or a hosted feed
+
+Sentry peering removes the distribution layer entirely. Any hosted feed has to receive, process and rebroadcast data before it reaches you. With direct peering, your node receives blocks over Hyperliquid's native gossip protocol and you decode locally.
+
+Peering suits teams already running their own node. If you would rather not operate one, talk to us about API access instead.
+
+## What you get
+
+- **Blocks and state updates** over Hyperliquid's native gossip protocol
+- **Mempool transactions.** Our infrastructure runs `split_client_blocks` end to end, so `mempool_txs` populate on your node
+- **Three whitelisted IPs** included, reserved for your nodes rather than shared capacity
+- **Further IPs and regions** on request, so you can move from staging to production without re-onboarding
+
+We are never in your execution path. Order submission goes directly to Hyperliquid's API.
+
+## Regions
+
+| Region | Location | Status |
+| --- | --- | --- |
+| Japan | Tokyo | Active |
+| Germany | Frankfurt | Active |
+
+Place your node in the same region as the sentry you peer with. Fewer hops mean lower tail latency to fills, blocks and state updates. Actual improvement depends on your own infrastructure, region and processing pipeline, and gossip-layer latency is set by the network.
+
+## Before you start
+
+You will need a non-validating Hyperliquid node that you operate, on a machine with a static public IP. Hardware, operating system and port requirements are set by Hyperliquid, not by us: see the [Hyperliquid node repository](https://github.com/hyperliquid-dex/node) for current specifications.
+
+Size disk and bandwidth for mempool capture before you enable it. `mempool_txs` is written continuously and is significantly larger than block data alone.
+
+## Setup
+
+<Steps>
+  <Step title="Whitelist">
+    Send us the static IP of your node. We whitelist it to our validator sentry node and return the sentry IP for your region.
+  </Step>
+  <Step title="Configure">
+    Set our sentry IP as the root entry in your override gossip config, at `~/override_gossip_config.json`:
+
+    ```json
+    {
+      "root_node_ips": [{ "Ip": "<sentry-ip-we-provide>" }],
+      "try_new_peers": false,
+      "chain": "Mainnet"
+    }
+    ```
+
+    Setting `try_new_peers` to `false` keeps your node on the reserved peer instead of drifting back onto public ones.
+  </Step>
+  <Step title="Activate">
+    Restart your node and confirm blocks are applying. You are live on a fast, stable, always-on connection.
+  </Step>
+</Steps>
 
 ## Uptime and support
 
-- **99.99%** validator uptime, maintained to Hyperliquid Foundation standards
+- **99.99%** validator uptime, maintained to Hyperliquid Foundation standards. The sentry shares it
 - 24/7 monitoring and alerting
 - Direct channel to our infrastructure team
 
@@ -21,7 +84,35 @@ Teams running their own Hyperliquid nodes depend on peers for market data. Publi
 
 ## Pricing
 
-- **On request.** Monthly or annual, with reduced rates for additional IPs and discounts for HYPE staking with our node
+**$500 per month, or $5,000 per year**, including three whitelisted IPs.
+
+- Further discounts for staking HYPE to our validator
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="How does this differ from consuming a websocket feed or API?">
+    Sentry peering removes the distribution layer entirely. Any hosted feed must receive, process and rebroadcast data before it reaches you. With direct peering, your node receives blocks over Hyperliquid's native gossip protocol and you decode locally.
+  </Accordion>
+  <Accordion title="What latency improvement should we expect?">
+    Results depend on each firm's infrastructure, region and processing pipeline, and gossip-layer latency is set by the network. The trial period exists so you can measure it from your own machines rather than take a number on trust.
+  </Accordion>
+  <Accordion title="How does the sentry compare to public foundation peers?">
+    Public foundation peers are capacity-constrained and disconnect without notice, particularly around network upgrades. Your peer here is reserved for your node.
+  </Accordion>
+  <Accordion title="Is mempool data included?">
+    Yes. Our infrastructure runs `split_client_blocks` end to end, so `mempool_txs` populate on your node.
+  </Accordion>
+  <Accordion title="Are you in our execution path, and is our activity private?">
+    No. Order submission goes directly to Hyperliquid's API. We are never in the execution path.
+  </Accordion>
+  <Accordion title="What is the uptime commitment?">
+    The sentry shares our validator's uptime of 99.99%, maintained to Hyperliquid Foundation standards with continuous monitoring.
+  </Accordion>
+  <Accordion title="Can we change or add whitelisted IPs?">
+    Yes. Three are included, and they can be swapped as you move from staging to production. Further IPs or regions can be added on request.
+  </Accordion>
+</AccordionGroup>
 
 ## Access
 
