@@ -29,7 +29,7 @@ Peering suits teams already running their own node. If you would rather not oper
 - **Blocks and state updates** over Hyperliquid's native gossip protocol
 - **Mempool transactions.** Our infrastructure runs `split_client_blocks` end to end, so `mempool_txs` populate on your node
 - **Three whitelisted IPs** included, reserved for your nodes rather than shared capacity
-- **Further IPs and regions** on request, so you can move from staging to production without re-onboarding
+- **Further IPs** on request, so you can move from staging to production without re-onboarding
 
 We are never in your execution path. Order submission goes directly to Hyperliquid's API.
 
@@ -38,9 +38,8 @@ We are never in your execution path. Order submission goes directly to Hyperliqu
 | Region | Location | Status |
 | --- | --- | --- |
 | Japan | Tokyo | Active |
-| Germany | Frankfurt | Active |
 
-Place your node in the same region as the sentry you peer with. Fewer hops mean lower tail latency to fills, blocks and state updates. Actual improvement depends on your own infrastructure, region and processing pipeline, and gossip-layer latency is set by the network.
+Place your node in Tokyo, in the same region as the sentry. Fewer hops mean lower tail latency to fills, blocks and state updates. Actual improvement depends on your own infrastructure, region and processing pipeline, and gossip-layer latency is set by the network.
 
 ## Before you start
 
@@ -110,7 +109,7 @@ Size disk and bandwidth for mempool capture before you enable it. `mempool_txs` 
     The sentry shares our validator's uptime of 99.99%, maintained to Hyperliquid Foundation standards with continuous monitoring.
   </Accordion>
   <Accordion title="Can we change or add whitelisted IPs?">
-    Yes. Three are included, and they can be swapped as you move from staging to production. Further IPs or regions can be added on request.
+    Yes. Three are included, and they can be swapped as you move from staging to production. Further IPs can be added on request.
   </Accordion>
 </AccordionGroup>
 
