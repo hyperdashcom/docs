@@ -1,32 +1,123 @@
 ---
 title: "Direct Sentry Peering"
-description: "Una conexión de peering privada y en lista blanca entre tu nodo de Hyperliquid y la infraestructura sentry de Hyperdash."
+description: "Una conexión de peering privada y autorizada entre su nodo de Hyperliquid y la infraestructura sentry de Hyperdash."
 ---
 
-Los equipos que operan sus propios nodos de Hyperliquid dependen de peers para obtener datos de mercado. Los peers públicos de gossip tienen capacidad limitada, se desconectan sin aviso y se degradan bajo carga.
+Los equipos que operan sus propios nodos de Hyperliquid dependen de pares para obtener datos de mercado. Los pares gossip públicos tienen capacidad limitada, se desconectan sin aviso y se degradan bajo carga, especialmente en torno a las actualizaciones de la red.
 
 <Note>
-  **Direct Sentry Peering es una conexión privada y en lista blanca entre tu nodo y la infraestructura sentry de Hyperdash, ubicada junto a nuestro validador.**
+  **Direct Sentry Peering es una conexión privada y autorizada entre su nodo y la infraestructura sentry de Hyperdash, ubicada junto a nuestro validador.** Un solo salto, sin capas intermedias.
 </Note>
+
+## A quién está dirigido
+
+A equipos que ya operan, o están listos para operar, su propio nodo de Hyperliquid no validador y quieren una vía estable hacia la red:
+
+- Creadores de mercado y firmas de trading sensibles a la latencia
+- Fondos cuantitativos y de research
+- Proveedores de datos y análisis
+- Equipos de infraestructura que construyen sobre Hyperliquid
+
+## Peering o feed alojado
+
+El peering sentry elimina por completo la capa de distribución. Cualquier feed alojado tiene que recibir, procesar y retransmitir los datos antes de que lleguen a usted. Con el peering directo, su nodo recibe los bloques a través del protocolo gossip nativo de Hyperliquid y usted decodifica localmente.
+
+El peering encaja con equipos que ya operan su propio nodo. Si prefiere no operar uno, hablemos de acceso por API.
+
+## Qué incluye
+
+- **Bloques y actualizaciones de estado** por el protocolo gossip nativo de Hyperliquid
+- **Transacciones del mempool.** Nuestra infraestructura ejecuta `split_client_blocks` de extremo a extremo, de modo que `mempool_txs` se puebla en su nodo
+- **Tres IP autorizadas**, reservadas para sus nodos en lugar de capacidad compartida
+- **IP y regiones adicionales** a petición, para pasar de staging a producción sin repetir la incorporación
+
+Nunca estamos en su ruta de ejecución. El envío de órdenes va directo a la API de Hyperliquid.
+
+## Regiones
+
+| Región | Ubicación | Estado |
+| --- | --- | --- |
+| Japón | Tokio | Activa |
+| Alemania | Fráncfort | Activa |
+
+Coloque su nodo en la misma región que el sentry con el que hace peering. Menos saltos suponen menor latencia de cola en ejecuciones, bloques y actualizaciones de estado. La mejora real depende de su propia infraestructura, región y cadena de procesamiento, y la latencia de la capa gossip la fija la red.
+
+## Antes de empezar
+
+Necesitará un nodo de Hyperliquid no validador operado por usted, en una máquina con IP pública estática. Los requisitos de hardware, sistema operativo y puertos los fija Hyperliquid, no nosotros: consulte el [repositorio del nodo de Hyperliquid](https://github.com/hyperliquid-dex/node) para ver las especificaciones vigentes.
+
+Dimensione disco y ancho de banda para la captura del mempool antes de activarla. `mempool_txs` se escribe de forma continua y ocupa bastante más que los datos de bloques por sí solos.
+
+## Configuración
+
+<Steps>
+  <Step title="Autorización">
+    Envíenos la IP estática de su nodo. La autorizamos en nuestro sentry validador y le devolvemos la IP del sentry de su región.
+  </Step>
+  <Step title="Configuración">
+    Fije nuestra IP de sentry como entrada raíz en su configuración gossip de sustitución, en `~/override_gossip_config.json`:
+
+    ```json
+    {
+      "root_node_ips": [{ "Ip": "<sentry-ip-we-provide>" }],
+      "try_new_peers": false,
+      "chain": "Mainnet"
+    }
+    ```
+
+    Poner `try_new_peers` en `false` mantiene su nodo en el par reservado en lugar de dejar que vuelva a los públicos.
+  </Step>
+  <Step title="Activación">
+    Reinicie su nodo y compruebe que los bloques se aplican. Ya está operativo sobre una conexión rápida, estable y permanente.
+  </Step>
+</Steps>
 
 ## Disponibilidad y soporte
 
-- **99,99 %** de disponibilidad del validador, mantenida según los estándares de la Fundación Hyperliquid
+- **99,99 %** de disponibilidad del validador, mantenida conforme a los estándares de la Hyperliquid Foundation. El sentry la comparte
 - Monitorización y alertas 24/7
 - Canal directo con nuestro equipo de infraestructura
 
 ## Periodo de prueba
 
-- Un **periodo de prueba gratuito** para comparar con tu configuración actual desde tus propias máquinas
+- Un **periodo de prueba gratuito** para comparar con su configuración actual desde sus propias máquinas
 
-## Precios
+## Precio
 
-- **Bajo consulta.** Mensual o anual, con tarifas reducidas para IPs adicionales y descuentos por staking de HYPE
+**500 USD al mes, o 5.000 USD al año**, con tres IP autorizadas incluidas.
+
+- Descuentos adicionales por hacer staking de HYPE en nuestro validador
+
+## Preguntas frecuentes
+
+<AccordionGroup>
+  <Accordion title="¿En qué se diferencia de consumir un feed por websocket o una API?">
+    El peering sentry elimina por completo la capa de distribución. Cualquier feed alojado tiene que recibir, procesar y retransmitir los datos antes de que lleguen a usted. Con el peering directo, su nodo recibe los bloques a través del protocolo gossip nativo de Hyperliquid y usted decodifica localmente.
+  </Accordion>
+  <Accordion title="¿Qué mejora de latencia cabe esperar?">
+    Los resultados dependen de la infraestructura, la región y la cadena de procesamiento de cada firma, y la latencia de la capa gossip la fija la red. El periodo de prueba existe para que lo mida desde sus propias máquinas en lugar de fiarse de una cifra.
+  </Accordion>
+  <Accordion title="¿Cómo se compara el sentry con los pares públicos de la Foundation?">
+    Los pares públicos de la Foundation tienen capacidad limitada y se desconectan sin aviso, especialmente en torno a las actualizaciones de la red. Aquí su par queda reservado para su nodo.
+  </Accordion>
+  <Accordion title="¿Se incluyen los datos del mempool?">
+    Sí. Nuestra infraestructura ejecuta `split_client_blocks` de extremo a extremo, de modo que `mempool_txs` se puebla en su nodo.
+  </Accordion>
+  <Accordion title="¿Están ustedes en nuestra ruta de ejecución? ¿Nuestra actividad es privada?">
+    No. El envío de órdenes va directo a la API de Hyperliquid. Nunca estamos en la ruta de ejecución.
+  </Accordion>
+  <Accordion title="¿Cuál es el compromiso de disponibilidad?">
+    El sentry comparte la disponibilidad de nuestro validador, del 99,99 %, mantenida conforme a los estándares de la Hyperliquid Foundation y con monitorización continua.
+  </Accordion>
+  <Accordion title="¿Podemos cambiar o añadir IP autorizadas?">
+    Sí. Se incluyen tres y pueden sustituirse al pasar de staging a producción. Se pueden añadir más IP o regiones a petición.
+  </Accordion>
+</AccordionGroup>
 
 ## Acceso
 
-Para solicitar acceso, escribe a [sales@hyperdash.com](mailto:sales@hyperdash.com) o contáctanos en Telegram en [@hyperhans](https://t.me/hyperhans).
+Para solicitar acceso, escriba a [sales@hyperdash.com](mailto:sales@hyperdash.com) o contáctenos en Telegram: [@hyperhans](https://t.me/hyperhans).
 
-## Sobre Hyperdash
+## Acerca de Hyperdash
 
-[Hyperdash](https://hyperdash.com) es una plataforma global de trading y una empresa de análisis de datos. Direct Sentry Peering se ejecuta sobre nuestra infraestructura de validador en producción.
+[Hyperdash](https://hyperdash.com) es una plataforma de trading global y una empresa de análisis de datos. Direct Sentry Peering funciona sobre nuestra infraestructura de validador en producción.

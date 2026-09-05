@@ -3,30 +3,121 @@ title: "Direct Sentry Peering"
 description: "Koneksi peering privat dengan daftar putih antara node Hyperliquid Anda dan infrastruktur sentry Hyperdash."
 ---
 
-Tim yang menjalankan node Hyperliquid sendiri mengandalkan peer untuk data pasar. Peer gossip publik memiliki kapasitas terbatas, terputus tanpa pemberitahuan, dan menurun performanya saat beban tinggi.
+Tim yang menjalankan node Hyperliquid sendiri bergantung pada peer untuk data pasar. Peer gossip publik memiliki kapasitas terbatas, terputus tanpa pemberitahuan, dan menurun kinerjanya saat beban tinggi, terutama di sekitar pemutakhiran jaringan.
 
 <Note>
-  **Direct Sentry Peering adalah koneksi privat dengan daftar putih antara node Anda dan infrastruktur sentry Hyperdash, yang ditempatkan bersama validator kami.**
+  **Direct Sentry Peering adalah koneksi privat dengan daftar putih antara node Anda dan infrastruktur sentry Hyperdash, yang ditempatkan bersama validator kami.** Satu hop, tanpa lapisan perantara.
 </Note>
 
-## Uptime dan dukungan
+## Untuk siapa layanan ini
 
-- Uptime validator **99,99%**, dijaga sesuai standar Hyperliquid Foundation
+Untuk tim yang sudah menjalankan, atau siap menjalankan, node Hyperliquid non-validator sendiri dan menginginkan jalur yang stabil ke jaringan:
+
+- Market maker dan firma trading yang sensitif terhadap latensi
+- Dana kuantitatif dan riset
+- Penyedia data dan analitik
+- Tim infrastruktur yang membangun di atas Hyperliquid
+
+## Peering atau feed terkelola
+
+Sentry peering menghilangkan lapisan distribusi sepenuhnya. Feed terkelola mana pun harus menerima, memproses, dan menyiarkan ulang data sebelum sampai kepada Anda. Dengan peering langsung, node Anda menerima blok melalui protokol gossip asli Hyperliquid dan Anda melakukan decoding secara lokal.
+
+Peering cocok untuk tim yang sudah menjalankan node sendiri. Jika Anda lebih memilih tidak mengoperasikannya, mari bicarakan akses API sebagai gantinya.
+
+## Yang Anda dapatkan
+
+- **Blok dan pembaruan state** melalui protokol gossip asli Hyperliquid
+- **Transaksi mempool.** Infrastruktur kami menjalankan `split_client_blocks` secara menyeluruh, sehingga `mempool_txs` terisi di node Anda
+- **Tiga IP dalam daftar putih**, dicadangkan untuk node Anda, bukan kapasitas bersama
+- **IP dan region tambahan** atas permintaan, sehingga Anda bisa berpindah dari staging ke produksi tanpa proses onboarding ulang
+
+Kami tidak pernah berada di jalur eksekusi Anda. Pengiriman order langsung menuju API Hyperliquid.
+
+## Region
+
+| Region | Lokasi | Status |
+| --- | --- | --- |
+| Jepang | Tokyo | Aktif |
+| Jerman | Frankfurt | Aktif |
+
+Tempatkan node Anda di region yang sama dengan sentry tempat Anda melakukan peering. Semakin sedikit hop, semakin rendah tail latency ke fill, blok, dan pembaruan state. Peningkatan sebenarnya bergantung pada infrastruktur, region, dan alur pemrosesan Anda sendiri, sedangkan latensi pada lapisan gossip ditentukan oleh jaringan.
+
+## Sebelum memulai
+
+Anda memerlukan node Hyperliquid non-validator yang Anda operasikan sendiri, pada mesin dengan IP publik statis. Persyaratan perangkat keras, sistem operasi, dan port ditetapkan oleh Hyperliquid, bukan oleh kami: lihat [repositori node Hyperliquid](https://github.com/hyperliquid-dex/node) untuk spesifikasi terkini.
+
+Perhitungkan kapasitas disk dan bandwidth untuk penangkapan mempool sebelum mengaktifkannya. `mempool_txs` ditulis terus-menerus dan jauh lebih besar dibandingkan data blok saja.
+
+## Penyiapan
+
+<Steps>
+  <Step title="Daftar putih">
+    Kirimkan IP statis node Anda kepada kami. Kami memasukkannya ke daftar putih pada sentry validator kami dan mengirimkan kembali IP sentry untuk region Anda.
+  </Step>
+  <Step title="Konfigurasi">
+    Tetapkan IP sentry kami sebagai entri root pada konfigurasi override gossip Anda, di `~/override_gossip_config.json`:
+
+    ```json
+    {
+      "root_node_ips": [{ "Ip": "<sentry-ip-we-provide>" }],
+      "try_new_peers": false,
+      "chain": "Mainnet"
+    }
+    ```
+
+    Menyetel `try_new_peers` ke `false` menjaga node Anda tetap pada peer yang dicadangkan alih-alih kembali ke peer publik.
+  </Step>
+  <Step title="Aktivasi">
+    Mulai ulang node Anda dan pastikan blok diterapkan. Anda kini aktif pada koneksi yang cepat, stabil, dan selalu tersedia.
+  </Step>
+</Steps>
+
+## Ketersediaan dan dukungan
+
+- Ketersediaan validator **99,99%**, dijaga sesuai standar Hyperliquid Foundation. Sentry berbagi angka yang sama
 - Pemantauan dan peringatan 24/7
-- Kanal langsung ke tim infrastruktur kami
+- Saluran langsung ke tim infrastruktur kami
 
 ## Masa uji coba
 
-- **Masa uji coba gratis** untuk membandingkan dengan pengaturan Anda saat ini dari mesin Anda sendiri
+- **Masa uji coba gratis** untuk membandingkan dengan konfigurasi Anda saat ini dari mesin Anda sendiri
 
 ## Harga
 
-- **Sesuai permintaan.** Bulanan atau tahunan, dengan tarif lebih rendah untuk IP tambahan dan diskon untuk staking HYPE
+**USD 500 per bulan, atau USD 5.000 per tahun**, termasuk tiga IP dalam daftar putih.
+
+- Diskon tambahan untuk staking HYPE ke validator kami
+
+## Pertanyaan umum
+
+<AccordionGroup>
+  <Accordion title="Apa bedanya dengan memakai feed websocket atau API?">
+    Sentry peering menghilangkan lapisan distribusi sepenuhnya. Feed terkelola mana pun harus menerima, memproses, dan menyiarkan ulang data sebelum sampai kepada Anda. Dengan peering langsung, node Anda menerima blok melalui protokol gossip asli Hyperliquid dan Anda melakukan decoding secara lokal.
+  </Accordion>
+  <Accordion title="Seberapa besar perbaikan latensi yang bisa diharapkan?">
+    Hasilnya bergantung pada infrastruktur, region, dan alur pemrosesan masing-masing firma, sedangkan latensi pada lapisan gossip ditentukan oleh jaringan. Masa uji coba tersedia agar Anda dapat mengukurnya dari mesin Anda sendiri, bukan sekadar memercayai sebuah angka.
+  </Accordion>
+  <Accordion title="Bagaimana perbandingan sentry dengan peer publik Foundation?">
+    Peer publik Foundation memiliki kapasitas terbatas dan terputus tanpa pemberitahuan, terutama di sekitar pemutakhiran jaringan. Di sini, peer Anda dicadangkan untuk node Anda.
+  </Accordion>
+  <Accordion title="Apakah data mempool termasuk?">
+    Ya. Infrastruktur kami menjalankan `split_client_blocks` secara menyeluruh, sehingga `mempool_txs` terisi di node Anda.
+  </Accordion>
+  <Accordion title="Apakah Anda berada di jalur eksekusi kami, dan apakah aktivitas kami tetap privat?">
+    Tidak. Pengiriman order langsung menuju API Hyperliquid. Kami tidak pernah berada di jalur eksekusi.
+  </Accordion>
+  <Accordion title="Berapa komitmen ketersediaannya?">
+    Sentry berbagi ketersediaan validator kami sebesar 99,99%, dijaga sesuai standar Hyperliquid Foundation dengan pemantauan berkelanjutan.
+  </Accordion>
+  <Accordion title="Bisakah kami mengubah atau menambah IP dalam daftar putih?">
+    Bisa. Tiga IP sudah termasuk dan dapat ditukar saat Anda berpindah dari staging ke produksi. IP atau region tambahan dapat ditambahkan atas permintaan.
+  </Accordion>
+</AccordionGroup>
 
 ## Akses
 
-Untuk mendapatkan akses, kirim email ke [sales@hyperdash.com](mailto:sales@hyperdash.com) atau hubungi kami di Telegram [@hyperhans](https://t.me/hyperhans).
+Untuk memperoleh akses, kirim email ke [sales@hyperdash.com](mailto:sales@hyperdash.com) atau hubungi kami di Telegram [@hyperhans](https://t.me/hyperhans).
 
 ## Tentang Hyperdash
 
-[Hyperdash](https://hyperdash.com) adalah platform trading global dan perusahaan analitik data. Direct Sentry Peering berjalan di infrastruktur validator produksi kami.
+[Hyperdash](https://hyperdash.com) adalah platform trading global dan perusahaan analitik data. Direct Sentry Peering berjalan di atas infrastruktur validator produksi kami.

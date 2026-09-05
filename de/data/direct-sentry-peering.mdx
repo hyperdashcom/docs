@@ -1,32 +1,123 @@
 ---
 title: "Direct Sentry Peering"
-description: "Eine private Peering-Verbindung mit IP-Freischaltung zwischen Ihrer Hyperliquid-Node und der Sentry-Infrastruktur von Hyperdash."
+description: "Eine private, freigeschaltete Peer-Verbindung zwischen Ihrem Hyperliquid-Node und der Sentry-Infrastruktur von Hyperdash."
 ---
 
-Teams, die eigene Hyperliquid-Nodes betreiben, sind für Marktdaten auf Peers angewiesen. Öffentliche Gossip-Peers sind in ihrer Kapazität begrenzt, trennen die Verbindung ohne Vorwarnung und verlieren unter Last an Leistung.
+Teams, die eigene Hyperliquid-Nodes betreiben, sind für Marktdaten auf Peers angewiesen. Öffentliche Gossip-Peers sind kapazitätsbeschränkt, trennen die Verbindung ohne Vorwarnung und verlieren unter Last an Leistung, besonders rund um Netzwerk-Upgrades.
 
 <Note>
-  **Direct Sentry Peering ist eine private Verbindung mit IP-Freischaltung zwischen Ihrer Node und der Sentry-Infrastruktur von Hyperdash, die gemeinsam mit unserem Validator betrieben wird.**
+  **Direct Sentry Peering ist eine private, freigeschaltete Verbindung zwischen Ihrem Node und der Sentry-Infrastruktur von Hyperdash, die gemeinsam mit unserem Validator betrieben wird.** Ein Hop, keine Zwischenschichten.
 </Note>
+
+## Für wen es gedacht ist
+
+Für Teams, die bereits einen eigenen nicht validierenden Hyperliquid-Node betreiben oder dazu bereit sind und einen stabilen Weg ins Netzwerk suchen:
+
+- Market Maker und latenzsensible Handelsfirmen
+- Quant- und Research-Fonds
+- Daten- und Analyseanbieter
+- Infrastrukturteams, die auf Hyperliquid aufbauen
+
+## Peering oder gehosteter Feed
+
+Sentry-Peering entfällt die Distributionsschicht vollständig. Jeder gehostete Feed muss Daten erst empfangen, verarbeiten und erneut senden, bevor sie bei Ihnen ankommen. Beim direkten Peering empfängt Ihr Node Blöcke über das native Gossip-Protokoll von Hyperliquid, und Sie dekodieren lokal.
+
+Peering eignet sich für Teams, die bereits einen eigenen Node betreiben. Wenn Sie keinen betreiben möchten, sprechen Sie mit uns stattdessen über den API-Zugang.
+
+## Leistungsumfang
+
+- **Blöcke und State-Updates** über das native Gossip-Protokoll von Hyperliquid
+- **Mempool-Transaktionen.** Unsere Infrastruktur führt `split_client_blocks` durchgängig aus, sodass `mempool_txs` auf Ihrem Node befüllt werden
+- **Drei freigeschaltete IPs**, reserviert für Ihre Nodes statt geteilter Kapazität
+- **Weitere IPs und Regionen** auf Anfrage, sodass Sie ohne erneutes Onboarding von Staging in die Produktion wechseln
+
+Wir befinden uns nie in Ihrem Ausführungspfad. Die Orderübermittlung läuft direkt an die API von Hyperliquid.
+
+## Regionen
+
+| Region | Standort | Status |
+| --- | --- | --- |
+| Japan | Tokio | Aktiv |
+| Deutschland | Frankfurt | Aktiv |
+
+Platzieren Sie Ihren Node in derselben Region wie den Sentry, mit dem Sie peeren. Weniger Hops bedeuten geringere Tail-Latenz zu Fills, Blöcken und State-Updates. Die tatsächliche Verbesserung hängt von Ihrer eigenen Infrastruktur, Region und Verarbeitungskette ab, und die Latenz auf Gossip-Ebene gibt das Netzwerk vor.
+
+## Voraussetzungen
+
+Sie benötigen einen selbst betriebenen, nicht validierenden Hyperliquid-Node auf einer Maschine mit statischer öffentlicher IP. Anforderungen an Hardware, Betriebssystem und Ports legt Hyperliquid fest, nicht wir: Die aktuellen Spezifikationen finden Sie im [Hyperliquid-Node-Repository](https://github.com/hyperliquid-dex/node).
+
+Planen Sie Speicher und Bandbreite für die Mempool-Erfassung ein, bevor Sie sie aktivieren. `mempool_txs` wird fortlaufend geschrieben und ist deutlich umfangreicher als Blockdaten allein.
+
+## Einrichtung
+
+<Steps>
+  <Step title="Freischaltung">
+    Senden Sie uns die statische IP Ihres Nodes. Wir schalten sie für unseren Validator-Sentry frei und geben Ihnen die Sentry-IP für Ihre Region zurück.
+  </Step>
+  <Step title="Konfiguration">
+    Tragen Sie unsere Sentry-IP als Root-Eintrag in Ihrer Gossip-Override-Konfiguration unter `~/override_gossip_config.json` ein:
+
+    ```json
+    {
+      "root_node_ips": [{ "Ip": "<sentry-ip-we-provide>" }],
+      "try_new_peers": false,
+      "chain": "Mainnet"
+    }
+    ```
+
+    `try_new_peers` auf `false` zu setzen hält Ihren Node am reservierten Peer, statt ihn wieder auf öffentliche Peers abdriften zu lassen.
+  </Step>
+  <Step title="Aktivierung">
+    Starten Sie Ihren Node neu und prüfen Sie, ob Blöcke angewendet werden. Damit sind Sie über eine schnelle, stabile und dauerhaft verfügbare Verbindung live.
+  </Step>
+</Steps>
 
 ## Verfügbarkeit und Support
 
-- **99,99 %** Validator-Verfügbarkeit, gepflegt nach den Standards der Hyperliquid Foundation
+- **99,99 %** Validator-Verfügbarkeit, gepflegt nach den Standards der Hyperliquid Foundation. Der Sentry teilt sie
 - Monitoring und Alerting rund um die Uhr
-- Direkter Draht zu unserem Infrastruktur-Team
+- Direkter Draht zu unserem Infrastrukturteam
 
 ## Testphase
 
-- Eine **kostenlose Testphase**, um von Ihren eigenen Systemen aus mit Ihrem bestehenden Setup zu vergleichen
+- Eine **kostenlose Testphase**, um von Ihren eigenen Maschinen aus gegen Ihr bestehendes Setup zu messen
 
-## Preise
+## Preis
 
-- **Auf Anfrage.** Monatlich oder jährlich, mit reduzierten Preisen für zusätzliche IPs und Rabatten für HYPE-Staking
+**500 USD pro Monat oder 5.000 USD pro Jahr**, inklusive drei freigeschalteter IPs.
+
+- Zusätzliche Rabatte beim Staking von HYPE auf unseren Validator
+
+## FAQ
+
+<AccordionGroup>
+  <Accordion title="Worin unterscheidet sich das von einem Websocket-Feed oder einer API?">
+    Sentry-Peering entfällt die Distributionsschicht vollständig. Jeder gehostete Feed muss Daten erst empfangen, verarbeiten und erneut senden, bevor sie bei Ihnen ankommen. Beim direkten Peering empfängt Ihr Node Blöcke über das native Gossip-Protokoll von Hyperliquid, und Sie dekodieren lokal.
+  </Accordion>
+  <Accordion title="Welche Latenzverbesserung ist zu erwarten?">
+    Die Ergebnisse hängen von Infrastruktur, Region und Verarbeitungskette der jeweiligen Firma ab, und die Latenz auf Gossip-Ebene gibt das Netzwerk vor. Die Testphase gibt es, damit Sie von Ihren eigenen Maschinen aus messen können, statt eine Zahl zu glauben.
+  </Accordion>
+  <Accordion title="Wie schneidet der Sentry gegenüber öffentlichen Foundation-Peers ab?">
+    Öffentliche Foundation-Peers sind kapazitätsbeschränkt und trennen die Verbindung ohne Vorwarnung, besonders rund um Netzwerk-Upgrades. Ihr Peer hier ist für Ihren Node reserviert.
+  </Accordion>
+  <Accordion title="Sind Mempool-Daten enthalten?">
+    Ja. Unsere Infrastruktur führt `split_client_blocks` durchgängig aus, sodass `mempool_txs` auf Ihrem Node befüllt werden.
+  </Accordion>
+  <Accordion title="Sind Sie in unserem Ausführungspfad, und bleibt unsere Aktivität privat?">
+    Nein. Die Orderübermittlung läuft direkt an die API von Hyperliquid. Wir befinden uns nie im Ausführungspfad.
+  </Accordion>
+  <Accordion title="Wie hoch ist die zugesagte Verfügbarkeit?">
+    Der Sentry teilt die Verfügbarkeit unseres Validators von 99,99 %, gepflegt nach den Standards der Hyperliquid Foundation und laufend überwacht.
+  </Accordion>
+  <Accordion title="Können wir freigeschaltete IPs ändern oder ergänzen?">
+    Ja. Drei sind enthalten und können beim Wechsel von Staging in die Produktion getauscht werden. Weitere IPs oder Regionen kommen auf Anfrage hinzu.
+  </Accordion>
+</AccordionGroup>
 
 ## Zugang
 
-Für einen Zugang schreiben Sie an [sales@hyperdash.com](mailto:sales@hyperdash.com) oder melden Sie sich auf Telegram unter [@hyperhans](https://t.me/hyperhans).
+Für den Zugang schreiben Sie an [sales@hyperdash.com](mailto:sales@hyperdash.com) oder erreichen Sie uns auf Telegram unter [@hyperhans](https://t.me/hyperhans).
 
 ## Über Hyperdash
 
-[Hyperdash](https://hyperdash.com) ist eine globale Trading-Plattform und ein Datenanalyse-Unternehmen. Direct Sentry Peering läuft auf unserer produktiven Validator-Infrastruktur.
+[Hyperdash](https://hyperdash.com) ist ein globales Handels- und Datenanalyseunternehmen. Direct Sentry Peering läuft auf unserer produktiven Validator-Infrastruktur.
